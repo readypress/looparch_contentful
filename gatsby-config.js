@@ -18,10 +18,13 @@ try {
 }
 
 module.exports = {
-  pathPrefix: '/gatsby-contentful-starter',
+  siteMetadata: {
+    title: 'Loop Architectural Materials',
+  },
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,

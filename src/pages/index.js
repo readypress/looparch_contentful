@@ -1,15 +1,15 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import get from 'lodash/get'
 import Helmet from 'react-helmet'
+
 import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
 
 class RootIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
+    const siteTitle = this.props.data.site.siteMetadata.title
+    const posts = this.props.data.allContentfulBlogPost.edges
+    const [author] = this.props.data.allContentfulPerson.edges
 
     return (
       <div style={{ background: '#fff' }}>
@@ -72,6 +72,11 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
       }
     }
   }

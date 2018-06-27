@@ -1,13 +1,14 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import ArticlePreview from '../../components/article-preview'
+import Img from 'gatsby-image'
+
+import ManufacturerPreview from '../../components/manufacturer-preview'
 
 class BlogIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulManufacturer.edges')
+    const siteTitle = this.props.data.site.siteMetadata.title
+    const posts = this.props.data.allContentfulManufacturer.edges
 
     return (
       <div style={{ background: '#fff' }}>
@@ -18,7 +19,7 @@ class BlogIndex extends React.Component {
             {posts.map(({ node }) => {
               return (
                 <li key={node.slug}>
-                  <ArticlePreview article={node} />
+                  <ManufacturerPreview article={node} />
                 </li>
               )
             })}
@@ -44,6 +45,12 @@ export const pageQuery = graphql`
             file {
               url
             }
+            resolutions(width: 100) {
+              width
+              height
+              src
+              srcSet
+            }
           }
           description {
             childMarkdownRemark {
@@ -51,6 +58,11 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
       }
     }
   }

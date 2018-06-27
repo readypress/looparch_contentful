@@ -4,14 +4,15 @@ import Link from 'gatsby-link'
 
 import styles from './blog-post.module.css'
 
-class BlogPostTemplate extends React.Component {
+class ManufacturerPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.contentfulBlogPost
     const siteTitle = this.props.data.site.siteMetadata.title
+    const post = this.props.data.contentfulManufacturer
+    const products = post.product
 
     return (
       <div style={{ background: '#fff' }}>
-        <Helmet title={`${post.title} | ${siteTitle}`} />
+        <Helmet title={`${siteTitle} – ${post.title}`} />
         <div className="wrapper">
           <div className={styles.hero}>
             <img
@@ -20,39 +21,54 @@ class BlogPostTemplate extends React.Component {
             />
           </div>
           <h1 className="section-headline">{post.title}</h1>
-          <p
-            style={{
-              display: 'block',
-            }}
-          >
-            {post.publishDate}
-          </p>
           <div
             dangerouslySetInnerHTML={{
-              __html: post.body.childMarkdownRemark.html,
+              __html: post.description.childMarkdownRemark.html,
             }}
           />
+        </div>
+        <div>
+          {products.map((node) => {
+            return (
+              <li key={node.id}>
+                {node.title}
+              </li>
+            )
+          })}
         </div>
       </div>
     )
   }
 }
 
-export default BlogPostTemplate
+export default ManufacturerPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    contentfulBlogPost(slug: { eq: $slug }) {
+  query ManufacturerPostBySlug($slug: String!) {
+    contentfulManufacturer(slug: { eq: $slug }) {
       title
+      slug
+      tags
+      url
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
         file {
           url
         }
       }
-      body {
+      description {
         childMarkdownRemark {
           html
+        }
+      }
+      product {
+        id
+        title
+        productImage {
+          sizes(maxWidth: 300) {
+            src
+            srcSet
+          }
         }
       }
     }
