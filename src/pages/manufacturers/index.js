@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 
 import ManufacturerPreview from '../../components/manufacturer-preview'
 
-class BlogIndex extends React.Component {
+class ManufacturersIndex extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title
     const posts = this.props.data.allContentfulManufacturer.edges
@@ -36,7 +36,7 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default ManufacturersIndex
 
 export const pageQuery = graphql`
   query ManufacturerIndexQuery {
