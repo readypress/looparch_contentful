@@ -2,8 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 
-import styles from './blog-post.module.css'
-
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.contentfulBlogPost
@@ -13,7 +11,7 @@ class BlogPostTemplate extends React.Component {
       <div style={{ background: '#fff' }}>
         <Helmet title={`${post.title} | ${siteTitle}`} />
         <div className="wrapper">
-          <div className={styles.hero}>
+          <div>
             <img
               src={`${post.heroImage.file.url}?w=1180&h=400&fit=fill`}
               alt=""

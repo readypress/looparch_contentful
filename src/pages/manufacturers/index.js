@@ -11,20 +11,26 @@ class BlogIndex extends React.Component {
     const posts = this.props.data.allContentfulManufacturer.edges
 
     return (
-      <div style={{ background: '#fff' }}>
+      <div>
         <Helmet title={siteTitle} />
-        <div className="wrapper">
-          <h2>Manufacturers</h2>
-          <ul className="article-list">
-            {posts.map(({ node }) => {
-              return (
-                <li key={node.slug}>
-                  <ManufacturerPreview article={node} />
-                </li>
-              )
-            })}
-          </ul>
+        <div className="hero is-info is-bold">
+          <div className="hero-body has-text-centered">
+            <h1 className="title">Our Lines</h1>
+          </div>
         </div>
+        <section className="section">
+          <div className="container">
+            <ul className="article-list">
+              {posts.map(({ node }) => {
+                return (
+                  <li key={node.slug}>
+                    <ManufacturerPreview article={node} />
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </section>
       </div>
     )
   }
@@ -45,7 +51,7 @@ export const pageQuery = graphql`
             file {
               url
             }
-            resolutions(width: 100) {
+            resolutions(width: 500) {
               width
               height
               src

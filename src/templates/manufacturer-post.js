@@ -1,8 +1,11 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
+import Img from 'gatsby-image'
 
-import styles from './blog-post.module.css'
+import ProductPreview from '../components/product-preview'
+
+import styles from './manufacturer-post.scss'
 
 class ManufacturerPostTemplate extends React.Component {
   render() {
@@ -11,31 +14,38 @@ class ManufacturerPostTemplate extends React.Component {
     const products = post.product
 
     return (
-      <div style={{ background: '#fff' }}>
-        <Helmet title={`${siteTitle} – ${post.title}`} />
-        <div className="wrapper">
-          <div className={styles.hero}>
-            <img
-              src={`${post.heroImage.file.url}?w=1180&h=400&fit=fill`}
-              alt=""
+      <div>
+        <div
+          className="hero"
+          style={{
+            backgroundImage: `url(${post.heroImage.sizes.src})`,
+            backgroundSize: 'cover'
+          }}>
+          <div className="hero-body has-text-centered">
+            <Img
+              sizes={post.logoImageLight.sizes}
+              alt={post.logoImageLight.description}
+              outerWrapperClassName="hero-logo"
             />
           </div>
-          <h1 className="section-headline">{post.title}</h1>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: post.description.childMarkdownRemark.html,
-            }}
-          />
         </div>
-        <div>
+        <section className="section">
+          <div
+            className="container"
+            dangerouslySetInnerHTML={{
+            __html: post.description.childMarkdownRemark.html,
+          }}
+          ></div>
+        </section>
+        <section className="section">
+          <div className="container">
           {products.map((node) => {
             return (
-              <li key={node.id}>
-                {node.title}
-              </li>
+              <ProductPreview key={node.id} product={node} />
             )
           })}
-        </div>
+          </div>
+        </section>
       </div>
     )
   }
@@ -51,21 +61,40 @@ export const pageQuery = graphql`
       tags
       url
       publishDate(formatString: "MMMM Do, YYYY")
+      description {
+        childMarkdownRemark {
+          html
+        }
+      }
       heroImage {
         file {
           url
         }
+        sizes(maxWidth: 1200) {
+          src
+        }
       }
-      description {
-        childMarkdownRemark {
-          html
+      logoImageLight {
+        title
+        description
+        sizes(maxWidth: 500) {
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
         }
       }
       product {
         id
         title
         productImage {
-          sizes(maxWidth: 300) {
+          title
+          description
+          resolutions(width: 300) {
+            width
+            height
             src
             srcSet
           }

@@ -14,10 +14,11 @@ class Template extends React.Component {
     if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
       rootPath = __PATH_PREFIX__ + `/`
     }
-
     return (
       <Container>
-        <Navigation />
+        <Navigation
+          manufacturers={this.props.data.allContentfulManufacturer.edges}
+          siteLogo={this.props.data.siteLogo.childImageSharp.resolutions} />
         {children()}
       </Container>
     )
@@ -25,3 +26,33 @@ class Template extends React.Component {
 }
 
 export default Template
+
+export const pageQuery = graphql`
+  query NavigationQuery {
+    allContentfulManufacturer(sort: { fields: [title], order: DESC }) {
+      edges {
+        node {
+          id
+          title
+          slug
+        }
+      }
+    }
+    siteLogo: file(
+      relativePath: {
+        eq: "loop-signature@4x.png"
+      }
+    ) {
+      childImageSharp {
+        resolutions(width: 225) {
+          ...GatsbyImageSharpResolutions_withWebp
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
