@@ -43,7 +43,7 @@ class Navigation extends React.Component {
                 <Link to="/manufacturers/" className="navbar-link">
                   Manufacturers
                 </Link>
-                <div id="ManufacturersDropdown" className="navbar-dropdown">
+                <div id="ManufacturersDropdown" className="navbar-dropdown is-right">
                   {this.props.manufacturers.map(({ node, index }) => {
                     return (
                       <Link key={node.id} to={`/manufacturers/${node.slug}`} className="navbar-item">

@@ -17,9 +17,10 @@ class ManufacturerPostTemplate extends React.Component {
     console.log(post)
 
     return (
-      <div>
+      <div className="manufacturer-post">
+        <Helmet title={`${siteTitle} | ${post.title}`} />
         <div
-          className={'hero is-dark is-medium is-bold img-hero'}
+          className={'hero is-dark is-bold img-hero'}
           css={{
             backgroundImage:
               'image-set(' +
@@ -40,7 +41,7 @@ class ManufacturerPostTemplate extends React.Component {
         >
           <div className="hero-body has-text-centered">
             <Img
-              sizes={post.logoImageLight.sizes}
+              sizes={post.logoImageLight.resize}
               alt={post.logoImageLight.description}
               outerWrapperClassName="hero-logo"
               css={{
@@ -65,6 +66,11 @@ class ManufacturerPostTemplate extends React.Component {
                   }}
                 >
                 </div>
+                <p>
+                  <a href={post.url} target="_blank" className="button is-primary">
+                    <span>Visit {post.title}</span>
+                  </a>
+                </p>
                 <div className="tags">
                   {tags.map((node) => {
                     return (
@@ -74,11 +80,18 @@ class ManufacturerPostTemplate extends React.Component {
                 </div>
               </div>
               <div className="column">
+                <div className="manufacturer-items tile is-ancestor">
                 {products.map((node) => {
                   return (
                     <ProductPreview key={node.id} product={node} />
                   )
                 })}
+                {products.map((node) => {
+                  return (
+                    <ProductPreview key={node.id} product={node} />
+                  )
+                })}
+                </div>
               </div>
             </div>
           </div>
@@ -107,15 +120,28 @@ export const pageQuery = graphql`
         file {
           url
         }
-        sizes(maxWidth: 1200) {
-          src
-          srcSet
-        }
-        resolutions(width: 500) {
+        sizes(maxWidth: 100) {
+          aspectRatio
           src
           srcSet
           srcWebp
           srcSetWebp
+          sizes
+        }
+        resolutions(width: 300) {
+          aspectRatio
+          width
+          height
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+        }
+        resize(width: 300, height: 200, resizingBehavior: PAD) {
+          src
+          width
+          height
+          aspectRatio
         }
       }
       logoImageLight {
@@ -129,6 +155,12 @@ export const pageQuery = graphql`
           srcSetWebp
           sizes
         }
+        resize(width: 402, height: 134, resizingBehavior: PAD) {
+          src
+          width
+          height
+          aspectRatio
+        }
       }
       product {
         id
@@ -141,6 +173,14 @@ export const pageQuery = graphql`
             height
             src
             srcSet
+          }
+          sizes(maxWidth: 300) {
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
           }
         }
       }

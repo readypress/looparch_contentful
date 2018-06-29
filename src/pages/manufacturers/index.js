@@ -72,7 +72,7 @@ export const pageQuery = graphql`
           }
           logoImageDark {
             description
-            sizes(maxWidth: 300) {
+            sizes(maxWidth: 1200) {
               aspectRatio
               src
               srcSet
@@ -80,7 +80,7 @@ export const pageQuery = graphql`
               srcSetWebp
               sizes
             }
-            resolutions(width: 300) {
+            resolutions(width: 1200) {
               aspectRatio
               width
               height
@@ -88,6 +88,12 @@ export const pageQuery = graphql`
               srcSet
               srcWebp
               srcSetWebp
+            }
+            resize(width: 501, height: 167, resizingBehavior: PAD) {
+              src
+              width
+              height
+              aspectRatio
             }
           }
           description {
