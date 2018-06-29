@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 import Hero from '../components/hero'
+import Carousel from '../components/carousel'
 import ArticlePreview from '../components/article-preview'
 
 class RootIndex extends React.Component {
@@ -14,7 +15,27 @@ class RootIndex extends React.Component {
     return (
       <div style={{ background: '#fff' }}>
         <Helmet title={siteTitle} />
+
         <Hero person={author} />
+
+        <section className="section">
+          <div className="container">
+            <h2 className="title">Title</h2>
+            <p>Dolore sit sit voluptate in eu tempor pariatur quis est excepteur sint consectetur occaecat anim fugiat occaecat mollit occaecat aute consequat ex aliqua aliqua in reprehenderit exercitation ad non.</p>
+          </div>
+        </section>
+        <section className="section">
+          <div className="container">
+            <h2 className="title">Title</h2>
+            <p>Dolore sit sit voluptate in eu tempor pariatur quis est excepteur sint consectetur occaecat anim fugiat occaecat mollit occaecat aute consequat ex aliqua aliqua in reprehenderit exercitation ad non.</p>
+          </div>
+        </section>
+        <section className="section">
+          <div className="container">
+            <h2 className="title">Title</h2>
+            <p>Dolore sit sit voluptate in eu tempor pariatur quis est excepteur sint consectetur occaecat anim fugiat occaecat mollit occaecat aute consequat ex aliqua aliqua in reprehenderit exercitation ad non.</p>
+          </div>
+        </section>
         <div className="wrapper">
           <h2 className="section-headline">Recent articles</h2>
           <ul className="article-list">

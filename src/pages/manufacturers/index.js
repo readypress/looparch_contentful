@@ -5,6 +5,8 @@ import Img from 'gatsby-image'
 
 import ManufacturerPreview from '../../components/manufacturer-preview'
 
+import styles from './index.sass'
+
 class ManufacturersIndex extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title
@@ -13,22 +15,20 @@ class ManufacturersIndex extends React.Component {
     return (
       <div>
         <Helmet title={siteTitle} />
-        <div className="hero is-info is-bold">
+        <div className="hero is-primary is-bold">
           <div className="hero-body has-text-centered">
             <h1 className="title">Our Lines</h1>
           </div>
         </div>
         <section className="section">
           <div className="container">
-            <ul className="article-list">
+            <div className="manufacturer-list">
               {posts.map(({ node }) => {
                 return (
-                  <li key={node.slug}>
-                    <ManufacturerPreview article={node} />
-                  </li>
+                  <ManufacturerPreview key={node.slug} article={node}/>
                 )
               })}
-            </ul>
+            </div>
           </div>
         </section>
       </div>
@@ -40,7 +40,7 @@ export default ManufacturersIndex
 
 export const pageQuery = graphql`
   query ManufacturerIndexQuery {
-    allContentfulManufacturer(sort: { fields: [title], order: DESC }) {
+    allContentfulManufacturer(sort: { fields: [title], order: ASC }) {
       edges {
         node {
           title
@@ -48,14 +48,46 @@ export const pageQuery = graphql`
           publishDate(formatString: "MMMM Do, YYYY")
           tags
           heroImage {
-            file {
-              url
-            }
-            resolutions(width: 500) {
+            resolutions(width: 300) {
               width
               height
               src
               srcSet
+              srcWebp
+              srcSetWebp
+            }
+            sizes(maxWidth: 300) {
+              aspectRatio
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
+            resize(height: 300, resizingBehavior: FILL) {
+              src
+              width
+              height
+              aspectRatio
+            }
+          }
+          logoImageDark {
+            description
+            sizes(maxWidth: 300) {
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
+            resolutions(width: 300) {
+              aspectRatio
+              width
+              height
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
             }
           }
           description {

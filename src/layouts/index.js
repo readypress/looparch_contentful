@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import Container from '../components/container'
 import Navigation from '../components/navigation'
@@ -17,9 +18,12 @@ class Template extends React.Component {
     }
     return (
       <Container>
+        <Helmet>
+            <html className="has-navbar-fixed-top" lang="en" />
+        </Helmet>
         <Navigation
           manufacturers={this.props.data.allContentfulManufacturer.edges}
-          siteLogo={this.props.data.siteLogo.childImageSharp.resolutions} 
+          siteLogo={this.props.data.siteLogo.childImageSharp.resolutions}
         />
         {children()}
         <Footer />
@@ -32,7 +36,7 @@ export default Template
 
 export const pageQuery = graphql`
   query NavigationQuery {
-    allContentfulManufacturer(sort: { fields: [title], order: DESC }) {
+    allContentfulManufacturer(sort: { fields: [title], order: ASC }) {
       edges {
         node {
           id

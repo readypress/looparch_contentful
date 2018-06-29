@@ -11,39 +11,76 @@ class ManufacturerPostTemplate extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title
     const post = this.props.data.contentfulManufacturer
-    const products = post.product
+    const products = post.product || []
+    const tags = post.tags || []
+
+    console.log(post)
 
     return (
       <div>
         <div
-          className="hero"
-          style={{
-            backgroundImage: `url(${post.heroImage.sizes.src})`,
-            backgroundSize: 'cover'
-          }}>
+          className={'hero is-dark is-medium is-bold img-hero'}
+          css={{
+            backgroundImage:
+              'image-set(' +
+              post.heroImage.resolutions.srcSetWebp
+                .replace(/\n/g, '')
+                .split(',')
+                .map(s => {
+                  let x = s.split(' ')
+                  return `url("${x[0]}") ${x[1].replace('w', 'px')}`
+                }) +
+              ') !important',
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              backgroundOrigin: 'content-box',
+              backgroundPosition: 'center 60%',
+              position: 'relative'
+          }}
+        >
           <div className="hero-body has-text-centered">
             <Img
               sizes={post.logoImageLight.sizes}
               alt={post.logoImageLight.description}
               outerWrapperClassName="hero-logo"
+              css={{
+                zIndex: 10
+              }}
             />
           </div>
+          <div className="dark-background is-overlay"
+            css={{
+              backgroundColor: 'rgba(0,0,0,0.5)',
+              zIndex: 1
+            }}
+          ></div>
         </div>
         <section className="section">
-          <div
-            className="container"
-            dangerouslySetInnerHTML={{
-            __html: post.description.childMarkdownRemark.html,
-          }}
-          ></div>
-        </section>
-        <section className="section">
           <div className="container">
-          {products.map((node) => {
-            return (
-              <ProductPreview key={node.id} product={node} />
-            )
-          })}
+            <div className="columns">
+              <div className="column is-one-third">
+                <div className="content"
+                  dangerouslySetInnerHTML={{
+                    __html: post.description.childMarkdownRemark.html,
+                  }}
+                >
+                </div>
+                <div className="tags">
+                  {tags.map((node) => {
+                    return (
+                      <span className="tag" key={node}>{node}</span>
+                    )
+                  })}
+                </div>
+              </div>
+              <div className="column">
+                {products.map((node) => {
+                  return (
+                    <ProductPreview key={node.id} product={node} />
+                  )
+                })}
+              </div>
+            </div>
           </div>
         </section>
       </div>
@@ -72,6 +109,13 @@ export const pageQuery = graphql`
         }
         sizes(maxWidth: 1200) {
           src
+          srcSet
+        }
+        resolutions(width: 500) {
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
         }
       }
       logoImageLight {

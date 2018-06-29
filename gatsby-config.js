@@ -23,6 +23,8 @@ module.exports = {
   },
   plugins: [
     'gatsby-transformer-remark',
+    'gatsby-plugin-glamor',
+    'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',

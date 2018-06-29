@@ -1,15 +1,16 @@
 import React from 'react'
 
 export default ({ person }) => (
-  <div>
-    <img
-      src={`${person.node.image.file.url}?w=1180&h=600&fit=pad&bg=rgb:000000`}
-      alt=""
-    />
-    <div>
-      <h3 >{person.node.name}</h3>
-      <p>{person.node.title}</p>
-      <p>{person.node.shortBio.shortBio}</p>
+  <section className="hero is-medium is-primary is-bold">
+    <div className="hero-body">
+      <div className="container has-text-centered">
+        <h1 className="title">
+          Hero title
+        </h1>
+        <h2 className="subtitle">
+          Hero subtitle
+        </h2>
+      </div>
     </div>
-  </div>
+  </section>
 )

@@ -4,42 +4,61 @@ import Img from 'gatsby-image'
 
 import styles from './navigation.scss'
 
-const Navigation = ({ manufacturers, siteLogo }) => (
-  <nav
-    className="navbar loop-navbar"
-    role="navigation"
-    aria-label="main navigation">
-    <div className="container">
-      <div className="navbar-brand">
-        <Link className="navbar-item" to="/">
-          <Img resolutions={siteLogo} />
-        </Link>
-        <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-      <div id="LoopNavMenu" className="navbar-menu">
-        <div className="navbar-end">
-          <div className="navbar-item has-dropdown is-hoverable">
-            <Link to="/manufacturers/" className="navbar-link">
-              Manufacturers
+class Navigation extends React.Component {
+
+  tooggleNav = () => {
+    const navMenu = document.getElementById('LoopNavMenu')
+    const navBurger = document.querySelectorAll('.navbar-burger')[0]
+
+    navMenu.classList.toggle('is-active')
+    navBurger.classList.toggle('is-active')
+  }
+
+  render() {
+    return(
+      <nav
+        className="navbar loop-navbar is-fixed-top"
+        role="navigation"
+        aria-label="main navigation">
+        <div className="container">
+          <div className="navbar-brand">
+            <Link className="navbar-item" to="/">
+              <Img resolutions={this.props.siteLogo}/>
             </Link>
-            <div id="ManufacturersDropdown" className="navbar-dropdown">
-              {manufacturers.map(({ node, index }) => {
-                return (
-                  <Link key={node.id} to={`/manufacturers/${node.slug}`} className="navbar-item">
-                    {node.title}
-                  </Link>
-                )
-              })}
+            <a role="button"
+              className="navbar-burger"
+              aria-label="menu"
+              aria-expanded="false"
+              data-target="LoopNavMenu"
+              onClick={this.tooggleNav}
+            >
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+          <div id="LoopNavMenu" className="navbar-menu">
+            <div className="navbar-end">
+              <div className="navbar-item has-dropdown is-hoverable">
+                <Link to="/manufacturers/" className="navbar-link">
+                  Manufacturers
+                </Link>
+                <div id="ManufacturersDropdown" className="navbar-dropdown">
+                  {this.props.manufacturers.map(({ node, index }) => {
+                    return (
+                      <Link key={node.id} to={`/manufacturers/${node.slug}`} className="navbar-item">
+                        {node.title}
+                      </Link>
+                    )
+                  })}
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </nav>
-)
+      </nav>
+    )
+  }
+}
 
 export default Navigation

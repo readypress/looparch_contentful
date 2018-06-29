@@ -1,6 +1,23 @@
-// Overrides
+// System Font
+@import '~system-font-css/system-font';
+
+// Bulma Overrides
+$family-sans-serif: "Helvetica Neue", system-ui, "Helvetica", "Arial", sans-serif;
+
 $radius-small:      0px;
 $radius:            0px;
 $radius-large:      0px;
 
+$navbar-height:     4rem;
+
+$primary:           #0BA24A;
+$link:              $primary;
+
 @import '~bulma/bulma.sass';
+
+// Carousel Overrides (for react-slick)
+$slick-font-path: "~slick-carousel/slick/fonts/" !default;
+$slick-loader-path: "~slick-carousel/slick/" !default;
+
+@import "~slick-carousel/slick/slick.scss";
+@import "~slick-carousel/slick/slick-theme.scss";
