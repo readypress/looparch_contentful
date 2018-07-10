@@ -11,10 +11,25 @@ class ManufacturerPostTemplate extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title
     const post = this.props.data.contentfulManufacturer
-    const products = post.product || []
+    const products = this.props.data.allContentfulProduct || {edges: []}
     const tags = post.tags || []
+    const product_edges = []
 
-    console.log(post)
+    products.edges.forEach((product) => {
+      const node = product.node
+      let edge
+      product_edges.forEach((product_edge, i) => {
+        if (product_edge.title === node.tag) {
+          console.log(product_edge.title, node.tag)
+          edge = product_edges[i]
+        }
+      })
+      if (edge) {
+        edge.products.push(node)
+      } else {
+        product_edges.push({title: node.tag, products: [node]})
+      }
+    })
 
     return (
       <div className="manufacturer-post">
@@ -58,7 +73,7 @@ class ManufacturerPostTemplate extends React.Component {
         </div>
         <section className="section">
           <div className="container">
-            <div className="columns">
+            <div className="columns is-multiline">
               <div className="column is-one-third">
                 <div className="content"
                   dangerouslySetInnerHTML={{
@@ -80,21 +95,23 @@ class ManufacturerPostTemplate extends React.Component {
                 </div>
               </div>
               <div className="column">
-                <div className="manufacturer-items tile is-ancestor">
-                {products.map((node) => {
-                  return (
-                    <ProductPreview key={node.id} product={node} />
-                  )
-                })}
-                {products.map((node) => {
-                  return (
-                    <ProductPreview key={node.id} product={node} />
-                  )
-                })}
+                  {product_edges.map((node) => {
+                    return (
+                      <div key={node.title} className="column is-multiline is-paddingless is-marginless">
+                        <h2 className="title">{node.title}</h2>
+                        {node.products.map((product) => {
+                          return(
+                          <div key={product.title} className="column is-half is-inline-block">
+                            <ProductPreview product={product} />
+                          </div>
+                          )
+                        })}
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             </div>
-          </div>
         </section>
       </div>
     )
@@ -162,29 +179,34 @@ export const pageQuery = graphql`
           aspectRatio
         }
       }
-      product {
-        id
-        title
-        productImage {
-          title
-          description
-          resolutions(width: 300) {
-            width
-            height
-            src
-            srcSet
-          }
-          sizes(maxWidth: 300) {
-            aspectRatio
-            src
-            srcSet
-            srcWebp
-            srcSetWebp
-            sizes
+    }
+    allContentfulProduct(sort:{fields:[tag,title]}, filter:{manufacturer:{slug:{eq:$slug}}}) {
+        edges {
+          node {
+            tag
+            title
+            id
+            productImage {
+              title
+              description
+              resolutions(width: 300) {
+                width
+                height
+                src
+                srcSet
+              }
+              sizes(maxWidth: 300) {
+                aspectRatio
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                sizes
+              }
+            }
           }
         }
       }
-    }
     site {
       siteMetadata {
         title

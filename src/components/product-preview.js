@@ -2,13 +2,17 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Img from 'gatsby-image'
 
-export default ({ product }) => (
-  <div className="tile is-parent is-6">
-    <div className="tile is-child">
-      <Img sizes={product.productImage.sizes} alt={product.productImage.description}/>
-      <h3>
-        {product.title}
-      </h3>
-    </div>
-  </div>
-)
+class ProductPreviewTemplate extends React.Component {
+  render() {
+    const product = this.props.product
+    return (
+      <div>
+        <Img sizes={product.productImage.sizes} alt={product.productImage.description}/>
+        <h3>
+          {product.title}
+        </h3>
+      </div>
+    )
+  }
+}
+export default ProductPreviewTemplate
