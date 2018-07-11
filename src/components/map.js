@@ -17,7 +17,7 @@ class GoogleMap extends React.Component {
             function initMap() {
               map = new google.maps.Map(document.getElementById('map'), {
                 center: looparch,
-                zoom: 16
+                zoom: 10
               });
 
               infowindow = new google.maps.InfoWindow()

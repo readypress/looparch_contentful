@@ -20,7 +20,6 @@ class ManufacturerPostTemplate extends React.Component {
       let edge
       product_edges.forEach((product_edge, i) => {
         if (product_edge.title === node.tag) {
-          console.log(product_edge.title, node.tag)
           edge = product_edges[i]
         }
       })
