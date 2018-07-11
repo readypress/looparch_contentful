@@ -7,10 +7,11 @@ class ProductPreviewTemplate extends React.Component {
     const product = this.props.product
     return (
       <div>
-        <Img sizes={product.productImage.resize} alt={product.productImage.description}/>
-        <h3>
-          {product.title}
-        </h3>
+        <Img
+          sizes={product.productImage.resize}
+          alt={product.productImage.description}
+        />
+        <h3>{product.title}</h3>
       </div>
     )
   }

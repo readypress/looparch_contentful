@@ -10,26 +10,41 @@ class ContactPage extends React.Component {
 
     return (
       <div style={{ background: '#fff' }}>
-        <Helmet title={`${siteTitle} | Contact Us`}></Helmet>
+        <Helmet title={`${siteTitle} | Contact Us`} />
 
         <GoogleMap />
 
         <section className="section">
           <div className="container">
             <h2 className="title">Title</h2>
-            <p>Dolore sit sit voluptate in eu tempor pariatur quis est excepteur sint consectetur occaecat anim fugiat occaecat mollit occaecat aute consequat ex aliqua aliqua in reprehenderit exercitation ad non.</p>
+            <p>
+              Dolore sit sit voluptate in eu tempor pariatur quis est excepteur
+              sint consectetur occaecat anim fugiat occaecat mollit occaecat
+              aute consequat ex aliqua aliqua in reprehenderit exercitation ad
+              non.
+            </p>
           </div>
         </section>
         <section className="section">
           <div className="container">
             <h2 className="title">Title</h2>
-            <p>Dolore sit sit voluptate in eu tempor pariatur quis est excepteur sint consectetur occaecat anim fugiat occaecat mollit occaecat aute consequat ex aliqua aliqua in reprehenderit exercitation ad non.</p>
+            <p>
+              Dolore sit sit voluptate in eu tempor pariatur quis est excepteur
+              sint consectetur occaecat anim fugiat occaecat mollit occaecat
+              aute consequat ex aliqua aliqua in reprehenderit exercitation ad
+              non.
+            </p>
           </div>
         </section>
         <section className="section">
           <div className="container">
             <h2 className="title">Title</h2>
-            <p>Dolore sit sit voluptate in eu tempor pariatur quis est excepteur sint consectetur occaecat anim fugiat occaecat mollit occaecat aute consequat ex aliqua aliqua in reprehenderit exercitation ad non.</p>
+            <p>
+              Dolore sit sit voluptate in eu tempor pariatur quis est excepteur
+              sint consectetur occaecat anim fugiat occaecat mollit occaecat
+              aute consequat ex aliqua aliqua in reprehenderit exercitation ad
+              non.
+            </p>
           </div>
         </section>
       </div>

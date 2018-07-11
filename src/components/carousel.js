@@ -1,5 +1,5 @@
-import React from "react";
-import Slider from "react-slick";
+import React from 'react'
+import Slider from 'react-slick'
 
 class Carousel extends React.Component {
   render() {
@@ -8,8 +8,8 @@ class Carousel extends React.Component {
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
-    };
+      slidesToScroll: 1,
+    }
     return (
       <Slider {...settings}>
         <div>
@@ -31,7 +31,7 @@ class Carousel extends React.Component {
           <h3>6</h3>
         </div>
       </Slider>
-    );
+    )
   }
 }
 

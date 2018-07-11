@@ -19,7 +19,7 @@ class Template extends React.Component {
     return (
       <Container>
         <Helmet>
-            <html className="has-navbar-fixed-top" lang="en" />
+          <html className="has-navbar-fixed-top" lang="en" />
         </Helmet>
         <Navigation
           manufacturers={this.props.data.allContentfulManufacturer.edges}
@@ -45,11 +45,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    siteLogo: file(
-      relativePath: {
-        eq: "loop-signature@4x.png"
-      }
-    ) {
+    siteLogo: file(relativePath: { eq: "loop-signature@4x.png" }) {
       childImageSharp {
         resolutions(width: 225) {
           ...GatsbyImageSharpResolutions_withWebp

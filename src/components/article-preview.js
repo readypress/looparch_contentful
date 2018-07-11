@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 
 export default ({ article }) => (
   <div>
-    <Img sizes={article.heroImage.sizes} alt="" className="image"/>
+    <Img sizes={article.heroImage.sizes} alt="" className="image" />
     <h3>
       <Link to={`/blog/${article.slug}`}>{article.title}</Link>
     </h3>

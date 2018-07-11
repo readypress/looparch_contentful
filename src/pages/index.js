@@ -21,19 +21,34 @@ class RootIndex extends React.Component {
         <section className="section">
           <div className="container">
             <h2 className="title">Title</h2>
-            <p>Dolore sit sit voluptate in eu tempor pariatur quis est excepteur sint consectetur occaecat anim fugiat occaecat mollit occaecat aute consequat ex aliqua aliqua in reprehenderit exercitation ad non.</p>
+            <p>
+              Dolore sit sit voluptate in eu tempor pariatur quis est excepteur
+              sint consectetur occaecat anim fugiat occaecat mollit occaecat
+              aute consequat ex aliqua aliqua in reprehenderit exercitation ad
+              non.
+            </p>
           </div>
         </section>
         <section className="section">
           <div className="container">
             <h2 className="title">Title</h2>
-            <p>Dolore sit sit voluptate in eu tempor pariatur quis est excepteur sint consectetur occaecat anim fugiat occaecat mollit occaecat aute consequat ex aliqua aliqua in reprehenderit exercitation ad non.</p>
+            <p>
+              Dolore sit sit voluptate in eu tempor pariatur quis est excepteur
+              sint consectetur occaecat anim fugiat occaecat mollit occaecat
+              aute consequat ex aliqua aliqua in reprehenderit exercitation ad
+              non.
+            </p>
           </div>
         </section>
         <section className="section">
           <div className="container">
             <h2 className="title">Title</h2>
-            <p>Dolore sit sit voluptate in eu tempor pariatur quis est excepteur sint consectetur occaecat anim fugiat occaecat mollit occaecat aute consequat ex aliqua aliqua in reprehenderit exercitation ad non.</p>
+            <p>
+              Dolore sit sit voluptate in eu tempor pariatur quis est excepteur
+              sint consectetur occaecat anim fugiat occaecat mollit occaecat
+              aute consequat ex aliqua aliqua in reprehenderit exercitation ad
+              non.
+            </p>
           </div>
         </section>
         <section className="section">
@@ -70,7 +85,7 @@ export const pageQuery = graphql`
             file {
               url
             }
-            sizes(maxHeight:300,resizingBehavior:CROP) {
+            sizes(maxHeight: 300, resizingBehavior: CROP) {
               aspectRatio
               src
               srcSet
@@ -78,7 +93,7 @@ export const pageQuery = graphql`
               srcSetWebp
               sizes
             }
-            resolutions(height:100,width:300) {
+            resolutions(height: 100, width: 300) {
               aspectRatio
               width
               height

@@ -18,9 +18,7 @@ class BlogPostTemplate extends React.Component {
             />
           </div>
           <h1 className="section-headline">{post.title}</h1>
-          <p>
-            {post.publishDate}
-          </p>
+          <p>{post.publishDate}</p>
           <div
             dangerouslySetInnerHTML={{
               __html: post.body.childMarkdownRemark.html,

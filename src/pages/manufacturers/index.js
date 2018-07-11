@@ -24,9 +24,7 @@ class ManufacturersIndex extends React.Component {
           <div className="container">
             <div className="manufacturer-list columns is-multiline">
               {posts.map(({ node }) => {
-                return (
-                  <ManufacturerPreview key={node.slug} article={node}/>
-                )
+                return <ManufacturerPreview key={node.slug} article={node} />
               })}
             </div>
           </div>

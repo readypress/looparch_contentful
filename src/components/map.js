@@ -1,12 +1,13 @@
-import React from 'react';
-import Helmet from 'react-helmet';
+import React from 'react'
+import Helmet from 'react-helmet'
 
 class GoogleMap extends React.Component {
   render() {
     return (
       <section className="">
         <Helmet>
-          <script type="text/javascript">{`
+          <script type="text/javascript">
+            {`
             const looparch = {lat: 33.4843191, lng: -112.0479};
             const looparchPlaceID = 'ChIJu8uonngSK4cRyrk911TEaok';
             let map
@@ -41,17 +42,23 @@ class GoogleMap extends React.Component {
               })
             }`}
           </script>
-          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY-H0ZM610Qp8LxKXL6X9MhjZYq8wepyQ&libraries=places&callback=initMap"
-    async defer></script>
+          <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY-H0ZM610Qp8LxKXL6X9MhjZYq8wepyQ&libraries=places&callback=initMap"
+            async
+            defer
+          />
         </Helmet>
         <div className="">
-          <div id="map" css={{
-            display: "block",
-            height: "20rem"
-          }} />
+          <div
+            id="map"
+            css={{
+              display: 'block',
+              height: '20rem',
+            }}
+          />
         </div>
       </section>
-    );
+    )
   }
 }
 
