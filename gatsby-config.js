@@ -40,5 +40,17 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+    resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Loop Architectural Materials",
+        short_name: "Loop",
+        start_url: "/",
+        background_color: "#ffffff",
+        theme_color: "#a2466c",
+        display: "minimal-ui",
+        icon: "src/images/logo.png", // This path is relative to the root of the site.
+      },
+    },
   ],
 }

@@ -6,7 +6,7 @@ import styles from './navigation.scss'
 
 class Navigation extends React.Component {
 
-  tooggleNav = () => {
+  toggleNav() {
     const navMenu = document.getElementById('LoopNavMenu')
     const navBurger = document.querySelectorAll('.navbar-burger')[0]
 
@@ -30,7 +30,7 @@ class Navigation extends React.Component {
               aria-label="menu"
               aria-expanded="false"
               data-target="LoopNavMenu"
-              onClick={this.tooggleNav}
+              onClick={this.toggleNav}
             >
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
@@ -43,7 +43,7 @@ class Navigation extends React.Component {
                 <Link to="/manufacturers/" className="navbar-link">
                   Manufacturers
                 </Link>
-                <div id="ManufacturersDropdown" className="navbar-dropdown is-right">
+                <div id="ManufacturersDropdown" className="navbar-dropdown is-right" onClick={this.toggleNav}>
                   {this.props.manufacturers.map(({ node, index }) => {
                     return (
                       <Link key={node.id} to={`/manufacturers/${node.slug}`} className="navbar-item">
@@ -53,6 +53,9 @@ class Navigation extends React.Component {
                   })}
                 </div>
               </div>
+              <Link to="/contact/" className="navbar-item">
+                Contact Us
+              </Link>
             </div>
           </div>
         </div>

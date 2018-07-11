@@ -14,15 +14,15 @@ class ManufacturersIndex extends React.Component {
 
     return (
       <div>
-        <Helmet title={siteTitle} />
+        <Helmet title={`${siteTitle} | Our Manufacturers`} />
         <div className="hero is-primary is-bold">
           <div className="hero-body has-text-centered">
-            <h1 className="title">Our Lines</h1>
+            <h1 className="title">Our Manufacturers</h1>
           </div>
         </div>
         <section className="section">
           <div className="container">
-            <div className="manufacturer-list">
+            <div className="manufacturer-list columns is-multiline">
               {posts.map(({ node }) => {
                 return (
                   <ManufacturerPreview key={node.slug} article={node}/>

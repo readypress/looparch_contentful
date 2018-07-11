@@ -8,8 +8,8 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
 
     return (
-      <div style={{ background: '#fff' }}>
-        <Helmet title={`${post.title} | ${siteTitle}`} />
+      <div>
+        <Helmet title={`${siteTitle} | ${post.title}`} />
         <div className="wrapper">
           <div>
             <img
@@ -18,11 +18,7 @@ class BlogPostTemplate extends React.Component {
             />
           </div>
           <h1 className="section-headline">{post.title}</h1>
-          <p
-            style={{
-              display: 'block',
-            }}
-          >
+          <p>
             {post.publishDate}
           </p>
           <div

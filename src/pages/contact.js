@@ -5,8 +5,11 @@ import Helmet from 'react-helmet'
 import Hero from '../components/hero'
 import Carousel from '../components/carousel'
 import ArticlePreview from '../components/article-preview'
+import GoogleMap from '../components/map'
 
-class RootIndex extends React.Component {
+const GOGGLE_MAPS_API_KEY = "AIzaSyAY47HKj8tlW87Toy0DAzNfQFK5G9SYpVk"
+
+class ContactPage extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title
     const posts = this.props.data.allContentfulBlogPost.edges
@@ -14,9 +17,9 @@ class RootIndex extends React.Component {
 
     return (
       <div style={{ background: '#fff' }}>
-        <Helmet title={siteTitle} />
+        <Helmet title={`${siteTitle} | Contact Us`}></Helmet>
 
-        <Hero person={author} />
+        <GoogleMap />
 
         <section className="section">
           <div className="container">
@@ -55,10 +58,10 @@ class RootIndex extends React.Component {
   }
 }
 
-export default RootIndex
+export default ContactPage
 
 export const pageQuery = graphql`
-  query HomeQuery {
+  query ContactQuery {
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {

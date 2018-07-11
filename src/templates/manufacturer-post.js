@@ -97,11 +97,11 @@ class ManufacturerPostTemplate extends React.Component {
               <div className="column">
                   {product_edges.map((node) => {
                     return (
-                      <div key={node.title} className="column is-multiline is-paddingless is-marginless">
+                      <div key={node.title} className="column is-multiline manufacturer-section">
                         <h2 className="title">{node.title}</h2>
                         {node.products.map((product) => {
                           return(
-                          <div key={product.title} className="column is-half is-inline-block">
+                          <div key={product.title} className="column is-half is-inline-block-desktop is-inline-block-tablet is-block-mobile">
                             <ProductPreview product={product} />
                           </div>
                           )
@@ -172,7 +172,7 @@ export const pageQuery = graphql`
           srcSetWebp
           sizes
         }
-        resize(width: 402, height: 134, resizingBehavior: PAD) {
+        resize(width: 351, height: 117, resizingBehavior: PAD) {
           src
           width
           height
@@ -202,6 +202,12 @@ export const pageQuery = graphql`
                 srcWebp
                 srcSetWebp
                 sizes
+              }
+              resize(width: 500, height: 300, resizingBehavior: FILL) {
+                src
+                width
+                height
+                aspectRatio
               }
             }
           }
