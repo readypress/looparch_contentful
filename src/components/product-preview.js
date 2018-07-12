@@ -10,6 +10,7 @@ class ProductPreviewTemplate extends React.Component {
         <Img
           sizes={product.productImage.resize}
           alt={product.productImage.description}
+          className="image"
         />
         <h3>{product.title}</h3>
       </div>

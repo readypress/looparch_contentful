@@ -204,11 +204,14 @@ export const pageQuery = graphql`
           productImage {
             title
             description
-            resolutions(width: 300) {
+            resolutions(width: 500) {
+              aspectRatio
               width
               height
               src
               srcSet
+              srcWebp
+              srcSetWebp
             }
             sizes(maxWidth: 300) {
               aspectRatio
@@ -218,7 +221,7 @@ export const pageQuery = graphql`
               srcSetWebp
               sizes
             }
-            resize(width: 500, height: 300, resizingBehavior: FILL) {
+            resize(width: 500, height: 400, resizingBehavior: FILL) {
               src
               width
               height
