@@ -22,6 +22,7 @@ class ContactForm extends React.Component {
             <textarea className="textarea" name="message" />
           </div>
         </div>
+        <div data-netlify-recaptcha></div>
         <div className="field">
           <div className="control">
             <button type="submit" className="button is-link">Send</button>
