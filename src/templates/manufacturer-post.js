@@ -115,7 +115,7 @@ class ManufacturerPostTemplate extends React.Component {
                             key={product.title}
                             className="column is-half is-inline-block-desktop is-inline-block-tablet is-block-mobile"
                           >
-                            <ProductPreview product={product} />
+                            <ProductPreview product={product} post={post} />
                           </div>
                         )
                       })}
@@ -145,6 +145,7 @@ export const pageQuery = graphql`
       tags
       url
       publishDate(formatString: "MMMM Do, YYYY")
+      resizeImages
       description {
         childMarkdownRemark {
           html
