@@ -8,7 +8,7 @@ class ProductPreviewTemplate extends React.Component {
     return (
       <div>
         <Img
-          sizes={product.productImage.resize}
+          sizes={product.productImage.sizes}
           alt={product.productImage.description}
           className="image"
         />
