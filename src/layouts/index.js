@@ -20,6 +20,7 @@ class Template extends React.Component {
       <Container>
         <Helmet>
           <html className="has-navbar-fixed-top" lang="en" />
+          <meta name="description" content="Loop Architectural Materials represents leading brands in contract furniture, glass, decorative architectural and interior design products in Arizona." />
         </Helmet>
         <Navigation
           manufacturers={this.props.data.allContentfulManufacturer.edges}

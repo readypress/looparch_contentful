@@ -4,6 +4,7 @@ import Link from 'gatsby-link'
 import Img from 'gatsby-image'
 
 import ProductPreview from '../components/product-preview'
+import ContactForm from '../components/contact-form'
 
 import styles from './manufacturer-post.scss'
 
@@ -121,6 +122,10 @@ class ManufacturerPostTemplate extends React.Component {
                     </div>
                   )
                 })}
+                <section className="section">
+                  <h3 className="title">{post.title} Inquiries</h3>
+                  <ContactForm section={post.title}/>
+                </section>
               </div>
             </div>
           </div>

@@ -2,6 +2,8 @@ import React from 'react'
 
 class ContactForm extends React.Component {
   render() {
+    const sectionName = this.props.section || 'Contact Us';
+
     return (
       <form name="contact" method="POST" data-netlify="true">
         <div className="field">
@@ -28,6 +30,7 @@ class ContactForm extends React.Component {
             <button type="submit" className="button is-link">Send</button>
           </div>
         </div>
+        <input type="hidden" name="section" value={sectionName} />
       </form>
     )
   }
