@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 
 class GoogleMap extends React.Component {
   render() {
+    const LOOPARCH_MAPS_KEY = process.env.LOOPARCH_MAPS_KEY || '';
     return (
       <section className="">
         <Helmet>
@@ -43,7 +44,7 @@ class GoogleMap extends React.Component {
             }`}
           </script>
           <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY-H0ZM610Qp8LxKXL6X9MhjZYq8wepyQ&libraries=places&callback=initMap"
+            src={`https://maps.googleapis.com/maps/api/js?key=${LOOPARCH_MAPS_KEY}&libraries=places&callback=initMap`}
             async
             defer
           />

@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 let contentfulConfig
 
 try {
@@ -5,7 +9,7 @@ try {
 } catch (_) {
   contentfulConfig = {
     spaceId: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   }
 } finally {
   const { spaceId, accessToken } = contentfulConfig

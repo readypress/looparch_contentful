@@ -55,7 +55,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+.env*
 
 # build folder
 public
@@ -64,4 +64,4 @@ public
 .cache
 
 # contentful config file
-# .contentful.json
+.contentful.json
