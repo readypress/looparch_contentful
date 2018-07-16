@@ -39,7 +39,7 @@ class ManufacturerPostTemplate extends React.Component {
           css={{
             backgroundImage:
               'image-set(' +
-              post.heroImage.resolutions.srcSetWebp
+              post.heroImage.resolutions.srcSet
                 .replace(/\n/g, '')
                 .split(',')
                 .map(s => {
@@ -101,19 +101,19 @@ class ManufacturerPostTemplate extends React.Component {
                   })}
                 </div>
               </div>
-              <div className="column">
+              <div className="column is-marginless">
                 {product_edges.map(node => {
                   return (
                     <div
                       key={node.title}
-                      className="column is-multiline manufacturer-section"
+                      className="column is-multiline manufacturer-section is-paddingless is-marginless"
                     >
                       <h2 className="title">{node.title}</h2>
                       {node.products.map(product => {
                         return (
                           <div
                             key={product.title}
-                            className="column is-half is-inline-block-desktop is-inline-block-tablet is-block-mobile"
+                            className="column is-half is-inline-block-desktop is-inline-block-tablet is-block-mobile is-marginless is-paddingless-mobile"
                           >
                             <ProductPreview product={product} post={post} />
                           </div>

@@ -2,14 +2,14 @@
 
 .manufacturer-post
   .hero-body
-    padding: 3rem 0
+    // padding: 3rem 0
+    // text-align: center
 
   .hero-logo
-    +desktop
-      width: 400px
-      display: inline-block
-      padding: 0 3rem
-    +mobile
+    width: 400px
+    display: inline-block
+    padding: 0 3rem
+    +until($tablet)
       width: 300px
 
   .tags
@@ -28,3 +28,8 @@
       &:not(:first-child)
         h2
           margin-top: 1.5rem
+      .is-paddingless-mobile
+        +until($tablet)
+          margin: 0
+          padding: 0
+          padding-bottom: .75rem
