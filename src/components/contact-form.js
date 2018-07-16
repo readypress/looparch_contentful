@@ -5,7 +5,7 @@ class ContactForm extends React.Component {
     const sectionName = this.props.section || 'Contact Us';
 
     return (
-      <form name="contact" method="POST" data-netlify="true">
+      <form name="contact" method="POST" data-netlify="true" action="/thanks">
         <div className="field">
           <label className="label">Your Name:</label>
           <div className="control">
