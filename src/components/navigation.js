@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Img from 'gatsby-image'
 
-import styles from './navigation.scss'
+import styles from './navigation.sass'
 
 class Navigation extends React.Component {
   toggleNav() {

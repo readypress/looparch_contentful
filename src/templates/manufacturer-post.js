@@ -34,43 +34,36 @@ class ManufacturerPostTemplate extends React.Component {
     return (
       <div className="manufacturer-post">
         <Helmet title={`${siteTitle} | ${post.title}`} />
-        <div
-          className={'hero is-dark is-bold img-hero'}
-          css={{
-            backgroundImage:
-              'image-set(' +
-              post.heroImage.resolutions.srcSet
-                .replace(/\n/g, '')
-                .split(',')
-                .map(s => {
-                  let x = s.split(' ')
-                  return `url("${x[0]}") ${x[1].replace('w', 'px')}`
-                }) +
-              ') !important',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundOrigin: 'content-box',
-            backgroundPosition: 'center 60%',
-            position: 'relative',
-          }}
-        >
+        <div className={'hero is-dark is-bold img-hero'}>
+          <div className="hero-image">
+            <Img
+              sizes={post.heroImage.sizes}
+              alt={post.heroImage.description}
+              outerWrapperClassName="hero-img"
+              css={{
+                zIndex: 1,
+                width: '100% !important',
+                height: '100% !important'
+              }}
+            />
+            <div
+              className="dark-background is-overlay"
+              css={{
+                backgroundColor: 'rgba(0,0,0,0.5)',
+                zIndex: 2,
+              }}
+            />
+          </div>
           <div className="hero-body has-text-centered">
             <Img
               sizes={post.logoImageLight.resize}
               alt={post.logoImageLight.description}
               outerWrapperClassName="hero-logo"
               css={{
-                zIndex: 10,
+                zIndex: 3,
               }}
             />
           </div>
-          <div
-            className="dark-background is-overlay"
-            css={{
-              backgroundColor: 'rgba(0,0,0,0.5)',
-              zIndex: 1,
-            }}
-          />
         </div>
         <section className="section">
           <div className="container">
@@ -155,7 +148,7 @@ export const pageQuery = graphql`
         file {
           url
         }
-        sizes(maxWidth: 100) {
+        sizes(maxWidth: 300) {
           aspectRatio
           src
           srcSet
@@ -172,7 +165,7 @@ export const pageQuery = graphql`
           srcWebp
           srcSetWebp
         }
-        resize(width: 300, height: 200, resizingBehavior: PAD) {
+        resize(width: 500) {
           src
           width
           height
