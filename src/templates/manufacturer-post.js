@@ -6,7 +6,7 @@ import Img from 'gatsby-image'
 import ProductPreview from '../components/product-preview'
 import ContactForm from '../components/contact-form'
 
-import styles from './manufacturer-post.scss'
+import styles from './manufacturer-post.sass'
 
 class ManufacturerPostTemplate extends React.Component {
   render() {
