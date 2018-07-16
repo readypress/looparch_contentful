@@ -80,6 +80,7 @@ class ManufacturerPostTemplate extends React.Component {
                     href={post.url}
                     target="_blank"
                     className="button is-primary"
+                    rel="noopener"
                   >
                     <span>Visit {post.title}</span>
                   </a>

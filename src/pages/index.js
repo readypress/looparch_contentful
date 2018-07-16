@@ -53,7 +53,7 @@ class RootIndex extends React.Component {
         </section>
         <section className="section">
           <div className="container">
-            <h2 className="title">Recent articles</h2>
+            <h2 className="title">Recent Articles</h2>
             <div className="columns">
               {posts.map(({ node }) => {
                 return (
@@ -82,25 +82,11 @@ export const pageQuery = graphql`
           publishDate(formatString: "MMMM Do, YYYY")
           tags
           heroImage {
-            file {
-              url
-            }
-            sizes(maxHeight: 300, resizingBehavior: CROP) {
-              aspectRatio
+            resize(height: 300, resizingBehavior: FILL) {
               src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-            resolutions(height: 100, width: 300) {
-              aspectRatio
               width
               height
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
+              aspectRatio
             }
           }
           description {

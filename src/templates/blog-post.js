@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
+import Img from 'gatsby-image'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -12,8 +13,8 @@ class BlogPostTemplate extends React.Component {
         <Helmet title={`${siteTitle} | ${post.title}`} />
         <div className="wrapper">
           <div>
-            <img
-              src={`${post.heroImage.file.url}?w=1180&h=400&fit=fill`}
+            <Img
+              sizes={post.heroImage.sizes}
               alt=""
             />
           </div>
@@ -40,6 +41,14 @@ export const pageQuery = graphql`
       heroImage {
         file {
           url
+        }
+        sizes(maxWidth:800) {
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
         }
       }
       body {
