@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 class ArticlePreview extends React.Component {
   render() {
     const article = this.props.article;
-    console.log(article)
+    
     return (
       <div>
         <Img sizes={article.heroImage.resize} alt="" />
