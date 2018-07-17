@@ -6,9 +6,9 @@ class Thanks extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title
 
-    const goBack = () => {
-      console.log('goBack')
-      window.history.back()
+    const goBack2 = e => {
+      e.preventDefault()
+      this.props.history.goBack()
     }
 
     return (
@@ -22,11 +22,8 @@ class Thanks extends React.Component {
                 <div className="content">
                   <p>We'll get back to as soon as possible.</p>
                   <p>
-                    In the meantime, you can{' '}
-                    <a href="" onClick={this.goBack}>
-                      return
-                    </a>{' '}
-                    to the previous page.
+                    In the meantime, you can
+                    <a onClick={goBack2}>return to the previous page</a>.
                   </p>
                 </div>
               </div>

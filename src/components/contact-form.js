@@ -92,7 +92,12 @@ class ContactForm extends React.Component {
             </button>
           </div>
         </div>
-        <input type="hidden" name="section" value={sectionName} />
+        <input
+          type="hidden"
+          name="section"
+          value={sectionName}
+          onChange={this.handleChange}
+        />
         <input type="hidden" name="bot-field" onChange={this.handleChange} />
       </form>
     )
