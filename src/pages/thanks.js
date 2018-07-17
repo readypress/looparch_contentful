@@ -3,13 +3,17 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 class Thanks extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  goBack = e => {
+    e.preventDefault()
+    this.props.history.goBack()
+  }
+
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title
-
-    const goBack2 = e => {
-      e.preventDefault()
-      this.props.history.goBack()
-    }
 
     return (
       <div>
@@ -22,8 +26,8 @@ class Thanks extends React.Component {
                 <div className="content">
                   <p>We'll get back to as soon as possible.</p>
                   <p>
-                    In the meantime, you can
-                    <a onClick={goBack2}>return to the previous page</a>.
+                    In the meantime, you can{' '}
+                    <a onClick={this.goBack}>return to the previous page</a>.
                   </p>
                 </div>
               </div>
