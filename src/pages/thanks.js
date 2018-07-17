@@ -21,7 +21,13 @@ class Thanks extends React.Component {
               <div className="column">
                 <div className="content">
                   <p>We'll get back to as soon as possible.</p>
-                  <p>In the meantime, you can <a href="" onClick={this.goBack}>return</a> to the previous page.</p>
+                  <p>
+                    In the meantime, you can{' '}
+                    <a href="" onClick={this.goBack}>
+                      return
+                    </a>{' '}
+                    to the previous page.
+                  </p>
                 </div>
               </div>
             </div>

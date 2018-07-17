@@ -22,9 +22,16 @@ class ContactPage extends React.Component {
               </div>
               <div className="column">
                 <div className="content">
-                  <p>We’d love to hear from you. If you’re interested in receiving samples or talking to us about any of our product lines, feel free to fill out the form.</p>
+                  <p>
+                    We’d love to hear from you. If you’re interested in
+                    receiving samples or talking to us about any of our product
+                    lines, feel free to fill out the form.
+                  </p>
                   <p>Our mailing address is:</p>
-                  <p><strong>Loop Architectural Materials</strong><br/>3310 N 16th Street<br/>Phoenix, AZ 85016</p>
+                  <p>
+                    <strong>Loop Architectural Materials</strong>
+                    <br />3310 N 16th Street<br />Phoenix, AZ 85016
+                  </p>
                 </div>
               </div>
             </div>

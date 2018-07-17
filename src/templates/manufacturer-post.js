@@ -43,7 +43,7 @@ class ManufacturerPostTemplate extends React.Component {
               css={{
                 zIndex: 1,
                 width: '100% !important',
-                height: '100% !important'
+                height: '100% !important',
               }}
             />
             <div
@@ -118,7 +118,7 @@ class ManufacturerPostTemplate extends React.Component {
                 })}
                 <section className="section">
                   <h3 className="title">{post.title} Inquiries</h3>
-                  <ContactForm section={post.title}/>
+                  <ContactForm section={post.title} />
                 </section>
               </div>
             </div>

@@ -13,10 +13,7 @@ class BlogPostTemplate extends React.Component {
         <Helmet title={`${siteTitle} | ${post.title}`} />
         <div className="wrapper">
           <div>
-            <Img
-              sizes={post.heroImage.sizes}
-              alt=""
-            />
+            <Img sizes={post.heroImage.sizes} alt="" />
           </div>
           <h1 className="section-headline">{post.title}</h1>
           <p>{post.publishDate}</p>
@@ -42,7 +39,7 @@ export const pageQuery = graphql`
         file {
           url
         }
-        sizes(maxWidth:800) {
+        sizes(maxWidth: 800) {
           aspectRatio
           src
           srcSet

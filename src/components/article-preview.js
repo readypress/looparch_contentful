@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 
 class ArticlePreview extends React.Component {
   render() {
-    const article = this.props.article;
+    const article = this.props.article
 
     return (
       <div>
