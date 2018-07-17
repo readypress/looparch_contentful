@@ -3,8 +3,8 @@ import { navigateTo } from 'gatsby-link'
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
 }
 
 class ContactForm extends React.Component {
@@ -23,11 +23,11 @@ class ContactForm extends React.Component {
     e.preventDefault()
     fetch('/', {
       method: 'POST',
-      headers: {"Content-Type": "application/x-www-form-urlencoded"},
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
-        ...this.state
-      })
+        ...this.state,
+      }),
     })
       .then(() => {
         console.log('got here')
@@ -77,7 +77,11 @@ class ContactForm extends React.Component {
         <div className="field">
           <label className="label">Message:</label>
           <div className="control">
-            <textarea className="textarea" name="message" onChange={this.handleChange} />
+            <textarea
+              className="textarea"
+              name="message"
+              onChange={this.handleChange}
+            />
           </div>
         </div>
         <div data-netlify-recaptcha />
