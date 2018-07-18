@@ -1,8 +1,7 @@
-@import '~bulma/sass/utilities/all';
+@import '~bulma/sass/utilities/all'
 
 .manufacturer-post
   .img-hero
-    // min-height: 18rem
     position: relative
     overflow: hidden
 
@@ -21,8 +20,6 @@
         left: 0
 
   .hero-body
-    // padding: 3rem 0
-    // text-align: center
 
   .hero-logo
     width: 400px
@@ -44,11 +41,14 @@
   .column
     .manufacturer-section
       padding-top: 0
+
       &:not(:first-child)
         h2
           margin-top: 1.5rem
       .is-paddingless-mobile
+        vertical-align: top
+
         +until($tablet)
           margin: 0
           padding: 0
-          padding-bottom: .75rem
+          padding-bottom: 1rem

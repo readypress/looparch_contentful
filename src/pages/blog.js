@@ -10,7 +10,7 @@ class BlogIndex extends React.Component {
     const posts = this.props.data.allContentfulBlogPost.edges
 
     return (
-      <div style={{ background: '#fff' }}>
+      <div>
         <Helmet title={siteTitle} />
         <div className="wrapper">
           <div>Blog</div>

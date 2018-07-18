@@ -213,7 +213,7 @@ export const pageQuery = graphql`
               srcWebp
               srcSetWebp
             }
-            sizes(maxWidth: 300) {
+            sizes(maxWidth: 370) {
               aspectRatio
               src
               srcSet

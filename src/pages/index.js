@@ -13,7 +13,7 @@ class RootIndex extends React.Component {
     const [author] = this.props.data.allContentfulPerson.edges
 
     return (
-      <div style={{ background: '#fff' }}>
+      <div>
         <Helmet title={siteTitle} />
 
         <Hero person={author} />
