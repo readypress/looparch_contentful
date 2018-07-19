@@ -51,7 +51,7 @@ export const pageQuery = graphql`
     }
     siteLogo: file(relativePath: { eq: "loop-signature@4x.png" }) {
       childImageSharp {
-        resolutions(width: 225) {
+        resolutions(width: 220) {
           ...GatsbyImageSharpResolutions_withWebp
         }
       }
