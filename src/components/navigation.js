@@ -42,7 +42,7 @@ class Navigation extends React.Component {
             <div className="navbar-end">
               <div className="navbar-item has-dropdown is-hoverable">
                 <Link to="/manufacturers/" className="navbar-link">
-                  Manufacturers
+                  Our Manufacturers
                 </Link>
                 <div
                   id="ManufacturersDropdown"

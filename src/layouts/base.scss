@@ -16,6 +16,11 @@ $link:              $primary;
 
 @import '~bulma/bulma.sass';
 
+::selection {
+  background: $primary;
+  color: $white;
+}
+
 // Carousel Overrides (for react-slick)
 $slick-font-path: "~slick-carousel/slick/fonts/" !default;
 $slick-loader-path: "~slick-carousel/slick/" !default;
