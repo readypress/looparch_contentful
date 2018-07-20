@@ -1,0 +1,32 @@
+@import '~bulma/sass/utilities/all'
+
+.carousel-preview
+  flex-grow: 1
+  align-items: center
+  justify-content: center
+  display: flex
+  position: relative
+  flex-direction: column
+
+  .carousel-preview-image
+    position: absolute !important
+    width: 100%
+    z-index: 0
+    top: 0
+
+  .carousel-preview-dark-overlay
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background-color: rgba(0,0,0,0.3)
+
+  .carousel-preview-content
+    position: absolute
+    z-index: 3
+    h2, h3, p
+      text-shadow: 0 0 5px rgba(0,0,0,1);
+
+    +until($tablet)
+      padding: 3rem

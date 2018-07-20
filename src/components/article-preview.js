@@ -8,6 +8,7 @@ class ArticlePreview extends React.Component {
 
     return (
       <div>
+        <Img sizes={article.heroImage.sizes} />
         <h3>
           <Link to={`/blog/${article.slug}`}>{article.title}</Link>
         </h3>

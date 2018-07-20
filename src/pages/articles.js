@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 
 import ArticlePreview from '../components/article-preview'
 
-class BlogIndex extends React.Component {
+class ArticleIndex extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title
     const posts = this.props.data.allContentfulBlogPost.edges
@@ -12,25 +12,30 @@ class BlogIndex extends React.Component {
     return (
       <div>
         <Helmet title={siteTitle} />
-        <div className="wrapper">
-          <div>Blog</div>
-          <h2 className="section-headline">Recent articles</h2>
-          <ul className="article-list">
-            {posts.map(({ node }) => {
-              return (
-                <li key={node.slug}>
-                  <ArticlePreview article={node} />
-                </li>
-              )
-            })}
-          </ul>
+        <div className="hero is-primary is-bold">
+          <div className="hero-body has-text-centered">
+            <h1 className="title">Articles</h1>
+          </div>
         </div>
+        <section className="section">
+          <div className="container">
+            <div className="article-list columns is-multiline">
+              {posts.map(({ node }) => {
+                return (
+                  <div key={node.slug} className="column is-one-third">
+                    <ArticlePreview article={node} />
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
       </div>
     )
   }
 }
 
-export default BlogIndex
+export default ArticleIndex
 
 export const pageQuery = graphql`
   query BlogIndexQuery {
@@ -44,6 +49,14 @@ export const pageQuery = graphql`
           heroImage {
             file {
               url
+            }
+            sizes(maxHeight:600) {
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
             }
           }
           description {
