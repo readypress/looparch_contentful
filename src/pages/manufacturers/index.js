@@ -13,15 +13,11 @@ class ManufacturersIndex extends React.Component {
     const posts = this.props.data.allContentfulManufacturer.edges
 
     return (
-      <div>
+      <div className="content-section">
         <Helmet title={`${siteTitle} | Our Manufacturers`} />
-        <div className="hero is-primary is-bold">
-          <div className="hero-body has-text-centered">
-            <h1 className="title">Our Manufacturers</h1>
-          </div>
-        </div>
         <section className="section">
           <div className="container">
+            <h1 className="title is-size-4">Our Manufacturers</h1>
             <div className="manufacturer-list columns is-multiline">
               {posts.map(({ node }) => {
                 return <ManufacturerPreview key={node.slug} article={node} />

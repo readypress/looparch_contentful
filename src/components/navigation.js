@@ -41,7 +41,7 @@ class Navigation extends React.Component {
           <div id="LoopNavMenu" className="navbar-menu">
             <div className="navbar-end">
               <div className="navbar-item has-dropdown is-hoverable">
-                <Link to="/manufacturers/" className="navbar-link">
+                <Link to="/manufacturers/" className="navbar-link" onClick={this.toggleNav}>
                   Our Manufacturers
                 </Link>
                 <div

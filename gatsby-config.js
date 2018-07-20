@@ -24,6 +24,7 @@ try {
 module.exports = {
   siteMetadata: {
     title: 'Loop Architectural Materials',
+    siteUrl: process.env.SITE_URL || 'https://looparch.com'
   },
   plugins: [
     'gatsby-transformer-remark',

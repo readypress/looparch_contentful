@@ -16,17 +16,26 @@ $navbar-height:     4rem;
 
 $primary:           #0BA24A;
 $link:              $primary;
+$white-bis:         hsl(0, 0%, 98%) !default;
 
 @import '~bulma/bulma.sass';
+
+// Core overrides
+html, body {
+  background-color: $white-bis
+}
+
+.section {
+  background-color: $white
+}
+
+.content-section {
+  .section:first-of-type {
+    padding-top: 2rem;
+  }
+}
 
 ::selection {
   background: $primary;
   color: $white;
 }
-
-// Carousel Overrides (for react-slick)
-$slick-font-path: "~slick-carousel/slick/fonts/" !default;
-$slick-loader-path: "~slick-carousel/slick/" !default;
-
-@import "~slick-carousel/slick/slick.scss";
-@import "~slick-carousel/slick/slick-theme.scss";

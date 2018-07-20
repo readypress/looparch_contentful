@@ -9,19 +9,20 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
 
     return (
-      <div>
+      <div className="article content-section">
         <Helmet title={`${siteTitle} | ${post.title}`} />
-        <div className="wrapper">
-          <div>
-            <Img sizes={post.heroImage.sizes} alt="" />
+        <div>
+          <Img sizes={post.heroImage.sizes} alt="" />
+        </div>
+        <div className="section">
+          <div className="container content">
+            <h1 className="title">{post.title}</h1>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: post.body.childMarkdownRemark.html,
+              }}
+            />
           </div>
-          <h1 className="section-headline">{post.title}</h1>
-          <p>{post.publishDate}</p>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: post.body.childMarkdownRemark.html,
-            }}
-          />
         </div>
       </div>
     )
@@ -36,10 +37,7 @@ export const pageQuery = graphql`
       title
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
-        file {
-          url
-        }
-        sizes(maxWidth: 800) {
+        sizes(maxHeight: 300) {
           aspectRatio
           src
           srcSet

@@ -16,7 +16,7 @@ class Thanks extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
 
     return (
-      <div>
+      <div className="content-section">
         <Helmet title={`${siteTitle} | Thank You`} />
         <section className="section">
           <div className="container">

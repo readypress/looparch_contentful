@@ -12,7 +12,7 @@ class RootIndex extends React.Component {
     const posts = this.props.data.allContentfulBlogPost.edges
 
     return (
-      <div>
+      <div className="content-section">
         <Helmet title={siteTitle} />
 
         <Hero posts={posts} />

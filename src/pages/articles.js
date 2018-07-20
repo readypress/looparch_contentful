@@ -10,8 +10,8 @@ class ArticleIndex extends React.Component {
     const posts = this.props.data.allContentfulBlogPost.edges
 
     return (
-      <div>
-        <Helmet title={siteTitle} />
+      <div className="content-section">
+        <Helmet title={`${siteTitle} | Articles`} />
         <div className="hero is-primary is-bold">
           <div className="hero-body has-text-centered">
             <h1 className="title">Articles</h1>
