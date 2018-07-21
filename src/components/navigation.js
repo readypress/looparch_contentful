@@ -40,7 +40,7 @@ class Navigation extends React.Component {
           </div>
           <div id="LoopNavMenu" className="navbar-menu">
             <div className="navbar-end">
-              <div className="navbar-item has-dropdown is-hoverable">
+              <div className="navbar-item has-dropdown is-hoverable navbar-smaller">
                 <Link to="/manufacturers/" className="navbar-link" onClick={this.toggleNav}>
                   Our Manufacturers
                 </Link>
@@ -62,7 +62,7 @@ class Navigation extends React.Component {
                   })}
                 </div>
               </div>
-              <Link to="/contact/" className="navbar-item">
+              <Link to="/contact/" className="navbar-item navbar-smaller">
                 Contact Us
               </Link>
             </div>

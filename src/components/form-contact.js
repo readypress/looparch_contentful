@@ -7,7 +7,7 @@ function encode(data) {
     .join('&')
 }
 
-class ContactForm extends React.Component {
+class FormContact extends React.Component {
   constructor(props) {
     super(props)
     this.state = {}
@@ -114,4 +114,4 @@ class ContactForm extends React.Component {
   }
 }
 
-export default ContactForm
+export default FormContact

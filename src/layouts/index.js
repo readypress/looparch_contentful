@@ -8,8 +8,15 @@ import Footer from '../components/footer.js'
 import base from './base.scss'
 
 class Template extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     const { location, children } = this.props
+    const manufacturers = this.props.data.allContentfulManufacturer.edges
+    const articles = this.props.data.allContentfulBlogPost.edges
+
     let header
 
     let rootPath = `/`
@@ -26,11 +33,11 @@ class Template extends React.Component {
           />
         </Helmet>
         <Navigation
-          manufacturers={this.props.data.allContentfulManufacturer.edges}
+          manufacturers={manufacturers}
           siteLogo={this.props.data.siteLogo.childImageSharp.resolutions}
         />
         {children()}
-        <Footer />
+        <Footer manufacturers={manufacturers} articles={articles} />
       </Container>
     )
   }
@@ -41,6 +48,15 @@ export default Template
 export const pageQuery = graphql`
   query NavigationQuery {
     allContentfulManufacturer(sort: { fields: [title], order: ASC }) {
+      edges {
+        node {
+          id
+          title
+          slug
+        }
+      }
+    }
+    allContentfulBlogPost(limit: 5,  sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
           id

@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 import Img from 'gatsby-image'
 
 import ProductPreview from '../components/product-preview'
-import ContactForm from '../components/contact-form'
+import FormContact from '../components/form-contact'
 import ManufacturerHero from '../components/manufacturer-hero'
 
 import styles from './manufacturer-post.sass'
@@ -34,7 +34,7 @@ class ManufacturerPostTemplate extends React.Component {
     })
 
     return (
-      <div className="manufacturer-post content-section">
+      <div className="content-section manufacturer-post">
         <Helmet title={`${siteTitle} | ${post.title}`} />
         <h1 className="is-hidden">{`${siteTitle} | ${post.title}`}</h1>
         <section className="section">
@@ -60,24 +60,29 @@ class ManufacturerPostTemplate extends React.Component {
                     __html: post.description.childMarkdownRemark.html,
                   }}
                 />
-                <p>
-                  <a
-                    href={post.url}
-                    target="_blank"
-                    className="button is-primary"
-                    rel="noopener"
-                  >
-                    <span>Visit {post.title}</span>
-                  </a>
-                </p>
-                <div className="tags">
-                  {tags.map(node => {
-                    return (
-                      <span className="tag" key={node}>
-                        {node}
-                      </span>
-                    )
-                  })}
+                <div className="content">
+                  <p>
+                    <a
+                      href={post.url}
+                      target="_blank"
+                      className="button is-primary"
+                      rel="noopener"
+                    >
+                      <span>Visit {post.title}</span>
+                    </a>
+                  </p>
+                  <div className="tags"
+                    css={{
+                      marginTop: "1.5rem"
+                    }}>
+                    {tags.map(node => {
+                      return (
+                        <span className="tag" key={node}>
+                          {node}
+                        </span>
+                      )
+                    })}
+                  </div>
                 </div>
               </div>
               <div className="column is-marginless">
@@ -103,7 +108,7 @@ class ManufacturerPostTemplate extends React.Component {
                 })}
                 <section className="section">
                   <h3 className="title is-size-4">{post.title} Inquiries</h3>
-                  <ContactForm section={post.title} manufacturers={manufacturers} />
+                  <FormContact section={post.title} manufacturers={manufacturers} />
                 </section>
               </div>
             </div>
@@ -187,7 +192,7 @@ export const pageQuery = graphql`
           srcSetWebp
           sizes
         }
-        resize(height: 117, resizingBehavior: PAD) {
+        resize(width: 500, resizingBehavior: PAD) {
           src
           width
           height

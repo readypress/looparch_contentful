@@ -7,7 +7,7 @@ class ArticlePreview extends React.Component {
     const article = this.props.article
 
     return (
-      <div>
+      <div className="article-preview">
         <Img sizes={article.heroImage.sizes} />
         <h3>
           <Link to={`/blog/${article.slug}`}>{article.title}</Link>

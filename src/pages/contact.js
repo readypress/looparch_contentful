@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 import GoogleMap from '../components/map'
-import ContactForm from '../components/contact-form'
+import FormContact from '../components/form-contact'
 
 class ContactPage extends React.Component {
   render() {
@@ -19,7 +19,7 @@ class ContactPage extends React.Component {
             <h1 className="title is-size-4">Contact Us</h1>
             <div className="columns">
               <div className="column is-two-thirds">
-                <ContactForm section="Contact Us" manufacturers={manufacturers}/>
+                <FormContact section="Contact Us" manufacturers={manufacturers}/>
               </div>
               <div className="column">
                 <div className="content">
