@@ -37,7 +37,7 @@ export const pageQuery = graphql`
       title
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
-        sizes(maxHeight: 300) {
+        sizes(maxWidth: 800) {
           aspectRatio
           src
           srcSet
