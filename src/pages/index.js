@@ -46,7 +46,7 @@ class RootIndex extends React.Component {
             </p>
           </div>
         </section>
-        <section className="section">
+        <section className="section is-hidden-mobile">
           <div className="container">
             <h2 className="title is-hidden">Manufacturers</h2>
             <div className="columns is-multiline is-variable is-8 is-centered">
