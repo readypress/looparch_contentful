@@ -7,7 +7,7 @@ function encode(data) {
     .join('&')
 }
 
-class ContactForm extends React.Component {
+class FormContact extends React.Component {
   constructor(props) {
     super(props)
     this.state = {}
@@ -38,6 +38,7 @@ class ContactForm extends React.Component {
 
   render() {
     const sectionName = this.props.section || 'Contact Us'
+    const manufacturers = this.props.manufacturers.edges
 
     return (
       <form
@@ -75,12 +76,27 @@ class ContactForm extends React.Component {
           </div>
         </div>
         <div className="field">
+          <label className="label">Manufacturer:</label>
+          <div className="control">
+            <span className="select">
+              <select name="manufacturer" defaultValue={sectionName} onChange={this.handleChange}>
+                {manufacturers.map(({ node }) => {
+                  return (
+                    <option key={node.id} value={node.title}>{node.title}</option>
+                  )
+                })}
+              </select>
+            </span>
+          </div>
+        </div>
+        <div className="field">
           <label className="label">Message:</label>
           <div className="control">
             <textarea
               className="textarea"
               name="message"
               onChange={this.handleChange}
+              placeholder={`I have a question about ${sectionName}...`}
             />
           </div>
         </div>
@@ -92,16 +108,10 @@ class ContactForm extends React.Component {
             </button>
           </div>
         </div>
-        <input
-          type="hidden"
-          name="section"
-          value={sectionName}
-          onChange={this.handleChange}
-        />
         <input type="hidden" name="bot-field" onChange={this.handleChange} />
       </form>
     )
   }
 }
 
-export default ContactForm
+export default FormContact

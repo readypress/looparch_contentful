@@ -4,7 +4,8 @@ import Link from 'gatsby-link'
 import Img from 'gatsby-image'
 
 import ProductPreview from '../components/product-preview'
-import ContactForm from '../components/contact-form'
+import FormContact from '../components/form-contact'
+import ManufacturerHero from '../components/manufacturer-hero'
 
 import styles from './manufacturer-post.sass'
 
@@ -13,6 +14,7 @@ class ManufacturerPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const post = this.props.data.contentfulManufacturer
     const products = this.props.data.allContentfulProduct || { edges: [] }
+    const manufacturers = this.props.data.allContentfulManufacturer || { edges: [] }
     const tags = post.tags || []
     const product_edges = []
 
@@ -32,67 +34,55 @@ class ManufacturerPostTemplate extends React.Component {
     })
 
     return (
-      <div className="manufacturer-post">
+      <div className="content-section manufacturer-post">
         <Helmet title={`${siteTitle} | ${post.title}`} />
-        <div className={'hero is-dark is-bold img-hero'}>
-          <div className="hero-image">
-            <Img
-              sizes={post.heroImage.sizes}
-              alt={post.heroImage.description}
-              outerWrapperClassName="hero-img"
-              css={{
-                zIndex: 1,
-                width: '100% !important',
-                height: '100% !important',
-              }}
-            />
-            <div
-              className="dark-background is-overlay"
-              css={{
-                backgroundColor: 'rgba(0,0,0,0.5)',
-                zIndex: 2,
-              }}
-            />
-          </div>
-          <div className="hero-body has-text-centered">
-            <Img
-              sizes={post.logoImageLight.resize}
-              alt={post.logoImageLight.description}
-              outerWrapperClassName="hero-logo"
-              css={{
-                zIndex: 3,
-              }}
-            />
-          </div>
-        </div>
+        <h1 className="is-hidden">{`${siteTitle} | ${post.title}`}</h1>
         <section className="section">
           <div className="container">
-            <div className="columns is-multiline">
+            <div className="columns is-multiline is-variable is-6">
               <div className="column is-one-third">
+                <Img
+                  sizes={post.logoImageDark.resize}
+                  className="image"
+                  outerWrapperClassName="logo-img"
+                  />
+                <br />
+                <Img
+                  sizes={post.heroImage.sizes}
+                  alt={post.heroImage.description}
+                  outerWrapperClassName="hero-img"
+                  className="image"
+                />
+                <br />
                 <div
                   className="content"
                   dangerouslySetInnerHTML={{
                     __html: post.description.childMarkdownRemark.html,
                   }}
                 />
-                <p>
-                  <a
-                    href={post.url}
-                    target="_blank"
-                    className="button is-primary"
-                    rel="noopener"
-                  >
-                    <span>Visit {post.title}</span>
-                  </a>
-                </p>
-                <div className="tags">
-                  {tags.map(node => {
-                    return (
-                      <span className="tag" key={node}>
-                        {node}
-                      </span>
-                    )
-                  })}
+                <div className="content">
+                  <p>
+                    <a
+                      href={post.url}
+                      target="_blank"
+                      className="button is-primary"
+                      rel="noopener"
+                    >
+                      <span>Visit {post.title}</span>
+                    </a>
+                  </p>
+                  <div className="tags"
+                    css={{
+                      marginTop: "1.5rem"
+                    }}>
+                    {tags.map(node => {
+                      return (
+                        <span className="tag" key={node}>
+                          {node}
+                        </span>
+                      )
+                    })}
+                  </div>
                 </div>
               </div>
               <div className="column is-marginless">
@@ -102,7 +92,7 @@ class ManufacturerPostTemplate extends React.Component {
                       key={node.title}
                       className="column is-multiline manufacturer-section is-paddingless is-marginless"
                     >
-                      <h2 className="title">{node.title}</h2>
+                      <h2 className="title is-size-4">{node.title}</h2>
                       {node.products.map(product => {
                         return (
                           <div
@@ -117,8 +107,8 @@ class ManufacturerPostTemplate extends React.Component {
                   )
                 })}
                 <section className="section">
-                  <h3 className="title">{post.title} Inquiries</h3>
-                  <ContactForm section={post.title} />
+                  <h3 className="title is-size-4">{post.title} Inquiries</h3>
+                  <FormContact section={post.title} manufacturers={manufacturers} />
                 </section>
               </div>
             </div>
@@ -191,6 +181,24 @@ export const pageQuery = graphql`
           aspectRatio
         }
       }
+      logoImageDark {
+        title
+        description
+        sizes(maxWidth: 500) {
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+        resize(width: 500, resizingBehavior: PAD) {
+          src
+          width
+          height
+          aspectRatio
+        }
+      }
     }
     allContentfulProduct(
       sort: { fields: [tag, title] }
@@ -228,6 +236,14 @@ export const pageQuery = graphql`
               aspectRatio
             }
           }
+        }
+      }
+    }
+    allContentfulManufacturer(sort: {fields: [title]}) {
+      edges {
+        node {
+          id
+          title
         }
       }
     }
