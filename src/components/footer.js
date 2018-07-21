@@ -43,7 +43,7 @@ class Footer extends React.Component {
                 return (
                   <li key={node.slug} className="tag">
                     <Link
-                      to={`/blog/${node.slug}`}
+                      to={`/articles/${node.slug}`}
                       className=""
                     >
                       {node.title}

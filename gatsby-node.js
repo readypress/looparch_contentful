@@ -39,7 +39,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         const manufacturers = result.data.allContentfulManufacturer.edges
         posts.forEach((post, index) => {
           createPage({
-            path: `/blog/${post.node.slug}/`,
+            path: `/articles/${post.node.slug}/`,
             component: blogPost,
             context: {
               slug: post.node.slug

@@ -13,14 +13,14 @@ class CarouselPreview extends React.Component {
         <Img sizes={article.heroImage.sizes} outerWrapperClassName="carousel-preview-image" />
         <div className="carousel-preview-content has-text-centered">
           <h3 className="title">
-            <Link to={`/blog/${article.slug}`}>{article.title}</Link>
+            <Link to={`/articles/${article.slug}`}>{article.title}</Link>
           </h3>
           <p className="subtitle"
             dangerouslySetInnerHTML={{
               __html: article.description.childMarkdownRemark.html,
             }}
           />
-          <Link to={`/blog/${article.slug}`} className="button is-primary">View</Link>
+          <Link to={`/articles/${article.slug}`} className="button is-primary">View</Link>
         </div>
         <div className="carousel-preview-dark-overlay"></div>
       </div>

@@ -70,23 +70,6 @@ class CarouselCss extends React.Component {
             </div>
           )
         })}
-        <div className="carousel-nav">
-          <a  className="icon is-large is-pulled-left" onClick={(e) => this.incrementSlides(-1)}>
-            <i className="fas fa-lg fa-angle-left"></i>
-          </a>
-          <a  className="icon is-large is-pulled-right" onClick={(e) => this.incrementSlides(+1)}>
-            <i className="fas fa-lg fa-angle-right"></i>
-          </a>
-        </div>
-        <div className="carousel-dots">
-          {posts.map(({ node }) => {
-            return (
-              <a key={node.slug} className="dot icon">
-                <i className="fas fa-circle"></i>
-              </a>
-            )
-          })}
-        </div>
       </div>
     )
   }
