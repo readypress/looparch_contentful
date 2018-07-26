@@ -13,6 +13,10 @@ class FormContact extends React.Component {
     this.state = {}
   }
 
+  componentDidMount() {
+    this.setState({ manufacturer: this.props.section || 'Contact Us' })
+  }
+
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
   }
