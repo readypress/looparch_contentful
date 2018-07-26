@@ -14,7 +14,9 @@ class ManufacturerPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const post = this.props.data.contentfulManufacturer
     const products = this.props.data.allContentfulProduct || { edges: [] }
-    const manufacturers = this.props.data.allContentfulManufacturer || { edges: [] }
+    const manufacturers = this.props.data.allContentfulManufacturer || {
+      edges: [],
+    }
     const tags = post.tags || []
     const product_edges = []
 
@@ -45,7 +47,7 @@ class ManufacturerPostTemplate extends React.Component {
                   sizes={post.logoImageDark.resize}
                   className="image"
                   outerWrapperClassName="logo-img"
-                  />
+                />
                 <br />
                 <Img
                   sizes={post.heroImage.sizes}
@@ -71,10 +73,12 @@ class ManufacturerPostTemplate extends React.Component {
                       <span>Visit {post.title}</span>
                     </a>
                   </p>
-                  <div className="tags"
+                  <div
+                    className="tags"
                     css={{
-                      marginTop: "1.5rem"
-                    }}>
+                      marginTop: '1.5rem',
+                    }}
+                  >
                     {tags.map(node => {
                       return (
                         <span className="tag" key={node}>
@@ -108,7 +112,10 @@ class ManufacturerPostTemplate extends React.Component {
                 })}
                 <section className="section">
                   <h3 className="title is-size-4">{post.title} Inquiries</h3>
-                  <FormContact section={post.title} manufacturers={manufacturers} />
+                  <FormContact
+                    section={post.title}
+                    manufacturers={manufacturers}
+                  />
                 </section>
               </div>
             </div>
@@ -239,7 +246,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulManufacturer(sort: {fields: [title]}) {
+    allContentfulManufacturer(sort: { fields: [title] }) {
       edges {
         node {
           id

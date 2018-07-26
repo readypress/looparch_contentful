@@ -15,11 +15,14 @@ class FormSignup extends React.Component {
           id="mc-embedded-subscribe-form"
           name="mc-embedded-subscribe-form"
           className="validate"
-          target="_blank">
+          target="_blank"
+        >
           <div id="mc_embed_signup_scroll">
             <h2 className="title is-size-5">Subscribe to our mailing list</h2>
             <div className="field">
-              <label className="label is-hidden" htmlFor="mce-EMAIL">Email Address  <span className="asterisk">*</span></label>
+              <label className="label is-hidden" htmlFor="mce-EMAIL">
+                Email Address <span className="asterisk">*</span>
+              </label>
               <div className="control">
                 <input
                   type="email"
@@ -27,11 +30,14 @@ class FormSignup extends React.Component {
                   className="required email input"
                   id="mce-EMAIL"
                   autoComplete="email"
-                  placeholder="Email Address*" />
+                  placeholder="Email Address*"
+                />
               </div>
             </div>
             <div className="field">
-              <label className="label is-hidden" htmlFor="mce-FNAME">First Name</label>
+              <label className="label is-hidden" htmlFor="mce-FNAME">
+                First Name
+              </label>
               <div className="control">
                 <input
                   type="text"
@@ -39,11 +45,14 @@ class FormSignup extends React.Component {
                   className="input"
                   id="mce-FNAME"
                   autoComplete="given-name"
-                  placeholder="First Name" />
+                  placeholder="First Name"
+                />
               </div>
             </div>
             <div className="field">
-              <label className="label is-hidden" htmlFor="mce-LNAME">Last Name</label>
+              <label className="label is-hidden" htmlFor="mce-LNAME">
+                Last Name
+              </label>
               <div className="control">
                 <input
                   type="text"
@@ -51,15 +60,21 @@ class FormSignup extends React.Component {
                   className="input"
                   id="mce-LNAME"
                   autoComplete="family-name"
-                  placeholder="Last Name" />
+                  placeholder="Last Name"
+                />
               </div>
             </div>
             <div id="mce-responses" className="clear">
-              <div className="response" id="mce-error-response"></div>
-              <div className="response" id="mce-success-response"></div>
+              <div className="response" id="mce-error-response" />
+              <div className="response" id="mce-success-response" />
             </div>
             <div aria-hidden="true" className="is-hidden">
-              <input type="text" name="b_6236ae131b11b8506326eed86_a7bb0e0ce6" tabIndex="-1" value="" />
+              <input
+                type="text"
+                name="b_6236ae131b11b8506326eed86_a7bb0e0ce6"
+                tabIndex="-1"
+                value=""
+              />
             </div>
             <div className="clear">
               <input
@@ -67,7 +82,8 @@ class FormSignup extends React.Component {
                 value="Subscribe"
                 name="subscribe"
                 id="mc-embedded-subscribe"
-                className="button is-primary" />
+                className="button is-primary"
+              />
             </div>
           </div>
         </form>

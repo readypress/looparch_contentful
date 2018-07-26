@@ -8,7 +8,9 @@ import FormContact from '../components/form-contact'
 class ContactPage extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title
-    const manufacturers = this.props.data.allContentfulManufacturer || { edges: [] }
+    const manufacturers = this.props.data.allContentfulManufacturer || {
+      edges: [],
+    }
 
     return (
       <div className="content-section">
@@ -19,7 +21,10 @@ class ContactPage extends React.Component {
             <h1 className="title is-size-4">Contact Us</h1>
             <div className="columns">
               <div className="column is-two-thirds">
-                <FormContact section="Contact Us" manufacturers={manufacturers}/>
+                <FormContact
+                  section="Contact Us"
+                  manufacturers={manufacturers}
+                />
               </div>
               <div className="column">
                 <div className="content">
@@ -50,7 +55,7 @@ export default ContactPage
 
 export const pageQuery = graphql`
   query ContactQuery {
-    allContentfulManufacturer(sort: {fields: [title]}) {
+    allContentfulManufacturer(sort: { fields: [title] }) {
       edges {
         node {
           id

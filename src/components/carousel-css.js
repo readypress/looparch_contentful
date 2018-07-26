@@ -8,14 +8,17 @@ class CarouselCss extends React.Component {
     super(props)
     this.state = {
       carouselItems: {},
-      slideIndex: 1
+      slideIndex: 1,
     }
   }
 
   componentDidMount() {
-    this.setState({carouselItems: document.getElementsByClassName('slide')}, (n) => {
-      this.showSlide(1)
-    })
+    this.setState(
+      { carouselItems: document.getElementsByClassName('slide') },
+      n => {
+        this.showSlide(1)
+      }
+    )
   }
 
   playSlides = () => {
@@ -25,29 +28,32 @@ class CarouselCss extends React.Component {
   }
 
   incrementSlides = n => {
-    this.setState((prevState) => {
-      let current = prevState.slideIndex += n
-      const items = this.state.carouselItems
-      if (current > items.length) {
-        current = 1
+    this.setState(
+      prevState => {
+        let current = (prevState.slideIndex += n)
+        const items = this.state.carouselItems
+        if (current > items.length) {
+          current = 1
+        }
+        if (current < 1) {
+          current = items.length
+        }
+        return { slideIndex: current }
+      },
+      () => {
+        this.showSlide(this.state.slideIndex)
       }
-      if (current < 1) {
-        current = items.length
-      }
-      return { slideIndex: current }
-    }, () => {
-      this.showSlide(this.state.slideIndex)
-    })
+    )
   }
 
   showSlide = n => {
     let i
     const items = this.state.carouselItems
     if (n > items.length) {
-      this.setState({slideIndex: 1})
+      this.setState({ slideIndex: 1 })
     }
     if (n < 1) {
-      this.setState({slideIndex: items.length})
+      this.setState({ slideIndex: items.length })
     }
     for (i = items.length - 1; i >= 0; i--) {
       items[i].classList.add('hidden')
