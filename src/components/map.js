@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 class GoogleMap extends React.Component {
   render() {
     const LOOPARCH_MAPS_KEY = process.env.LOOPARCH_MAPS_KEY || ''
+    console.log(`LOOPARCH_MAPS_KEY = ${LOOPARCH_MAPS_KEY}`)
     return (
       <section className="">
         <Helmet>
