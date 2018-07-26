@@ -83,10 +83,16 @@ class FormContact extends React.Component {
           <label className="label">Manufacturer:</label>
           <div className="control">
             <span className="select">
-              <select name="manufacturer" defaultValue={sectionName} onChange={this.handleChange}>
+              <select
+                name="manufacturer"
+                defaultValue={sectionName}
+                onChange={this.handleChange}
+              >
                 {manufacturers.map(({ node }) => {
                   return (
-                    <option key={node.id} value={node.title}>{node.title}</option>
+                    <option key={node.id} value={node.title}>
+                      {node.title}
+                    </option>
                   )
                 })}
               </select>

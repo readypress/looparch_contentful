@@ -50,7 +50,7 @@ export const pageQuery = graphql`
             file {
               url
             }
-            sizes(maxHeight:600) {
+            sizes(maxHeight: 600) {
               aspectRatio
               src
               srcSet

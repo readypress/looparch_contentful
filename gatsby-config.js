@@ -79,6 +79,7 @@ module.exports = {
     resolve: `gatsby-plugin-sitemap`,
     options: {
       output: `/sitemap.xml`,
+      exclude: [`/thanks`],
       query: `
         {
           site {
@@ -96,6 +97,16 @@ module.exports = {
           }
       }`
     }
-  }
+  },
+  {
+    resolve: `gatsby-plugin-google-tagmanager`,
+    options: {
+      id: process.env.LOOPARCH_TAG_MANAGER_ID,
+
+      // Include GTM in development.
+      // Defaults to false meaning GTM will only be loaded in production.
+      includeInDevelopment: true,
+    },
+  },
   ],
 }
