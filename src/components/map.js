@@ -5,6 +5,7 @@ class GoogleMap extends React.Component {
   render() {
     const LOOPARCH_MAPS_KEY = process.env.LOOPARCH_MAPS_KEY || ''
     console.log(`LOOPARCH_MAPS_KEY = ${LOOPARCH_MAPS_KEY}`)
+    console.log(`process.env = ${JSON.stringify(process.env)}`)
     return (
       <section className="">
         <Helmet>
