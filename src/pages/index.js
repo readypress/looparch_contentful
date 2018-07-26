@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
 
 import Hero from '../components/hero'
-import Carousel from '../components/carousel'
 import ArticlePreview from '../components/article-preview'
 
 class RootIndex extends React.Component {
