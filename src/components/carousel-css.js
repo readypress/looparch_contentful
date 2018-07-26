@@ -1,5 +1,4 @@
 import React from 'react'
-import Slider from 'react-slick'
 import CarouselPreview from './carousel-preview'
 
 import styles from './carousel-css.sass'
