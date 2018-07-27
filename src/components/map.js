@@ -2,8 +2,17 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 class GoogleMap extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state={
+      LOOPARCH_MAPS_KEY: process.env.LOOPARCH_MAPS_KEY
+    }
+    console.log(process.env)
+  }
+
   render() {
-    const LOOPARCH_MAPS_KEY = process.env.LOOPARCH_MAPS_KEY || ''
+    const LOOPARCH_MAPS_KEY = this.state.LOOPARCH_MAPS_KEY
+    console.log(LOOPARCH_MAPS_KEY)
     return (
       <section className="">
         <Helmet>
