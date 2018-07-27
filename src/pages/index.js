@@ -16,15 +16,20 @@ class RootIndex extends React.Component {
       title: this.props.data.site.siteMetadata.title,
       description: {
         internal: {
-          content: this.props.data.site.siteMetadata.description
-        }
-      }
+          content: this.props.data.site.siteMetadata.description,
+        },
+      },
     }
 
     return (
       <div className="content-section">
         <Helmet title={siteTitle} />
-        <SEO pagePath={``} postNode={postNode} pageSEO siteMetadata={this.props.data.site.siteMetadata} />
+        <SEO
+          pagePath={``}
+          postNode={postNode}
+          pageSEO
+          siteMetadata={this.props.data.site.siteMetadata}
+        />
         <Hero posts={posts} />
 
         <section className="section">

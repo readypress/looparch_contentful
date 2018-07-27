@@ -16,18 +16,24 @@ class ContactPage extends React.Component {
       title: 'Contact Us',
       description: {
         internal: {
-          content: 'We would love to hear from you.'
-        }
-      }
+          content: 'We would love to hear from you.',
+        },
+      },
     }
 
     return (
       <div className="content-section">
         <Helmet title={`${siteTitle} | Contact Us`} />
-        <SEO pagePath={`contact`} postNode={postNode} pageSEO siteMetadata={this.props.data.site.siteMetadata} />
+        <SEO
+          pagePath={`contact`}
+          postNode={postNode}
+          pageSEO
+          siteMetadata={this.props.data.site.siteMetadata}
+        />
         <GoogleMap
           API_KEY={this.props.data.site.siteMetadata.mapKey}
-          PLACE_ID={this.props.data.site.siteMetadata.placeId} />
+          PLACE_ID={this.props.data.site.siteMetadata.placeId}
+        />
         <section className="section">
           <div className="container">
             <h1 className="title is-size-4">Contact Us</h1>

@@ -8,7 +8,14 @@ class SEO extends React.Component {
   }
 
   render() {
-    const { postNode, pagePath, postSEO, pageSEO, customTitle, siteMetadata } = this.props
+    const {
+      postNode,
+      pagePath,
+      postSEO,
+      pageSEO,
+      customTitle,
+      siteMetadata,
+    } = this.props
     let title
     let description
     let image
@@ -62,24 +69,24 @@ class SEO extends React.Component {
         legalName: `${siteMetadata.title}, LLC`,
         url: siteMetadata.siteUrl,
         logo: image,
-        foundingDate: "2009",
+        foundingDate: '2009',
         address: {
           '@type': 'PostalAddress',
           streetAddress: '3110 N 16th Street',
           addressLocality: 'Phoenix',
           addressRegion: 'AZ',
           postalCode: '85016',
-          addressCountry: 'USA'
+          addressCountry: 'USA',
         },
         contactPoint: {
           '@type': 'ContactPoint',
           contactType: 'customer inquiry',
-          email: 'info@looparch.com'
+          email: 'info@looparch.com',
         },
         sameAs: [
           'https://www.instagram.com/looparchitecturalmaterials/',
-          'https://www.facebook.com/looparch/'
-        ]
+          'https://www.facebook.com/looparch/',
+        ],
       },
       {
         '@context': 'http://schema.org',
@@ -90,20 +97,20 @@ class SEO extends React.Component {
           addressLocality: 'Phoenix',
           addressRegion: 'AZ',
           postalCode: '85016',
-          addressCountry: 'USA'
+          addressCountry: 'USA',
         },
         description: `${siteMetadata.description}`,
         name: siteMetadata.title,
-        openingHours: "Mo,Tu,We,Th,Fr 09:00-17:00",
+        openingHours: 'Mo,Tu,We,Th,Fr 09:00-17:00',
         geo: {
           '@type': 'GeoCoordinates',
           latitude: '33.484319',
-          longitude: '-112.047970'
+          longitude: '-112.047970',
         },
         sameAs: [
           'https://www.instagram.com/looparchitecturalmaterials/',
-          'https://www.facebook.com/looparch/'
-        ]
+          'https://www.facebook.com/looparch/',
+        ],
       },
     ]
 
@@ -167,7 +174,7 @@ class SEO extends React.Component {
         '@type': 'WebPage',
         url: pageUrl,
         name: title,
-        description: description
+        description: description,
       })
     }
 

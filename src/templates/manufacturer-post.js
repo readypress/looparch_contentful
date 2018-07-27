@@ -40,7 +40,12 @@ class ManufacturerPostTemplate extends React.Component {
     return (
       <div className="content-section manufacturer-post">
         <Helmet title={`${siteTitle} | ${post.title}`} />
-        <SEO pagePath={`manufacturers/${post.slug}`} postNode={post} pageSEO siteMetadata={siteMetadata} />
+        <SEO
+          pagePath={`manufacturers/${post.slug}`}
+          postNode={post}
+          pageSEO
+          siteMetadata={siteMetadata}
+        />
         <h1 className="is-hidden">{`${siteTitle} | ${post.title}`}</h1>
         <section className="section">
           <div className="container">

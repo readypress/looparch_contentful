@@ -8,27 +8,35 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     const blogPost = path.resolve('./src/templates/blog-post.js')
     const manufacturerPost = path.resolve('./src/templates/manufacturer-post.js')
     resolve(
-      graphql(
-        `
-          {
-            allContentfulBlogPost {
-              edges {
-                node {
-                  title
-                  slug
+      graphql(`
+        {
+          allContentfulBlogPost {
+            edges {
+              node {
+                # try to find a unique id for each node
+                # if this field is absent, it's going to
+                # be inserted by Algolia automatically
+                # and will be less simple to update etc.
+                objectID: id
+                title
+                slug
+                publishDate
+                tags
+                description {
+                  internal {
+                    content
+                  }
                 }
-              }
-            }
-            allContentfulManufacturer {
-              edges {
-                node {
-                  title
-                  slug
+                body {
+                  childMarkdownRemark {
+                    html
+                  }
                 }
               }
             }
           }
-          `
+        }
+        `
       ).then(result => {
         if (result.errors) {
           console.log(result.errors)
