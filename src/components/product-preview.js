@@ -21,6 +21,9 @@ class ProductPreviewTemplate extends React.Component {
           className="image"
           outerWrapperClassName="product-preview-image"
         />
+        <noscript>
+          <img src={product.productImage.file.url} alt={product.productImage.description} />
+        </noscript>
         <h3>{product.title}</h3>
       </div>
     )
