@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+console.log(`ENV = ${JSON.stringify(process.env)}`)
+
 let contentfulConfig
 
 try {
