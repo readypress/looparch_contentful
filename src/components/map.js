@@ -4,15 +4,13 @@ import Helmet from 'react-helmet'
 class GoogleMap extends React.Component {
   constructor(props) {
     super(props)
-    this.state={
-      LOOPARCH_MAPS_KEY: process.env.LOOPARCH_MAPS_KEY
-    }
-    console.log(process.env)
+    this.state={}
   }
 
   render() {
-    const LOOPARCH_MAPS_KEY = this.state.LOOPARCH_MAPS_KEY
-    console.log(LOOPARCH_MAPS_KEY)
+    console.log(this.props)
+    const LOOPARCH_MAPS_KEY = this.props.API_KEY
+
     return (
       <section className="">
         <Helmet>

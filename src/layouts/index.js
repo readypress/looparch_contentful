@@ -16,6 +16,7 @@ class Template extends React.Component {
     const { location, children } = this.props
     const manufacturers = this.props.data.allContentfulManufacturer.edges
     const articles = this.props.data.allContentfulBlogPost.edges
+    const siteMetadata = this.props.data.site.siteMetadata
 
     let header
 
@@ -29,8 +30,13 @@ class Template extends React.Component {
           <html className="has-navbar-fixed-top" lang="en" />
           <meta
             name="description"
-            content="Loop Architectural Materials represents leading brands in contract furniture, glass, decorative architectural and interior design products in Arizona."
+            content={siteMetadata.description}
           />
+          <meta property="og:title" content={siteMetadata.title} />
+          <meta property="og:url" content={siteMetadata.siteUrl} />
+          <meta property="og:locale" content="en_US" />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content={siteMetadata.title} />
         </Helmet>
         <Navigation
           manufacturers={manufacturers}
@@ -78,6 +84,8 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
+        description
       }
     }
   }

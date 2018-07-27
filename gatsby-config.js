@@ -2,8 +2,6 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-console.log(`ENV = ${JSON.stringify(process.env)}`)
-
 let contentfulConfig
 
 try {
@@ -26,7 +24,9 @@ try {
 module.exports = {
   siteMetadata: {
     title: 'Loop Architectural Materials',
-    siteUrl: process.env.SITE_URL || 'https://looparch.com'
+    siteUrl: process.env.SITE_URL || 'https://looparch.com',
+    description: 'Loop Architectural Materials represents leading brands in contract furniture, glass, decorative architectural and interior design products in Arizona.',
+    mapKey: process.env.LOOPARCH_MAPS_KEY || ''
   },
   plugins: [
     'gatsby-transformer-remark',
@@ -104,10 +104,7 @@ module.exports = {
     resolve: `gatsby-plugin-google-tagmanager`,
     options: {
       id: process.env.LOOPARCH_TAG_MANAGER_ID,
-
-      // Include GTM in development.
-      // Defaults to false meaning GTM will only be loaded in production.
-      includeInDevelopment: true,
+      includeInDevelopment: false,
     },
   },
   ],

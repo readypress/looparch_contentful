@@ -15,7 +15,7 @@ class ContactPage extends React.Component {
     return (
       <div className="content-section">
         <Helmet title={`${siteTitle} | Contact Us`} />
-        <GoogleMap />
+        <GoogleMap API_KEY={this.props.data.site.siteMetadata.mapKey} />
         <section className="section">
           <div className="container">
             <h1 className="title is-size-4">Contact Us</h1>
@@ -66,6 +66,8 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        description
+        mapKey
       }
     }
   }
