@@ -25,7 +25,9 @@ class ContactPage extends React.Component {
       <div className="content-section">
         <Helmet title={`${siteTitle} | Contact Us`} />
         <SEO pagePath={`contact`} postNode={postNode} pageSEO siteMetadata={this.props.data.site.siteMetadata} />
-        <GoogleMap API_KEY={this.props.data.site.siteMetadata.mapKey} />
+        <GoogleMap
+          API_KEY={this.props.data.site.siteMetadata.mapKey}
+          PLACE_ID={this.props.data.site.siteMetadata.placeId} />
         <section className="section">
           <div className="container">
             <h1 className="title is-size-4">Contact Us</h1>
@@ -83,6 +85,7 @@ export const pageQuery = graphql`
         shareImageHeight
         publisher
         mapKey
+        placeId
       }
     }
   }
