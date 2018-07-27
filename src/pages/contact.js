@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 
 import GoogleMap from '../components/map'
 import FormContact from '../components/form-contact'
+import SEO from '../components/seo'
 
 class ContactPage extends React.Component {
   render() {
@@ -11,10 +12,19 @@ class ContactPage extends React.Component {
     const manufacturers = this.props.data.allContentfulManufacturer || {
       edges: [],
     }
+    const postNode = {
+      title: 'Contact Us',
+      description: {
+        internal: {
+          content: 'We would love to hear from you.'
+        }
+      }
+    }
 
     return (
       <div className="content-section">
         <Helmet title={`${siteTitle} | Contact Us`} />
+        <SEO pagePath={`contact`} postNode={postNode} pageSEO siteMetadata={this.props.data.site.siteMetadata} />
         <GoogleMap API_KEY={this.props.data.site.siteMetadata.mapKey} />
         <section className="section">
           <div className="container">
@@ -66,7 +76,12 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
         description
+        shareImage
+        shareImageWidth
+        shareImageHeight
+        publisher
         mapKey
       }
     }

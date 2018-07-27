@@ -5,17 +5,26 @@ import Img from 'gatsby-image'
 
 import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
+import SEO from '../components/seo'
 
 class RootIndex extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title
     const posts = this.props.data.allContentfulBlogPost.edges
     const manufacturers = this.props.data.allContentfulManufacturer.edges
+    const postNode = {
+      title: this.props.data.site.siteMetadata.title,
+      description: {
+        internal: {
+          content: this.props.data.site.siteMetadata.description
+        }
+      }
+    }
 
     return (
       <div className="content-section">
         <Helmet title={siteTitle} />
-
+        <SEO pagePath={``} postNode={postNode} pageSEO siteMetadata={this.props.data.site.siteMetadata} />
         <Hero posts={posts} />
 
         <section className="section">
@@ -132,6 +141,12 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
+        description
+        shareImage
+        shareImageWidth
+        shareImageHeight
+        publisher
       }
     }
   }

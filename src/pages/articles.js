@@ -3,15 +3,25 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 import ArticlePreview from '../components/article-preview'
+import SEO from '../components/seo'
 
 class ArticleIndex extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title
     const posts = this.props.data.allContentfulBlogPost.edges
+    const postNode = {
+      title: 'Articles',
+      description: {
+        internal: {
+          content: 'A list of articles and press releases from Loop Architectural Materials listed in the order they were created.'
+        }
+      }
+    }
 
     return (
       <div className="content-section">
         <Helmet title={`${siteTitle} | Articles`} />
+        <SEO pagePath={`articles`} postNode={postNode} pageSEO siteMetadata={this.props.data.site.siteMetadata} />
         <div className="hero is-primary is-bold">
           <div className="hero-body has-text-centered">
             <h1 className="title">Articles</h1>
@@ -70,6 +80,12 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
+        description
+        shareImage
+        shareImageWidth
+        shareImageHeight
+        publisher
       }
     }
   }

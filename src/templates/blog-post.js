@@ -3,14 +3,18 @@ import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import Img from 'gatsby-image'
 
+import SEO from '../components/seo'
+
 class BlogPostTemplate extends React.Component {
   render() {
+    const siteMetadata = this.props.data.site.siteMetadata
+    const siteTitle = siteMetadata.title
     const post = this.props.data.contentfulBlogPost
-    const siteTitle = this.props.data.site.siteMetadata.title
 
     return (
       <div className="article content-section">
         <Helmet title={`${siteTitle} | ${post.title}`} />
+        <SEO pagePath={`articles/${post.slug}`} postNode={post} postSEO siteMetadata={siteMetadata} />
         <div>
           <Img sizes={post.heroImage.sizes} alt="" />
         </div>
@@ -35,7 +39,13 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     contentfulBlogPost(slug: { eq: $slug }) {
       title
-      publishDate(formatString: "MMMM Do, YYYY")
+      slug
+      publishDate
+      description {
+        internal {
+          content
+        }
+      }
       heroImage {
         sizes(maxWidth: 800) {
           aspectRatio
@@ -44,6 +54,15 @@ export const pageQuery = graphql`
           srcWebp
           srcSetWebp
           sizes
+        }
+        resolutions(width: 300) {
+          aspectRatio
+          width
+          height
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
         }
       }
       body {
@@ -55,6 +74,12 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
+        description
+        shareImage
+        shareImageWidth
+        shareImageHeight
+        publisher
       }
     }
   }

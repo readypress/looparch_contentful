@@ -6,12 +6,14 @@ import Img from 'gatsby-image'
 import ProductPreview from '../components/product-preview'
 import FormContact from '../components/form-contact'
 import ManufacturerHero from '../components/manufacturer-hero'
+import SEO from '../components/seo'
 
 import styles from './manufacturer-post.sass'
 
 class ManufacturerPostTemplate extends React.Component {
   render() {
-    const siteTitle = this.props.data.site.siteMetadata.title
+    const siteMetadata = this.props.data.site.siteMetadata
+    const siteTitle = siteMetadata.title
     const post = this.props.data.contentfulManufacturer
     const products = this.props.data.allContentfulProduct || { edges: [] }
     const manufacturers = this.props.data.allContentfulManufacturer || {
@@ -38,6 +40,7 @@ class ManufacturerPostTemplate extends React.Component {
     return (
       <div className="content-section manufacturer-post">
         <Helmet title={`${siteTitle} | ${post.title}`} />
+        <SEO pagePath={`manufacturers/${post.slug}`} postNode={post} pageSEO siteMetadata={siteMetadata} />
         <h1 className="is-hidden">{`${siteTitle} | ${post.title}`}</h1>
         <section className="section">
           <div className="container">
@@ -135,11 +138,14 @@ export const pageQuery = graphql`
       slug
       tags
       url
-      publishDate(formatString: "MMMM Do, YYYY")
+      publishDate
       resizeImages
       description {
         childMarkdownRemark {
           html
+        }
+        internal {
+          content
         }
       }
       heroImage {
@@ -260,6 +266,12 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
+        description
+        shareImage
+        shareImageWidth
+        shareImageHeight
+        publisher
       }
     }
   }
