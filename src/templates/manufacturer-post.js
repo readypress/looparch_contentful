@@ -219,6 +219,9 @@ export const pageQuery = graphql`
           productImage {
             title
             description
+            file {
+              url
+            }
             resolutions(width: 500) {
               aspectRatio
               width
