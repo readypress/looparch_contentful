@@ -8,7 +8,6 @@ class GoogleMap extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     const LOOPARCH_MAPS_KEY = this.props.API_KEY
 
     return (
@@ -16,7 +15,7 @@ class GoogleMap extends React.Component {
         <Helmet>
           <script type="text/javascript">
             {`
-            const looparch = {lat: 33.4843191, lng: -112.0479};
+            const looparch = {lat: 33.484319, lng: -112.047970};
             const looparchPlaceID = 'ChIJu8uonngSK4cRyrk911TEaok';
             let map
             let marker

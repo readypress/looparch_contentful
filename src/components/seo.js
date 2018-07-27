@@ -81,6 +81,30 @@ class SEO extends React.Component {
           'https://www.facebook.com/looparch/'
         ]
       },
+      {
+        '@context': 'http://schema.org',
+        '@type': 'LocalBusiness',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '3110 N 16th Street',
+          addressLocality: 'Phoenix',
+          addressRegion: 'AZ',
+          postalCode: '85016',
+          addressCountry: 'USA'
+        },
+        description: `${siteMetadata.description}`,
+        name: siteMetadata.title,
+        openingHours: "Mo,Tu,We,Th,Fr 09:00-17:00",
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: '33.484319',
+          longitude: '-112.047970'
+        },
+        sameAs: [
+          'https://www.instagram.com/looparchitecturalmaterials/',
+          'https://www.facebook.com/looparch/'
+        ]
+      },
     ]
 
     // Blog Post Schema
