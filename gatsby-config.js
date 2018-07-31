@@ -28,6 +28,7 @@ module.exports = {
     description: 'Loop Architectural Materials represents leading brands in contract furniture, glass, decorative architectural and interior design products in Arizona.',
     mapKey: process.env.LOOPARCH_MAPS_KEY || '',
     placeId: process.env.LOOPARCH_PLACE_ID || '',
+    recaptchaKey: process.env.SITE_RECAPTCHA_KEY || '',
     shareImageWidth: 600,
     shareImageHeight: 600,
     shareImage: '/favicons/apple-touch-icon-180x180.png',

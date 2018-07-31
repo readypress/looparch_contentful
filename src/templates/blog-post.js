@@ -14,7 +14,12 @@ class BlogPostTemplate extends React.Component {
     return (
       <div className="article content-section">
         <Helmet title={`${siteTitle} | ${post.title}`} />
-        <SEO pagePath={`articles/${post.slug}`} postNode={post} postSEO siteMetadata={siteMetadata} />
+        <SEO
+          pagePath={`articles/${post.slug}`}
+          postNode={post}
+          postSEO
+          siteMetadata={siteMetadata}
+        />
         <div>
           <Img sizes={post.heroImage.sizes} alt="" />
         </div>

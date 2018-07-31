@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 class GoogleMap extends React.Component {
   constructor(props) {
     super(props)
-    this.state={}
+    this.state = {}
   }
 
   render() {

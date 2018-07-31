@@ -1,5 +1,6 @@
 import React from 'react'
 import { navigateTo } from 'gatsby-link'
+import Recaptcha from 'react-google-recaptcha'
 
 function encode(data) {
   return Object.keys(data)
@@ -14,18 +15,22 @@ class FormContact extends React.Component {
       name: '',
       email: '',
       manufacturer: this.props.section || 'Contact Us',
-      message: ''
+      message: '',
     }
   }
 
   componentDidMount() {
     this.setState({
-      manufacturer: this.props.section || 'Contact Us'
+      manufacturer: this.props.section || 'Contact Us',
     })
   }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
+  }
+
+  handleRecaptcha = value => {
+    this.setState({ 'g-recaptcha-response': value })
   }
 
   handleSubmit = e => {
@@ -50,15 +55,15 @@ class FormContact extends React.Component {
   render() {
     const sectionName = this.props.section || 'Contact Us'
     const manufacturers = this.props.manufacturers.edges
+    const recaptchaKey = this.props.recaptchaKey
 
     return (
       <form
         name="contact"
         method="POST"
-        data-netlify="true"
         action="/thanks"
-        data-netlify-honeypot="bot-field"
-        data-netlify-recaptcha
+        data-netlify="true"
+        data-netlify-recaptcha="true"
         onSubmit={this.handleSubmit}
       >
         <div className="field">
@@ -118,7 +123,13 @@ class FormContact extends React.Component {
             />
           </div>
         </div>
-        <div data-netlify-recaptcha></div>
+        <div className="field">
+          <Recaptcha
+            ref="recaptcha"
+            sitekey={recaptchaKey}
+            onChange={this.handleRecaptcha}
+          />
+        </div>
         <div className="field">
           <div className="control">
             <button type="submit" className="button is-link">
@@ -126,7 +137,6 @@ class FormContact extends React.Component {
             </button>
           </div>
         </div>
-        <input type="hidden" name="bot-field" onChange={this.handleChange} />
       </form>
     )
   }
