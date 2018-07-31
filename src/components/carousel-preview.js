@@ -25,7 +25,7 @@ class CarouselPreview extends React.Component {
             }}
           />
           <Link to={`/articles/${article.slug}`} className="button is-primary">
-            View
+            Read More
           </Link>
         </div>
         <div className="carousel-preview-dark-overlay" />
