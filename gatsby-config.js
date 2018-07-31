@@ -23,35 +23,46 @@ try {
 }
 
 // Algolia
-const query = `{
-  allSitePage {
+const blogPostQuery = `{
+  allContentfulBlogPost {
     edges {
       node {
-        # try to find a unique id for each node
-        # if this field is absent, it's going to
-        # be inserted by Algolia automatically
-        # and will be less simple to update etc.
-        objectID: id
-        component
-        path
-        componentChunkName
-        jsonName
-        internal {
-          type
-          contentDigest
-          owner
+        title
+        slug
+        body {
+          childMarkdownRemark {
+            html
+          }
         }
+        tags
       }
     }
   }
-}`;
+}`
+
+const manufacturerQuery = `{
+  allContentfulManufacturer {
+    edges {
+      node {
+        title
+        slug
+        body:description {
+          childMarkdownRemark {
+            html
+          }
+        }
+        tags
+      }
+    }
+  }
+}`
 
 const queries = [
   {
-    query,
-    transformer: ({ data }) => data.allSitePage.edges.map(({ node }) => node), // optional
-    indexName:  `${process.env.NODE_ENV}_LOOP_SEARCH`, // overrides main index name, optional
-  },
+    blogPostQuery,
+    transformer: ({ data }) => data.allContentfulBlogPost.edges.map(({ node }) => node), // optional
+    // indexName: 'production_LOOP_SEARCH', // overrides main index name, optional
+  }
 ];
 
 module.exports = {
