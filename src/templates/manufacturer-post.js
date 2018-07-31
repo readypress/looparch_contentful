@@ -39,15 +39,15 @@ class ManufacturerPostTemplate extends React.Component {
 
     return (
       <div className="content-section manufacturer-post">
-        <Helmet title={`${siteTitle} | ${post.title}`} />
+        <Helmet title={`${post.title} | ${siteTitle}`} />
         <SEO pagePath={`manufacturers/${post.slug}`} postNode={post} pageSEO siteMetadata={siteMetadata} />
-        <h1 className="is-hidden">{`${siteTitle} | ${post.title}`}</h1>
+        <h1 className="is-hidden">{`${post.title} | ${siteTitle}`}</h1>
         <section className="section">
           <div className="container">
             <div className="columns is-multiline is-variable is-6">
               <div className="column is-one-third">
                 <Img
-                  sizes={post.logoImageDark.resize}
+                  sizes={post.logoImageDark.sizes}
                   className="image"
                   outerWrapperClassName="logo-img"
                 />

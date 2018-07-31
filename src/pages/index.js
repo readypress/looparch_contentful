@@ -70,7 +70,7 @@ class RootIndex extends React.Component {
                 return (
                   <div key={node.slug} className="column is-one-fifth">
                     <Link to={`manufacturers/${node.slug}`}>
-                      <Img key={node.slug} sizes={node.logoImageDark.resize} />
+                      <Img key={node.slug} sizes={node.logoImageDark.sizes} />
                     </Link>
                   </div>
                 )
@@ -98,13 +98,7 @@ export const pageQuery = graphql`
           publishDate(formatString: "MMMM Do, YYYY")
           tags
           heroImage {
-            resize(height: 300, resizingBehavior: FILL) {
-              src
-              width
-              height
-              aspectRatio
-            }
-            sizes(maxHeight: 600) {
+            sizes(maxHeight: 400, resizingBehavior: FILL) {
               ...GatsbyContentfulSizes_withWebp
             }
           }
@@ -123,11 +117,8 @@ export const pageQuery = graphql`
           slug
           logoImageDark {
             description
-            resize(height: 200, resizingBehavior: PAD) {
-              src
-              width
-              height
-              aspectRatio
+            sizes(maxHeight: 400, resizingBehavior: PAD) {
+              ...GatsbyContentfulSizes_withWebp
             }
           }
         }
