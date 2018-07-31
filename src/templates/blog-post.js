@@ -48,21 +48,10 @@ export const pageQuery = graphql`
       }
       heroImage {
         sizes(maxWidth: 800) {
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+          ...GatsbyContentfulSizes_withWebp
         }
         resolutions(width: 300) {
-          aspectRatio
-          width
-          height
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
+          ...GatsbyContentfulResolutions_withWebp
         }
       }
       body {

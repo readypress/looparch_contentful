@@ -152,17 +152,11 @@ export const pageQuery = graphql`
         file {
           url
         }
-        sizes {
-          ...GatsbyContentfulSizes_tracedSVG
+        sizes(maxWidth: 300) {
+          ...GatsbyContentfulSizes_withWebp
         }
         resolutions(width: 300) {
-          aspectRatio
-          width
-          height
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
+          ...GatsbyContentfulResolutions_withWebp
         }
         resize(width: 500) {
           src
@@ -175,12 +169,7 @@ export const pageQuery = graphql`
         title
         description
         sizes(maxWidth: 500) {
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+          ...GatsbyContentfulSizes_withWebp
         }
         resize(width: 351, height: 117, resizingBehavior: PAD) {
           src
@@ -193,12 +182,7 @@ export const pageQuery = graphql`
         title
         description
         sizes(maxWidth: 500) {
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+          ...GatsbyContentfulSizes_withWebp
         }
         resize(width: 500, resizingBehavior: PAD) {
           src
@@ -224,16 +208,10 @@ export const pageQuery = graphql`
               url
             }
             resolutions(width: 500) {
-              aspectRatio
-              width
-              height
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
+              ...GatsbyContentfulResolutions_withWebp
             }
-            sizes {
-              ...GatsbyContentfulSizes_tracedSVG
+            sizes(maxWidth: 370) {
+              ...GatsbyContentfulSizes_withWebp
             }
             resize(width: 500, height: 400, resizingBehavior: FILL) {
               src
