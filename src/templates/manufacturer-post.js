@@ -71,16 +71,26 @@ class ManufacturerPostTemplate extends React.Component {
                   }}
                 />
                 <div className="content">
-                  <p>
-                    <a
-                      href={post.url}
-                      target="_blank"
-                      className="button is-primary"
-                      rel="noopener"
-                    >
-                      <span>Visit {post.title}</span>
-                    </a>
-                  </p>
+                  <div className="field is-grouped">
+                    <p className="control">
+                      <a
+                        href={post.url}
+                        target="_blank"
+                        className="button is-primary"
+                        rel="noopener"
+                      >
+                        <span>Visit {post.title}</span>
+                      </a>
+                    </p>
+                    <p className="control">
+                      <a
+                        href="#inquiry"
+                        className="button is-secondary"
+                      >
+                        <span>Inquire</span>
+                      </a>
+                    </p>
+                  </div>
                   <div
                     className="tags"
                     css={{
@@ -118,7 +128,7 @@ class ManufacturerPostTemplate extends React.Component {
                     </div>
                   )
                 })}
-                <section className="section inquiry-section">
+                <section id="inquiry" className="section inquiry-section">
                   <h3 className="title is-size-4">{post.title} Inquiries</h3>
                   <FormContact
                     section={post.title}

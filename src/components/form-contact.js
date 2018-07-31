@@ -16,6 +16,7 @@ class FormContact extends React.Component {
       email: '',
       manufacturer: this.props.section || 'Contact Us',
       message: '',
+      'g-recaptcha-response': null,
     }
   }
 
@@ -31,12 +32,18 @@ class FormContact extends React.Component {
 
   handleRecaptcha = value => {
     this.setState({ 'g-recaptcha-response': value })
+    document.getElementById('recapchta-message').classList.add('is-hidden')
   }
 
   handleSubmit = e => {
     const form = e.target
 
     e.preventDefault()
+
+    if (!this.state['g-recaptcha-response']) {
+      return document.getElementById('recapchta-message').classList.remove('is-hidden')
+    }
+
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -128,7 +135,11 @@ class FormContact extends React.Component {
             ref="recaptcha"
             sitekey={recaptchaKey}
             onChange={this.handleRecaptcha}
+            required
           />
+          <div className="is-hidden is-inline-block notification is-danger" id="recapchta-message">
+            Recaptcha is required.
+          </div>
         </div>
         <div className="field">
           <div className="control">
