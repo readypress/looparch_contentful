@@ -4,3 +4,39 @@
 [Build]
   Publish = ""
   Functions = ""
+
+[[redirects]]
+  from = "/products/"
+  to = "/manufacturers/"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/about/"
+  to = "/contact/"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/contact-us-finium/"
+  to = "/manufacturers/finium/"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/products/*"
+  to = "/manufacturers/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/lines/*"
+  to = "/manufacturers/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/tag/wood-paneling"
+  to = "/manufacturers/finium/"
+  status = 301
+  force = false

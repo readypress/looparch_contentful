@@ -118,7 +118,7 @@ class ManufacturerPostTemplate extends React.Component {
                     </div>
                   )
                 })}
-                <section className="section">
+                <section className="section inquiry-section">
                   <h3 className="title is-size-4">{post.title} Inquiries</h3>
                   <FormContact
                     section={post.title}
