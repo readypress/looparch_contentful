@@ -73,8 +73,9 @@ class SEO extends React.Component {
         },
         contactPoint: {
           '@type': 'ContactPoint',
-          contactType: 'customer inquiry',
-          email: 'info@looparch.com'
+          contactType: 'sales',
+          email: 'info@looparch.com',
+          url: `${siteMetadata.siteUrl}/contact/`
         },
         sameAs: [
           'https://www.instagram.com/looparchitecturalmaterials/',
@@ -92,6 +93,9 @@ class SEO extends React.Component {
           postalCode: '85016',
           addressCountry: 'USA'
         },
+        telephone: '602-810-1502',
+        image: image,
+        priceRange: '$$$',
         description: `${siteMetadata.description}`,
         name: siteMetadata.title,
         openingHours: "Mo,Tu,We,Th,Fr 09:00-17:00",
