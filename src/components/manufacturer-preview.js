@@ -7,7 +7,7 @@ import styles from './manufacturer-preview.scss'
 export default ({ article }) => (
   <div className="column is-one-third">
     <div className="box">
-      <Link to={`/manufacturers/${article.slug}`}>
+      <Link to={`/manufacturers/${article.slug}`} hrefLang="en">
         <div className="image-wrapper">
           <Img
             sizes={article.logoImageDark.resize}

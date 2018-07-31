@@ -1,6 +1,5 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-// import config from '../utils/siteConfig'
 
 class SEO extends React.Component {
   constructor(props) {
