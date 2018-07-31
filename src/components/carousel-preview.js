@@ -24,7 +24,11 @@ class CarouselPreview extends React.Component {
               __html: article.description.childMarkdownRemark.html,
             }}
           />
-          <Link to={`/articles/${article.slug}`} className="button is-primary">
+          <Link
+            to={`/articles/${article.slug}`}
+            className="button is-primary"
+            hrefLang="en"
+          >
             Read More
           </Link>
         </div>

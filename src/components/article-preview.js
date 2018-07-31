@@ -10,7 +10,9 @@ class ArticlePreview extends React.Component {
       <div className="article-preview">
         <Img sizes={article.heroImage.sizes} />
         <h3>
-          <Link to={`/blog/${article.slug}`}>{article.title}</Link>
+          <Link to={`/blog/${article.slug}`} hrefLang="en">
+            {article.title}
+          </Link>
         </h3>
         <p
           dangerouslySetInnerHTML={{
