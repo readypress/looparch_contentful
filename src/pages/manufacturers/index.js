@@ -16,15 +16,21 @@ class ManufacturersIndex extends React.Component {
       title: 'Our Manufacturers',
       description: {
         internal: {
-          content: 'A current listing of the manufacturers Loop Architectural Materials represents.'
-        }
-      }
+          content:
+            'A current listing of the manufacturers Loop Architectural Materials represents.',
+        },
+      },
     }
 
     return (
       <div className="content-section">
         <Helmet title={`${siteTitle} | Our Manufacturers`} />
-        <SEO pagePath={`manufacturers`} postNode={postNode} pageSEO siteMetadata={this.props.data.site.siteMetadata} />
+        <SEO
+          pagePath={`manufacturers`}
+          postNode={postNode}
+          pageSEO
+          siteMetadata={this.props.data.site.siteMetadata}
+        />
         <section className="section">
           <div className="container">
             <h1 className="title is-size-4">Our Manufacturers</h1>

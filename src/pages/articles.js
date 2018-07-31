@@ -13,15 +13,21 @@ class ArticleIndex extends React.Component {
       title: 'Articles',
       description: {
         internal: {
-          content: 'A list of articles and press releases from Loop Architectural Materials listed in the order they were created.'
-        }
-      }
+          content:
+            'A list of articles and press releases from Loop Architectural Materials listed in the order they were created.',
+        },
+      },
     }
 
     return (
       <div className="content-section">
         <Helmet title={`${siteTitle} | Articles`} />
-        <SEO pagePath={`articles`} postNode={postNode} pageSEO siteMetadata={this.props.data.site.siteMetadata} />
+        <SEO
+          pagePath={`articles`}
+          postNode={postNode}
+          pageSEO
+          siteMetadata={this.props.data.site.siteMetadata}
+        />
         <div className="hero is-primary is-bold">
           <div className="hero-body has-text-centered">
             <h1 className="title">Articles</h1>

@@ -40,7 +40,12 @@ class ManufacturerPostTemplate extends React.Component {
     return (
       <div className="content-section manufacturer-post">
         <Helmet title={`${post.title} | ${siteTitle}`} />
-        <SEO pagePath={`manufacturers/${post.slug}`} postNode={post} pageSEO siteMetadata={siteMetadata} />
+        <SEO
+          pagePath={`manufacturers/${post.slug}`}
+          postNode={post}
+          pageSEO
+          siteMetadata={siteMetadata}
+        />
         <h1 className="is-hidden">{`${post.title} | ${siteTitle}`}</h1>
         <section className="section">
           <div className="container">
@@ -118,6 +123,7 @@ class ManufacturerPostTemplate extends React.Component {
                   <FormContact
                     section={post.title}
                     manufacturers={manufacturers}
+                    recaptchaKey={siteMetadata.recaptchaKey}
                   />
                 </section>
               </div>
@@ -240,6 +246,7 @@ export const pageQuery = graphql`
         shareImageWidth
         shareImageHeight
         publisher
+        recaptchaKey
       }
     }
   }
