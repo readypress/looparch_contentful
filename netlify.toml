@@ -4,3 +4,15 @@
 [Build]
   Publish = ""
   Functions = ""
+
+[[redirects]]
+  from = "/products/*"
+  to = "/manufacturers/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/lines/*"
+  to = "/lines/:splat"
+  status = 301
+  force = false
