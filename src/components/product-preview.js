@@ -18,6 +18,7 @@ class ProductPreviewTemplate extends React.Component {
           sizes={imageSizes}
           title={product.productImage.description}
           alt={product.productImage.description}
+          title={product.title}
           className="image"
           outerWrapperClassName="product-preview-image"
         />

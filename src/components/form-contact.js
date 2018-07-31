@@ -10,11 +10,18 @@ function encode(data) {
 class FormContact extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      name: '',
+      email: '',
+      manufacturer: this.props.section || 'Contact Us',
+      message: ''
+    }
   }
 
   componentDidMount() {
-    this.setState({ manufacturer: this.props.section || 'Contact Us' })
+    this.setState({
+      manufacturer: this.props.section || 'Contact Us'
+    })
   }
 
   handleChange = e => {
@@ -51,6 +58,7 @@ class FormContact extends React.Component {
         data-netlify="true"
         action="/thanks"
         data-netlify-honeypot="bot-field"
+        data-netlify-recaptcha
         onSubmit={this.handleSubmit}
       >
         <div className="field">
@@ -110,7 +118,7 @@ class FormContact extends React.Component {
             />
           </div>
         </div>
-        <div data-netlify-recaptcha />
+        <div data-netlify-recaptcha></div>
         <div className="field">
           <div className="control">
             <button type="submit" className="button is-link">
