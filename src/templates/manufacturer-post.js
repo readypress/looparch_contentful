@@ -152,13 +152,8 @@ export const pageQuery = graphql`
         file {
           url
         }
-        sizes(maxWidth: 300) {
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+        sizes {
+          ...GatsbyContentfulSizes_tracedSVG
         }
         resolutions(width: 300) {
           aspectRatio
@@ -237,13 +232,8 @@ export const pageQuery = graphql`
               srcWebp
               srcSetWebp
             }
-            sizes(maxWidth: 370) {
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
+            sizes {
+              ...GatsbyContentfulSizes_tracedSVG
             }
             resize(width: 500, height: 400, resizingBehavior: FILL) {
               src
