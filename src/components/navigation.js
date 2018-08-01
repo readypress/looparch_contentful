@@ -22,7 +22,7 @@ class Navigation extends React.Component {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link className="navbar-item" to="/">
+            <Link className="navbar-item" to="/" hrefLang="en">
               <Img resolutions={this.props.siteLogo} />
             </Link>
             <a
@@ -45,6 +45,7 @@ class Navigation extends React.Component {
                   to="/manufacturers/"
                   className="navbar-link"
                   onClick={this.toggleNav}
+                  hrefLang="en"
                 >
                   Our Manufacturers
                 </Link>
@@ -59,6 +60,7 @@ class Navigation extends React.Component {
                         key={node.id}
                         to={`/manufacturers/${node.slug}`}
                         className="navbar-item"
+                        hrefLang="en"
                       >
                         {node.title}
                       </Link>
@@ -66,7 +68,11 @@ class Navigation extends React.Component {
                   })}
                 </div>
               </div>
-              <Link to="/contact/" className="navbar-item navbar-smaller">
+              <Link
+                to="/contact/"
+                className="navbar-item navbar-smaller"
+                hrefLang="en"
+              >
                 Contact Us
               </Link>
             </div>

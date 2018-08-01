@@ -8,7 +8,8 @@ import SEO from '../components/seo'
 
 class ContactPage extends React.Component {
   render() {
-    const siteTitle = this.props.data.site.siteMetadata.title
+    const siteMetadata = this.props.data.site.siteMetadata
+    const siteTitle = siteMetadata.title
     const manufacturers = this.props.data.allContentfulManufacturer || {
       edges: [],
     }
@@ -42,6 +43,7 @@ class ContactPage extends React.Component {
                 <FormContact
                   section="Contact Us"
                   manufacturers={manufacturers}
+                  recaptchaKey={siteMetadata.recaptchaKey}
                 />
               </div>
               <div className="column">
@@ -92,6 +94,7 @@ export const pageQuery = graphql`
         publisher
         mapKey
         placeId
+        recaptchaKey
       }
     }
   }

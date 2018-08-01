@@ -39,20 +39,20 @@ class ManufacturerPostTemplate extends React.Component {
 
     return (
       <div className="content-section manufacturer-post">
-        <Helmet title={`${siteTitle} | ${post.title}`} />
+        <Helmet title={`${post.title} | ${siteTitle}`} />
         <SEO
           pagePath={`manufacturers/${post.slug}`}
           postNode={post}
           pageSEO
           siteMetadata={siteMetadata}
         />
-        <h1 className="is-hidden">{`${siteTitle} | ${post.title}`}</h1>
+        <h1 className="is-hidden">{`${post.title} | ${siteTitle}`}</h1>
         <section className="section">
           <div className="container">
             <div className="columns is-multiline is-variable is-6">
               <div className="column is-one-third">
                 <Img
-                  sizes={post.logoImageDark.resize}
+                  sizes={post.logoImageDark.sizes}
                   className="image"
                   outerWrapperClassName="logo-img"
                 />
@@ -71,16 +71,26 @@ class ManufacturerPostTemplate extends React.Component {
                   }}
                 />
                 <div className="content">
-                  <p>
-                    <a
-                      href={post.url}
-                      target="_blank"
-                      className="button is-primary"
-                      rel="noopener"
-                    >
-                      <span>Visit {post.title}</span>
-                    </a>
-                  </p>
+                  <div className="field is-grouped">
+                    <p className="control">
+                      <a
+                        href={post.url}
+                        target="_blank"
+                        className="button is-primary"
+                        rel="noopener"
+                      >
+                        <span>Visit {post.title}</span>
+                      </a>
+                    </p>
+                    <p className="control">
+                      <a
+                        href="#inquiry"
+                        className="button is-secondary"
+                      >
+                        <span>Inquire</span>
+                      </a>
+                    </p>
+                  </div>
                   <div
                     className="tags"
                     css={{
@@ -118,11 +128,12 @@ class ManufacturerPostTemplate extends React.Component {
                     </div>
                   )
                 })}
-                <section className="section inquiry-section">
+                <section id="inquiry" className="section inquiry-section">
                   <h3 className="title is-size-4">{post.title} Inquiries</h3>
                   <FormContact
                     section={post.title}
                     manufacturers={manufacturers}
+                    recaptchaKey={siteMetadata.recaptchaKey}
                   />
                 </section>
               </div>
@@ -158,21 +169,10 @@ export const pageQuery = graphql`
           url
         }
         sizes(maxWidth: 300) {
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+          ...GatsbyContentfulSizes_withWebp
         }
         resolutions(width: 300) {
-          aspectRatio
-          width
-          height
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
+          ...GatsbyContentfulResolutions_withWebp
         }
         resize(width: 500) {
           src
@@ -185,12 +185,7 @@ export const pageQuery = graphql`
         title
         description
         sizes(maxWidth: 500) {
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+          ...GatsbyContentfulSizes_withWebp
         }
         resize(width: 351, height: 117, resizingBehavior: PAD) {
           src
@@ -203,12 +198,7 @@ export const pageQuery = graphql`
         title
         description
         sizes(maxWidth: 500) {
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+          ...GatsbyContentfulSizes_withWebp
         }
         resize(width: 500, resizingBehavior: PAD) {
           src
@@ -234,21 +224,10 @@ export const pageQuery = graphql`
               url
             }
             resolutions(width: 500) {
-              aspectRatio
-              width
-              height
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
+              ...GatsbyContentfulResolutions_withWebp
             }
             sizes(maxWidth: 370) {
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
+              ...GatsbyContentfulSizes_withWebp
             }
             resize(width: 500, height: 400, resizingBehavior: FILL) {
               src
@@ -277,6 +256,7 @@ export const pageQuery = graphql`
         shareImageWidth
         shareImageHeight
         publisher
+        recaptchaKey
       }
     }
   }

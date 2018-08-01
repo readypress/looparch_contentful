@@ -13,13 +13,27 @@ class ProductPreviewTemplate extends React.Component {
       imageSizes = product.productImage.resize
     }
     return (
-      <div className={`product-preview ${post.slug}`}>
+      <div
+        className={`product-preview ${post.slug}`}
+        itemScope
+        itemType="http://schema.org/Product">
+        <span
+          className="is-hidden"
+          itemProp="brand">
+          {post.title}
+        </span>
+        <span
+          className="is-hidden"
+          itemProp="name">
+          {product.title}
+        </span>
         <Img
           sizes={imageSizes}
-          title={product.productImage.description}
           alt={product.productImage.description}
+          title={product.title}
           className="image"
           outerWrapperClassName="product-preview-image"
+          itemProp="image"
         />
         <h3>{product.title}</h3>
       </div>

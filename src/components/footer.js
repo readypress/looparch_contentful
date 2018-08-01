@@ -25,7 +25,7 @@ class Footer extends React.Component {
                 {manufacturers.map(({ node, index }) => {
                   return (
                     <li key={node.slug} className="tag">
-                      <Link to={`/manufacturers/${node.slug}`} className="">
+                      <Link to={`/manufacturers/${node.slug}`} hrefLang="en">
                         {node.title}
                       </Link>
                     </li>
@@ -39,7 +39,7 @@ class Footer extends React.Component {
                 {articles.map(({ node, index }) => {
                   return (
                     <li key={node.slug} className="tag">
-                      <Link to={`/articles/${node.slug}`} className="">
+                      <Link to={`/articles/${node.slug}`} hrefLang="en">
                         {node.title}
                       </Link>
                     </li>

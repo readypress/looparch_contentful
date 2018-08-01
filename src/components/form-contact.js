@@ -1,5 +1,6 @@
 import React from 'react'
 import { navigateTo } from 'gatsby-link'
+import Recaptcha from 'react-google-recaptcha'
 
 function encode(data) {
   return Object.keys(data)
@@ -10,21 +11,39 @@ function encode(data) {
 class FormContact extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      name: '',
+      email: '',
+      manufacturer: this.props.section || 'Contact Us',
+      message: '',
+      'g-recaptcha-response': null,
+    }
   }
 
   componentDidMount() {
-    this.setState({ manufacturer: this.props.section || 'Contact Us' })
+    this.setState({
+      manufacturer: this.props.section || 'Contact Us',
+    })
   }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
   }
 
+  handleRecaptcha = value => {
+    this.setState({ 'g-recaptcha-response': value })
+    document.getElementById('recapchta-message').classList.add('is-hidden')
+  }
+
   handleSubmit = e => {
     const form = e.target
 
     e.preventDefault()
+
+    if (!this.state['g-recaptcha-response']) {
+      return document.getElementById('recapchta-message').classList.remove('is-hidden')
+    }
+
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -43,14 +62,15 @@ class FormContact extends React.Component {
   render() {
     const sectionName = this.props.section || 'Contact Us'
     const manufacturers = this.props.manufacturers.edges
+    const recaptchaKey = this.props.recaptchaKey
 
     return (
       <form
         name="contact"
         method="POST"
-        data-netlify="true"
         action="/thanks"
-        data-netlify-honeypot="bot-field"
+        data-netlify="true"
+        data-netlify-recaptcha="true"
         onSubmit={this.handleSubmit}
       >
         <div className="field">
@@ -110,7 +130,17 @@ class FormContact extends React.Component {
             />
           </div>
         </div>
-        <div data-netlify-recaptcha />
+        <div className="field">
+          <Recaptcha
+            ref="recaptcha"
+            sitekey={recaptchaKey}
+            onChange={this.handleRecaptcha}
+            required
+          />
+          <div className="is-hidden is-inline-block notification is-danger" id="recapchta-message">
+            Recaptcha is required.
+          </div>
+        </div>
         <div className="field">
           <div className="control">
             <button type="submit" className="button is-link">
@@ -118,7 +148,6 @@ class FormContact extends React.Component {
             </button>
           </div>
         </div>
-        <input type="hidden" name="bot-field" onChange={this.handleChange} />
       </form>
     )
   }

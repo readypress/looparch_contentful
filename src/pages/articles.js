@@ -67,12 +67,7 @@ export const pageQuery = graphql`
               url
             }
             sizes(maxHeight: 600) {
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
+              ...GatsbyContentfulSizes_withWebp
             }
           }
           description {

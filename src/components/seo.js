@@ -1,6 +1,5 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-// import config from '../utils/siteConfig'
 
 class SEO extends React.Component {
   constructor(props) {
@@ -82,7 +81,7 @@ class SEO extends React.Component {
           '@type': 'ContactPoint',
           contactType: 'sales',
           email: 'info@looparch.com',
-          url: `${siteMetadata.siteUrl}/contact/`
+          url: `${siteMetadata.siteUrl}/contact/`,
         },
         sameAs: [
           'https://www.instagram.com/looparchitecturalmaterials/',
