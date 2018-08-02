@@ -16,15 +16,13 @@ class ProductPreviewTemplate extends React.Component {
       <div
         className={`product-preview ${post.slug}`}
         itemScope
-        itemType="http://schema.org/Product">
-        <span
-          className="is-hidden"
-          itemProp="brand">
+        itemType="http://schema.org/Product"
+        id={product.title}
+      >
+        <span className="is-hidden" itemProp="brand">
           {post.title}
         </span>
-        <span
-          className="is-hidden"
-          itemProp="name">
+        <span className="is-hidden" itemProp="name">
           {product.title}
         </span>
         <Img

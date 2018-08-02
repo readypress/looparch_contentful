@@ -22,49 +22,6 @@ try {
   }
 }
 
-// Algolia
-const blogPostQuery = `{
-  allContentfulBlogPost {
-    edges {
-      node {
-        title
-        slug
-        body {
-          childMarkdownRemark {
-            html
-          }
-        }
-        tags
-      }
-    }
-  }
-}`
-
-const manufacturerQuery = `{
-  allContentfulManufacturer {
-    edges {
-      node {
-        title
-        slug
-        body:description {
-          childMarkdownRemark {
-            html
-          }
-        }
-        tags
-      }
-    }
-  }
-}`
-
-const queries = [
-  {
-    blogPostQuery,
-    transformer: ({ data }) => data.allContentfulBlogPost.edges.map(({ node }) => node), // optional
-    // indexName: 'production_LOOP_SEARCH', // overrides main index name, optional
-  }
-];
-
 module.exports = {
   siteMetadata: {
     title: 'Loop Architectural Materials',
@@ -165,14 +122,33 @@ module.exports = {
     },
   },
   {
-      resolve: `gatsby-plugin-algolia`,
-      options: {
-        appId: '9OOM2W0UN7',
-        apiKey: '396a7b45e67aa240d35daa5d1811efb1',
-        indexName: `${process.env.NODE_ENV}_LOOP_SEARCH`, // for all queries
-        queries,
-        chunkSize: 10000, // default: 1000
+    resolve: `@andrew-codes/gatsby-plugin-elasticlunr-search`,
+    options: {
+      // Fields to index
+      fields: [
+        'title',
+        'tags',
+        'type',
+        'slug',
+      ],
+      // How to resolve each field's value for a supported node type
+      resolvers: {
+        // For any node of type MarkdownRemark, list how to resolve the fields' values
+        ContentfulManufacturer: {
+          title: node => node.title,
+          tags: node => node.tags,
+          type: node => node.internal.type,
+          slug: node => node.slug,
+        },
+        ContentfulProduct: {
+          title: node => node.title,
+          tags: node => [node.tag],
+          type: node => node.internal.type,
+          slug: node => node.title,
+          manufacturer: node => node.manufacturer___NODE
+        }
       },
     },
+  },
   ],
 }

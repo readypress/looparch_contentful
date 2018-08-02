@@ -83,10 +83,7 @@ class ManufacturerPostTemplate extends React.Component {
                       </a>
                     </p>
                     <p className="control">
-                      <a
-                        href="#inquiry"
-                        className="button is-secondary"
-                      >
+                      <a href="#inquiry" className="button is-secondary">
                         <span>Inquire</span>
                       </a>
                     </p>

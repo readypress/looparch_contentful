@@ -41,7 +41,9 @@ class FormContact extends React.Component {
     e.preventDefault()
 
     if (!this.state['g-recaptcha-response']) {
-      return document.getElementById('recapchta-message').classList.remove('is-hidden')
+      return document
+        .getElementById('recapchta-message')
+        .classList.remove('is-hidden')
     }
 
     fetch('/', {
@@ -53,7 +55,6 @@ class FormContact extends React.Component {
       }),
     })
       .then(() => {
-        console.log('got here')
         navigateTo(form.getAttribute('action'))
       })
       .catch(error => console.log(error))
@@ -137,7 +138,10 @@ class FormContact extends React.Component {
             onChange={this.handleRecaptcha}
             required
           />
-          <div className="is-hidden is-inline-block notification is-danger" id="recapchta-message">
+          <div
+            className="is-hidden is-inline-block notification is-danger"
+            id="recapchta-message"
+          >
             Recaptcha is required.
           </div>
         </div>

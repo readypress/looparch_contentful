@@ -1,0 +1,96 @@
+import React, { Component } from 'react'
+import { Index } from 'elasticlunr'
+import Link from 'gatsby-link'
+
+// Search component
+export default class Search extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      query: ``,
+      results: [],
+    }
+  }
+
+  render() {
+    return (
+      <section className="section">
+        <h2 className="title">Oops!</h2>
+        <p>It appears the page you're looking for doesn't exist!</p>
+        <br />
+        <div className="field">
+          <div className="control has-icons-left">
+            <input
+              className="input is-large"
+              type="text"
+              value={this.state.query}
+              onChange={this.search}
+            />
+            <span className="icon is-medium is-left">
+              <i className="fas fa-search fa-lg" />
+            </span>
+          </div>
+        </div>
+        {this.state.results.map(result => {
+          let manufacturer
+          if (result.type === 'ContentfulProduct') {
+            manufacturer = this.props.data.allContentfulManufacturer.edges.filter(
+              edge => {
+                return edge.node.id === result.manufacturer
+              }
+            )[0].node
+          }
+          const baseLink =
+            result.type === 'ContentfulManufacturer'
+              ? `${result.slug}`
+              : `${manufacturer.slug}#${result.title}`
+          return (
+            <div key={result.id}>
+              <Link to={`/manufacturers/${baseLink}`}>
+                <h3 className="is-inline-block subtitle">{result.title}</h3>
+              </Link>
+              <div
+                className="tags is-inline-block"
+                css={{
+                  marginLeft: '10px',
+                }}
+              >
+                {result.tags.map((tag, i) => {
+                  return (
+                    <div className="tag" key={i}>
+                      {tag}
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )
+        })}
+      </section>
+    )
+  }
+
+  getOrCreateIndex = () => {
+    return this.index
+      ? this.index
+      : Index.load(this.props.data.siteSearchIndex.index)
+  }
+
+  search = evt => {
+    const query = evt.target.value
+
+    this.index = this.getOrCreateIndex()
+    this.setState({
+      query,
+      results: this.index
+        .search(query, {})
+        .map(({ ref }) => this.index.documentStore.getDoc(ref))
+        .sort(result => {
+          if (result.type === 'ContentfulManufacturer') {
+            return -1
+          }
+          return 1
+        }),
+    })
+  }
+}
