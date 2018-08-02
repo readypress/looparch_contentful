@@ -20,8 +20,14 @@ class MissingPage extends React.Component {
           <div className="container content">
             <h1 className="title">Oops!</h1>
             <p>It appears the page you're looking for doesn't exist!</p>
-            <p>Try typing a term in the search box to find it. For example: 'wood' or 'acoustic'.</p>
-            <Search data={this.props.data} search={this.props.location.search}/>
+            <p>
+              Try typing a term in the search box to find it. For example:
+              'wood' or 'acoustic'.
+            </p>
+            <Search
+              data={this.props.data}
+              search={this.props.location.search}
+            />
           </div>
         </section>
       </div>

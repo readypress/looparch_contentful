@@ -19,8 +19,14 @@ class SearchPage extends React.Component {
         <section className="section">
           <div className="container content">
             <h1 className="title">Search Loop</h1>
-            <p>Try typing a term in the search box to find something. For example: 'wood' or 'acoustic'.</p>
-            <Search data={this.props.data} search={this.props.location.search}/>
+            <p>
+              Try typing a term in the search box to find something. For
+              example: 'wood' or 'acoustic'.
+            </p>
+            <Search
+              data={this.props.data}
+              search={this.props.location.search}
+            />
           </div>
         </section>
       </div>

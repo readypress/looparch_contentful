@@ -19,8 +19,8 @@ export default class Search extends Component {
     if (this.props.search) {
       this.search({
         target: {
-          value: queryString.parse(this.props.search)[`?s`]
-        }
+          value: queryString.parse(this.props.search)[`?s`],
+        },
       })
     }
   }
@@ -104,7 +104,7 @@ export default class Search extends Component {
             return -1
           }
           return 1
-        })
+        }),
     })
   }
 }
