@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Index } from 'elasticlunr'
 import Link from 'gatsby-link'
 
+import styles from './search.sass'
+
 // Search component
 export default class Search extends Component {
   constructor(props) {
@@ -33,21 +35,23 @@ export default class Search extends Component {
         </div>
         {this.state.results.map(result => {
           let manufacturer
+          let title = result.title
           if (result.type === 'ContentfulProduct') {
             manufacturer = this.props.data.allContentfulManufacturer.edges.filter(
               edge => {
                 return edge.node.id === result.manufacturer
               }
             )[0].node
+            title = `${manufacturer.title} - ${result.title}`
           }
           const baseLink =
             result.type === 'ContentfulManufacturer'
               ? `${result.slug}`
               : `${manufacturer.slug}#${result.title}`
           return (
-            <div key={result.id}>
+            <div key={result.id} className="search-result">
               <Link to={`/manufacturers/${baseLink}`}>
-                <h3 className="is-inline-block subtitle">{result.title}</h3>
+                <h3 className="is-inline-block subtitle">{title}</h3>
               </Link>
               <div
                 className="tags is-inline-block"
@@ -90,7 +94,7 @@ export default class Search extends Component {
             return -1
           }
           return 1
-        }),
+        })
     })
   }
 }
