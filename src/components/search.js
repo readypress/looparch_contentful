@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Index } from 'elasticlunr'
 import Link from 'gatsby-link'
-import queryString from 'query-string'
+import queryString from 'querystring'
 
 import styles from './search.sass'
 
@@ -19,7 +19,7 @@ export default class Search extends Component {
     if (this.props.search) {
       this.search({
         target: {
-          value: queryString.parse(this.props.search).s
+          value: queryString.parse(this.props.search)[`?s`]
         }
       })
     }
