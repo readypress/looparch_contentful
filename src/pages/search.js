@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 
 import Search from '../components/search'
 
-class MissingPage extends React.Component {
+class SearchPage extends React.Component {
   constructor(props) {
     super(props)
     console.log(props)
@@ -18,9 +18,8 @@ class MissingPage extends React.Component {
         <Helmet title={`${siteTitle} | Ooops!`} />
         <section className="section">
           <div className="container content">
-            <h1 className="title">Oops!</h1>
-            <p>It appears the page you're looking for doesn't exist!</p>
-            <p>Try typing a term in the search box to find it. For example: 'wood' or 'acoustic'.</p>
+            <h1 className="title">Search Loop</h1>
+            <p>Try typing a term in the search box to find something. For example: 'wood' or 'acoustic'.</p>
             <Search data={this.props.data} search={this.props.location.search}/>
           </div>
         </section>
@@ -29,10 +28,10 @@ class MissingPage extends React.Component {
   }
 }
 
-export default MissingPage
+export default SearchPage
 
 export const pageQuery = graphql`
-  query oopsQuery {
+  query searchQuery {
     site {
       siteMetadata {
         title

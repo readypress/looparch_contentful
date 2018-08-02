@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Index } from 'elasticlunr'
 import Link from 'gatsby-link'
+import queryString from 'query-string'
 
 import styles from './search.sass'
 
@@ -14,12 +15,19 @@ export default class Search extends Component {
     }
   }
 
+  componentDidMount() {
+    if (this.props.search) {
+      this.search({
+        target: {
+          value: queryString.parse(this.props.search).s
+        }
+      })
+    }
+  }
+
   render() {
     return (
-      <section className="section">
-        <h2 className="title">Oops!</h2>
-        <p>It appears the page you're looking for doesn't exist!</p>
-        <br />
+      <section>
         <div className="field">
           <div className="control has-icons-left">
             <input
@@ -27,6 +35,7 @@ export default class Search extends Component {
               type="text"
               value={this.state.query}
               onChange={this.search}
+              id="searchTerm"
             />
             <span className="icon is-medium is-left">
               <i className="fas fa-search fa-lg" />
@@ -36,6 +45,7 @@ export default class Search extends Component {
         {this.state.results.map(result => {
           let manufacturer
           let title = result.title
+
           if (result.type === 'ContentfulProduct') {
             manufacturer = this.props.data.allContentfulManufacturer.edges.filter(
               edge => {
@@ -51,7 +61,7 @@ export default class Search extends Component {
           return (
             <div key={result.id} className="search-result">
               <Link to={`/manufacturers/${baseLink}`}>
-                <h3 className="is-inline-block subtitle">{title}</h3>
+                <h3 className="is-inline-block subtitle is-size-5">{title}</h3>
               </Link>
               <div
                 className="tags is-inline-block"
