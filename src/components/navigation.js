@@ -75,6 +75,15 @@ class Navigation extends React.Component {
               >
                 Contact Us
               </Link>
+              <Link
+                to="/search/"
+                className="navbar-item navbar-smaller"
+                hrefLang="en"
+              >
+                <span className="icon is-large">
+                  <i className="fas fa-search"></i>
+                </span>
+              </Link>
             </div>
           </div>
         </div>

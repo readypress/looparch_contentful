@@ -36,6 +36,7 @@ export default class Search extends Component {
               value={this.state.query}
               onChange={this.search}
               id="searchTerm"
+              autoFocus
             />
             <span className="icon is-medium is-left">
               <i className="fas fa-search fa-lg" />
