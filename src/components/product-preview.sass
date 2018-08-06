@@ -1,6 +1,22 @@
 .product-preview
+  h3
+    background-color: #fff
+    display: inline-block
+  &.selected
+    h3
+      animation: pulse 2s 1
+      animation-timing-function: ease-in-out
   &.offecct
     .product-preview-image
       // max-height: 300px
       // max-width: 300px
   &.baux
+
+@keyframes pulse
+  0%, 100%
+    color: inherit
+    background-color: #FFFFFF
+  50%
+    padding: 0 1rem
+    color: #FFF
+    background-color: #0BA24A

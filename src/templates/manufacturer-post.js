@@ -11,6 +11,23 @@ import SEO from '../components/seo'
 import styles from './manufacturer-post.sass'
 
 class ManufacturerPostTemplate extends React.Component {
+  componentDidMount() {
+    const selectedItem = decodeURI(this.props.location.hash.replace('#',''))
+    document.getElementById(selectedItem).classList.add('selected')
+    this.highlight = setTimeout (() => {
+      try {
+        document.getElementsByClassName('selected')[0].classList.remove('selected')
+      }
+      catch (e) {
+        console.log(e)
+      }
+    }, 5000)
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.highlight)
+  }
+
   render() {
     const siteMetadata = this.props.data.site.siteMetadata
     const siteTitle = siteMetadata.title
