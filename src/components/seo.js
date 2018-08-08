@@ -60,6 +60,11 @@ class SEO extends React.Component {
         url: siteMetadata.siteUrl,
         name: siteMetadata.title,
         alternateName: siteMetadata.title,
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://looparch.com/search/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
       },
       {
         '@context': 'http://schema.org',
