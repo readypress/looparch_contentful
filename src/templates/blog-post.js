@@ -25,7 +25,7 @@ class BlogPostTemplate extends React.Component {
         </div>
         <div className="section">
           <div className="container content">
-            <h1 className="title">{post.title}</h1>
+            <h1 className="title is-size-2">{post.title}</h1>
             <div
               dangerouslySetInnerHTML={{
                 __html: post.body.childMarkdownRemark.html,
@@ -52,7 +52,7 @@ export const pageQuery = graphql`
         }
       }
       heroImage {
-        sizes(maxWidth: 800) {
+        sizes(maxHeight: 300, resizingBehavior: FILL) {
           ...GatsbyContentfulSizes_withWebp
         }
         resolutions(width: 300) {

@@ -93,7 +93,7 @@ export default RootIndex
 export const pageQuery = graphql`
   query HomeQuery {
     allContentfulBlogPost(
-      limit: 3
+      limit: 1
       sort: { fields: [publishDate], order: DESC }
     ) {
       edges {
