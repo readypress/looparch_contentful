@@ -27,7 +27,7 @@ class Navigation extends React.Component {
             </Link>
             <a
               role="button"
-              className="navbar-burger"
+              className="navbar-burger no-print"
               aria-label="menu"
               aria-expanded="false"
               data-target="LoopNavMenu"

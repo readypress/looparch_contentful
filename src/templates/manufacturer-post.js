@@ -13,19 +13,23 @@ import styles from './manufacturer-post.sass'
 class ManufacturerPostTemplate extends React.Component {
   componentDidMount() {
     const selectedItem = decodeURI(this.props.location.hash.replace('#',''))
-    document.getElementById(selectedItem).classList.add('selected')
-    this.highlight = setTimeout (() => {
-      try {
-        document.getElementsByClassName('selected')[0].classList.remove('selected')
-      }
-      catch (e) {
-        console.log(e)
-      }
-    }, 5000)
+    if (selectedItem) {
+      document.getElementById(selectedItem).classList.add('selected')
+      this.highlight = setTimeout (() => {
+        try {
+          document.getElementsByClassName('selected')[0].classList.remove('selected')
+        }
+        catch (e) {
+          console.log(e)
+        }
+      }, 5000)
+    }
   }
 
   componentWillUnmount() {
-    clearTimeout(this.highlight)
+    if (this.highlight) {
+      clearTimeout(this.highlight)
+    }
   }
 
   render() {
@@ -89,7 +93,7 @@ class ManufacturerPostTemplate extends React.Component {
                 />
                 <div className="content">
                   <div className="field is-grouped">
-                    <p className="control">
+                    <p className="control no-print">
                       <a
                         href={post.url}
                         target="_blank"
@@ -99,7 +103,7 @@ class ManufacturerPostTemplate extends React.Component {
                         <span>Visit {post.title}</span>
                       </a>
                     </p>
-                    <p className="control">
+                    <p className="control no-print">
                       <a href="#inquiry" className="button is-secondary">
                         <span>Inquire</span>
                       </a>
@@ -142,7 +146,7 @@ class ManufacturerPostTemplate extends React.Component {
                     </div>
                   )
                 })}
-                <section id="inquiry" className="section inquiry-section">
+                <section id="inquiry" className="section inquiry-section no-print">
                   <h3 className="title is-size-4">{post.title} Inquiries</h3>
                   <FormContact
                     section={post.title}

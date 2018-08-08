@@ -16,7 +16,7 @@ class Footer extends React.Component {
       <footer className="footer">
         <div className="container">
           <div className="columns">
-            <div className="column is-one-third">
+            <div className="column is-one-third no-print">
               <FormSignup />
             </div>
             <div className="column is-one-third">
@@ -33,7 +33,7 @@ class Footer extends React.Component {
                 })}
               </ul>
             </div>
-            <div className="column is-one-third">
+            <div className="column is-one-third no-print">
               <h2 className="title is-size-5">Recent Articles</h2>
               <ul className="tags">
                 {articles.map(({ node, index }) => {

@@ -35,6 +35,12 @@ html, body {
   }
 }
 
+.no-print {
+  @media print {
+    display: none
+  }
+}
+
 ::selection {
   background: $primary;
   color: $white;
