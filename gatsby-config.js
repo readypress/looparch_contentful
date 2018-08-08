@@ -26,7 +26,7 @@ module.exports = {
   siteMetadata: {
     title: 'Loop Architectural Materials',
     siteUrl: process.env.SITE_URL || 'https://looparch.com',
-    description: 'Loop Architectural Materials represents leading brands in contract furniture, glass, decorative architectural and interior design products in Arizona.',
+    description: 'Design & technical partner to the Arizona A+D community, Loop Architectural Materials represents leading brands in contract furniture, glass, and architectural / interior design products.',
     mapKey: process.env.LOOPARCH_MAPS_KEY || '',
     placeId: process.env.LOOPARCH_PLACE_ID || '',
     recaptchaKey: process.env.SITE_RECAPTCHA_KEY || '',

@@ -171,7 +171,13 @@ class SEO extends React.Component {
             '@type': 'Organization',
             name: siteMetadata.publisher,
             url: siteMetadata.siteUrl,
-            logo: `${siteMetadata.siteUrl}${siteMetadata.shareImage}`,
+            logo: {
+              '@type': 'ImageObject',
+              name: 'Loop Architectural Materials Logo',
+              width: 180,
+              height: 180,
+              url: `${siteMetadata.siteUrl}${siteMetadata.shareImage}`,
+            }
           },
           datePublished: postNode.publishDate,
           mainEntityOfPage: pageUrl,
