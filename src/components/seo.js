@@ -171,7 +171,7 @@ class SEO extends React.Component {
             '@type': 'Organization',
             name: siteMetadata.publisher,
             url: siteMetadata.siteUrl,
-            logo: siteMetadata.shareImage,
+            logo: `${siteMetadata.siteUrl}${siteMetadata.shareImage}`,
           },
           datePublished: postNode.publishDate,
           mainEntityOfPage: pageUrl,
