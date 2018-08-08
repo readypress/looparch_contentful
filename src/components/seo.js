@@ -21,6 +21,7 @@ class SEO extends React.Component {
     let imgWidth
     let imgHeight
     let pageUrl
+    let dateModified = new Date()
 
     // Set Default OpenGraph Parameters for Fallback
     title = siteMetadata.title
@@ -50,6 +51,7 @@ class SEO extends React.Component {
       image = `https:${postNode.heroImage.resolutions.src}`
       imgWidth = postNode.heroImage.resolutions.width
       imgHeight = postNode.heroImage.resolutions.height
+      dateModified = postNode.publishDate
     }
 
     // Default Website Schema
@@ -60,11 +62,11 @@ class SEO extends React.Component {
         url: siteMetadata.siteUrl,
         name: siteMetadata.title,
         alternateName: siteMetadata.title,
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://looparch.com/search/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: 'https://looparch.com/search/?s={search_term_string}',
+          'query-input': 'required name=search_term_string',
+        },
       },
       {
         '@context': 'http://schema.org',
@@ -163,14 +165,17 @@ class SEO extends React.Component {
             '@type': 'Person',
             name: siteMetadata.author,
             url: siteMetadata.authorUrl,
+            name: 'Loop',
           },
           publisher: {
             '@type': 'Organization',
             name: siteMetadata.publisher,
             url: siteMetadata.siteUrl,
+            logo: siteMetadata.shareImage,
           },
           datePublished: postNode.publishDate,
           mainEntityOfPage: pageUrl,
+          dateModified: dateModified,
         }
       )
     }
