@@ -15,7 +15,7 @@ class CarouselPreview extends React.Component {
           outerWrapperClassName="carousel-preview-image"
         />
         <div className="carousel-preview-content has-text-centered">
-          <h3 className="title">
+          <h3 className="title is-size-1">
             <Link to={`/articles/${article.slug}`}>{article.title}</Link>
           </h3>
           <p
