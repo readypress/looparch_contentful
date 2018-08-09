@@ -174,8 +174,8 @@ class SEO extends React.Component {
             logo: {
               '@type': 'ImageObject',
               name: 'Loop Architectural Materials Logo',
-              width: 180,
-              height: 180,
+              width: `600`,
+              height: `60`,
               url: `${siteMetadata.siteUrl}${siteMetadata.shareImage}`,
             }
           },
