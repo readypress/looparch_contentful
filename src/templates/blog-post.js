@@ -21,15 +21,16 @@ class BlogPostTemplate extends React.Component {
           postSEO
           siteMetadata={siteMetadata}
         />
-        <div>
-          <Img sizes={post.heroImage.sizes} alt="" />
-        </div>
         <div className="section">
           <div className="container content">
-            <div className="is-clearfix">
-              <h1 className="title is-size-2">{post.title}</h1>
+            <div className="image">
+              <Img sizes={post.heroImage.sizes} alt="" />
             </div>
-            <hr />
+            <div css={{
+              marginTop: '1rem'
+            }}>
+              <h1 className="title is-size-1">{post.title}</h1>
+            </div>
             <div
               dangerouslySetInnerHTML={{
                 __html: post.body.childMarkdownRemark.html,

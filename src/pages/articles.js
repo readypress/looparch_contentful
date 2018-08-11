@@ -28,13 +28,9 @@ class ArticleIndex extends React.Component {
           pageSEO
           siteMetadata={this.props.data.site.siteMetadata}
         />
-        <div className="hero is-primary is-bold">
-          <div className="hero-body has-text-centered">
-            <h1 className="title">Articles</h1>
-          </div>
-        </div>
         <section className="section">
           <div className="container">
+            <h1 className="title is-size-4">Articles</h1>
             <div className="article-list columns is-multiline">
               {posts.map(({ node }) => {
                 return (
