@@ -62,7 +62,7 @@ class RootIndex extends React.Component {
             <p>
               Your projects are <strong>our</strong> projects. Understanding the
               process is a big part of what we do. Loop supports all your
-              efforts at every waypoint from concept to completion– on every
+              efforts at every waypoint from concept to completion – on every
               project from tiny to tremendous.
             </p>
           </div>
