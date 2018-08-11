@@ -31,6 +31,7 @@ class BlogPostTemplate extends React.Component {
             }}>
               <h1 className="title is-size-1">{post.title}</h1>
             </div>
+            <hr />
             <div
               dangerouslySetInnerHTML={{
                 __html: post.body.childMarkdownRemark.html,
@@ -66,7 +67,7 @@ export const pageQuery = graphql`
         }
       }
       heroImage {
-        sizes(maxHeight: 1200, maxWidth: 2000, resizingBehavior: FILL) {
+        sizes(maxHeight: 1200, maxWidth: 2000, resizingBehavior: FILL, quality: 100) {
           ...GatsbyContentfulSizes_withWebp
         }
         resolutions(width: 300) {
