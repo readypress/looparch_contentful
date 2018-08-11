@@ -10,6 +10,7 @@ class BlogPostTemplate extends React.Component {
     const siteMetadata = this.props.data.site.siteMetadata
     const siteTitle = siteMetadata.title
     const post = this.props.data.contentfulBlogPost
+    const person = this.props.data.contentfulPerson
 
     return (
       <div className="article content-section">
@@ -25,12 +26,19 @@ class BlogPostTemplate extends React.Component {
         </div>
         <div className="section">
           <div className="container content">
-            <h1 className="title is-size-2">{post.title}</h1>
+            <div className="is-clearfix">
+              <h1 className="title is-size-2">{post.title}</h1>
+            </div>
+            <hr />
             <div
               dangerouslySetInnerHTML={{
                 __html: post.body.childMarkdownRemark.html,
               }}
             />
+            <hr/>
+            <p>
+              <strong>{person.name}</strong> – {post.readableDate}
+            </p>
           </div>
         </div>
       </div>
@@ -42,17 +50,22 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
+    contentfulPerson(id: {eq: "c15jwOBqpxqSAOy2eOO4S0m"}) {
+      name
+    }
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       slug
       publishDate
+      tags
+      readableDate: publishDate(formatString: "MMMM Do, YYYY")
       description {
         internal {
           content
         }
       }
       heroImage {
-        sizes(maxHeight: 300, resizingBehavior: FILL) {
+        sizes(maxHeight: 1200, maxWidth: 2000, resizingBehavior: FILL) {
           ...GatsbyContentfulSizes_withWebp
         }
         resolutions(width: 300) {
