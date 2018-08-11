@@ -23,24 +23,33 @@ class BlogPostTemplate extends React.Component {
         />
         <div className="section">
           <div className="container content">
+            <h1 className="title is-size-1">{post.title}</h1>
             <div className="image">
               <Img sizes={post.heroImage.sizes} alt="" />
             </div>
-            <div css={{
-              marginTop: '1rem'
-            }}>
-              <h1 className="title is-size-1">{post.title}</h1>
-            </div>
-            <hr />
+            <hr/>
             <div
               dangerouslySetInnerHTML={{
                 __html: post.body.childMarkdownRemark.html,
               }}
             />
             <hr/>
-            <p>
-              <strong>{person.name}</strong> – {post.readableDate}
-            </p>
+            <div className="">
+              <div className="is-pulled-left is-block">
+                <strong>{person.name}</strong> – {post.readableDate}
+              </div>
+              <div className="is-pulled-right is-block">
+                <div className="tags">
+                  {post.tags.map(node => {
+                    return (
+                      <span className="tag" key={node}>
+                        {node}
+                      </span>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
