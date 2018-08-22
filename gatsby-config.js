@@ -44,6 +44,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     `gatsby-plugin-netlify`,
+    'gatsby-plugin-react-next',
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
