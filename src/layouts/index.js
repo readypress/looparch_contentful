@@ -28,6 +28,7 @@ class Template extends React.Component {
       <Container>
         <Helmet>
           <html className="has-navbar-fixed-top" lang="en" />
+          <meta name="p:domain_verify" content="166b8bf16af4de614dccd2ea61cb0dc6"/>
           <meta name="description" content={siteMetadata.description} />
           <meta property="og:title" content={siteMetadata.title} />
           <meta property="og:url" content={siteMetadata.siteUrl} />
