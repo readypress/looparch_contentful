@@ -33,7 +33,8 @@ module.exports = {
     shareImageWidth: 600,
     shareImageHeight: 600,
     shareImage: '/favicons/apple-touch-icon-180x180.png',
-    publisher: 'Loop Architectural Materials'
+    publisher: 'Loop Architectural Materials',
+    author: 'Loop Architectural Materials',
   },
   plugins: [
     'gatsby-transformer-remark',
