@@ -33,7 +33,6 @@ class Template extends React.Component {
           <meta property="og:title" content={siteMetadata.title} />
           <meta property="og:url" content={siteMetadata.siteUrl} />
           <meta property="og:locale" content="en_US" />
-          <meta property="og:type" content="website" />
           <meta property="og:site_name" content={siteMetadata.title} />
         </Helmet>
         <Navigation

@@ -8,10 +8,15 @@ class ProductPreviewTemplate extends React.Component {
   render() {
     const product = this.props.product
     const post = this.props.post
+    const siteMetadata = this.props.siteMetadata
+    const path = this.props.path
+    const description = product.description || { internal: { content: product.title } }
+
     let imageSizes = product.productImage.sizes
     if (post.resizeImages) {
       imageSizes = product.productImage.resize
     }
+
     return (
       <div
         className={`product-preview ${post.slug}`}
@@ -19,12 +24,12 @@ class ProductPreviewTemplate extends React.Component {
         itemType="http://schema.org/Product"
         id={product.title}
       >
-        <span className="is-hidden" itemProp="brand">
-          {post.title}
-        </span>
-        <span className="is-hidden" itemProp="name">
-          {product.title}
-        </span>
+        <meta itemProp="brand" content={post.title} />
+        <meta itemProp="name" content={product.title} />
+        <meta itemProp="url" content={`${siteMetadata.siteUrl}${path}#${encodeURI(product.title)}`} />
+        <meta itemProp="image" content={product.productImage.file.url} />
+        <meta itemProp="description" content={description.internal.content} />
+
         <Img
           sizes={imageSizes}
           alt={product.productImage.description}

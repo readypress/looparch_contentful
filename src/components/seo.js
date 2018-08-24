@@ -120,6 +120,7 @@ class SEO extends React.Component {
         sameAs: [
           'https://www.instagram.com/looparchitecturalmaterials/',
           'https://www.facebook.com/looparch/',
+          'https://www.pinterest.com/looparchitecturalmaterials',
         ],
       },
     ]
@@ -210,7 +211,7 @@ class SEO extends React.Component {
 
         {/* OpenGraph tags */}
         <meta property="og:title" content={title} />
-        {postSEO ? <meta property="og:type" content="article" /> : null}
+        {postSEO ? <meta property="og:type" content="article" /> : <meta property="og:type" content="article" />}
 
         <meta property="og:url" content={pageUrl} />
         <meta property="og:image" content={image} />

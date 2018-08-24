@@ -14,11 +14,11 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <div className="article content-section">
-        <Helmet title={`${siteTitle} | ${post.title}`} />
         <SEO
-          pagePath={`articles/${post.slug}`}
+          pagePath={`manufacturers/${post.slug}`}
           postNode={post}
           postSEO
+          customTitle={post.title}
           siteMetadata={siteMetadata}
         />
         <div className="section">

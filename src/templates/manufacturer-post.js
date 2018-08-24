@@ -64,7 +64,7 @@ class ManufacturerPostTemplate extends React.Component {
         <SEO
           pagePath={`manufacturers/${post.slug}`}
           postNode={post}
-          pageSEO
+          postSEO
           siteMetadata={siteMetadata}
         />
         <h1 className="is-hidden">{`${post.title} | ${siteTitle}`}</h1>
@@ -139,7 +139,7 @@ class ManufacturerPostTemplate extends React.Component {
                             key={product.title}
                             className="column is-half is-inline-block-desktop is-inline-block-tablet is-block-mobile is-marginless is-paddingless-mobile"
                           >
-                            <ProductPreview product={product} post={post} />
+                            <ProductPreview product={product} post={post} siteMetadata={siteMetadata} path={this.props.location.pathname}/>
                           </div>
                         )
                       })}
@@ -235,6 +235,11 @@ export const pageQuery = graphql`
           tag
           title
           id
+          description {
+            internal {
+              content
+            }
+          }
           productImage {
             title
             description

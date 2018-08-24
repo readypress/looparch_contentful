@@ -23,13 +23,15 @@ class RootIndex extends React.Component {
 
     return (
       <div className="content-section">
-        <Helmet title={siteTitle} />
         <SEO
           pagePath={``}
           postNode={postNode}
           pageSEO
           siteMetadata={this.props.data.site.siteMetadata}
         />
+        <Helmet title={siteTitle}>
+          <meta property="og:type" content="website" />
+        </Helmet>
         <Hero posts={posts} />
 
         <section className="section">
