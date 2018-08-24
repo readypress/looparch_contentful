@@ -151,7 +151,7 @@ class SEO extends React.Component {
               position: 2,
               item: {
                 '@id': `${siteMetadata.siteUrl}/${this.props.pagePath.split('/')[0]}/`,
-                name: 'Articles',
+                name: `${this.props.pagePath.split('/')[0]}`,
               },
             },
             {
