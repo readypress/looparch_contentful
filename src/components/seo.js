@@ -12,9 +12,12 @@ class SEO extends React.Component {
       pagePath,
       postSEO,
       pageSEO,
+      articleSEO,
       customTitle,
       siteMetadata,
+      location
     } = this.props
+    const siteImage = `${siteMetadata.siteUrl}${siteMetadata.shareImage}`
     let title
     let description
     let image
@@ -22,6 +25,8 @@ class SEO extends React.Component {
     let imgHeight
     let pageUrl
     let dateModified = new Date()
+
+    console.log(location, pagePath)
 
     // Set Default OpenGraph Parameters for Fallback
     title = siteMetadata.title
@@ -47,11 +52,12 @@ class SEO extends React.Component {
       }
     }
     // Use Hero Image for OpenGraph
-    if (postSEO) {
+    if (postSEO || articleSEO) {
       image = `https:${postNode.heroImage.resolutions.src}`
       imgWidth = postNode.heroImage.resolutions.width
       imgHeight = postNode.heroImage.resolutions.height
       dateModified = postNode.publishDate
+      pageUrl = `${siteMetadata.siteUrl}/${pagePath}/`
     }
 
     // Default Website Schema
@@ -74,7 +80,7 @@ class SEO extends React.Component {
         name: siteMetadata.title,
         legalName: `${siteMetadata.title}, LLC`,
         url: siteMetadata.siteUrl,
-        logo: image,
+        logo: siteImage,
         foundingDate: '2009',
         address: {
           '@type': 'PostalAddress',
@@ -107,7 +113,7 @@ class SEO extends React.Component {
           addressCountry: 'USA',
         },
         telephone: '602-810-1502',
-        image: image,
+        image: siteImage,
         priceRange: '$$$',
         description: `${siteMetadata.description}`,
         name: siteMetadata.title,
@@ -144,6 +150,14 @@ class SEO extends React.Component {
               '@type': 'ListItem',
               position: 2,
               item: {
+                '@id': `${siteMetadata.siteUrl}/${this.props.pagePath.split('/')[0]}/`,
+                name: 'Articles',
+              },
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              item: {
                 '@id': pageUrl,
                 name: title,
               },
@@ -152,21 +166,21 @@ class SEO extends React.Component {
         },
         {
           '@context': 'http://schema.org',
-          '@type': 'BlogPosting',
-          url: pageUrl,
-          name: title,
-          headline: title,
-          image: {
-            '@type': 'ImageObject',
-            url: image,
-            width: imgWidth,
-            height: imgHeight,
+          '@type': 'NewsArticle',
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            url: pageUrl,
           },
+          headline: title,
+          image: [
+            image
+          ],
+          datePublished: postNode.publishDate,
+          dateModified: dateModified,
           author: {
             '@type': 'Person',
             name: siteMetadata.author,
             url: siteMetadata.authorUrl,
-            name: 'Loop',
           },
           publisher: {
             '@type': 'Organization',
@@ -180,9 +194,7 @@ class SEO extends React.Component {
               url: `${siteMetadata.siteUrl}${siteMetadata.shareImage}`,
             }
           },
-          datePublished: postNode.publishDate,
-          mainEntityOfPage: pageUrl,
-          dateModified: dateModified,
+          description: postNode.description.childMarkdownRemark.html,
         }
       )
     }
@@ -201,33 +213,33 @@ class SEO extends React.Component {
     return (
       <Helmet>
         {/* General tags */}
-        <meta name="image" content={image} />
-        <meta name="description" content={description} />
+        <meta name='image' content={image} />
+        <meta name='description' content={description} />
 
         {/* Schema.org tags */}
-        <script type="application/ld+json">
-          {JSON.stringify(schemaOrgJSONLD)}
+        <script type='application/ld+json'>
+          { JSON.stringify(schemaOrgJSONLD) }
         </script>
 
         {/* OpenGraph tags */}
-        <meta property="og:title" content={title} />
-        {postSEO ? <meta property="og:type" content="article" /> : <meta property="og:type" content="article" />}
+        <meta property='og:title' content={title} />
+        {postSEO ? <meta property='og:type' content='article' /> : <meta property='og:type' content='article' />}
 
-        <meta property="og:url" content={pageUrl} />
-        <meta property="og:image" content={image} />
-        <meta property="og:image:width" content={imgWidth} />
-        <meta property="og:image:height" content={imgHeight} />
-        <meta property="og:description" content={description} />
+        <meta property='og:url' content={pageUrl} />
+        <meta property='og:image' content={image} />
+        <meta property='og:image:width' content={imgWidth} />
+        <meta property='og:image:height' content={imgHeight} />
+        <meta property='og:description' content={description} />
 
         {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name='twitter:card' content='summary_large_image' />
         <meta
-          name="twitter:creator"
+          name='twitter:creator'
           content={siteMetadata.userTwitter ? siteMetadata.userTwitter : ''}
         />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:image" content={image} />
-        <meta name="twitter:description" content={description} />
+        <meta name='twitter:title' content={title} />
+        <meta name='twitter:image' content={image} />
+        <meta name='twitter:description' content={description} />
       </Helmet>
     )
   }

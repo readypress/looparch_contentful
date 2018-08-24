@@ -35,7 +35,7 @@ class ArticleIndex extends React.Component {
               {posts.map(({ node }) => {
                 return (
                   <div key={node.slug} className="column is-one-third">
-                    <ArticlePreview article={node} />
+                    <ArticlePreview article={node} siteMetadata={this.props.data.site.siteMetadata} />
                   </div>
                 )
               })}
@@ -56,13 +56,16 @@ export const pageQuery = graphql`
         node {
           title
           slug
-          publishDate(formatString: "MMMM Do, YYYY")
+          publishDate
+          readableDate: publishDate(formatString: "MMMM Do, YYYY")
           tags
           heroImage {
+            title
+            description
             file {
               url
             }
-            sizes(maxHeight: 600) {
+            sizes(maxWidth: 400, maxHeight:300) {
               ...GatsbyContentfulSizes_withWebp
             }
           }

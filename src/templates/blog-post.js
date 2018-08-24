@@ -15,11 +15,12 @@ class BlogPostTemplate extends React.Component {
     return (
       <div className="article content-section">
         <SEO
-          pagePath={`manufacturers/${post.slug}`}
+          pagePath={`articles/${post.slug}`}
           postNode={post}
           postSEO
           customTitle={post.title}
           siteMetadata={siteMetadata}
+          location={this.props.location}
         />
         <div className="section">
           <div className="container content">
@@ -73,6 +74,9 @@ export const pageQuery = graphql`
       description {
         internal {
           content
+        }
+        childMarkdownRemark {
+          html
         }
       }
       heroImage {

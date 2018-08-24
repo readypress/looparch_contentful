@@ -14,6 +14,7 @@ class ManufacturerPostTemplate extends React.Component {
   componentDidMount() {
     const selectedItem = decodeURI(this.props.location.hash.replace('#',''))
     if (selectedItem) {
+      console.log('got here', selectedItem)
       document.getElementById(selectedItem).classList.add('selected')
       this.highlight = setTimeout (() => {
         try {
