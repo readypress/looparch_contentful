@@ -188,7 +188,7 @@ export const pageQuery = graphql`
           url
         }
         sizes(maxWidth: 300) {
-          ...GatsbyContentfulSizes_withWebp_noBase64
+          ...GatsbyContentfulSizes_withWebp
         }
         resolutions(width: 300) {
           ...GatsbyContentfulResolutions_withWebp
@@ -200,30 +200,11 @@ export const pageQuery = graphql`
           aspectRatio
         }
       }
-      logoImageLight {
-        title
-        description
-        sizes(maxWidth: 500) {
-          ...GatsbyContentfulSizes_withWebp_noBase64
-        }
-        resize(width: 351, height: 117, resizingBehavior: PAD) {
-          src
-          width
-          height
-          aspectRatio
-        }
-      }
       logoImageDark {
         title
         description
-        sizes(maxWidth: 500) {
+        sizes(maxHeight: 250, quality:100, resizingBehavior:PAD) {
           ...GatsbyContentfulSizes_withWebp_noBase64
-        }
-        resize(width: 500, resizingBehavior: PAD) {
-          src
-          width
-          height
-          aspectRatio
         }
       }
     }
@@ -251,7 +232,7 @@ export const pageQuery = graphql`
               ...GatsbyContentfulResolutions_withWebp
             }
             sizes(maxWidth: 370) {
-              ...GatsbyContentfulSizes_withWebp_noBase64
+              ...GatsbyContentfulSizes_withWebp
             }
             resize(width: 500, height: 400, resizingBehavior: FILL) {
               src

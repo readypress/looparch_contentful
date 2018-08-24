@@ -81,7 +81,7 @@ export const pageQuery = graphql`
       }
       heroImage {
         sizes(maxHeight: 1200, maxWidth: 2000, resizingBehavior: FILL, quality: 100) {
-          ...GatsbyContentfulSizes_withWebp_noBase64
+          ...GatsbyContentfulSizes_withWebp
         }
         resolutions(width: 300) {
           ...GatsbyContentfulResolutions_withWebp
