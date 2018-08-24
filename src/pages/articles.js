@@ -66,7 +66,7 @@ export const pageQuery = graphql`
               url
             }
             sizes(maxWidth: 400, maxHeight:300) {
-              ...GatsbyContentfulSizes_withWebp
+              ...GatsbyContentfulSizes_withWebp_noBase64
             }
           }
           description {

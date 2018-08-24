@@ -106,7 +106,7 @@ export const pageQuery = graphql`
           tags
           heroImage {
             sizes(maxHeight: 1200, maxWidth: 2000, resizingBehavior: FILL, quality: 100) {
-              ...GatsbyContentfulSizes_withWebp
+              ...GatsbyContentfulSizes_withWebp_noBase64
             }
           }
           description {
@@ -125,7 +125,7 @@ export const pageQuery = graphql`
           logoImageDark {
             description
             sizes(maxHeight: 400, resizingBehavior: PAD) {
-              ...GatsbyContentfulSizes_withWebp
+              ...GatsbyContentfulSizes_tracedSVG
             }
           }
         }
