@@ -47,7 +47,7 @@ class Navigation extends React.Component {
                   onClick={this.toggleNav}
                   hrefLang="en"
                 >
-                  Our Manufacturers
+                  Manufacturers
                 </Link>
                 <div
                   id="ManufacturersDropdown"
