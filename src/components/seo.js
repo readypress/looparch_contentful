@@ -179,8 +179,8 @@ class SEO extends React.Component {
           dateModified: dateModified,
           author: {
             '@type': 'Person',
-            name: siteMetadata.author,
-            url: siteMetadata.authorUrl,
+            name: siteMetadata.publisher,
+            url: siteMetadata.siteUrl,
           },
           publisher: {
             '@type': 'Organization',
