@@ -67,6 +67,7 @@ class ManufacturerPostTemplate extends React.Component {
           postNode={post}
           postSEO
           siteMetadata={siteMetadata}
+          products={products.edges}
         />
         <h1 className="is-hidden">{`${post.title} | ${siteTitle}`}</h1>
         <section className="section">

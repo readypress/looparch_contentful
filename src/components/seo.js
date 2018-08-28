@@ -15,7 +15,8 @@ class SEO extends React.Component {
       articleSEO,
       customTitle,
       siteMetadata,
-      location
+      location,
+      products,
     } = this.props
     const siteImage = `${siteMetadata.siteUrl}${siteMetadata.shareImage}`
     let title
@@ -25,8 +26,6 @@ class SEO extends React.Component {
     let imgHeight
     let pageUrl
     let dateModified = new Date()
-
-    console.log(location, pagePath)
 
     // Set Default OpenGraph Parameters for Fallback
     title = siteMetadata.title
@@ -207,6 +206,28 @@ class SEO extends React.Component {
         url: pageUrl,
         name: title,
         description: description,
+      })
+    }
+
+    if (products) {
+      products.forEach(edge => {
+        const product = edge.node
+        schemaOrgJSONLD.push({
+          '@context': 'http://schema.org',
+          '@type': 'Product',
+          name: product.title,
+          image: product.productImage.file.url,
+          description: product.description,
+          brand: {
+            '@type': 'Brand',
+            name: postNode.title,
+            logo: postNode.heroImage.sizes.src
+          },
+          offers: {
+            '@type' : 'Offer',
+            price : '$$'
+          }
+        })
       })
     }
 
