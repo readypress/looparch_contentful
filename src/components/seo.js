@@ -217,7 +217,7 @@ class SEO extends React.Component {
           '@type': 'Product',
           name: product.title,
           image: product.productImage.file.url,
-          description: `${product.description} - Inquire for pricing`,
+          description: `${product.description ? product.description.childMarkdownRemark.html : ''} - Inquire for pricing`,
           brand: {
             '@type': 'Brand',
             name: postNode.title,

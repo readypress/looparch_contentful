@@ -222,6 +222,9 @@ export const pageQuery = graphql`
             internal {
               content
             }
+            childMarkdownRemark {
+              html
+            }
           }
           productImage {
             title
