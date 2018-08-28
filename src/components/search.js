@@ -46,22 +46,30 @@ export default class Search extends Component {
         {this.state.results.map(result => {
           let manufacturer
           let title = result.title
+          let baseLink
 
-          if (result.type === 'ContentfulProduct') {
-            manufacturer = this.props.data.allContentfulManufacturer.edges.filter(
-              edge => {
-                return edge.node.id === result.manufacturer
-              }
-            )[0].node
-            title = `${manufacturer.title} - ${result.title}`
+          switch (result.type) {
+            case 'ContentfulManufacturer':
+              baseLink = `/manufacturers/${result.slug}`
+              break
+            case 'ContentfulProduct':
+              manufacturer = this.props.data.allContentfulManufacturer.edges.filter(
+                edge => {
+                  return edge.node.id === result.manufacturer
+                }
+              )[0].node
+              title = `${manufacturer.title} - ${result.title}`
+              baseLink = `/manufacturers/${manufacturer.slug}#${result.title}`
+              break
+            case 'ContentfulBlogPost':
+              baseLink = `/articles/${result.slug}`
+              break
+            default:
+              baseLink = ''
           }
-          const baseLink =
-            result.type === 'ContentfulManufacturer'
-              ? `${result.slug}`
-              : `${manufacturer.slug}#${result.title}`
           return (
             <div key={result.id} className="search-result">
-              <Link to={`/manufacturers/${baseLink}`}>
+              <Link to={`${baseLink}`}>
                 <h3 className="is-inline-block subtitle is-size-5">{title}</h3>
               </Link>
               <div

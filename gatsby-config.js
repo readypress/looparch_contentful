@@ -148,6 +148,12 @@ module.exports = {
           type: node => node.internal.type,
           slug: node => node.title,
           manufacturer: node => node.manufacturer___NODE
+        },
+        ContentfulBlogPost: {
+          title: node => node.title,
+          tags: node => node.tags,
+          type: node => node.internal.type,
+          slug: node => node.slug
         }
       },
     },
