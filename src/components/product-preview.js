@@ -36,7 +36,6 @@ class ProductPreviewTemplate extends React.Component {
           title={`${post.title} ${product.title}`}
           className="image"
           outerWrapperClassName="product-preview-image"
-          itemProp="image"
         />
         <h3>{product.title}</h3>
       </div>
