@@ -225,7 +225,8 @@ class SEO extends React.Component {
           },
           offers: {
             '@type' : 'Offer',
-            price : '$$'
+            price : '0.00',
+            priceCurrency: 'USD',
           }
         })
       })
