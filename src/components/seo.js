@@ -26,6 +26,7 @@ class SEO extends React.Component {
     let imgHeight
     let pageUrl
     let dateModified = new Date()
+    let keywords = [postNode.title].concat(postNode.tags)
 
     // Set Default OpenGraph Parameters for Fallback
     title = siteMetadata.title
@@ -235,6 +236,7 @@ class SEO extends React.Component {
     return (
       <Helmet>
         {/* General tags */}
+        <meta name="keywords" content={keywords.join(',')} />
         <meta name='image' content={image} />
         <meta name='description' content={description} />
 
