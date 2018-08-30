@@ -31,7 +31,7 @@ module.exports = {
     placeId: process.env.LOOPARCH_PLACE_ID || '',
     recaptchaKey: process.env.SITE_RECAPTCHA_KEY || '',
     shareImageWidth: 600,
-    shareImageHeight: 600,
+    shareImageHeight: 60,
     shareImage: '/images/loop-signature-share.png',
     publisher: 'Loop Architectural Materials',
     author: 'Loop Architectural Materials',
