@@ -32,7 +32,7 @@ module.exports = {
     recaptchaKey: process.env.SITE_RECAPTCHA_KEY || '',
     shareImageWidth: 600,
     shareImageHeight: 600,
-    shareImage: '/favicons/apple-touch-icon-180x180.png',
+    shareImage: '/images/loop-signature-share.png',
     publisher: 'Loop Architectural Materials',
     author: 'Loop Architectural Materials',
   },
