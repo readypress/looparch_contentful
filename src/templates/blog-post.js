@@ -14,6 +14,7 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <div className="article content-section">
+        <Helmet title={`${post.title} | ${siteTitle}`} />
         <SEO
           pagePath={`articles/${post.slug}`}
           postNode={post}
