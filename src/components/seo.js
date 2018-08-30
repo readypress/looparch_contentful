@@ -248,7 +248,8 @@ class SEO extends React.Component {
         {/* OpenGraph tags */}
         <meta property='og:title' content={title} />
         {postSEO ? <meta property='og:type' content='article' /> : <meta property='og:type' content='article' />}
-
+        <meta property="article:author" content="Loop Architectural Materials" />
+        <meta property="article:published_time" content={postNode.publishDate} />
         <meta property='og:url' content={pageUrl} />
         <meta property='og:image' content={image} />
         <meta property='og:image:width' content={imgWidth} />
