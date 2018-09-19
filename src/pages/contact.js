@@ -57,7 +57,7 @@ class ContactPage extends React.Component {
                   <p>
                     <strong>Loop Architectural Materials</strong>
                     <br />
-                    3310 N 16th Street
+                    3110 N 16th Street
                     <br />
                     Phoenix, AZ 85016
                   </p>
