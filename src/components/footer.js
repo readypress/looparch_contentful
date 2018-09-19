@@ -3,6 +3,8 @@ import Link from 'gatsby-link'
 
 import FormSignup from './form-signup'
 
+import styles from './footer.scss'
+
 class Footer extends React.Component {
   constructor(props) {
     super(props)
@@ -47,6 +49,22 @@ class Footer extends React.Component {
                 })}
               </ul>
             </div>
+          </div>
+          <div className="content has-text-centered">
+            <p className="is-size-4 social-links">
+              <a href="https://www.pinterest.com/looparchitecturalmaterials/" target="_blank" hrefLang="en">
+                <i class="fab fa-pinterest"></i>
+              </a>
+              <a href="https://www.instagram.com/looparchitecturalmaterials/" target="_blank" hrefLang="en">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://www.facebook.com/looparch/" target="_blank" hrefLang="en">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="https://www.linkedin.com/company/loop-architectural-materials/" target="_blank" hrefLang="en">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </p>
           </div>
           <div className="content has-text-centered">
             <p className="is-size-7">
