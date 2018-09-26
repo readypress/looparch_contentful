@@ -6,6 +6,15 @@ import Img from 'gatsby-image'
 import SEO from '../components/seo'
 
 class BlogPostTemplate extends React.Component {
+  componentDidMount() {
+    const h2s = document.getElementById('postBody')
+      .getElementsByTagName('h2')
+
+    for (var i = h2s.length - 1; i >= 0; i--) {
+      h2s[i].classList.add('title')
+    }
+  }
+
   render() {
     const siteMetadata = this.props.data.site.siteMetadata
     const siteTitle = siteMetadata.title
@@ -30,7 +39,7 @@ class BlogPostTemplate extends React.Component {
               <Img sizes={post.heroImage.sizes} alt="" />
             </div>
             <hr/>
-            <div
+            <div id="postBody"
               dangerouslySetInnerHTML={{
                 __html: post.body.childMarkdownRemark.html,
               }}
