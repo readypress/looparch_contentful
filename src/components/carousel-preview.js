@@ -5,6 +5,18 @@ import Img from 'gatsby-image'
 import styles from './carousel-preview.sass'
 
 class CarouselPreview extends React.Component {
+
+  componentDidUpdate() {
+    if (this.props.article.useLightText) {
+      document.getElementById('preview-content')
+        .getElementsByTagName('h3')[0]
+        .classList.add('has-text-white-bis')
+      document.getElementById('preview-content')
+        .getElementsByTagName('p')[0]
+        .classList.add('has-text-white-bis')
+    }
+  }
+
   render() {
     const article = this.props.article
 
@@ -14,7 +26,7 @@ class CarouselPreview extends React.Component {
           sizes={article.heroImage.sizes}
           outerWrapperClassName="carousel-preview-image"
         />
-        <div className="carousel-preview-content has-text-centered content">
+        <div id="preview-content" className="carousel-preview-content has-text-centered content">
           <h3 className="title is-size-1">
             <Link to={`/articles/${article.slug}`}>{article.title}</Link>
           </h3>

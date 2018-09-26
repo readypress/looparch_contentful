@@ -53,16 +53,16 @@ class Footer extends React.Component {
           <div className="content has-text-centered">
             <p className="is-size-4 social-links">
               <a href="https://www.pinterest.com/looparchitecturalmaterials/" target="_blank" hrefLang="en">
-                <i class="fab fa-pinterest"></i>
+                <i className="fab fa-pinterest"></i>
               </a>
               <a href="https://www.instagram.com/looparchitecturalmaterials/" target="_blank" hrefLang="en">
-                <i class="fab fa-instagram"></i>
+                <i className="fab fa-instagram"></i>
               </a>
               <a href="https://www.facebook.com/looparch/" target="_blank" hrefLang="en">
-                <i class="fab fa-facebook"></i>
+                <i className="fab fa-facebook"></i>
               </a>
               <a href="https://www.linkedin.com/company/loop-architectural-materials/" target="_blank" hrefLang="en">
-                <i class="fab fa-linkedin"></i>
+                <i className="fab fa-linkedin"></i>
               </a>
             </p>
           </div>

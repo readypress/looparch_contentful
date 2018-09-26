@@ -100,20 +100,21 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            sizes(maxHeight: 1200, maxWidth: 2000, resizingBehavior: FILL, quality: 100) {
-              ...GatsbyContentfulSizes_withWebp_noBase64
-            }
-          }
           description {
             childMarkdownRemark {
               html
             }
           }
+          heroImage {
+            sizes(maxHeight: 1200, maxWidth: 2000, resizingBehavior: FILL, quality: 70) {
+              ...GatsbyContentfulSizes_withWebp_noBase64
+            }
+          }
+          publishDate(formatString: "MMMM Do, YYYY")
+          slug
+          tags
+          title
+          useLightText
         }
       }
     }
