@@ -47,6 +47,9 @@ class Footer extends React.Component {
                     </li>
                   )
                 })}
+                <li className="tag">
+                  <Link to={`/articles/`}>More...</Link>
+                </li>
               </ul>
             </div>
           </div>
