@@ -30,7 +30,7 @@ class CarouselPreview extends React.Component {
           <h3 className="title is-size-1">
             <Link to={`/articles/${article.slug}`}>{article.title}</Link>
           </h3>
-          <p
+          <div
             className="subtitle"
             dangerouslySetInnerHTML={{
               __html: article.description.childMarkdownRemark.html,
