@@ -39,7 +39,7 @@ class Template extends React.Component {
           manufacturers={manufacturers}
           siteLogo={this.props.data.siteLogo.childImageSharp.resolutions}
         />
-        {children()}
+        { children }
         <Footer manufacturers={manufacturers} articles={articles} />
       </Container>
     )
