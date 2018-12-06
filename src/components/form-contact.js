@@ -1,5 +1,5 @@
 import React from 'react'
-import { navigateTo } from 'gatsby-link'
+import { navigate } from 'gatsby'
 import Recaptcha from 'react-google-recaptcha'
 
 function encode(data) {
@@ -55,7 +55,7 @@ class FormContact extends React.Component {
       }),
     })
       .then(() => {
-        navigateTo(form.getAttribute('action'))
+        navigate(form.getAttribute('action'))
       })
       .catch(error => console.log(error))
   }
