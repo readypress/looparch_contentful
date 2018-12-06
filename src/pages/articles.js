@@ -1,4 +1,5 @@
 import React from 'react'
+import Layout from '../components/layout'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
@@ -20,29 +21,31 @@ class ArticleIndex extends React.Component {
     }
 
     return (
-      <div className="content-section">
-        <Helmet title={`${siteTitle} | Articles`} />
-        <SEO
-          pagePath={`articles`}
-          postNode={postNode}
-          pageSEO
-          siteMetadata={this.props.data.site.siteMetadata}
-        />
-        <section className="section">
-          <div className="container">
-            <h1 className="title is-size-4">Articles</h1>
-            <div className="article-list columns is-multiline">
-              {posts.map(({ node }) => {
-                return (
-                  <div key={node.slug} className="column is-one-third">
-                    <ArticlePreview article={node} siteMetadata={this.props.data.site.siteMetadata} />
-                  </div>
-                )
-              })}
+      <Layout>
+        <div className="content-section">
+          <Helmet title={`${siteTitle} | Articles`} />
+          <SEO
+            pagePath={`articles`}
+            postNode={postNode}
+            pageSEO
+            siteMetadata={this.props.data.site.siteMetadata}
+          />
+          <section className="section">
+            <div className="container">
+              <h1 className="title is-size-4">Articles</h1>
+              <div className="article-list columns is-multiline">
+                {posts.map(({ node }) => {
+                  return (
+                    <div key={node.slug} className="column is-one-third">
+                      <ArticlePreview article={node} siteMetadata={this.props.data.site.siteMetadata} />
+                    </div>
+                  )
+                })}
+              </div>
             </div>
-          </div>
-        </section>
-      </div>
+          </section>
+        </div>
+      </Layout>
     )
   }
 }

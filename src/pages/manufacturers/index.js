@@ -1,4 +1,5 @@
 import React from 'react'
+import Layout from '../components/layout'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
@@ -23,25 +24,27 @@ class ManufacturersIndex extends React.Component {
     }
 
     return (
-      <div className="content-section">
-        <Helmet title={`${siteTitle} | Our Manufacturers`} />
-        <SEO
-          pagePath={`manufacturers`}
-          postNode={postNode}
-          pageSEO
-          siteMetadata={this.props.data.site.siteMetadata}
-        />
-        <section className="section">
-          <div className="container">
-            <h1 className="title is-size-4">Our Manufacturers</h1>
-            <div className="manufacturer-list columns is-multiline">
-              {posts.map(({ node }) => {
-                return <ManufacturerPreview key={node.slug} article={node} />
-              })}
+      <Layout>
+        <div className="content-section">
+          <Helmet title={`${siteTitle} | Our Manufacturers`} />
+          <SEO
+            pagePath={`manufacturers`}
+            postNode={postNode}
+            pageSEO
+            siteMetadata={this.props.data.site.siteMetadata}
+          />
+          <section className="section">
+            <div className="container">
+              <h1 className="title is-size-4">Our Manufacturers</h1>
+              <div className="manufacturer-list columns is-multiline">
+                {posts.map(({ node }) => {
+                  return <ManufacturerPreview key={node.slug} article={node} />
+                })}
+              </div>
             </div>
-          </div>
-        </section>
-      </div>
+          </section>
+        </div>
+      </Layout>
     )
   }
 }
