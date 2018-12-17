@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../components/layout'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
 import ArticlePreview from '../components/article-preview'
 import SEO from '../components/seo'

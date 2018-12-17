@@ -73,7 +73,7 @@ class FormSignup extends React.Component {
                 type="text"
                 name="b_6236ae131b11b8506326eed86_a7bb0e0ce6"
                 tabIndex="-1"
-                value=""
+                defaultValue=""
               />
             </div>
             <div className="clear">

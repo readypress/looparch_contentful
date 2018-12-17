@@ -2,11 +2,13 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 
 import ProductPreview from '../components/product-preview'
 import FormContact from '../components/form-contact'
 import ManufacturerHero from '../components/manufacturer-hero'
 import SEO from '../components/seo'
+import Layout from '../components/layout'
 
 import styles from './manufacturer-post.sass'
 
@@ -60,107 +62,109 @@ class ManufacturerPostTemplate extends React.Component {
     })
 
     return (
-      <div className="content-section manufacturer-post">
-        <Helmet title={`${post.title} | ${siteTitle}`} />
-        <SEO
-          pagePath={`manufacturers/${post.slug}`}
-          postNode={post}
-          postSEO
-          siteMetadata={siteMetadata}
-          products={products.edges}
-        />
-        <h1 className="is-hidden">{`${post.title} | ${siteTitle}`}</h1>
-        <section className="section">
-          <div className="container">
-            <div className="columns is-multiline is-variable is-6">
-              <div className="column is-one-third">
-                <Img
-                  sizes={post.logoImageDark.sizes}
-                  className="image"
-                  outerWrapperClassName="logo-img"
-                />
-                <br />
-                <Img
-                  sizes={post.heroImage.sizes}
-                  alt={post.heroImage.description}
-                  outerWrapperClassName="hero-img"
-                  className="image"
-                />
-                <br />
-                <div
-                  className="content"
-                  dangerouslySetInnerHTML={{
-                    __html: post.description.childMarkdownRemark.html,
-                  }}
-                />
-                <div className="content">
-                  <div className="field is-grouped">
-                    <p className="control no-print">
-                      <a
-                        href={post.url}
-                        target="_blank"
-                        className="button is-primary"
-                        rel="noopener"
-                      >
-                        <span>Visit {post.title}</span>
-                      </a>
-                    </p>
-                    <p className="control no-print">
-                      <a href="#inquiry" className="button is-secondary">
-                        <span>Inquire</span>
-                      </a>
-                    </p>
-                  </div>
+      <Layout>
+        <div className="content-section manufacturer-post">
+          <Helmet title={`${post.title} | ${siteTitle}`} />
+          <SEO
+            pagePath={`manufacturers/${post.slug}`}
+            postNode={post}
+            postSEO
+            siteMetadata={siteMetadata}
+            products={products.edges}
+          />
+          <h1 className="is-hidden">{`${post.title} | ${siteTitle}`}</h1>
+          <section className="section">
+            <div className="container">
+              <div className="columns is-multiline is-variable is-6">
+                <div className="column is-one-third">
+                  <Img
+                    sizes={post.logoImageDark.sizes}
+                    className="image"
+                    outerWrapperClassName="logo-img"
+                  />
+                  <br />
+                  <Img
+                    sizes={post.heroImage.sizes}
+                    alt={post.heroImage.description}
+                    outerWrapperClassName="hero-img"
+                    className="image"
+                  />
+                  <br />
                   <div
-                    className="tags"
-                    css={{
-                      marginTop: '1.5rem',
+                    className="content"
+                    dangerouslySetInnerHTML={{
+                      __html: post.description.childMarkdownRemark.html,
                     }}
-                  >
-                    {tags.map(node => {
-                      return (
-                        <span className="tag" key={node}>
-                          {node}
-                        </span>
-                      )
-                    })}
-                  </div>
-                </div>
-              </div>
-              <div className="column is-marginless">
-                {product_edges.map(node => {
-                  return (
+                  />
+                  <div className="content">
+                    <div className="field is-grouped">
+                      <p className="control no-print">
+                        <a
+                          href={post.url}
+                          target="_blank"
+                          className="button is-primary"
+                          rel="noopener"
+                        >
+                          <span>Visit {post.title}</span>
+                        </a>
+                      </p>
+                      <p className="control no-print">
+                        <a href="#inquiry" className="button is-secondary">
+                          <span>Inquire</span>
+                        </a>
+                      </p>
+                    </div>
                     <div
-                      key={node.title}
-                      className="column is-multiline manufacturer-section is-paddingless is-marginless"
+                      className="tags"
+                      css={{
+                        marginTop: '1.5rem',
+                      }}
                     >
-                      <h2 className="title is-size-4">{node.title}</h2>
-                      {node.products.map(product => {
+                      {tags.map(node => {
                         return (
-                          <div
-                            key={product.title}
-                            className="column is-half is-inline-block-desktop is-inline-block-tablet is-block-mobile is-marginless is-paddingless-mobile"
-                          >
-                            <ProductPreview product={product} post={post} siteMetadata={siteMetadata} path={this.props.location.pathname}/>
-                          </div>
+                          <span className="tag" key={node}>
+                            {node}
+                          </span>
                         )
                       })}
                     </div>
-                  )
-                })}
-                <section id="inquiry" className="section inquiry-section no-print">
-                  <h3 className="title is-size-4">{post.title} Inquiries</h3>
-                  <FormContact
-                    section={post.title}
-                    manufacturers={manufacturers}
-                    recaptchaKey={siteMetadata.recaptchaKey}
-                  />
-                </section>
+                  </div>
+                </div>
+                <div className="column is-marginless">
+                  {product_edges.map(node => {
+                    return (
+                      <div
+                        key={node.title}
+                        className="column is-multiline manufacturer-section is-paddingless is-marginless"
+                      >
+                        <h2 className="title is-size-4">{node.title}</h2>
+                        {node.products.map(product => {
+                          return (
+                            <div
+                              key={product.title}
+                              className="column is-half is-inline-block-desktop is-inline-block-tablet is-block-mobile is-marginless is-paddingless-mobile"
+                            >
+                              <ProductPreview product={product} post={post} siteMetadata={siteMetadata} path={this.props.location.pathname}/>
+                            </div>
+                          )
+                        })}
+                      </div>
+                    )
+                  })}
+                  <section id="inquiry" className="section inquiry-section no-print">
+                    <h3 className="title is-size-4">{post.title} Inquiries</h3>
+                    <FormContact
+                      section={post.title}
+                      manufacturers={manufacturers}
+                      recaptchaKey={siteMetadata.recaptchaKey}
+                    />
+                  </section>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-      </div>
+          </section>
+        </div>
+      </Layout>
     )
   }
 }
