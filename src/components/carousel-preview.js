@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 import styles from './carousel-preview.sass'
@@ -24,7 +24,7 @@ class CarouselPreview extends React.Component {
       <div className="carousel-preview">
         <Img
           fluid={article.heroImage.fluid}
-          outerWrapperClassName="carousel-preview-image"
+          className="carousel-preview-image"
         />
         <div id="preview-content" className="carousel-preview-content has-text-centered content">
           <h3 className="title is-size-1">
