@@ -19,8 +19,6 @@ class ProductPreviewTemplate extends React.Component {
       imageType = 'fixed'
     }
 
-    console.log(imageSizes)
-
     return (
       <div
         className={`product-preview ${post.slug}`}
