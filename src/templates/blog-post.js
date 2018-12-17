@@ -39,7 +39,7 @@ class BlogPostTemplate extends React.Component {
             <div className="container content">
               <h1 className="title is-size-1">{post.title}</h1>
               <div className="image">
-                <Img sizes={post.heroImage.sizes} alt="" />
+                <Img fluid={post.heroImage.fluid} alt="" />
               </div>
               <hr/>
               <div id="postBody"
@@ -94,11 +94,11 @@ export const pageQuery = graphql`
         }
       }
       heroImage {
-        sizes(maxHeight: 1200, maxWidth: 2000, resizingBehavior: FILL, quality: 100) {
-          ...GatsbyContentfulSizes_withWebp
+        fluid(maxHeight: 1200, maxWidth: 2000, resizingBehavior: FILL, quality: 100) {
+          ...GatsbyContentfulFluid_withWebp
         }
-        resolutions(width: 300) {
-          ...GatsbyContentfulResolutions_withWebp
+        fixed(width: 300) {
+          ...GatsbyContentfulFixed_withWebp
         }
       }
       body {

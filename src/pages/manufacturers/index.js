@@ -62,7 +62,7 @@ export const pageQuery = graphql`
           publishDate(formatString: "MMMM Do, YYYY")
           tags
           heroImage {
-            resolutions(width: 300) {
+            fixed(width: 300) {
               width
               height
               src
@@ -70,7 +70,7 @@ export const pageQuery = graphql`
               srcWebp
               srcSetWebp
             }
-            sizes(maxWidth: 300) {
+            fluid(maxWidth: 300) {
               aspectRatio
               srcSet
               srcWebp
@@ -86,7 +86,7 @@ export const pageQuery = graphql`
           }
           logoImageDark {
             description
-            sizes(maxWidth: 1200) {
+            fluid(maxWidth: 1200) {
               aspectRatio
               src
               srcSet
@@ -94,7 +94,7 @@ export const pageQuery = graphql`
               srcSetWebp
               sizes
             }
-            resolutions(width: 1200) {
+            fixed(width: 1200) {
               aspectRatio
               width
               height

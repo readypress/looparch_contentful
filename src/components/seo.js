@@ -53,9 +53,9 @@ class SEO extends React.Component {
     }
     // Use Hero Image for OpenGraph
     if (postSEO || articleSEO) {
-      image = `https:${postNode.heroImage.resolutions.src}`
-      imgWidth = postNode.heroImage.resolutions.width
-      imgHeight = postNode.heroImage.resolutions.height
+      image = `https:${postNode.heroImage.fixed.src}`
+      imgWidth = postNode.heroImage.fixed.width
+      imgHeight = postNode.heroImage.fixed.height
       dateModified = postNode.publishDate
       pageUrl = `${siteMetadata.siteUrl}/${pagePath}/`
     }
@@ -222,7 +222,7 @@ class SEO extends React.Component {
           brand: {
             '@type': 'Brand',
             name: postNode.title,
-            logo: postNode.heroImage.sizes.src
+            logo: postNode.heroImage.fixed.src
           },
           offers: {
             '@type' : 'Offer',

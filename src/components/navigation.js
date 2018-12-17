@@ -23,7 +23,7 @@ class Navigation extends React.Component {
         <div className="container">
           <div className="navbar-brand">
             <Link className="navbar-item" to="/" hrefLang="en">
-              <Img resolutions={this.props.siteLogo} />
+              <Img fixed={this.props.siteLogo.fixed} />
             </Link>
             <a
               role="button"

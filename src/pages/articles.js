@@ -69,8 +69,8 @@ export const pageQuery = graphql`
             file {
               url
             }
-            sizes(maxWidth: 400, maxHeight:300) {
-              ...GatsbyContentfulSizes_withWebp
+            fluid(maxWidth: 400, maxHeight:300) {
+              ...GatsbyContentfulFluid_withWebp
             }
           }
           description {

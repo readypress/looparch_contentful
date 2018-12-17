@@ -23,7 +23,7 @@ class CarouselPreview extends React.Component {
     return (
       <div className="carousel-preview">
         <Img
-          sizes={article.heroImage.sizes}
+          fluid={article.heroImage.fluid}
           outerWrapperClassName="carousel-preview-image"
         />
         <div id="preview-content" className="carousel-preview-content has-text-centered content">

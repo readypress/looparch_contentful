@@ -12,10 +12,14 @@ class ProductPreviewTemplate extends React.Component {
     const path = this.props.path
     const description = product.description || { internal: { content: product.title } }
 
-    let imageSizes = product.productImage.sizes
+    let imageSizes = product.productImage.fluid
+    let imageType = 'fluid'
     if (post.resizeImages) {
-      imageSizes = product.productImage.resize
+      imageSizes = product.productImage.fixed
+      imageType = 'fixed'
     }
+
+    console.log(imageSizes)
 
     return (
       <div
@@ -34,8 +38,7 @@ class ProductPreviewTemplate extends React.Component {
           sizes={imageSizes}
           alt={product.productImage.description}
           title={`${post.title} ${product.title}`}
-          className="image"
-          outerWrapperClassName="product-preview-image"
+          className={`image product-preview-image ${imageType}`}
         />
         <h3>{product.title}</h3>
       </div>

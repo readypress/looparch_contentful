@@ -53,8 +53,8 @@ import base from './base.scss'
 //             }
 //             siteLogo: file(relativePath: { eq: "loop-signature@4x.png" }) {
 //               childImageSharp {
-//                 resolutions(width: 270, quality:100) {
-//                   ...GatsbyImageSharpResolutions_withWebp_noBase64
+//                 fixed(width: 270, quality:100) {
+//                   ...GatsbyImageSharpFixed_withWebp_noBase64
 //                 }
 //               }
 //             }
@@ -120,8 +120,8 @@ export default ({ children }) => (
         }
         siteLogo: file(relativePath: { eq: "loop-signature@4x.png" }) {
           childImageSharp {
-            resolutions(width: 270, quality:100) {
-              ...GatsbyImageSharpResolutions_withWebp_noBase64
+            fixed(width: 270, quality:100) {
+              ...GatsbyImageSharpFixed_withWebp_noBase64
             }
           }
         }
@@ -147,7 +147,7 @@ export default ({ children }) => (
         </Helmet>
         <Navigation
           manufacturers={data.allContentfulManufacturer.edges}
-          siteLogo={data.siteLogo.childImageSharp.resolutions}
+          siteLogo={data.siteLogo.childImageSharp}
         />
         <div>
           {children}

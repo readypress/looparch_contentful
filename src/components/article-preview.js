@@ -3,6 +3,11 @@ import Link from 'gatsby-link'
 import Img from 'gatsby-image'
 
 class ArticlePreview extends React.Component {
+  constructor(props) {
+    console.log(props)
+    super(props)
+  }
+
   render() {
     const article = this.props.article
     const siteMetadata = this.props.siteMetadata
@@ -17,7 +22,7 @@ class ArticlePreview extends React.Component {
         <meta itemProp="image" content={article.heroImage.file.url} />
         <meta itemProp="description" content={article.description.childMarkdownRemark.html} />
         <Link to={`/articles/${article.slug}`} hrefLang="en">
-          <Img sizes={article.heroImage.sizes} title={article.heroImage.title}/>
+          <Img fluid={article.heroImage.fluid} title={article.heroImage.title}/>
           <hr/>
           <h3 className="title is-size-5">
               {article.title}

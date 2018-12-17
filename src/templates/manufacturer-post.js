@@ -78,13 +78,13 @@ class ManufacturerPostTemplate extends React.Component {
               <div className="columns is-multiline is-variable is-6">
                 <div className="column is-one-third">
                   <Img
-                    sizes={post.logoImageDark.sizes}
+                    fluid={post.logoImageDark.fluid}
                     className="image"
                     outerWrapperClassName="logo-img"
                   />
                   <br />
                   <Img
-                    sizes={post.heroImage.sizes}
+                    fluid={post.heroImage.fluid}
                     alt={post.heroImage.description}
                     outerWrapperClassName="hero-img"
                     className="image"
@@ -192,11 +192,11 @@ export const pageQuery = graphql`
         file {
           url
         }
-        sizes(maxWidth: 300) {
-          ...GatsbyContentfulSizes_withWebp
+        fluid(maxWidth: 300) {
+          ...GatsbyContentfulFluid_withWebp
         }
-        resolutions(width: 300) {
-          ...GatsbyContentfulResolutions_withWebp
+        fixed(width: 300) {
+          ...GatsbyContentfulFixed_withWebp
         }
         resize(width: 500) {
           src
@@ -208,8 +208,8 @@ export const pageQuery = graphql`
       logoImageDark {
         title
         description
-        sizes(maxHeight: 250, quality:100, resizingBehavior:PAD) {
-          ...GatsbyContentfulSizes_withWebp_noBase64
+        fluid(maxHeight: 250, quality:100, resizingBehavior:PAD) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
     }
@@ -236,17 +236,11 @@ export const pageQuery = graphql`
             file {
               url
             }
-            resolutions(width: 500) {
-              ...GatsbyContentfulResolutions_withWebp
+            fixed(width: 500, height: 400) {
+              ...GatsbyContentfulFixed_withWebp
             }
-            sizes(maxWidth: 370) {
-              ...GatsbyContentfulSizes_withWebp
-            }
-            resize(width: 500, height: 400, resizingBehavior: FILL) {
-              src
-              width
-              height
-              aspectRatio
+            fluid(maxWidth: 370) {
+              ...GatsbyContentfulFluid_withWebp
             }
           }
         }
