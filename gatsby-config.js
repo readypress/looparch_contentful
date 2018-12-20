@@ -45,7 +45,6 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     `gatsby-plugin-netlify`,
-    'gatsby-plugin-react-next',
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
@@ -123,40 +122,40 @@ module.exports = {
       siteUrl: process.env.SITE_URL || 'https://looparch.com',
     },
   },
-  {
-    resolve: `@andrew-codes/gatsby-plugin-elasticlunr-search`,
-    options: {
-      // Fields to index
-      fields: [
-        'title',
-        'tags',
-        'type',
-        'slug',
-      ],
-      // How to resolve each field's value for a supported node type
-      resolvers: {
-        // For any node of type MarkdownRemark, list how to resolve the fields' values
-        ContentfulManufacturer: {
-          title: node => node.title,
-          tags: node => node.tags,
-          type: node => node.internal.type,
-          slug: node => node.slug,
-        },
-        ContentfulProduct: {
-          title: node => node.title,
-          tags: node => [node.tag],
-          type: node => node.internal.type,
-          slug: node => node.title,
-          manufacturer: node => node.manufacturer___NODE
-        },
-        ContentfulBlogPost: {
-          title: node => node.title,
-          tags: node => node.tags,
-          type: node => node.internal.type,
-          slug: node => node.slug
-        }
-      },
-    },
-  },
+  // {
+  //   resolve: `@andrew-codes/gatsby-plugin-elasticlunr-search`,
+  //   options: {
+  //     // Fields to index
+  //     fields: [
+  //       'title',
+  //       'tags',
+  //       'type',
+  //       'slug',
+  //     ],
+  //     // How to resolve each field's value for a supported node type
+  //     resolvers: {
+  //       // For any node of type MarkdownRemark, list how to resolve the fields' values
+  //       ContentfulManufacturer: {
+  //         title: node => node.title,
+  //         tags: node => node.tags,
+  //         type: node => node.internal.type,
+  //         slug: node => node.slug,
+  //       },
+  //       ContentfulProduct: {
+  //         title: node => node.title,
+  //         tags: node => [node.tag],
+  //         type: node => node.internal.type,
+  //         slug: node => node.title,
+  //         manufacturer: node => node.manufacturer___NODE
+  //       },
+  //       ContentfulBlogPost: {
+  //         title: node => node.title,
+  //         tags: node => node.tags,
+  //         type: node => node.internal.type,
+  //         slug: node => node.slug
+  //       }
+  //     },
+  //   },
+  // },
   ],
 }

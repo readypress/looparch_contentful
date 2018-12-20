@@ -1,6 +1,8 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import Layout from '../components/layout'
+import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
 import ArticlePreview from '../components/article-preview'
 import SEO from '../components/seo'
@@ -20,29 +22,31 @@ class ArticleIndex extends React.Component {
     }
 
     return (
-      <div className="content-section">
-        <Helmet title={`${siteTitle} | Articles`} />
-        <SEO
-          pagePath={`articles`}
-          postNode={postNode}
-          pageSEO
-          siteMetadata={this.props.data.site.siteMetadata}
-        />
-        <section className="section">
-          <div className="container">
-            <h1 className="title is-size-4">Articles</h1>
-            <div className="article-list columns is-multiline">
-              {posts.map(({ node }) => {
-                return (
-                  <div key={node.slug} className="column is-one-third">
-                    <ArticlePreview article={node} siteMetadata={this.props.data.site.siteMetadata} />
-                  </div>
-                )
-              })}
+      <Layout>
+        <div className="content-section">
+          <Helmet title={`${siteTitle} | Articles`} />
+          <SEO
+            pagePath={`articles`}
+            postNode={postNode}
+            pageSEO
+            siteMetadata={this.props.data.site.siteMetadata}
+          />
+          <section className="section">
+            <div className="container">
+              <h1 className="title is-size-4">Articles</h1>
+              <div className="article-list columns is-multiline">
+                {posts.map(({ node }) => {
+                  return (
+                    <div key={node.slug} className="column is-one-third">
+                      <ArticlePreview article={node} siteMetadata={this.props.data.site.siteMetadata} />
+                    </div>
+                  )
+                })}
+              </div>
             </div>
-          </div>
-        </section>
-      </div>
+          </section>
+        </div>
+      </Layout>
     )
   }
 }
@@ -65,8 +69,8 @@ export const pageQuery = graphql`
             file {
               url
             }
-            sizes(maxWidth: 400, maxHeight:300) {
-              ...GatsbyContentfulSizes_withWebp
+            fluid(maxWidth: 400, maxHeight:300) {
+              ...GatsbyContentfulFluid_withWebp
             }
           }
           description {

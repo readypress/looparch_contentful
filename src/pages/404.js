@@ -1,6 +1,8 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import Layout from '../components/layout'
+import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
 import Search from '../components/search'
 
@@ -14,23 +16,25 @@ class MissingPage extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
 
     return (
-      <div className="content-section">
-        <Helmet title={`${siteTitle} | Ooops!`} />
-        <section className="section">
-          <div className="container content">
-            <h1 className="title">Oops!</h1>
-            <p>It appears the page you're looking for doesn't exist!</p>
-            <p>
-              Try typing a term in the search box to find it. For example:
-              'wood' or 'acoustic'.
-            </p>
-            <Search
-              data={this.props.data}
-              search={this.props.location.search}
-            />
-          </div>
-        </section>
-      </div>
+      <Layout>
+        <div className="content-section">
+          <Helmet title={`${siteTitle} | Ooops!`} />
+          <section className="section">
+            <div className="container content">
+              <h1 className="title">Oops!</h1>
+              <p>It appears the page you're looking for doesn't exist!</p>
+              <p>
+                Try typing a term in the search box to find it. For example:
+                'wood' or 'acoustic'.
+              </p>
+              <Search
+                data={this.props.data}
+                search={this.props.location.search}
+              />
+            </div>
+          </section>
+        </div>
+      </Layout>
     )
   }
 }
@@ -68,8 +72,6 @@ export const pageQuery = graphql`
         }
       }
     }
-    siteSearchIndex {
-      index
-    }
+    
   }
 `

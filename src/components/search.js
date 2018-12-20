@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Index } from 'elasticlunr'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import queryString from 'querystring'
 
 import styles from './search.sass'
