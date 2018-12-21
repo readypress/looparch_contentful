@@ -1,8 +1,8 @@
 {
   "name": "loop-gatsby",
-  "description": "Starter Contentful Gatsby Blog",
+  "description": "Loop Architectural Website",
   "version": "1.0.0",
-  "author": "Stefan Judis <stefanjudis@gmail.com>",
+  "author": "Jeff Adkins <jeff@readypress.com>",
   "bugs": {
     "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
   },
