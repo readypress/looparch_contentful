@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Index } from 'elasticlunr'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import queryString from 'querystring'
 
 import styles from './search.sass'
@@ -17,10 +16,12 @@ export default class Search extends Component {
 
   componentDidMount() {
     if (this.props.search) {
+      const el = document.getElementById('searchTerm')
+      const searchTerm = queryString.parse(this.props.search)[`?s`]
       this.search({
         target: {
-          value: queryString.parse(this.props.search)[`?s`],
-        },
+          value: searchTerm
+        }
       })
     }
   }
@@ -93,27 +94,21 @@ export default class Search extends Component {
     )
   }
 
-  getOrCreateIndex = () => {
-    return this.index
-      ? this.index
-      : Index.load(this.props.data.siteSearchIndex.index)
+  getSearchResults(query) {
+    if (!query || !window.__LUNR__) return []
+    const lunrIndex =  window.__LUNR__[this.props.lng]
+    const results = lunrIndex.index.search(query)
+    return results.map(({ ref }) => lunrIndex.store[ref])
   }
 
-  search = evt => {
-    const query = evt.target.value
-
-    this.index = this.getOrCreateIndex()
-    this.setState({
-      query,
-      results: this.index
-        .search(query, {})
-        .map(({ ref }) => this.index.documentStore.getDoc(ref))
-        .sort(result => {
-          if (result.type === 'ContentfulManufacturer') {
-            return -1
-          }
-          return 1
-        }),
+  search = event => {
+    const query = event.target.value
+    const results = this.getSearchResults(query)
+    this.setState(s => {
+      return {
+        results,
+        query,
+      }
     })
   }
 }

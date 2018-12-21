@@ -45,7 +45,6 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     `gatsby-plugin-netlify`,
-    'gatsby-plugin-react-next',
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
@@ -124,39 +123,52 @@ module.exports = {
     },
   },
   {
-    resolve: `@andrew-codes/gatsby-plugin-elasticlunr-search`,
+    resolve: 'gatsby-plugin-lunr',
     options: {
-      // Fields to index
-      fields: [
-        'title',
-        'tags',
-        'type',
-        'slug',
+      languages: [
+        {
+          name: 'en',
+          filterNodes: node => {
+            return node
+          }
+        }
       ],
-      // How to resolve each field's value for a supported node type
+      fields: [
+        { name: 'title', store: true, attributes: { boost: 20 } },
+        { name: 'tags', store: true},
+        { name: 'type', store: true},
+        { name: 'slug', store: true},
+        { name: 'manufacturer', store: true, attributes: { boost: 30 } },
+        { name: 'id', store: true}
+      ],
       resolvers: {
-        // For any node of type MarkdownRemark, list how to resolve the fields' values
         ContentfulManufacturer: {
+          id: node=> node.id,
           title: node => node.title,
           tags: node => node.tags,
           type: node => node.internal.type,
           slug: node => node.slug,
         },
         ContentfulProduct: {
+          id: node=> node.id,
           title: node => node.title,
           tags: node => [node.tag],
           type: node => node.internal.type,
           slug: node => node.title,
-          manufacturer: node => node.manufacturer___NODE
+          manufacturer: node => {
+            return node.manufacturer___NODE
+          }
         },
         ContentfulBlogPost: {
+          id: node=> node.id,
           title: node => node.title,
           tags: node => node.tags,
           type: node => node.internal.type,
           slug: node => node.slug
         }
       },
-    },
+      filename: 'search_index.json'
+    }
   },
   ],
 }

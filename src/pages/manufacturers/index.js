@@ -1,7 +1,9 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import Layout from '../../components/layout'
+import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 
 import ManufacturerPreview from '../../components/manufacturer-preview'
 import SEO from '../../components/seo'
@@ -23,25 +25,27 @@ class ManufacturersIndex extends React.Component {
     }
 
     return (
-      <div className="content-section">
-        <Helmet title={`${siteTitle} | Our Manufacturers`} />
-        <SEO
-          pagePath={`manufacturers`}
-          postNode={postNode}
-          pageSEO
-          siteMetadata={this.props.data.site.siteMetadata}
-        />
-        <section className="section">
-          <div className="container">
-            <h1 className="title is-size-4">Our Manufacturers</h1>
-            <div className="manufacturer-list columns is-multiline">
-              {posts.map(({ node }) => {
-                return <ManufacturerPreview key={node.slug} article={node} />
-              })}
+      <Layout>
+        <div className="content-section">
+          <Helmet title={`${siteTitle} | Our Manufacturers`} />
+          <SEO
+            pagePath={`manufacturers`}
+            postNode={postNode}
+            pageSEO
+            siteMetadata={this.props.data.site.siteMetadata}
+          />
+          <section className="section">
+            <div className="container">
+              <h1 className="title is-size-4">Our Manufacturers</h1>
+              <div className="manufacturer-list columns is-multiline">
+                {posts.map(({ node }) => {
+                  return <ManufacturerPreview key={node.slug} article={node} />
+                })}
+              </div>
             </div>
-          </div>
-        </section>
-      </div>
+          </section>
+        </div>
+      </Layout>
     )
   }
 }
@@ -58,7 +62,7 @@ export const pageQuery = graphql`
           publishDate(formatString: "MMMM Do, YYYY")
           tags
           heroImage {
-            resolutions(width: 300) {
+            fixed(width: 300) {
               width
               height
               src
@@ -66,7 +70,7 @@ export const pageQuery = graphql`
               srcWebp
               srcSetWebp
             }
-            sizes(maxWidth: 300) {
+            fluid(maxWidth: 300) {
               aspectRatio
               srcSet
               srcWebp
@@ -82,7 +86,7 @@ export const pageQuery = graphql`
           }
           logoImageDark {
             description
-            sizes(maxWidth: 1200) {
+            fluid(maxWidth: 1200) {
               aspectRatio
               src
               srcSet
@@ -90,7 +94,7 @@ export const pageQuery = graphql`
               srcSetWebp
               sizes
             }
-            resolutions(width: 1200) {
+            fixed(width: 1200) {
               aspectRatio
               width
               height

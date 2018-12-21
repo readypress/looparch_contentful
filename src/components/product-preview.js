@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 import styles from './product-preview.sass'
@@ -12,9 +12,23 @@ class ProductPreviewTemplate extends React.Component {
     const path = this.props.path
     const description = product.description || { internal: { content: product.title } }
 
-    let imageSizes = product.productImage.sizes
+    let imageType = 'fluid'
+
+    let VariableImage = <Img
+      fluid={product.productImage.fluid}
+      alt={product.productImage.description}
+      title={`${post.title} ${product.title}`}
+      className={`image product-preview-image ${imageType}`}
+    />
+
     if (post.resizeImages) {
-      imageSizes = product.productImage.resize
+      VariableImage = <Img
+        sizes={product.productImage.resize}
+        alt={product.productImage.description}
+        title={`${post.title} ${product.title}`}
+        className={`image product-preview-image ${imageType}`}
+      />
+      imageType = 'fixed'
     }
 
     return (
@@ -30,13 +44,7 @@ class ProductPreviewTemplate extends React.Component {
         <meta itemProp="image" content={product.productImage.file.url} />
         <meta itemProp="description" content={description.internal.content} />
 
-        <Img
-          sizes={imageSizes}
-          alt={product.productImage.description}
-          title={`${post.title} ${product.title}`}
-          className="image"
-          outerWrapperClassName="product-preview-image"
-        />
+        {VariableImage}
         <h3>{product.title}</h3>
       </div>
     )
