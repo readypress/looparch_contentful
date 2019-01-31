@@ -57,15 +57,19 @@ class Footer extends React.Component {
             <p className="is-size-4 social-links">
               <a href="https://www.pinterest.com/looparchitecturalmaterials/" target="_blank" hrefLang="en" rel="noopener">
                 <i className="fab fa-pinterest"></i>
+                <span class="is-sr-only">Pinterest</span>
               </a>
               <a href="https://www.instagram.com/looparchitecturalmaterials/" target="_blank" hrefLang="en" rel="noopener">
                 <i className="fab fa-instagram"></i>
+                <span class="is-sr-only">Instagram</span>
               </a>
               <a href="https://www.facebook.com/looparch/" target="_blank" hrefLang="en" rel="noopener">
                 <i className="fab fa-facebook"></i>
+                <span class="is-sr-only">Faccebook</span>
               </a>
               <a href="https://www.linkedin.com/company/loop-architectural-materials/" target="_blank" hrefLang="en" rel="noopener">
                 <i className="fab fa-linkedin"></i>
+                <span class="is-sr-only">LinkedIn</span>
               </a>
             </p>
           </div>

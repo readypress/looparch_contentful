@@ -5,6 +5,26 @@ import Img from 'gatsby-image'
 import styles from './product-preview.sass'
 
 class ProductPreviewTemplate extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isToggleOn: false,
+    }
+    this.revealModal = this.revealModal.bind(this)
+  }
+
+  componentDidMount() {
+    this.state.rootElement = document.getElementsByTagName('html')[0]
+    this.state.rootElement.classList.remove('is-clipped')
+  }
+
+  revealModal() {
+    this.setState(state => ({
+      isToggleOn: !state.isToggleOn
+    }))
+    this.state.rootElement.classList.toggle('is-clipped')
+  }
+
   render() {
     const product = this.props.product
     const post = this.props.post
@@ -44,8 +64,26 @@ class ProductPreviewTemplate extends React.Component {
         <meta itemProp="image" content={product.productImage.file.url} />
         <meta itemProp="description" content={description.internal.content} />
 
-        {VariableImage}
-        <h3>{product.title}</h3>
+        <div>
+          <div onClick={this.revealModal}>
+            {VariableImage}
+          </div>
+          <h3>{product.title}</h3>
+        </div>
+
+        <div className={this.state.isToggleOn ? "modal is-active" : "modal"}>
+          <div className="modal-background" onClick={this.revealModal}></div>
+          <div className="modal-content">
+            <Img
+              imgStyle={{className: `is-square`}}
+              fluid={product.productImage.fluid}
+              alt={product.productImage.description}
+              title={`${post.title} ${product.title}`}
+            />
+            <h4 className="title is-4 has-text-light">{`${post.title} – ${product.title}`}</h4>
+          </div>
+          <button className="modal-close is-large" aria-label="close" onClick={this.revealModal}></button>
+        </div>
       </div>
     )
   }
