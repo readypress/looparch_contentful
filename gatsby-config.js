@@ -39,7 +39,6 @@ module.exports = {
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-plugin-glamor',
-    'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',
@@ -71,7 +70,19 @@ module.exports = {
     resolve: `gatsby-plugin-favicon`,
     options: {
       logo: "./src/images/logo.png",
-      injectHTML: true,
+      // WebApp Manifest Configuration
+      appName: "Loop Architectural Materials",
+      appDescription: "Loop Architectural Materials Website",
+      developerName: "Loop",
+      developerURL: "https://looparch.com",
+      dir: 'auto',
+      lang: 'en-US',
+      background: '#fff',
+      theme_color: '#fff',
+      display: 'standalone',
+      orientation: 'any',
+      start_url: '/',
+      version: '1.0',
       icons: {
         android: true,
         appleIcon: true,
@@ -169,6 +180,7 @@ module.exports = {
       filename: 'search_index.json'
     }
   },
+  `gatsby-plugin-offline`,
   `gatsby-plugin-netlify`,
   ],
 }
