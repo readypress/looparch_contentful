@@ -44,7 +44,6 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    `gatsby-plugin-netlify`,
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
@@ -170,5 +169,6 @@ module.exports = {
       filename: 'search_index.json'
     }
   },
+  `gatsby-plugin-netlify`,
   ],
 }
