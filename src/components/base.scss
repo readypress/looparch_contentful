@@ -15,6 +15,7 @@ $navbar-height:     4rem;
 $primary:           #0BA24A;
 $link:              $primary;
 $white-bis:         hsl(0, 0%, 98%) !default;
+$modal-content-width: 800px;
 
 // Utilities
 @import '~bulma/sass/utilities/initial-variables';
@@ -42,6 +43,7 @@ $white-bis:         hsl(0, 0%, 98%) !default;
 @import '~bulma/sass/components/level';
 @import '~bulma/sass/components/menu';
 @import '~bulma/sass/components/navbar';
+@import '~bulma/sass/components/modal';
 
 // Grid
 @import '~bulma/sass/grid/_all';
