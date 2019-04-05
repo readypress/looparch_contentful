@@ -238,6 +238,8 @@ export const pageQuery = graphql`
             }
             fixed(width: 500, height: 400) {
               ...GatsbyContentfulFixed_withWebp
+              srcSet
+              aspectRatio
             }
             fluid(maxWidth: 500) {
               ...GatsbyContentfulFluid_withWebp

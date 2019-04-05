@@ -79,7 +79,7 @@ class RootIndex extends React.Component {
                 {manufacturers.map(({ node }) => {
                   return (
                     <div key={node.slug} className="column is-one-fifth">
-                      <Link to={`manufacturers/${node.slug}`} hrefLang="en">
+                      <Link to={`/manufacturers/${node.slug}`} hrefLang="en">
                         <Img key={node.slug} fluid={node.logoImageDark.fluid} />
                       </Link>
                     </div>

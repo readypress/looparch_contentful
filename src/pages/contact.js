@@ -40,7 +40,7 @@ class ContactPage extends React.Component {
                 <div className="column">
                   <div className="content">
                     <p>
-                      We’ d love to hear from you.If you’ re interested in receiving samples or talking to us about any of our product lines, feel free to fill out the form.
+                      We’d love to hear from you. If you’re interested in receiving samples, scheduling a presentation or talking to us about any of our product lines, feel free to fill out the form.
                     </p>
                     <p>
                       Our showroom address is:

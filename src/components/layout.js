@@ -50,7 +50,7 @@ export default ({ children }) => (
       }
     `}
     render={data => (
-      <>
+      <Router>
         <Helmet>
           <html className="has-navbar-fixed-top" lang="en" />
           <meta name="p:domain_verify" content="166b8bf16af4de614dccd2ea61cb0dc6"/>
@@ -68,7 +68,7 @@ export default ({ children }) => (
           {children}
         </div>
         <Footer manufacturers={data.allContentfulManufacturer.edges} articles={data.allContentfulBlogPost.edges} />
-      </>
+      </Router>
     )}
   />
 )

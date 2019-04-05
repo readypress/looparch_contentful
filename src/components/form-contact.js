@@ -127,7 +127,7 @@ class FormContact extends React.Component {
               className="textarea"
               name="message"
               onChange={this.handleChange}
-              placeholder={`I have a question about ${sectionName}...`}
+              placeholder={`Your message...`}
             />
           </div>
         </div>
