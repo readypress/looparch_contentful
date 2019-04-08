@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.5.0",
-    "@hot-loader/react-dom": "^16.8.6",
     "bulma": "^0.7.2",
     "contentful": "^7.0.5",
     "contentful-import": "^7.4.3",
@@ -36,7 +35,7 @@
     "lodash": "^4.17.11",
     "node-sass": "^4.10.0",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "react-dom": "^16.8.6",
     "react-google-recaptcha": "^1.0.5",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^5.0.0",
