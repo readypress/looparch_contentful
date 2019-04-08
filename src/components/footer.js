@@ -63,10 +63,6 @@ class Footer extends React.Component {
                 <i className="fab fa-instagram"></i>
                 <span className="is-sr-only">Instagram</span>
               </a>
-              <a href="https://www.facebook.com/looparch/" target="_blank" hrefLang="en" rel="noopener">
-                <i className="fab fa-facebook"></i>
-                <span className="is-sr-only">Faccebook</span>
-              </a>
               <a href="https://www.linkedin.com/company/loop-architectural-materials/" target="_blank" hrefLang="en" rel="noopener">
                 <i className="fab fa-linkedin"></i>
                 <span className="is-sr-only">LinkedIn</span>
@@ -75,8 +71,7 @@ class Footer extends React.Component {
           </div>
           <div className="content has-text-centered">
             <p className="is-size-7">
-              © Loop Architectural Materials or by permission of Loop
-              Architectural Materials clients.
+              © Loop Architectural Materials or by permission of our manufacturers.
             </p>
           </div>
         </div>
