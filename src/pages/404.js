@@ -6,10 +6,9 @@ import { graphql } from 'gatsby'
 
 import Search from '../components/search'
 
-class MissingPage extends React.Component {
+class FourOhFourPage extends React.Component {
   constructor(props) {
     super(props)
-    console.log(props)
   }
 
   render() {
@@ -22,14 +21,17 @@ class MissingPage extends React.Component {
           <section className="section">
             <div className="container content">
               <h1 className="title">Oops!</h1>
-              <p>It appears the page you're looking for doesn't exist!</p>
               <p>
-                Try typing a term in the search box to find it. For example:
-                'wood' or 'acoustic'.
+                It appears the page you're looking for doesn't exist!
+              </p>
+              <p>
+                Try typing a term in the search box to find something. For
+                example: 'wood' or 'acoustic'.
               </p>
               <Search
                 data={this.props.data}
                 search={this.props.location.search}
+                lng='en'
               />
             </div>
           </section>
@@ -39,10 +41,10 @@ class MissingPage extends React.Component {
   }
 }
 
-export default MissingPage
+export default FourOhFourPage
 
 export const pageQuery = graphql`
-  query oopsQuery {
+  query fourOhFourQuery {
     site {
       siteMetadata {
         title
@@ -72,6 +74,5 @@ export const pageQuery = graphql`
         }
       }
     }
-    
   }
 `

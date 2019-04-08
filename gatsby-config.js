@@ -144,12 +144,13 @@ module.exports = {
         }
       ],
       fields: [
-        { name: 'title', store: true },
+        { name: 'title', store: true, attributes: { boost: 20 } },
         { name: 'tag', store: true},
         { name: 'tags', store: true},
         { name: 'type', store: true},
         { name: 'slug', store: true},
         { name: 'manufacturer', store: true },
+        { name: 'manufacturerTitle', store: true },
         { name: 'id', store: true}
       ],
       resolvers: {
@@ -167,8 +168,11 @@ module.exports = {
           extra_tags: node => node.tags,
           type: node => node.internal.type,
           slug: node => node.title,
-          manufacturer: node => {
+          manufacturer: (node, getNode) => {
             return node.manufacturer___NODE
+          },
+          manufacturerTitle: (node, getNode) => {
+            return getNode(node.manufacturer___NODE).title
           }
         },
         ContentfulBlogPost: {
