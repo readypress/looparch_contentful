@@ -1,8 +1,8 @@
-const Promise = require('bluebird')
 const path = require('path')
 
 exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
   const config = getConfig()
+  console.log('STAGE = ', stage)
   if (stage.startsWith('develop') && config.resolve) {
     config.resolve.alias = {
       ...config.resolve.alias,
