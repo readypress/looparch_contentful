@@ -11,7 +11,7 @@ class Thanks extends React.Component {
 
   goBack = e => {
     e.preventDefault()
-    this.props.history.goBack()
+    window.history.back()
   }
 
   render() {

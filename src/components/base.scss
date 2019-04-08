@@ -1,4 +1,8 @@
 // System Font
+@font-face {
+  font-display: auto;
+}
+
 @import '~system-font-css/system-font';
 
 $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";

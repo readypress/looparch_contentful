@@ -4,7 +4,6 @@ import Img from 'gatsby-image'
 
 class ArticlePreview extends React.Component {
   constructor(props) {
-    console.log(props)
     super(props)
   }
 

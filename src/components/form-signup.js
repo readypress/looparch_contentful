@@ -20,7 +20,7 @@ class FormSignup extends React.Component {
           <div id="mc_embed_signup_scroll">
             <h2 className="title is-size-5">Subscribe to our mailing list</h2>
             <div className="field">
-              <label className="label is-sr-only" htmlFor="mce-EMAIL" for="mce-EMAIL">
+              <label className="label is-sr-only" htmlFor="mce-EMAIL">
                 Email Address <span className="asterisk">*</span>
               </label>
               <div className="control">
@@ -35,7 +35,7 @@ class FormSignup extends React.Component {
               </div>
             </div>
             <div className="field">
-              <label className="label is-sr-only" htmlFor="mce-FNAME" for="mce-FNAME">
+              <label className="label is-sr-only" htmlFor="mce-FNAME">
                 First Name
               </label>
               <div className="control">
@@ -51,7 +51,7 @@ class FormSignup extends React.Component {
             </div>
             <div className="field">
               <div className="control">
-                <label className="label is-sr-only" htmlFor="mce-LNAME" for="mce-LNAME">
+                <label className="label is-sr-only" htmlFor="mce-LNAME">
                   Last Name
                 </label>
                 <input

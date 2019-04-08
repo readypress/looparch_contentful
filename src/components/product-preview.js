@@ -36,19 +36,20 @@ class ProductPreviewTemplate extends React.Component {
 
     let VariableImage = <Img
       fluid={product.productImage.fluid}
+      srcSet={product.productImage.srcSet}
       alt={product.productImage.description}
       title={`${post.title} ${product.title}`}
       className={`image product-preview-image ${imageType}`}
     />
 
     if (post.resizeImages) {
+      imageType = 'fixed'
       VariableImage = <Img
-        sizes={product.productImage.resize}
+        fixed={product.productImage.fixed}
         alt={product.productImage.description}
         title={`${post.title} ${product.title}`}
         className={`image product-preview-image ${imageType}`}
       />
-      imageType = 'fixed'
     }
 
     return (

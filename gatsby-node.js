@@ -1,6 +1,16 @@
 const Promise = require('bluebird')
 const path = require('path')
 
+exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
+  const config = getConfig()
+  if (stage.startsWith('develop') && config.resolve) {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'react-dom': '@hot-loader/react-dom'
+    }
+  }
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -24,6 +34,7 @@ exports.createPages = ({ graphql, actions }) => {
                 node {
                   title
                   slug
+                  tags
                 }
               }
             }
@@ -31,7 +42,6 @@ exports.createPages = ({ graphql, actions }) => {
           `
       ).then(result => {
         if (result.errors) {
-          console.log(result.errors)
           reject(result.errors)
         }
 
