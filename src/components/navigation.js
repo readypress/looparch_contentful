@@ -79,6 +79,7 @@ class Navigation extends React.Component {
                 to="/search/"
                 className="navbar-item navbar-smaller"
                 hrefLang="en"
+                title="Search"
               >
                 <span className="icon is-large">
                   <i className="fas fa-search"></i>

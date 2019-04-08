@@ -61,7 +61,7 @@ module.exports = {
         short_name: "Loop",
         start_url: "/",
         background_color: "#ffffff",
-        theme_color: "#a2466c",
+        theme_color: "#0BA24A",
         display: "standalone",
         icon: "src/images/logo.png", // This path is relative to the root of the site.
       },
@@ -78,7 +78,7 @@ module.exports = {
       dir: 'auto',
       lang: 'en-US',
       background: '#fff',
-      theme_color: '#fff',
+      theme_color: '#0BA24A',
       display: 'standalone',
       orientation: 'any',
       start_url: '/',
@@ -90,7 +90,7 @@ module.exports = {
         coast: false,
         favicons: true,
         firefox: true,
-        twitter: false,
+        twitter: true,
         yandex: false,
         windows: false
       }
