@@ -198,12 +198,6 @@ export const pageQuery = graphql`
         fixed(width: 300) {
           ...GatsbyContentfulFixed_withWebp
         }
-        resize(width: 500) {
-          src
-          width
-          height
-          aspectRatio
-        }
       }
       logoImageDark {
         title
@@ -243,12 +237,6 @@ export const pageQuery = graphql`
             }
             fluid(maxWidth: 500) {
               ...GatsbyContentfulFluid_withWebp
-            }
-            resize(width: 500, height: 400, resizingBehavior: FILL) {
-              src
-              width
-              height
-              aspectRatio
             }
           }
         }

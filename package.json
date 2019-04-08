@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.5.0",
+    "@hot-loader/react-dom": "^16.8.6",
     "bulma": "^0.7.2",
     "contentful": "^7.0.5",
     "contentful-import": "^7.4.3",
