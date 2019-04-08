@@ -66,127 +66,126 @@ module.exports = {
         icon: "src/images/logo.png", // This path is relative to the root of the site.
       },
     },
-    {
-    resolve: `gatsby-plugin-favicon`,
-    options: {
-      logo: "./src/images/logo.png",
-      // WebApp Manifest Configuration
-      appName: "Loop Architectural Materials",
-      appDescription: "Loop Architectural Materials Website",
-      developerName: "Loop",
-      developerURL: "https://looparch.com",
-      dir: 'auto',
-      lang: 'en-US',
-      background: '#fff',
-      theme_color: '#0BA24A',
-      display: 'standalone',
-      orientation: 'any',
-      start_url: '/',
-      version: '1.0',
-      icons: {
-        android: true,
-        appleIcon: true,
-        appleStartup: true,
-        coast: false,
-        favicons: true,
-        firefox: true,
-        twitter: true,
-        yandex: false,
-        windows: false
+      {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: "./src/images/logo.png",
+        // WebApp Manifest Configuration
+        appName: "Loop Architectural Materials",
+        appDescription: "Loop Architectural Materials Website",
+        developerName: "Loop",
+        developerURL: "https://looparch.com",
+        dir: 'auto',
+        lang: 'en-US',
+        background: '#fff',
+        theme_color: '#0BA24A',
+        display: 'standalone',
+        orientation: 'any',
+        start_url: '/',
+        version: '1.0',
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          twitter: true,
+          yandex: false,
+          windows: false
+        }
       }
-    }
-  },
-  {
-    resolve: `gatsby-plugin-sitemap`,
-    options: {
-      output: `/sitemap.xml`,
-      exclude: [`/thanks`],
-      query: `
-        {
-          site {
-            siteMetadata {
-              siteUrl
-            }
-          }
-
-          allSitePage {
-            edges {
-              node {
-                path
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        exclude: [`/thanks`],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
               }
             }
-          }
-      }`
-    }
-  },
-  {
-    resolve: `gatsby-plugin-google-tagmanager`,
-    options: {
-      id: process.env.LOOPARCH_TAG_MANAGER_ID,
-      includeInDevelopment: false,
+            allSitePage {
+              edges {
+                node {
+                  path
+                }
+              }
+            }
+        }`
+      }
     },
-  },
-  {
-    resolve: `gatsby-plugin-canonical-urls`,
-    options: {
-      siteUrl: process.env.SITE_URL || 'https://looparch.com',
-    },
-  },
-  {
-    resolve: 'gatsby-plugin-lunr',
-    options: {
-      languages: [
-        {
-          name: 'en',
-          filterNodes: node => {
-            return node
-          }
-        }
-      ],
-      fields: [
-        { name: 'title', store: true, attributes: { boost: 20 } },
-        { name: 'tag', store: true},
-        { name: 'tags', store: true},
-        { name: 'type', store: true},
-        { name: 'slug', store: true},
-        { name: 'manufacturer', store: true },
-        { name: 'manufacturerTitle', store: true },
-        { name: 'id', store: true}
-      ],
-      resolvers: {
-        ContentfulManufacturer: {
-          id: node => node.id,
-          title: node => node.title,
-          tags: node => node.tags,
-          type: node => node.internal.type,
-          slug: node => node.slug,
-        },
-        ContentfulProduct: {
-          id: node => node.id,
-          title: node => node.title,
-          tags: node => [node.tag],
-          extra_tags: node => node.tags,
-          type: node => node.internal.type,
-          slug: node => node.title,
-          manufacturer: (node, getNode) => {
-            return node.manufacturer___NODE
-          },
-          manufacturerTitle: (node, getNode) => {
-            return getNode(node.manufacturer___NODE).title
-          }
-        },
-        ContentfulBlogPost: {
-          id: node => node.id,
-          title: node => node.title,
-          tags: node => node.tags,
-          type: node => node.internal.type,
-          slug: node => node.slug
-        }
+    {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: process.env.LOOPARCH_TAG_MANAGER_ID,
+        includeInDevelopment: false,
       },
-      filename: 'search_index.json'
-    }
-  },
-  `gatsby-plugin-offline`,
-  `gatsby-plugin-netlify`,
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: process.env.SITE_URL || 'https://looparch.com',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-lunr',
+      options: {
+        languages: [
+          {
+            name: 'en',
+            filterNodes: node => {
+              return node
+            }
+          }
+        ],
+        fields: [
+          { name: 'title', store: true, attributes: { boost: 20 } },
+          { name: 'tag', store: true},
+          { name: 'tags', store: true},
+          { name: 'type', store: true},
+          { name: 'slug', store: true},
+          { name: 'manufacturer', store: true },
+          { name: 'manufacturerTitle', store: true },
+          { name: 'id', store: true}
+        ],
+        resolvers: {
+          ContentfulManufacturer: {
+            id: node => node.id,
+            title: node => node.title,
+            tags: node => node.tags,
+            type: node => node.internal.type,
+            slug: node => node.slug,
+          },
+          ContentfulProduct: {
+            id: node => node.id,
+            title: node => node.title,
+            tags: node => [node.tag],
+            extra_tags: node => node.tags,
+            type: node => node.internal.type,
+            slug: node => node.title,
+            manufacturer: (node, getNode) => {
+              return node.manufacturer___NODE
+            },
+            manufacturerTitle: (node, getNode) => {
+              return getNode(node.manufacturer___NODE).title
+            }
+          },
+          ContentfulBlogPost: {
+            id: node => node.id,
+            title: node => node.title,
+            tags: node => node.tags,
+            type: node => node.internal.type,
+            slug: node => node.slug
+          }
+        },
+        filename: 'search_index.json'
+      }
+    },
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-netlify`
   ],
 }
