@@ -55,16 +55,8 @@ class ProductPreviewTemplate extends React.Component {
     return (
       <div
         className={`product-preview ${post.slug}`}
-        itemScope
-        itemType="http://schema.org/Product"
         id={product.title}
       >
-        <meta itemProp="brand" content={post.title} />
-        <meta itemProp="name" content={product.title} />
-        <meta itemProp="url" content={`${siteMetadata.siteUrl}${path}#${encodeURI(product.title)}`} />
-        <meta itemProp="image" content={product.productImage.file.url} />
-        <meta itemProp="description" content={description.internal.content} />
-
         <div>
           <div onClick={this.revealModal}>
             {VariableImage}

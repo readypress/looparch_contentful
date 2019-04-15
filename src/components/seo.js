@@ -217,7 +217,7 @@ class SEO extends React.Component {
           '@context': 'http://schema.org',
           '@type': 'Product',
           name: product.title,
-          image: product.productImage.file.url,
+          image: `${document.location.protocol}${product.productImage.file.url}`,
           description: `${product.description ? product.description.childMarkdownRemark.html : ''} - Inquire for pricing`,
           brand: {
             '@type': 'Brand',
