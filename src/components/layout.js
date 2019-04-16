@@ -59,10 +59,6 @@ export default ({ children }) => (
           <meta property="og:url" content={data.site.siteMetadata.siteUrl} />
           <meta property="og:locale" content="en_US" />
           <meta property="og:site_name" content={data.site.siteMetadata.title} />
-          <link rel="preconnect" href="https://www.google.com" />
-          <link rel="preconnect" href="https://www.gstatic.com" />
-          <link rel="preconnect" href="https://www.google-analytics.com" />
-          <link rel="preconnect" href="https://www.googletagmanager.com" />
         </Helmet>
         <Navigation
           manufacturers={data.allContentfulManufacturer.edges}
