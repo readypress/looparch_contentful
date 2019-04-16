@@ -48,14 +48,14 @@ module.exports = {
       options: contentfulConfig,
     },
     {
-    resolve: 'gatsby-source-filesystem',
+      resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
         path: `${__dirname}/src/images`,
       },
     },
     {
-    resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-plugin-manifest`,
       options: {
         name: "Loop Architectural Materials",
         short_name: "Loop",
@@ -65,36 +65,6 @@ module.exports = {
         display: "standalone",
         icon: "src/images/logo.png", // This path is relative to the root of the site.
       },
-    },
-      {
-      resolve: `gatsby-plugin-favicon`,
-      options: {
-        logo: "./src/images/logo.png",
-        // WebApp Manifest Configuration
-        appName: "Loop Architectural Materials",
-        appDescription: "Loop Architectural Materials Website",
-        developerName: "Loop",
-        developerURL: "https://looparch.com",
-        dir: 'auto',
-        lang: 'en-US',
-        background: '#fff',
-        theme_color: '#0BA24A',
-        display: 'standalone',
-        orientation: 'any',
-        start_url: '/',
-        version: '1.0',
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          twitter: true,
-          yandex: false,
-          windows: false
-        }
-      }
     },
     {
       resolve: `gatsby-plugin-sitemap`,
