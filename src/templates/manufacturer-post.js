@@ -216,6 +216,7 @@ export const pageQuery = graphql`
           tag
           title
           id
+          contentful_id
           description {
             internal {
               content

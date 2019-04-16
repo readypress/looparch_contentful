@@ -217,8 +217,28 @@ class SEO extends React.Component {
           '@context': 'http://schema.org',
           '@type': 'Product',
           name: product.title,
-          image: `https:${product.productImage.file.url}`,
+          image: [ `https:${product.productImage.file.url}` ],
           description: `${product.description ? product.description.childMarkdownRemark.html : ''} - Inquire for pricing`,
+          sku: `${product.contentful_id}`,
+          mpn: `${product.contentful_id}`,
+          review: {
+            '@type': 'Review',
+            reviewRating: {
+              '@type': 'Rating',
+              ratingValue: '5',
+              bestRating: '5'
+            },
+            author: {
+              '@type': 'Person',
+              name: siteMetadata.publisher,
+              url: siteMetadata.siteUrl,
+            },
+          },
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '5',
+            reviewCount: '1'
+          },
           brand: {
             '@type': 'Brand',
             name: postNode.title,
@@ -228,7 +248,10 @@ class SEO extends React.Component {
             '@type' : 'Offer',
             price : '0.00',
             priceCurrency: 'USD',
-          }
+            priceValidUntil: '2020-01-01',
+            availability: 'https://schema.org/InStock',
+            url: `${pageUrl}`
+          },
         })
       })
     }
