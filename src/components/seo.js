@@ -249,7 +249,7 @@ class SEO extends React.Component {
             price : '0.00',
             priceCurrency: 'USD',
             priceValidUntil: '2020-01-01',
-            availability: 'https://schema.org/InStock',
+            availability: 'InStock',
             url: `${pageUrl}`
           },
         })
