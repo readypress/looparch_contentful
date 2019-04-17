@@ -32,7 +32,9 @@ class Thanks extends React.Component {
                       In the meantime, you can{' '}
                       <a onClick={this.goBack}>return to the previous page</a>.
                     </p>
-                    <p>...Or fill out the form below to join our mailing list.</p>
+                    <p>
+                      ...Or fill out the form below to join our mailing list.
+                    </p>
                   </div>
                 </div>
               </div>

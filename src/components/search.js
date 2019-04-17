@@ -20,8 +20,8 @@ export default class Search extends Component {
       const searchTerm = queryString.parse(this.props.search)[`?s`]
       this.search({
         target: {
-          value: searchTerm
-        }
+          value: searchTerm,
+        },
       })
     }
   }
@@ -96,7 +96,7 @@ export default class Search extends Component {
 
   getSearchResults(query) {
     if (!query || !window.__LUNR__) return []
-    const lunrIndex =  window.__LUNR__[this.props.lng]
+    const lunrIndex = window.__LUNR__[this.props.lng]
     const results = lunrIndex.index.search(query)
     return results.map(({ ref }) => lunrIndex.store[ref])
   }

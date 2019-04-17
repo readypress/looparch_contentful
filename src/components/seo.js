@@ -150,7 +150,9 @@ class SEO extends React.Component {
               '@type': 'ListItem',
               position: 2,
               item: {
-                '@id': `${siteMetadata.siteUrl}/${this.props.pagePath.split('/')[0]}/`,
+                '@id': `${siteMetadata.siteUrl}/${
+                  this.props.pagePath.split('/')[0]
+                }/`,
                 name: `${this.props.pagePath.split('/')[0]}`,
               },
             },
@@ -172,9 +174,7 @@ class SEO extends React.Component {
             url: pageUrl,
           },
           headline: title,
-          image: [
-            image
-          ],
+          image: [image],
           datePublished: postNode.publishDate,
           dateModified: dateModified,
           author: {
@@ -192,7 +192,7 @@ class SEO extends React.Component {
               width: `600`,
               height: `60`,
               url: `${siteMetadata.siteUrl}${siteMetadata.shareImage}`,
-            }
+            },
           },
           description: postNode.description.childMarkdownRemark.html,
         }
@@ -217,8 +217,12 @@ class SEO extends React.Component {
           '@context': 'http://schema.org',
           '@type': 'Product',
           name: product.title,
-          image: [ `https:${product.productImage.file.url}` ],
-          description: `${product.description ? product.description.childMarkdownRemark.html : ''} - Inquire for pricing`,
+          image: [`https:${product.productImage.file.url}`],
+          description: `${
+            product.description
+              ? product.description.childMarkdownRemark.html
+              : ''
+          } - Inquire for pricing`,
           sku: `${product.contentful_id}`,
           mpn: `${product.contentful_id}`,
           review: {
@@ -226,7 +230,7 @@ class SEO extends React.Component {
             reviewRating: {
               '@type': 'Rating',
               ratingValue: '5',
-              bestRating: '5'
+              bestRating: '5',
             },
             author: {
               '@type': 'Person',
@@ -237,20 +241,20 @@ class SEO extends React.Component {
           aggregateRating: {
             '@type': 'AggregateRating',
             ratingValue: '5',
-            reviewCount: '1'
+            reviewCount: '1',
           },
           brand: {
             '@type': 'Brand',
             name: postNode.title,
-            logo: `https:${postNode.heroImage.fixed.src}`
+            logo: `https:${postNode.heroImage.fixed.src}`,
           },
           offers: {
-            '@type' : 'Offer',
-            price : '0.00',
+            '@type': 'Offer',
+            price: '0.00',
             priceCurrency: 'USD',
             priceValidUntil: '2020-01-01',
             availability: 'InStock',
-            url: `${pageUrl}`
+            url: `${pageUrl}`,
           },
         })
       })
@@ -260,34 +264,44 @@ class SEO extends React.Component {
       <Helmet>
         {/* General tags */}
         <meta name="keywords" content={keywords.join(',')} />
-        <meta name='image' content={image} />
-        <meta name='description' content={description} />
+        <meta name="image" content={image} />
+        <meta name="description" content={description} />
 
         {/* Schema.org tags */}
-        <script type='application/ld+json'>
-          { JSON.stringify(schemaOrgJSONLD) }
+        <script type="application/ld+json">
+          {JSON.stringify(schemaOrgJSONLD)}
         </script>
 
         {/* OpenGraph tags */}
-        <meta property='og:title' content={title} />
-        {postSEO ? <meta property='og:type' content='article' /> : <meta property='og:type' content='article' />}
-        <meta property="article:author" content="Loop Architectural Materials" />
-        <meta property="article:published_time" content={postNode.publishDate} />
-        <meta property='og:url' content={pageUrl} />
-        <meta property='og:image' content={image} />
-        <meta property='og:image:width' content={imgWidth} />
-        <meta property='og:image:height' content={imgHeight} />
-        <meta property='og:description' content={description} />
+        <meta property="og:title" content={title} />
+        {postSEO ? (
+          <meta property="og:type" content="article" />
+        ) : (
+          <meta property="og:type" content="article" />
+        )}
+        <meta
+          property="article:author"
+          content="Loop Architectural Materials"
+        />
+        <meta
+          property="article:published_time"
+          content={postNode.publishDate}
+        />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:image" content={image} />
+        <meta property="og:image:width" content={imgWidth} />
+        <meta property="og:image:height" content={imgHeight} />
+        <meta property="og:description" content={description} />
 
         {/* Twitter Card tags */}
-        <meta name='twitter:card' content='summary_large_image' />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta
-          name='twitter:creator'
+          name="twitter:creator"
           content={siteMetadata.userTwitter ? siteMetadata.userTwitter : ''}
         />
-        <meta name='twitter:title' content={title} />
-        <meta name='twitter:image' content={image} />
-        <meta name='twitter:description' content={description} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:image" content={image} />
+        <meta name="twitter:description" content={description} />
       </Helmet>
     )
   }

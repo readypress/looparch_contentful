@@ -9,8 +9,7 @@ import SEO from '../components/seo'
 
 class BlogPostTemplate extends React.Component {
   componentDidMount() {
-    const h2s = document.getElementById('postBody')
-      .getElementsByTagName('h2')
+    const h2s = document.getElementById('postBody').getElementsByTagName('h2')
 
     for (var i = h2s.length - 1; i >= 0; i--) {
       h2s[i].classList.add('title')
@@ -41,13 +40,14 @@ class BlogPostTemplate extends React.Component {
               <div className="image">
                 <Img fluid={post.heroImage.fluid} alt="" />
               </div>
-              <hr/>
-              <div id="postBody"
+              <hr />
+              <div
+                id="postBody"
                 dangerouslySetInnerHTML={{
                   __html: post.body.childMarkdownRemark.html,
                 }}
               />
-              <hr/>
+              <hr />
               <div className="">
                 <div className="is-pulled-left is-block">
                   <strong>{person.name}</strong> – {post.readableDate}
@@ -76,7 +76,7 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    contentfulPerson(name: {eq: "Loop"}) {
+    contentfulPerson(name: { eq: "Loop" }) {
       name
     }
     contentfulBlogPost(slug: { eq: $slug }) {
@@ -94,7 +94,12 @@ export const pageQuery = graphql`
         }
       }
       heroImage {
-        fluid(maxHeight: 1200, maxWidth: 2000, resizingBehavior: FILL, quality: 100) {
+        fluid(
+          maxHeight: 1200
+          maxWidth: 2000
+          resizingBehavior: FILL
+          quality: 100
+        ) {
           ...GatsbyContentfulFluid_withWebp
         }
         fixed(width: 300) {

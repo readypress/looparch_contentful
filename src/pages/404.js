@@ -21,9 +21,7 @@ class FourOhFourPage extends React.Component {
           <section className="section">
             <div className="container content">
               <h1 className="title">Oops!</h1>
-              <p>
-                It appears the page you're looking for doesn't exist!
-              </p>
+              <p>It appears the page you're looking for doesn't exist!</p>
               <p>
                 Try typing a term in the search box to find something. For
                 example: 'wood' or 'acoustic'.
@@ -31,7 +29,7 @@ class FourOhFourPage extends React.Component {
               <Search
                 data={this.props.data}
                 search={this.props.location.search}
-                lng='en'
+                lng="en"
               />
             </div>
           </section>

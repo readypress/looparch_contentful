@@ -28,7 +28,7 @@ class SearchPage extends React.Component {
               <Search
                 data={this.props.data}
                 search={this.props.location.search}
-                lng='en'
+                lng="en"
               />
             </div>
           </section>

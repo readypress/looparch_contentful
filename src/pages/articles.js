@@ -38,7 +38,10 @@ class ArticleIndex extends React.Component {
                 {posts.map(({ node }) => {
                   return (
                     <div key={node.slug} className="column is-one-third">
-                      <ArticlePreview article={node} siteMetadata={this.props.data.site.siteMetadata} />
+                      <ArticlePreview
+                        article={node}
+                        siteMetadata={this.props.data.site.siteMetadata}
+                      />
                     </div>
                   )
                 })}
@@ -69,7 +72,7 @@ export const pageQuery = graphql`
             file {
               url
             }
-            fluid(maxWidth: 400, maxHeight:300) {
+            fluid(maxWidth: 400, maxHeight: 300) {
               ...GatsbyContentfulFluid_withWebp
             }
           }
