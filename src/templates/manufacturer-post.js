@@ -14,15 +14,16 @@ import styles from './manufacturer-post.sass'
 
 class ManufacturerPostTemplate extends React.Component {
   componentDidMount() {
-    const selectedItem = decodeURI(this.props.location.hash.replace('#',''))
+    const selectedItem = decodeURI(this.props.location.hash.replace('#', ''))
     if (selectedItem) {
       console.log('got here', selectedItem)
       document.getElementById(selectedItem).classList.add('selected')
-      this.highlight = setTimeout (() => {
+      this.highlight = setTimeout(() => {
         try {
-          document.getElementsByClassName('selected')[0].classList.remove('selected')
-        }
-        catch (e) {
+          document
+            .getElementsByClassName('selected')[0]
+            .classList.remove('selected')
+        } catch (e) {
           console.log(e)
         }
       }, 5000)
@@ -144,14 +145,22 @@ class ManufacturerPostTemplate extends React.Component {
                               key={product.title}
                               className="column is-half is-inline-block-desktop is-inline-block-tablet is-block-mobile is-marginless is-paddingless-mobile"
                             >
-                              <ProductPreview product={product} post={post} siteMetadata={siteMetadata} path={this.props.location.pathname}/>
+                              <ProductPreview
+                                product={product}
+                                post={post}
+                                siteMetadata={siteMetadata}
+                                path={this.props.location.pathname}
+                              />
                             </div>
                           )
                         })}
                       </div>
                     )
                   })}
-                  <section id="inquiry" className="section inquiry-section no-print">
+                  <section
+                    id="inquiry"
+                    className="section inquiry-section no-print"
+                  >
                     <h3 className="title is-size-4">{post.title} Inquiries</h3>
                     <FormContact
                       section={post.title}
@@ -202,7 +211,7 @@ export const pageQuery = graphql`
       logoImageDark {
         title
         description
-        fluid(maxHeight: 250, quality:100, resizingBehavior:PAD) {
+        fluid(maxHeight: 250, quality: 100, resizingBehavior: PAD) {
           ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }

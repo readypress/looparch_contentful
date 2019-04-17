@@ -55,9 +55,9 @@ class RootIndex extends React.Component {
               <h2 className="title">Project Diversity</h2>
               <p>
                 Our lines represent a large spectrum of possibilities. Loop
-                provides solutions for Healthcare, Hospitality, Corporate, Civic,
-                Cultural, Education, Retail, Residential, Liturgical, or any other
-                scenario your project brings to the table.
+                provides solutions for Healthcare, Hospitality, Corporate,
+                Civic, Cultural, Education, Retail, Residential, Liturgical, or
+                any other scenario your project brings to the table.
               </p>
             </div>
           </section>
@@ -65,8 +65,8 @@ class RootIndex extends React.Component {
             <div className="container">
               <h2 className="title">End to End Support</h2>
               <p>
-                Your projects are <strong>our</strong> projects. Understanding the
-                process is a big part of what we do. Loop supports all your
+                Your projects are <strong>our</strong> projects. Understanding
+                the process is a big part of what we do. Loop supports all your
                 efforts at every waypoint from concept to completion – on every
                 project from tiny to tremendous.
               </p>
@@ -110,7 +110,12 @@ export const pageQuery = graphql`
             }
           }
           heroImage {
-            fluid(maxHeight: 1200, maxWidth: 2000, resizingBehavior: FILL, quality: 70) {
+            fluid(
+              maxHeight: 1200
+              maxWidth: 2000
+              resizingBehavior: FILL
+              quality: 70
+            ) {
               ...GatsbyContentfulFluid_withWebp_noBase64
             }
           }

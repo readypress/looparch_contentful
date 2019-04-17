@@ -35,7 +35,7 @@ export default ({ children }) => (
         }
         siteLogo: file(relativePath: { eq: "loop-signature@4x.png" }) {
           childImageSharp {
-            fixed(width: 270, quality:100) {
+            fixed(width: 270, quality: 100) {
               ...GatsbyImageSharpFixed_withWebp_noBase64
             }
           }
@@ -53,21 +53,31 @@ export default ({ children }) => (
       <>
         <Helmet>
           <html className="has-navbar-fixed-top" lang="en" />
-          <meta name="p:domain_verify" content="166b8bf16af4de614dccd2ea61cb0dc6"/>
-          <meta name="description" content={data.site.siteMetadata.description} />
+          <meta
+            name="p:domain_verify"
+            content="166b8bf16af4de614dccd2ea61cb0dc6"
+          />
+          <meta
+            name="description"
+            content={data.site.siteMetadata.description}
+          />
           <meta property="og:title" content={data.site.siteMetadata.title} />
           <meta property="og:url" content={data.site.siteMetadata.siteUrl} />
           <meta property="og:locale" content="en_US" />
-          <meta property="og:site_name" content={data.site.siteMetadata.title} />
+          <meta
+            property="og:site_name"
+            content={data.site.siteMetadata.title}
+          />
         </Helmet>
         <Navigation
           manufacturers={data.allContentfulManufacturer.edges}
           siteLogo={data.siteLogo.childImageSharp}
         />
-        <div>
-          {children}
-        </div>
-        <Footer manufacturers={data.allContentfulManufacturer.edges} articles={data.allContentfulBlogPost.edges} />
+        <div>{children}</div>
+        <Footer
+          manufacturers={data.allContentfulManufacturer.edges}
+          articles={data.allContentfulBlogPost.edges}
+        />
       </>
     )}
   />

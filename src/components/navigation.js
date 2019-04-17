@@ -82,7 +82,7 @@ class Navigation extends React.Component {
                 title="Search"
               >
                 <span className="icon is-large">
-                  <i className="fas fa-search"></i>
+                  <i className="fas fa-search" />
                 </span>
               </Link>
             </div>

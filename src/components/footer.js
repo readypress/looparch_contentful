@@ -55,23 +55,39 @@ class Footer extends React.Component {
           </div>
           <div className="content has-text-centered">
             <p className="is-size-4 social-links">
-              <a href="https://www.pinterest.com/looparchitecturalmaterials/" target="_blank" hrefLang="en" rel="noopener">
-                <i className="fab fa-pinterest"></i>
+              <a
+                href="https://www.pinterest.com/looparchitecturalmaterials/"
+                target="_blank"
+                hrefLang="en"
+                rel="noopener"
+              >
+                <i className="fab fa-pinterest" />
                 <span className="is-sr-only">Pinterest</span>
               </a>
-              <a href="https://www.instagram.com/looparchitecturalmaterials/" target="_blank" hrefLang="en" rel="noopener">
-                <i className="fab fa-instagram"></i>
+              <a
+                href="https://www.instagram.com/looparchitecturalmaterials/"
+                target="_blank"
+                hrefLang="en"
+                rel="noopener"
+              >
+                <i className="fab fa-instagram" />
                 <span className="is-sr-only">Instagram</span>
               </a>
-              <a href="https://www.linkedin.com/company/loop-architectural-materials/" target="_blank" hrefLang="en" rel="noopener">
-                <i className="fab fa-linkedin"></i>
+              <a
+                href="https://www.linkedin.com/company/loop-architectural-materials/"
+                target="_blank"
+                hrefLang="en"
+                rel="noopener"
+              >
+                <i className="fab fa-linkedin" />
                 <span className="is-sr-only">LinkedIn</span>
               </a>
             </p>
           </div>
           <div className="content has-text-centered">
             <p className="is-size-7">
-              © Loop Architectural Materials or by permission of our manufacturers.
+              © Loop Architectural Materials or by permission of our
+              manufacturers.
             </p>
           </div>
         </div>
