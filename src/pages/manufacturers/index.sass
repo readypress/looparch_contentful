@@ -1,11 +1,7 @@
 @import '~bulma/sass/utilities/all'
 
 .manufacturer-list
-  // display: flex
-  // flex-wrap: wrap
-  // flex-direction: row
   .box
-    // box-shadow: none
     .tags
       margin-top: 1rem
     .manufacturer-wrapper
@@ -24,14 +20,10 @@
           margin: auto
   +from($desktop)
     .box
-      // padding: 0
       margin: 0 .25rem .4rem .25rem
-      // min-width: 32%
-      // max-width: 32%
   +from($tablet)
     .box
       margin: 0 .25rem .4rem .25rem
-      // width: 49%
   +until($tablet)
     .box
       width: 100%
