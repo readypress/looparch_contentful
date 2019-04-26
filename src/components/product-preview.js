@@ -34,29 +34,15 @@ class ProductPreviewTemplate extends React.Component {
       internal: { content: product.title },
     }
 
-    let imageType = 'fluid'
-
-    let VariableImage = (
+    const VariableImage = (
       <Img
         fluid={product.productImage.fluid}
         srcSet={product.productImage.srcSet}
         alt={product.productImage.description}
         title={`${post.title} ${product.title}`}
-        className={`image product-preview-image ${imageType}`}
+        className={`image product-preview-image fluid`}
       />
     )
-
-    if (post.resizeImages) {
-      imageType = 'fixed'
-      VariableImage = (
-        <Img
-          fixed={product.productImage.fixed}
-          alt={product.productImage.description}
-          title={`${post.title} ${product.title}`}
-          className={`image product-preview-image ${imageType}`}
-        />
-      )
-    }
 
     return (
       <div className={`product-preview ${post.slug}`} id={product.title}>
@@ -67,13 +53,9 @@ class ProductPreviewTemplate extends React.Component {
 
         <div className={this.state.isToggleOn ? 'modal is-active' : 'modal'}>
           <div className="modal-background" onClick={this.revealModal} />
-          <div className="modal-content">
-            <Img
-              imgStyle={{ className: `is-square` }}
-              fluid={product.productImage.fluid}
-              alt={product.productImage.description}
-              title={`${post.title} ${product.title}`}
-            />
+          <div className="modal-content padded-modal">
+            { VariableImage }
+            <br />
             <h4 className="title is-4 has-text-light">{`${post.title} – ${
               product.title
             }`}</h4>

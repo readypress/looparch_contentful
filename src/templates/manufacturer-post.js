@@ -204,14 +204,14 @@ export const pageQuery = graphql`
         fluid(maxWidth: 300) {
           ...GatsbyContentfulFluid_withWebp
         }
-        fixed(width: 300) {
+        fixed(width: 1200) {
           ...GatsbyContentfulFixed_withWebp
         }
       }
       logoImageDark {
         title
         description
-        fluid(maxHeight: 250, quality: 100, resizingBehavior: PAD) {
+        fluid(maxHeight: 256, quality: 100, resizingBehavior: PAD) {
           ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
@@ -239,11 +239,6 @@ export const pageQuery = graphql`
             description
             file {
               url
-            }
-            fixed(width: 352, height: 235, resizingBehavior: FILL) {
-              ...GatsbyContentfulFixed_withWebp
-              srcSet
-              aspectRatio
             }
             fluid(maxWidth: 500) {
               ...GatsbyContentfulFluid_withWebp
