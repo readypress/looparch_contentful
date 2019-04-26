@@ -240,7 +240,7 @@ export const pageQuery = graphql`
             file {
               url
             }
-            fixed(width: 288, height: 205, resizingBehavior: FILL) {
+            fixed(width: 352, height: 235, resizingBehavior: FILL) {
               ...GatsbyContentfulFixed_withWebp
               srcSet
               aspectRatio
