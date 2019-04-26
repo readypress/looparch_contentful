@@ -132,6 +132,28 @@ class FormContact extends React.Component {
           </div>
         </div>
         <div className="field">
+          <label className="label">Project Name (if applicable):</label>
+          <div className="control">
+            <input
+              className="input"
+              type="text"
+              name="project_name"
+              onChange={this.handleChange}
+            />
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Project Specifier (if applicable):</label>
+          <div className="control">
+            <input
+              className="input"
+              type="text"
+              name="project_specifier"
+              onChange={this.handleChange}
+            />
+          </div>
+        </div>
+        <div className="field">
           <Recaptcha
             ref="recaptcha"
             sitekey={recaptchaKey}
