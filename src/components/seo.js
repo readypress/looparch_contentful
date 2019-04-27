@@ -266,6 +266,7 @@ class SEO extends React.Component {
         <meta name="keywords" content={keywords.join(',')} />
         <meta name="image" content={image} />
         <meta name="description" content={description} />
+        <meta name="application-name" content="Loop Architectural Materials" />
 
         {/* Schema.org tags */}
         <script type="application/ld+json">
