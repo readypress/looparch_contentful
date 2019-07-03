@@ -37,12 +37,26 @@ module.exports = {
     author: 'Loop Architectural Materials',
   },
   plugins: [
-    'gatsby-transformer-remark',
     'gatsby-plugin-glamor',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              maxWidth: 1344,
+              linkImagesToOriginal: false,
+              withWebp: true
+            }
+          }
+        ]
+      }
+    },
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
