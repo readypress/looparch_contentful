@@ -1,9 +1,18 @@
-$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
-@import '~@fortawesome/fontawesome-free/scss/brands';
-
 .social-links {
   a {
     margin: 0 .5rem;
     color: #333;
+
+    .logotype {
+      display: contents;
+      max-width: 25px;
+      max-height: 25px;
+
+      svg {
+        transition: fill 0.3s ease;
+        max-width: 25px;
+        max-height: 25px;
+      }
+    }
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/layout'
 import { Link } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
@@ -134,7 +134,7 @@ export const pageQuery = graphql`
           slug
           logoImageDark {
             description
-            fluid(maxHeight: 400, resizingBehavior: PAD) {
+            fluid(maxWidth: 400, maxHeight: 300, quality: 100, resizingBehavior: PAD) {
               ...GatsbyContentfulFluid_tracedSVG
             }
           }
