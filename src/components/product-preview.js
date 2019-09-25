@@ -7,22 +7,6 @@ import styles from './product-preview.sass'
 class ProductPreviewTemplate extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      isToggleOn: false,
-    }
-    this.revealModal = this.revealModal.bind(this)
-  }
-
-  componentDidMount() {
-    this.state.rootElement = document.getElementsByTagName('html')[0]
-    this.state.rootElement.classList.remove('is-clipped')
-  }
-
-  revealModal() {
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn,
-    }))
-    this.state.rootElement.classList.toggle('is-clipped')
   }
 
   render() {
@@ -47,24 +31,8 @@ class ProductPreviewTemplate extends React.Component {
     return (
       <div className={`product-preview ${post.slug}`} id={product.title}>
         <div>
-          <div onClick={this.revealModal}>{VariableImage}</div>
+          <div>{VariableImage}</div>
           <h3>{product.title}</h3>
-        </div>
-
-        <div className={this.state.isToggleOn ? 'modal is-active' : 'modal'}>
-          <div className="modal-background" onClick={this.revealModal} />
-          <div className="modal-content padded-modal">
-            { VariableImage }
-            <br />
-            <h4 className="title is-4 has-text-light">{`${post.title} – ${
-              product.title
-            }`}</h4>
-          </div>
-          <button
-            className="modal-close is-large"
-            aria-label="close"
-            onClick={this.revealModal}
-          />
         </div>
       </div>
     )
