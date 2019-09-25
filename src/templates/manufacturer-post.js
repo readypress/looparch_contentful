@@ -211,8 +211,8 @@ export const pageQuery = graphql`
       logoImageDark {
         title
         description
-        fluid(maxHeight: 256, quality: 100, resizingBehavior: PAD) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
+        fluid(maxHeight: 200, maxWidth: 400, quality: 100, resizingBehavior: PAD) {
+          ...GatsbyContentfulFluid_tracedSVG
         }
       }
     }
