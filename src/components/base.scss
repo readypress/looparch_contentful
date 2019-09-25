@@ -1,12 +1,5 @@
-// System Font
-@font-face {
-  font-display: auto;
-}
 
 @import '~system-font-css/system-font';
-
-$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 // Bulma Overrides
 $family-sans-serif: "Helvetica Neue", system-ui, "Helvetica", "Arial", sans-serif;
