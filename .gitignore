@@ -65,3 +65,4 @@ public
 
 # contentful config file
 .contentful.json
+.contentful_management.json
