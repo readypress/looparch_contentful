@@ -126,7 +126,7 @@ class SEO extends React.Component {
         sameAs: [
           'https://www.instagram.com/looparchitecturalmaterials/',
           'https://www.facebook.com/looparch/',
-          'https://www.pinterest.com/looparchitecturalmaterials',
+          'https://www.pinterest.com/looparchitecturalmaterials'
         ],
       },
     ]
@@ -271,6 +271,18 @@ class SEO extends React.Component {
         {/* Schema.org tags */}
         <script type="application/ld+json">
           {JSON.stringify(schemaOrgJSONLD)}
+        </script>
+
+        <script id="mcjs">
+          !function(c,h,i,m,p)
+          {
+            ((m = c.createElement(h)),
+            (p = c.getElementsByTagName(h)[0]),
+            (m.async = 1),
+            (m.src = i),
+            p.parentNode.insertBefore(m, p))
+          }
+          (document,"script","https://chimpstatic.com/mcjs-connected/js/users/6236ae131b11b8506326eed86/943d564cd0b36996e264a468a.js");
         </script>
 
         {/* OpenGraph tags */}
