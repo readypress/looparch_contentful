@@ -116,6 +116,60 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allContentfulBlogPost } }) => {
+              return allContentfulBlogPost.edges.map(edge => {
+                return Object.assign({}, {
+                  title: edge.node.title,
+                  description: edge.node.childContentfulBlogPostBodyTextNode.childMarkdownRemark.excerpt,
+                  date: edge.node.publishDate,
+                  url: `${site.siteMetadata.siteUrl}/articles/${edge.node.slug}`,
+                  guid: `${site.siteMetadata.siteUrl}/articles/${edge.node.slug}`,
+                  custom_elements: [{ "content.encoded": edge.node.childContentfulBlogPostBodyTextNode.childMarkdownRemark.html }]
+                })
+              })
+            },
+            query: `
+              {
+                allContentfulBlogPost(sort: {order: DESC, fields: publishDate}) {
+                  edges {
+                    node {
+                      title
+                      slug
+                      publishDate
+                      childContentfulBlogPostBodyTextNode {
+                        childMarkdownRemark {
+                          excerpt
+                          html
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'Loop Architectural Materials RSS Feed'
+          }
+        ]
+      }
+    },
+    {
       resolve: 'gatsby-plugin-lunr',
       options: {
         languages: [
@@ -167,7 +221,7 @@ module.exports = {
           }
         },
         filename: 'search_index.json'
-      }
+      },
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`
