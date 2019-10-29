@@ -164,7 +164,7 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: 'Loop Architectural Materials RSS Feed'
+            title: 'Loop Architectural Materials'
           }
         ]
       }
