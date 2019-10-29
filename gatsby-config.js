@@ -136,7 +136,7 @@ module.exports = {
               return allContentfulBlogPost.edges.map(edge => {
                 return Object.assign({}, {
                   title: edge.node.title,
-                  description: edge.node.childContentfulBlogPostBodyTextNode.childMarkdownRemark.excerpt,
+                  description: `<img src="${edge.node.heroImage.file.url}"><br /><br />${edge.node.childContentfulBlogPostBodyTextNode.childMarkdownRemark.excerpt}`,
                   date: edge.node.publishDate,
                   url: `${site.siteMetadata.siteUrl}/articles/${edge.node.slug}`,
                   guid: `${site.siteMetadata.siteUrl}/articles/${edge.node.slug}`,
@@ -152,6 +152,11 @@ module.exports = {
                       title
                       slug
                       publishDate
+                      heroImage {
+                        file {
+                          url
+                        }
+                      }
                       childContentfulBlogPostBodyTextNode {
                         childMarkdownRemark {
                           excerpt
