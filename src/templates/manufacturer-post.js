@@ -66,6 +66,14 @@ class ManufacturerPostTemplate extends React.Component {
       <Layout>
         <div className="content-section manufacturer-post">
           <Helmet title={`${post.title} | ${siteTitle}`} />
+          <Helmet>
+            <script
+              type="text/javascript"
+              async
+              defer
+              src="//assets.pinterest.com/js/pinit.js"
+            ></script>
+          </Helmet>
           <SEO
             pagePath={`manufacturers/${post.slug}`}
             postNode={post}
@@ -212,9 +220,9 @@ export const pageQuery = graphql`
         title
         description
         fluid(
-          maxHeight: 200,
-          maxWidth: 400,
-          quality: 100,
+          maxHeight: 200
+          maxWidth: 400
+          quality: 100
           resizingBehavior: PAD
         ) {
           ...GatsbyContentfulFluid_tracedSVG

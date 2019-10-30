@@ -26,6 +26,14 @@ class BlogPostTemplate extends React.Component {
       <Layout>
         <div className="article content-section">
           <Helmet title={`${post.title} | ${siteTitle}`} />
+          <Helmet>
+            <script
+              type="text/javascript"
+              async
+              defer
+              src="//assets.pinterest.com/js/pinit.js"
+            ></script>
+          </Helmet>
           <SEO
             pagePath={`articles/${post.slug}`}
             postNode={post}
