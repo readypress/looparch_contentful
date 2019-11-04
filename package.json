@@ -7,7 +7,7 @@
     "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
   },
   "dependencies": {
-    "bulma": "^0.7.5",
+    "bulma": "^0.8.0",
     "contentful": "^7.10.0",
     "contentful-import": "^7.6.0",
     "contentful-management": "^5.11.2",
