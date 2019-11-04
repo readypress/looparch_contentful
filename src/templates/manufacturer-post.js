@@ -71,6 +71,8 @@ class ManufacturerPostTemplate extends React.Component {
               type="text/javascript"
               async
               defer
+              data-pin-hover="true"
+              data-pin-round="true"
               src="//assets.pinterest.com/js/pinit.js"
             ></script>
           </Helmet>
