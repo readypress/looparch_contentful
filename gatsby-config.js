@@ -1,6 +1,6 @@
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
-});
+})
 
 // Contentful
 let contentfulConfig
@@ -26,7 +26,8 @@ module.exports = {
   siteMetadata: {
     title: 'Loop Architectural Materials',
     siteUrl: process.env.SITE_URL || 'https://looparch.com',
-    description: 'Design & technical partner to the Arizona A+D community, Loop Architectural Materials represents leading brands in contract furniture, glass, and architectural / interior design products.',
+    description:
+      'Design & technical partner to the Arizona A+D community, Loop Architectural Materials represents leading brands in contract furniture, glass, and architectural/interior design products.',
     mapKey: process.env.LOOPARCH_MAPS_KEY || '',
     placeId: process.env.LOOPARCH_PLACE_ID || '',
     recaptchaKey: process.env.SITE_RECAPTCHA_KEY || '',
@@ -51,11 +52,11 @@ module.exports = {
             options: {
               maxWidth: 1344,
               linkImagesToOriginal: false,
-              withWebp: true
-            }
-          }
-        ]
-      }
+              withWebp: true,
+            },
+          },
+        ],
+      },
     },
     {
       resolve: 'gatsby-source-contentful',
@@ -71,13 +72,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "Loop Architectural Materials",
-        short_name: "Loop",
-        start_url: "/",
-        background_color: "#ffffff",
-        theme_color: "#0BA24A",
-        display: "standalone",
-        icon: "src/images/logo.png", // This path is relative to the root of the site.
+        name: 'Loop Architectural Materials',
+        short_name: 'Loop',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#0BA24A',
+        display: 'standalone',
+        icon: 'src/images/logo.png', // This path is relative to the root of the site.
       },
     },
     {
@@ -99,8 +100,8 @@ module.exports = {
                 }
               }
             }
-        }`
-      }
+        }`,
+      },
     },
     {
       resolve: `gatsby-plugin-google-tagmanager`,
@@ -134,16 +135,23 @@ module.exports = {
           {
             serialize: ({ query: { site, allContentfulBlogPost } }) => {
               return allContentfulBlogPost.edges.map(edge => {
-                return Object.assign({}, {
-                  title: edge.node.title,
-                  description: `<img src="https:${edge.node.heroImage.file.url}"><br /><br />${edge.node.childContentfulBlogPostBodyTextNode.childMarkdownRemark.excerpt}`,
-                  date: edge.node.publishDate,
-                  url: `${site.siteMetadata.siteUrl}/articles/${edge.node.slug}`,
-                  guid: `${site.siteMetadata.siteUrl}/articles/${edge.node.slug}`,
-                  custom_elements: [{
-                    "content.encoded": edge.node.childContentfulBlogPostBodyTextNode.childMarkdownRemark.html 
-                  }]
-                })
+                return Object.assign(
+                  {},
+                  {
+                    title: edge.node.title,
+                    description: `<img src="https:${edge.node.heroImage.file.url}"><br /><br />${edge.node.childContentfulBlogPostBodyTextNode.childMarkdownRemark.excerpt}`,
+                    date: edge.node.publishDate,
+                    url: `${site.siteMetadata.siteUrl}/articles/${edge.node.slug}`,
+                    guid: `${site.siteMetadata.siteUrl}/articles/${edge.node.slug}`,
+                    custom_elements: [
+                      {
+                        'content.encoded':
+                          edge.node.childContentfulBlogPostBodyTextNode
+                            .childMarkdownRemark.html,
+                      },
+                    ],
+                  }
+                )
               })
             },
             query: `
@@ -171,10 +179,10 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: 'Loop Architectural Materials'
-          }
-        ]
-      }
+            title: 'Loop Architectural Materials',
+          },
+        ],
+      },
     },
     {
       resolve: 'gatsby-plugin-lunr',
@@ -184,18 +192,18 @@ module.exports = {
             name: 'en',
             filterNodes: node => {
               return node
-            }
-          }
+            },
+          },
         ],
         fields: [
           { name: 'title', store: true, attributes: { boost: 20 } },
-          { name: 'tag', store: true},
-          { name: 'tags', store: true},
-          { name: 'type', store: true},
-          { name: 'slug', store: true},
+          { name: 'tag', store: true },
+          { name: 'tags', store: true },
+          { name: 'type', store: true },
+          { name: 'slug', store: true },
           { name: 'manufacturer', store: true },
           { name: 'manufacturerTitle', store: true },
-          { name: 'id', store: true}
+          { name: 'id', store: true },
         ],
         resolvers: {
           ContentfulManufacturer: {
@@ -217,20 +225,20 @@ module.exports = {
             },
             manufacturerTitle: (node, getNode) => {
               return getNode(node.manufacturer___NODE).title
-            }
+            },
           },
           ContentfulBlogPost: {
             id: node => node.id,
             title: node => node.title,
             tags: node => node.tags,
             type: node => node.internal.type,
-            slug: node => node.slug
-          }
+            slug: node => node.slug,
+          },
         },
-        filename: 'search_index.json'
+        filename: 'search_index.json',
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify`
+    `gatsby-plugin-netlify`,
   ],
 }

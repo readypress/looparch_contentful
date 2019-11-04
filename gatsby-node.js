@@ -5,7 +5,9 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve('./src/templates/blog-post.js')
-    const manufacturerPost = path.resolve('./src/templates/manufacturer-post.js')
+    const manufacturerPost = path.resolve(
+      './src/templates/manufacturer-post.js'
+    )
     resolve(
       graphql(
         `
@@ -28,7 +30,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-          `
+        `
       ).then(result => {
         if (result.errors) {
           reject(result.errors)
@@ -41,7 +43,7 @@ exports.createPages = ({ graphql, actions }) => {
             path: `/articles/${post.node.slug}/`,
             component: blogPost,
             context: {
-              slug: post.node.slug
+              slug: post.node.slug,
             },
           })
         })
@@ -50,7 +52,7 @@ exports.createPages = ({ graphql, actions }) => {
             path: `/manufacturers/${post.node.slug}/`,
             component: manufacturerPost,
             context: {
-              slug: post.node.slug
+              slug: post.node.slug,
             },
           })
         })
