@@ -66,16 +66,6 @@ class ManufacturerPostTemplate extends React.Component {
       <Layout>
         <div className="content-section manufacturer-post">
           <Helmet title={`${post.title} | ${siteTitle}`} />
-          <Helmet>
-            <script
-              type="text/javascript"
-              async
-              defer
-              data-pin-hover="true"
-              data-pin-round="true"
-              src="//assets.pinterest.com/js/pinit.js"
-            ></script>
-          </Helmet>
           <SEO
             pagePath={`manufacturers/${post.slug}`}
             postNode={post}
