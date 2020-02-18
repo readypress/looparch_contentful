@@ -1,15 +1,18 @@
-
 @import '~system-font-css/system-font';
 
 // Bulma Overrides
-$family-sans-serif: "Helvetica Neue", system-ui, "Helvetica", "Arial", sans-serif;
-$radius-small:      0px;
-$radius:            0px;
-$radius-large:      0px;
-$navbar-height:     4rem;
-$primary:           #0BA24A;
-$link:              $primary;
-$white-bis:         hsl(0, 0%, 98%) !default;
+$family-sans-serif: "Helvetica Neue",
+system-ui,
+"Helvetica",
+"Arial",
+sans-serif;
+$radius-small: 0px;
+$radius: 0px;
+$radius-large: 0px;
+$navbar-height: 4rem;
+$primary: #0BA24A;
+$link: $primary;
+$white-bis: hsl(0, 0%, 98%) !default;
 $modal-content-width: 800px;
 
 // Utilities
@@ -39,13 +42,15 @@ $modal-content-width: 800px;
 @import '~bulma/sass/components/menu';
 @import '~bulma/sass/components/navbar';
 @import '~bulma/sass/components/modal';
+@import '~bulma/sass/components/card';
 
 // Grid
 @import '~bulma/sass/grid/_all';
 @import '~bulma/sass/layout/_all';
 
 // Core Overrides
-html, body {
+html,
+body {
   background-color: $white-bis
 }
 
