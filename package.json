@@ -72,7 +72,7 @@
     "heroku-postbuild": "gatsby build"
   },
   "resolutions": {
-    "graphql": "14.5.8"
+    "graphql": "14.6.0"
   },
   "peerDependencies": {
     "gatsby": ">=2"
