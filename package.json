@@ -71,6 +71,9 @@
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix *.js bin/*.js",
     "heroku-postbuild": "gatsby build"
   },
+  "resolutions": {
+    "yargs-parser": "18.1.2"
+  },
   "peerDependencies": {
     "gatsby": ">=2"
   }
