@@ -30,23 +30,23 @@
     "gatsby-transformer-remark": "^2.6.24",
     "gatsby-transformer-sharp": "^2.2.17",
     "glamor": "^2.20.40",
-    "graphql": "^14.5.8",
+    "graphql": "^15.0.0",
     "lodash": "^4.17.11",
     "node-sass": "^4.12.0",
     "react": "^16.6.3",
     "react-dom": "^16.8.6",
     "react-google-recaptcha": "^2.0.1",
-    "react-helmet": "6.0.0-beta",
+    "react-helmet": "^6.0.0",
     "react-router-dom": "^5.0.1",
     "system-font-css": "^2.0.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "eslint": "^6.4.0",
+    "eslint": "^7.0.0",
     "eslint-plugin-react": "^7.13.0",
     "gatsby": "^2.8.5",
     "gh-pages": "^2.0.1",
-    "prettier": "^1.17.1"
+    "prettier": "^2.0.5"
   },
   "homepage": "https://github.com/contentful-userland/gatsby-contentful-starter#readme",
   "keywords": [
@@ -70,9 +70,6 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix *.js bin/*.js",
     "heroku-postbuild": "gatsby build"
-  },
-  "resolutions": {
-    "graphql": "14.6.0"
   },
   "peerDependencies": {
     "gatsby": ">=2"
