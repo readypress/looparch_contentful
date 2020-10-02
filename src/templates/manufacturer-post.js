@@ -73,7 +73,7 @@ class ManufacturerPostTemplate extends React.Component {
             siteMetadata={siteMetadata}
             products={products.edges}
           />
-          <h1 className="is-hidden">{`${post.title} | ${siteTitle}`}</h1>
+          <h1 className="is-sr-only">{`${post.title} | ${siteTitle}`}</h1>
           <section className="section">
             <div className="container">
               <div className="columns is-multiline is-variable is-6">
