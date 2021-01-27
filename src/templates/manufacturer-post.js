@@ -5,6 +5,7 @@ import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
 import ProductPreview from '../components/product-preview'
+import MdProductPreview from '../components/md-product-preview'
 import FormContact from '../components/form-contact'
 import ManufacturerHero from '../components/manufacturer-hero'
 import SEO from '../components/seo'
@@ -41,13 +42,14 @@ class ManufacturerPostTemplate extends React.Component {
     const siteTitle = siteMetadata.title
     const post = this.props.data.contentfulManufacturer
     const products = this.props.data.allContentfulProduct || { edges: [] }
+    const mdProducts = this.props.data.allMarkdownRemark || { edges: [] }
     const manufacturers = this.props.data.allContentfulManufacturer || {
       edges: [],
     }
     const tags = post.tags || []
     const product_edges = []
 
-    products.edges.forEach(product => {
+    products.edges.forEach((product) => {
       const node = product.node
       let edge
       product_edges.forEach((product_edge, i) => {
@@ -121,7 +123,7 @@ class ManufacturerPostTemplate extends React.Component {
                         marginTop: '1.5rem',
                       }}
                     >
-                      {tags.map(node => {
+                      {tags.map((node) => {
                         return (
                           <span className="tag" key={node}>
                             {node}
@@ -132,28 +134,19 @@ class ManufacturerPostTemplate extends React.Component {
                   </div>
                 </div>
                 <div className="column is-marginless">
-                  {product_edges.map(node => {
+                  {mdProducts.edges.map((product, iterator) => {
+                    const fm = product.node.frontmatter
                     return (
                       <div
-                        key={node.title}
-                        className="column is-multiline manufacturer-section is-paddingless is-marginless"
+                        key={iterator}
+                        className="column is-one-third is-inline-block-desktop is-inline-block-tablet is-block-mobile is-marginless is-paddingless-mobile"
                       >
-                        <h2 className="title is-size-4">{node.title}</h2>
-                        {node.products.map(product => {
-                          return (
-                            <div
-                              key={product.title}
-                              className="column is-half is-inline-block-desktop is-inline-block-tablet is-block-mobile is-marginless is-paddingless-mobile"
-                            >
-                              <ProductPreview
-                                product={product}
-                                post={post}
-                                siteMetadata={siteMetadata}
-                                path={this.props.location.pathname}
-                              />
-                            </div>
-                          )
-                        })}
+                        <MdProductPreview
+                          product={fm}
+                          post={post}
+                          siteMetadata={siteMetadata}
+                          path={this.props.location.pathname}
+                        />
                       </div>
                     )
                   })}
@@ -181,7 +174,7 @@ class ManufacturerPostTemplate extends React.Component {
 export default ManufacturerPostTemplate
 
 export const pageQuery = graphql`
-  query ManufacturerPostBySlug($slug: String!) {
+  query ManufacturerPostBySlug($slug: String!, $title: String!) {
     contentfulManufacturer(slug: { eq: $slug }) {
       title
       slug
@@ -247,6 +240,51 @@ export const pageQuery = graphql`
             }
             fluid(maxWidth: 500) {
               ...GatsbyContentfulFluid_withWebp
+            }
+          }
+        }
+      }
+    }
+    allMarkdownRemark(
+      filter: { frontmatter: { manufacturer: { eq: $title } } }
+      sort: { fields: [frontmatter___manufacturer, frontmatter___title] }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            category
+            description
+            designer
+            href
+            manufacturer
+            subtitle
+            tags
+            slug
+            date
+            image_primary {
+              childImageSharp {
+                fluid(
+                  maxWidth: 300
+                  maxHeight: 300
+                  fit: COVER
+                  cropFocus: ATTENTION
+                ) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            image_secondary {
+              childImageSharp {
+                fluid(
+                  maxWidth: 300
+                  maxHeight: 300
+                  fit: COVER
+                  cropFocus: ATTENTION
+                ) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }

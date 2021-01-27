@@ -59,6 +59,14 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'markdown-pages',
+        path: './src/markdown-pages/',
+      },
+      __key: 'markdown-pages',
+    },
+    {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },
@@ -134,7 +142,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allContentfulBlogPost } }) => {
-              return allContentfulBlogPost.edges.map(edge => {
+              return allContentfulBlogPost.edges.map((edge) => {
                 return Object.assign(
                   {},
                   {
@@ -190,7 +198,7 @@ module.exports = {
         languages: [
           {
             name: 'en',
-            filterNodes: node => {
+            filterNodes: (node) => {
               return node
             },
           },
@@ -207,19 +215,19 @@ module.exports = {
         ],
         resolvers: {
           ContentfulManufacturer: {
-            id: node => node.id,
-            title: node => node.title,
-            tags: node => node.tags,
-            type: node => node.internal.type,
-            slug: node => node.slug,
+            id: (node) => node.id,
+            title: (node) => node.title,
+            tags: (node) => node.tags,
+            type: (node) => node.internal.type,
+            slug: (node) => node.slug,
           },
           ContentfulProduct: {
-            id: node => node.id,
-            title: node => node.title,
-            tags: node => [node.tag],
-            extra_tags: node => node.tags,
-            type: node => node.internal.type,
-            slug: node => node.title,
+            id: (node) => node.id,
+            title: (node) => node.title,
+            tags: (node) => [node.tag],
+            extra_tags: (node) => node.tags,
+            type: (node) => node.internal.type,
+            slug: (node) => node.title,
             manufacturer: (node, getNode) => {
               return node.manufacturer___NODE
             },
@@ -228,11 +236,11 @@ module.exports = {
             },
           },
           ContentfulBlogPost: {
-            id: node => node.id,
-            title: node => node.title,
-            tags: node => node.tags,
-            type: node => node.internal.type,
-            slug: node => node.slug,
+            id: (node) => node.id,
+            title: (node) => node.title,
+            tags: (node) => node.tags,
+            type: (node) => node.internal.type,
+            slug: (node) => node.slug,
           },
         },
         filename: 'search_index.json',

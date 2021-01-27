@@ -1,0 +1,29 @@
+@import '~bulma/sass/utilities/all'
+
+.manufacturer-list
+  .box
+    .tags
+      margin-top: 1rem
+    .manufacturer-wrapper
+      position: relative
+      .logo-wrapper
+        display: flex
+        flex-direction: column
+        flex-wrap: nowrap
+        align-content: center
+        background-color: rgba(0,0,0,0.25)
+        flex-shrink: 1
+        padding: 0
+        .title-display
+          display: inline-block
+          flex-shrink: 1
+          margin: auto
+  +from($desktop)
+    .box
+      margin: 0 .25rem .4rem .25rem
+  +from($tablet)
+    .box
+      margin: 0 .25rem .4rem .25rem
+  +until($tablet)
+    .box
+      width: 100%
