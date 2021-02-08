@@ -19,16 +19,14 @@ export default function Template({
         <div className="section">
           <div className="container">
             <div className="content">
-              <h1 className="title is-size-1">
+              <h1 className="title is-size-1" style={{ marginBottom: 0 }}>
                 {frontmatter.manufacturer} - {frontmatter.title}
               </h1>
-              <h2>
-                <span className="has-text-weight-light">
-                  {frontmatter.subtitle}
-                  {frontmatter.designer !== 'null' && (
-                    <span> by {frontmatter.designer}</span>
-                  )}
-                </span>
+              <h2 className="has-text-weight-light" style={{ marginTop: 0 }}>
+                {frontmatter.subtitle}
+                {frontmatter.designer !== 'null' && (
+                  <span> by {frontmatter.designer}</span>
+                )}
               </h2>
 
               <Img
@@ -38,11 +36,13 @@ export default function Template({
 
               {frontmatter.image_secondary && (
                 <Img
+                  style={{ marginBottom: `1rem` }}
                   fluid={frontmatter.image_secondary.childImageSharp.fluid}
                 />
               )}
+
               {frontmatter.description !== 'null' && (
-                <div>{unescape(frontmatter.description)}</div>
+                <p>{unescape(unescape(frontmatter.description))}</p>
               )}
             </div>
             <p className="control no-print" style={{ marginBottom: '1rem' }}>

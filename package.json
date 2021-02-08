@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "bulma": "^0.9.1",
-    "contentful": "^7.10.0",
+    "contentful": "^8.1.7",
     "contentful-import": "^7.6.0",
     "contentful-management": "^6.1.2",
     "gatsby-image": "^2.2.21",

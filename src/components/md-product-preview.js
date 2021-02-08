@@ -27,10 +27,10 @@ class MdProductPreviewTemplate extends React.Component {
 
     return (
       <div className={`product-preview ${post.slug}`} id={product.title}>
-        <a href={product.slug}>
+        <Link to={product.slug} hrefLang="en">
           <div>{VariableImage}</div>
           <h3>{product.title}</h3>
-        </a>
+        </Link>
       </div>
     )
   }
