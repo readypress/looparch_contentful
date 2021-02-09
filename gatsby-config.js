@@ -242,6 +242,13 @@ module.exports = {
             type: (node) => node.internal.type,
             slug: (node) => node.slug,
           },
+          MarkdownRemark: {
+            id: (node) => node.id,
+            title: (node) => node.frontmatter.title,
+            tags: (node) => node.frontmatter.tags,
+            type: (node) => node.internal.type,
+            slug: (node) => node.frontmatter.slug,
+          },
         },
         filename: 'search_index.json',
       },

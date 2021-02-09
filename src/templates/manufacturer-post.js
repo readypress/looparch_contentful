@@ -17,18 +17,17 @@ import styles from './manufacturer-post.sass'
 class ManufacturerPostTemplate extends React.Component {
   state = {
     allProducts: this.props.data.allMarkdownRemark.edges,
-    items: this.props.data.allMarkdownRemark.edges.slice(1, 16),
+    items: this.props.data.allMarkdownRemark.edges.slice(0, 16),
     counter: 1,
     hasMore: true,
   }
 
   fetchMoreData = () => {
-    const hasMore =
-      this.state.items.length !== this.state.allProducts.length - 1
+    const hasMore = this.state.items.length !== this.state.allProducts.length
     const increment = this.state.counter + 1
     this.setState({
       counter: increment,
-      items: this.state.allProducts.slice(1, 16 * increment),
+      items: this.state.allProducts.slice(0, 16 * increment),
       hasMore,
     })
   }
