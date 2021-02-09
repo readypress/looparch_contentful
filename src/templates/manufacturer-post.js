@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 import ProductPreview from '../components/product-preview'
 import MdProductPreview from '../components/md-product-preview'
@@ -14,6 +15,24 @@ import Layout from '../components/layout'
 import styles from './manufacturer-post.sass'
 
 class ManufacturerPostTemplate extends React.Component {
+  state = {
+    allProducts: this.props.data.allMarkdownRemark.edges,
+    items: this.props.data.allMarkdownRemark.edges.slice(1, 16),
+    counter: 1,
+    hasMore: true,
+  }
+
+  fetchMoreData = () => {
+    const hasMore =
+      this.state.items.length !== this.state.allProducts.length - 1
+    const increment = this.state.counter + 1
+    this.setState({
+      counter: increment,
+      items: this.state.allProducts.slice(1, 16 * increment),
+      hasMore,
+    })
+  }
+
   componentDidMount() {
     const selectedItem = decodeURI(this.props.location.hash.replace('#', ''))
     if (selectedItem) {
@@ -134,7 +153,31 @@ class ManufacturerPostTemplate extends React.Component {
                   </div>
                 </div>
                 <div className="column is-marginless">
-                  {mdProducts.edges.map((product, iterator) => {
+                  <InfiniteScroll
+                    dataLength={this.state.items.length}
+                    next={this.fetchMoreData}
+                    hasMore={this.state.hasMore}
+                    loader={<p>loading...</p>}
+                    endMessage={<p>done.</p>}
+                  >
+                    {this.state.items.map((i, index) => {
+                      const fm = i.node.frontmatter
+                      return (
+                        <div
+                          key={index}
+                          className="column is-one-third is-inline-block-desktop is-inline-block-tablet is-block-mobile is-marginless is-paddingless-mobile"
+                        >
+                          <MdProductPreview
+                            product={fm}
+                            post={post}
+                            siteMetadata={siteMetadata}
+                            path={this.props.location.pathname}
+                          />
+                        </div>
+                      )
+                    })}
+                  </InfiniteScroll>
+                  {/* {mdProducts.edges.map((product, iterator) => {
                     const fm = product.node.frontmatter
                     return (
                       <div
@@ -149,7 +192,7 @@ class ManufacturerPostTemplate extends React.Component {
                         />
                       </div>
                     )
-                  })}
+                  })} */}
                   <section
                     id="inquiry"
                     className="section inquiry-section no-print"
