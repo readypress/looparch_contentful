@@ -3,96 +3,96 @@ import { Helmet } from 'react-helmet'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
-import InfiniteScroll from 'react-infinite-scroll-component'
+// import InfiniteScroll from 'react-infinite-scroll-component'
 
-import ProductPreview from '../components/product-preview'
+// import ProductPreview from '../components/product-preview'
 import MdProductPreview from '../components/md-product-preview'
 import FormContact from '../components/form-contact'
-import ManufacturerHero from '../components/manufacturer-hero'
+// import ManufacturerHero from '../components/manufacturer-hero'
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 
 import styles from './manufacturer-post.sass'
 
 class ManufacturerPostTemplate extends React.Component {
-  state = {
-    allProducts: this.props.data.allMarkdownRemark.edges,
-    items: this.props.data.allMarkdownRemark.edges.slice(0, 16),
-    counter: 1,
-    hasMore: true,
-  }
+  // state = {
+  //   allProducts: this.props.data.allMarkdownRemark.edges,
+  //   items: this.props.data.allMarkdownRemark.edges.slice(0, 16),
+  //   counter: 1,
+  //   hasMore: true,
+  // }
 
-  fetchMoreData = () => {
-    const hasMore = this.state.items.length !== this.state.allProducts.length
-    const increment = this.state.counter + 1
-    this.setState({
-      counter: increment,
-      items: this.state.allProducts.slice(0, 16 * increment),
-      hasMore,
-    })
-  }
+  // fetchMoreData = () => {
+  //   const hasMore = this.state.items.length !== this.state.allProducts.length
+  //   const increment = this.state.counter + 1
+  //   this.setState({
+  //     counter: increment,
+  //     items: this.state.allProducts.slice(0, 16 * increment),
+  //     hasMore,
+  //   })
+  // }
 
-  componentDidMount() {
-    const selectedItem = decodeURI(this.props.location.hash.replace('#', ''))
-    if (selectedItem) {
-      console.log('got here', selectedItem)
-      document.getElementById(selectedItem).classList.add('selected')
-      this.highlight = setTimeout(() => {
-        try {
-          document
-            .getElementsByClassName('selected')[0]
-            .classList.remove('selected')
-        } catch (e) {
-          console.log(e)
-        }
-      }, 5000)
-    }
-  }
+  // componentDidMount() {
+  //   const selectedItem = decodeURI(this.props.location.hash.replace('#', ''))
+  //   if (selectedItem) {
+  //     console.log('got here', selectedItem)
+  //     document.getElementById(selectedItem).classList.add('selected')
+  //     this.highlight = setTimeout(() => {
+  //       try {
+  //         document
+  //           .getElementsByClassName('selected')[0]
+  //           .classList.remove('selected')
+  //       } catch (e) {
+  //         console.log(e)
+  //       }
+  //     }, 5000)
+  //   }
+  // }
 
-  componentWillUnmount() {
-    if (this.highlight) {
-      clearTimeout(this.highlight)
-    }
-  }
+  // componentWillUnmount() {
+  //   if (this.highlight) {
+  //     clearTimeout(this.highlight)
+  //   }
+  // }
 
   render() {
     const siteMetadata = this.props.data.site.siteMetadata
     const siteTitle = siteMetadata.title
     const post = this.props.data.contentfulManufacturer
-    const products = this.props.data.allContentfulProduct || { edges: [] }
+    // const products = this.props.data.allContentfulProduct || { edges: [] }
     const mdProducts = this.props.data.allMarkdownRemark || { edges: [] }
     const manufacturers = this.props.data.allContentfulManufacturer || {
       edges: [],
     }
     const tags = post.tags || []
-    const product_edges = []
+    // const product_edges = []
 
-    products.edges.forEach((product) => {
-      const node = product.node
-      let edge
-      product_edges.forEach((product_edge, i) => {
-        if (product_edge.title === node.tag) {
-          edge = product_edges[i]
-        }
-      })
-      if (edge) {
-        edge.products.push(node)
-      } else {
-        product_edges.push({ title: node.tag, products: [node] })
-      }
-    })
+    // products.edges.forEach((product) => {
+    //   const node = product.node
+    //   let edge
+    //   product_edges.forEach((product_edge, i) => {
+    //     if (product_edge.title === node.tag) {
+    //       edge = product_edges[i]
+    //     }
+    //   })
+    //   if (edge) {
+    //     edge.products.push(node)
+    //   } else {
+    //     product_edges.push({ title: node.tag, products: [node] })
+    //   }
+    // })
 
     return (
       <Layout>
         <div className="content-section manufacturer-post">
           <Helmet title={`${post.title} | ${siteTitle}`} />
-          <SEO
+          {/* <SEO
             pagePath={`manufacturers/${post.slug}`}
             postNode={post}
             postSEO
             siteMetadata={siteMetadata}
-            products={products.edges}
-          />
+            products={mdProducts.edges}
+          /> */}
           <h1 className="is-sr-only">{`${post.title} | ${siteTitle}`}</h1>
           <section className="section">
             <div className="container">
@@ -256,37 +256,6 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulProduct(
-      sort: { fields: [tag, title] }
-      filter: { manufacturer: { slug: { eq: $slug } } }
-    ) {
-      edges {
-        node {
-          tag
-          title
-          id
-          contentful_id
-          description {
-            internal {
-              content
-            }
-            childMarkdownRemark {
-              html
-            }
-          }
-          productImage {
-            title
-            description
-            file {
-              url
-            }
-            fluid(maxWidth: 500) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-        }
-      }
-    }
     allMarkdownRemark(
       filter: { frontmatter: { manufacturer: { eq: $title } } }
       sort: { fields: [frontmatter___manufacturer, frontmatter___title] }
@@ -312,7 +281,7 @@ export const pageQuery = graphql`
                   fit: COVER
                   cropFocus: ATTENTION
                 ) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
@@ -324,7 +293,7 @@ export const pageQuery = graphql`
                   fit: COVER
                   cropFocus: ATTENTION
                 ) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }

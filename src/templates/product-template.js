@@ -1,13 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import { Helmet } from 'react-helmet'
+import SEO from '../components/seo'
 import Layout from '../components/layout'
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
+  const { markdownRemark, site } = data // data.markdownRemark holds your post data
+  const { frontmatter } = markdownRemark
   const tagList = frontmatter.tags.map((tag, id) => (
     <li className="tag" key={id}>
       <a href="#">{tag}</a>
@@ -15,6 +17,15 @@ export default function Template({
   ))
   return (
     <Layout>
+      <Helmet
+        title={`${frontmatter.manufacturer} ${frontmatter.title} | ${site.siteMetadata.title}`}
+      />
+      {/* <SEO
+        pagePath={`${frontmatter.slug}`}
+        postNode={frontmattter}
+        postSEO
+        siteMetadata={site.siteMetadata}
+      /> */}
       <div className="article content-section">
         <div className="section">
           <div className="container">
@@ -92,6 +103,11 @@ export const pageQuery = graphql`
         manufacturer
         subtitle
         href
+      }
+    }
+    site {
+      siteMetadata {
+        title
       }
     }
   }
