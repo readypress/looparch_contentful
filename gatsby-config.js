@@ -221,20 +221,6 @@ module.exports = {
             type: (node) => node.internal.type,
             slug: (node) => node.slug,
           },
-          ContentfulProduct: {
-            id: (node) => node.id,
-            title: (node) => node.title,
-            tags: (node) => [node.tag],
-            extra_tags: (node) => node.tags,
-            type: (node) => node.internal.type,
-            slug: (node) => node.title,
-            manufacturer: (node, getNode) => {
-              return node.manufacturer___NODE
-            },
-            manufacturerTitle: (node, getNode) => {
-              return getNode(node.manufacturer___NODE).title
-            },
-          },
           ContentfulBlogPost: {
             id: (node) => node.id,
             title: (node) => node.title,

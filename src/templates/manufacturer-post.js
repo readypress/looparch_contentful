@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
+import voca from 'voca'
 // import InfiniteScroll from 'react-infinite-scroll-component'
 
 // import ProductPreview from '../components/product-preview'
@@ -15,72 +16,17 @@ import Layout from '../components/layout'
 import styles from './manufacturer-post.sass'
 
 class ManufacturerPostTemplate extends React.Component {
-  // state = {
-  //   allProducts: this.props.data.allMarkdownRemark.edges,
-  //   items: this.props.data.allMarkdownRemark.edges.slice(0, 16),
-  //   counter: 1,
-  //   hasMore: true,
-  // }
-
-  // fetchMoreData = () => {
-  //   const hasMore = this.state.items.length !== this.state.allProducts.length
-  //   const increment = this.state.counter + 1
-  //   this.setState({
-  //     counter: increment,
-  //     items: this.state.allProducts.slice(0, 16 * increment),
-  //     hasMore,
-  //   })
-  // }
-
-  // componentDidMount() {
-  //   const selectedItem = decodeURI(this.props.location.hash.replace('#', ''))
-  //   if (selectedItem) {
-  //     console.log('got here', selectedItem)
-  //     document.getElementById(selectedItem).classList.add('selected')
-  //     this.highlight = setTimeout(() => {
-  //       try {
-  //         document
-  //           .getElementsByClassName('selected')[0]
-  //           .classList.remove('selected')
-  //       } catch (e) {
-  //         console.log(e)
-  //       }
-  //     }, 5000)
-  //   }
-  // }
-
-  // componentWillUnmount() {
-  //   if (this.highlight) {
-  //     clearTimeout(this.highlight)
-  //   }
-  // }
-
   render() {
     const siteMetadata = this.props.data.site.siteMetadata
     const siteTitle = siteMetadata.title
     const post = this.props.data.contentfulManufacturer
     // const products = this.props.data.allContentfulProduct || { edges: [] }
     const mdProducts = this.props.data.allMarkdownRemark || { edges: [] }
+    const groupedProducts = this.props.data.allMarkdownRemark.groupedProducts
     const manufacturers = this.props.data.allContentfulManufacturer || {
       edges: [],
     }
     const tags = post.tags || []
-    // const product_edges = []
-
-    // products.edges.forEach((product) => {
-    //   const node = product.node
-    //   let edge
-    //   product_edges.forEach((product_edge, i) => {
-    //     if (product_edge.title === node.tag) {
-    //       edge = product_edges[i]
-    //     }
-    //   })
-    //   if (edge) {
-    //     edge.products.push(node)
-    //   } else {
-    //     product_edges.push({ title: node.tag, products: [node] })
-    //   }
-    // })
 
     return (
       <Layout>
@@ -152,31 +98,7 @@ class ManufacturerPostTemplate extends React.Component {
                   </div>
                 </div>
                 <div className="column is-marginless">
-                  {/* <InfiniteScroll
-                    dataLength={this.state.items.length}
-                    next={this.fetchMoreData}
-                    hasMore={this.state.hasMore}
-                    loader={<p>loading...</p>}
-                    endMessage={<p>done.</p>}
-                  >
-                    {this.state.items.map((i, index) => {
-                      const fm = i.node.frontmatter
-                      return (
-                        <div
-                          key={index}
-                          className="column is-one-third is-inline-block-desktop is-inline-block-tablet is-block-mobile is-marginless is-paddingless-mobile"
-                        >
-                          <MdProductPreview
-                            product={fm}
-                            post={post}
-                            siteMetadata={siteMetadata}
-                            path={this.props.location.pathname}
-                          />
-                        </div>
-                      )
-                    })}
-                  </InfiniteScroll> */}
-                  {mdProducts.edges.map((product, iterator) => {
+                  {/* {mdProducts.edges.map((product, iterator) => {
                     const fm = product.node.frontmatter
                     return (
                       <div
@@ -191,7 +113,38 @@ class ManufacturerPostTemplate extends React.Component {
                         />
                       </div>
                     )
+                  })} */}
+
+                  {groupedProducts.map((productGroup, iterator) => {
+                    return (
+                      <div key={iterator}>
+                        <div className="column is-full is-marginless">
+                          <h2 className="title is-size-4">
+                            {voca.titleCase(
+                              productGroup.fieldValue.replace(/\-/g, ' ')
+                            )}
+                          </h2>
+                        </div>
+                        {productGroup.nodes.map((product) => {
+                          const fm = product.frontmatter
+                          return (
+                            <div
+                              key={product.id}
+                              className="column is-one-third is-inline-block-desktop is-inline-block-tablet is-block-mobile is-marginless is-paddingless-mobile"
+                            >
+                              <MdProductPreview
+                                product={fm}
+                                post={post}
+                                siteMetadata={siteMetadata}
+                                path={this.props.location.pathname}
+                              />
+                            </div>
+                          )
+                        })}
+                      </div>
+                    )
                   })}
+
                   <section
                     id="inquiry"
                     className="section inquiry-section no-print"
@@ -258,10 +211,13 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       filter: { frontmatter: { manufacturer: { eq: $title } } }
-      sort: { fields: [frontmatter___manufacturer, frontmatter___title] }
+      sort: { fields: [frontmatter___title] }
     ) {
-      edges {
-        node {
+      tags: distinct(field: frontmatter___tags)
+      groupedProducts: group(field: frontmatter___category) {
+        fieldValue
+        nodes {
+          id
           frontmatter {
             title
             category
