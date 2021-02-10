@@ -152,7 +152,7 @@ class ManufacturerPostTemplate extends React.Component {
                   </div>
                 </div>
                 <div className="column is-marginless">
-                  <InfiniteScroll
+                  {/* <InfiniteScroll
                     dataLength={this.state.items.length}
                     next={this.fetchMoreData}
                     hasMore={this.state.hasMore}
@@ -175,8 +175,8 @@ class ManufacturerPostTemplate extends React.Component {
                         </div>
                       )
                     })}
-                  </InfiniteScroll>
-                  {/* {mdProducts.edges.map((product, iterator) => {
+                  </InfiniteScroll> */}
+                  {mdProducts.edges.map((product, iterator) => {
                     const fm = product.node.frontmatter
                     return (
                       <div
@@ -191,7 +191,7 @@ class ManufacturerPostTemplate extends React.Component {
                         />
                       </div>
                     )
-                  })} */}
+                  })}
                   <section
                     id="inquiry"
                     className="section inquiry-section no-print"
