@@ -41,13 +41,19 @@ export default function Template({
               </h2>
 
               <Img
-                style={{ marginBottom: '1rem' }}
+                style={{
+                  marginBottom: '1rem',
+                  border: '1px solid rgb(233 233 233)',
+                }}
                 fluid={frontmatter.image_primary.childImageSharp.fluid}
               />
 
               {frontmatter.image_secondary && (
                 <Img
-                  style={{ marginBottom: `1rem` }}
+                  style={{
+                    marginBottom: `1rem`,
+                    border: '1px solid rgb(233 233 233)',
+                  }}
                   fluid={frontmatter.image_secondary.childImageSharp.fluid}
                 />
               )}
