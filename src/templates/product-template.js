@@ -2,17 +2,18 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Helmet } from 'react-helmet'
-import SEO from '../components/seo'
+import SEOProductMd from '../components/seo-product-md'
 import Layout from '../components/layout'
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
-  const { markdownRemark, site } = data // data.markdownRemark holds your post data
+  const { markdownRemark, contentfulManufacturer, site } = data // data.markdownRemark holds your post data
   const { frontmatter } = markdownRemark
+  const manufacturer = contentfulManufacturer
   const tagList = frontmatter.tags.map((tag, id) => (
     <li className="tag" key={id}>
-      <a href="#">{tag}</a>
+      {tag}
     </li>
   ))
   return (
@@ -20,12 +21,13 @@ export default function Template({
       <Helmet
         title={`${frontmatter.manufacturer} ${frontmatter.title} | ${site.siteMetadata.title}`}
       />
-      {/* <SEO
+      <SEOProductMd
         pagePath={`${frontmatter.slug}`}
-        postNode={frontmattter}
-        postSEO
+        postNode={manufacturer}
+        product={frontmatter}
         siteMetadata={site.siteMetadata}
-      /> */}
+        productSEO
+      />
       <div className="article content-section">
         <div className="section">
           <div className="container">
@@ -81,15 +83,17 @@ export default function Template({
 }
 
 export const pageQuery = graphql`
-  query($slug: String!) {
+  query($slug: String!, $manufacturer: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
+      id
       frontmatter {
         slug
         title
         image_primary {
           childImageSharp {
             fluid {
+              presentationWidth
+              presentationHeight
               ...GatsbyImageSharpFluid
               ...GatsbyImageSharpFluidLimitPresentationSize
             }
@@ -98,6 +102,8 @@ export const pageQuery = graphql`
         image_secondary {
           childImageSharp {
             fluid {
+              presentationWidth
+              presentationHeight
               ...GatsbyImageSharpFluid
               ...GatsbyImageSharpFluidLimitPresentationSize
             }
@@ -111,9 +117,19 @@ export const pageQuery = graphql`
         href
       }
     }
+    contentfulManufacturer(title: { eq: $manufacturer }) {
+      title
+      heroImage {
+        fixed {
+          src
+        }
+      }
+      slug
+    }
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
   }

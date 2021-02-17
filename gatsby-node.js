@@ -24,6 +24,7 @@ exports.createPages = ({ graphql, actions }) => {
                 node {
                   frontmatter {
                     slug
+                    manufacturer
                   }
                 }
               }
@@ -81,6 +82,7 @@ exports.createPages = ({ graphql, actions }) => {
             context: {
               // additional data can be passed via context
               slug: product.node.frontmatter.slug,
+              manufacturer: product.node.frontmatter.manufacturer,
             },
           })
         })
