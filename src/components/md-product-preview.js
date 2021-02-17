@@ -19,7 +19,7 @@ class MdProductPreviewTemplate extends React.Component {
     const VariableImage = (
       <Img
         fluid={product.image_primary.childImageSharp.fluid}
-        srcSet={product.image_primary.childImageSharp.srcSet}
+        srcSet={product.image_primary.childImageSharp.fluid.srcSet}
         alt={description}
         title={`${post.title} ${product.title}`}
         className={`image product-preview-image fluid`}

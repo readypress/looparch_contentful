@@ -21,13 +21,13 @@ export default function Template({
       <Helmet
         title={`${frontmatter.manufacturer} ${frontmatter.title} | ${site.siteMetadata.title}`}
       />
-      <SEOProductMd
+      {/* <SEOProductMd
         pagePath={`${frontmatter.slug}`}
         postNode={manufacturer}
         product={frontmatter}
         siteMetadata={site.siteMetadata}
         productSEO
-      />
+      /> */}
       <div className="article content-section">
         <div className="section">
           <div className="container">
