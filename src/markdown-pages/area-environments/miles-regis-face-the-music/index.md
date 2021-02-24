@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:52:51 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Miles Regis"
-href: "https://www.areaenvironments.com/miles-regis"
-image_primary: "./img/MR+Face+the+Music+Art+WEB.jpg"
-image_secondary: "./img/MR+Face+the+Music+Interior+WEB.jpg"
-image_thumb: "./img/Miles+Regis.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/face-the-music"
-slug_destination: area-environments,
-subtitle: "MR-1 Face the Music"
+image_primary: 'img/MR+Face+the+Music+Art+WEB.jpg'
+image_secondary: 'img/MR+Face+the+Music+Interior+WEB.jpg'
+subtitle: 'MR-1 Face the Music'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Face The Music"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Face The Music'
+href: 'https://www.areaenvironments.com/order/mr-1facethemusic'
+designer: 'Miles Regis'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/miles-regis-face-the-music'
+date: '2021-02-17'
 ---

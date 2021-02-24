@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:52:19 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Karen Darling"
-href: "https://www.areaenvironments.com/karen-darling"
-image_primary: "./img/KD_Smoke+on+the+Water+art.jpg"
-image_secondary: "./img/KD+Smoke+interior.jpg"
-image_thumb: "./img/Karen+Darling.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/smoke-on-the-water"
-slug_destination: area-environments,
-subtitle: "KD-3  Smoke on the Water"
+image_primary: 'img/KD_Smoke+on+the+Water+art.jpg'
+image_secondary: 'img/KD+Smoke+interior.jpg'
+subtitle: 'KD-3  Smoke on the Water'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Smoke On The Water"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Smoke On The Water'
+href: 'http://www.areaenvironments.com/order/kd-smoke-on-the-water'
+designer: 'Karen Darling'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/karen-darling-smoke-on-the-water'
+date: '2021-02-17'
 ---

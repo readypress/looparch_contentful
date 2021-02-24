@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:53:14 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Nissa Kauppila"
-href: "https://www.areaenvironments.com/nissa-kauppila"
-image_primary: "./img/NK_FerryPier_Art.jpg"
-image_secondary: "./img/NK_FerryPier_Interior.jpg"
-image_thumb: "./img/Nissa+Kauppila.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/ferry-pier"
-slug_destination: area-environments,
-subtitle: "NK-2 Ferry Pier"
+image_primary: 'img/NK_FerryPier_Art.jpg'
+image_secondary: 'img/NK_FerryPier_Interior.jpg'
+subtitle: 'NK-2 Ferry Pier'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Ferry Pier"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Ferry Pier'
+href: 'https://www.areaenvironments.com/order/nk-2-ferry-pier'
+designer: 'Nissa Kauppila'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/nissa-kauppila-ferry-pier'
+date: '2021-02-17'
 ---

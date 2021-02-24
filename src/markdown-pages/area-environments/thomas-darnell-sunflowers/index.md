@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:54:01 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Thomas Darnell"
-href: "https://www.areaenvironments.com/thomas-darnell"
-image_primary: "./img/TD_Sunflowers.jpg"
-image_secondary: "./img/TD_Sunflowers+Interior.jpg"
-image_thumb: "./img/Thomas+Darnell.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/sunflowers"
-slug_destination: area-environments,
-subtitle: "TD-4  Sunflowers"
+image_primary: 'img/TD_Sunflowers.jpg'
+image_secondary: 'img/TD_Sunflowers+Interior.jpg'
+subtitle: 'TD-4  Sunflowers'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Sunflowers"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Sunflowers'
+href: 'http://www.areaenvironments.com/order/td-4-sunflowers'
+designer: 'Thomas Darnell'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/thomas-darnell-sunflowers'
+date: '2021-02-17'
 ---

@@ -7,11 +7,11 @@ designer: 'Arktura'
 subtitle: 'Ripple'
 href: 'https://arktura.com/product/atmosphera-ripple/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Acoustic'
   - 'Ceiling Baffles'
-  - 'ceiling-baffles'
 category: 'ceiling-baffles'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/ceiling-baffles/arktura-atmosphera-custom-ripple'
+date: '2021-02-17'
 ---

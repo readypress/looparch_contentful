@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:53:50 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Thomas Darnell"
-href: "https://www.areaenvironments.com/thomas-darnell"
-image_primary: "./img/Peonies+Close+Up.jpg"
-image_secondary: "./img/close+up+interior.jpg"
-image_thumb: "./img/Thomas+Darnell.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/peonies-close-up"
-slug_destination: area-environments,
-subtitle: "TD-1  Peonies Close Up"
+image_primary: 'img/Peonies+Close+Up.jpg'
+image_secondary: 'img/close+up+interior.jpg'
+subtitle: 'TD-1  Peonies Close Up'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Peonies Close Up"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Peonies Close Up'
+href: 'https://www.areaenvironments.com/order/td-peonies-close-up'
+designer: 'Thomas Darnell'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/thomas-darnell-peonies-close-up'
+date: '2021-02-17'
 ---

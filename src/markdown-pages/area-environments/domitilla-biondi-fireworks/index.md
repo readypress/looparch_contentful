@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:47:59 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Domitilla Biondi"
-href: "https://www.areaenvironments.com/domitilla-biondi"
-image_primary: "./img/DB_Fireworks+Art.jpg"
-image_secondary: "./img/DB+Fireworks+Interior.jpg"
-image_thumb: "./img/Domitilla+Biondi.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/fireworks"
-slug_destination: area-environments,
-subtitle: "DB-2  Fireworks"
+image_primary: 'img/DB_Fireworks+Art.jpg'
+image_secondary: 'img/DB+Fireworks+Interior.jpg'
+subtitle: 'DB-2  Fireworks'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Fireworks"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Fireworks'
+href: 'http://www.areaenvironments.com/order/db-2-fireworks'
+designer: 'Domitilla Biondi'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/domitilla-biondi-fireworks'
+date: '2021-02-17'
 ---

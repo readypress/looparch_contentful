@@ -7,11 +7,11 @@ designer: 'Arktura'
 subtitle: 'SoundEdge®'
 href: 'https://arktura.com/product/soundedge/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Acoustic'
   - 'Ceiling Baffles'
-  - 'ceiling-baffles'
 category: 'ceiling-baffles'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/ceiling-baffles/arktura-sound-edge'
+date: '2021-02-17'
 ---

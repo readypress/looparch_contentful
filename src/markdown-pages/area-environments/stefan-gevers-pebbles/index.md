@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:46:36 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Stefan Gevers"
-href: "https://www.areaenvironments.com/stefan-gevers"
-image_primary: "./img/SG_Pebbles_Art.jpg"
-image_secondary: "./img/SG_Pebbles_Installation.jpg"
-image_thumb: "./img/Stefan+Gevers.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/pebbles"
-slug_destination: area-environments,
-subtitle: "SG-4 Pebbles"
+image_primary: 'img/SG_Pebbles_Art.jpg'
+image_secondary: 'img/SG_Pebbles_Installation.jpg'
+subtitle: 'SG-4 Pebbles'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Pebbles"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Pebbles'
+href: 'https://www.areaenvironments.com/order/sg-4-pebbles'
+designer: 'Stefan Gevers'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/stefan-gevers-pebbles'
+date: '2021-02-17'
 ---

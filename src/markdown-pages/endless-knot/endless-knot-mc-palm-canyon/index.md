@@ -1,16 +1,18 @@
 ---
-designer: Endless Knot
+designer: "Endless Knot"
 description: "Color%3A%20Blackhawk%0AMaterial%3A%20100%25%20Wool%0ACollection%3A%20Hand-Tufted%20Collection"
-image_primary: img/PCN-201-600x750.jpg
-image_secondary: ../../../images/blank.png
-manufacturer: Endless Knot
-href: https://endlessknotrugs.com/product/palm-canyon-blackhawk/
-subtitle: Mc – Palm Canyon
+image_primary: "img/PCN-201-600x750.jpg"
+manufacturer: "Endless Knot"
+href: "https://endlessknotrugs.com/product/palm-canyon-blackhawk/"
+subtitle: "MC – Palm Canyon"
 tags: 
-  - endless_knot
-  - hand-tufted-rugs
-title: Mc – Palm Canyon
-image_thumb: img/PCN-201-300x300.jpg
-category: hand-tufted-rugs
-slug: /manufacturers/endless-knot/hand-tufted-rugs/endless-knot-mc-palm-canyon
+  - "blackhawk"
+  - "100% wool"
+  - "hand-tufted collection"
+  - "Endless Knot"
+  - "Hand-Tufted Rugs"
+title: "Mc – Palm Canyon"
+category: "hand-tufted-rugs"
+slug: "/manufacturers/endless-knot/hand-tufted-rugs/endless-knot-mc-palm-canyon"
+date: "2021-02-17"
 ---

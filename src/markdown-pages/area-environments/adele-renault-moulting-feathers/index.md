@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:43:43 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Adele Renault"
-href: "https://www.areaenvironments.com/adele-renault"
-image_primary: "./img/AR+Moulting+Feather+Art.jpg"
-image_secondary: "./img/AR+Moulting+Feathers+Interior.jpg"
-image_thumb: "./img/Adele+Renault.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/moulting-feathers"
-slug_destination: area-environments,
-subtitle: "AR-2  Moulting Feathers"
+image_primary: 'img/AR+Moulting+Feather+Art.jpg'
+image_secondary: 'img/AR+Moulting+Feathers+Interior.jpg'
+subtitle: 'AR-2  Moulting Feathers'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Moulting Feathers"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Moulting Feathers'
+href: 'http://www.areaenvironments.com/order/copy-of-ar-moulting-feathers'
+designer: 'Adele Renault'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/adele-renault-moulting-feathers'
+date: '2021-02-17'
 ---

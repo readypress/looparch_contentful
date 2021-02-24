@@ -7,11 +7,11 @@ designer: 'Arktura'
 subtitle: 'Glide'
 href: 'https://arktura.com/product/glide/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Acoustic'
   - 'Partitions'
-  - 'partitions'
 category: 'partitions'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/partitions/arktura-glide'
+date: '2021-02-17'
 ---

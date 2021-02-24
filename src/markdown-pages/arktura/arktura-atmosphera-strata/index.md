@@ -7,11 +7,11 @@ designer: 'Arktura'
 subtitle: 'Strata'
 href: 'https://arktura.com/product/atmosphera-standard-strata/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Acoustic'
   - 'Ceiling Baffles'
-  - 'ceiling-baffles'
 category: 'ceiling-baffles'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/ceiling-baffles/arktura-atmosphera-strata'
+date: '2021-02-17'
 ---

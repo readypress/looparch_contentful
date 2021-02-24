@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:53:21 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Nissa Kauppila"
-href: "https://www.areaenvironments.com/nissa-kauppila"
-image_primary: "./img/NK_Wings_Art.jpg"
-image_secondary: "./img/NK_Wings_Interior.jpg"
-image_thumb: "./img/Nissa+Kauppila.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/wings"
-slug_destination: area-environments,
-subtitle: "NK-4 Wings"
+image_primary: 'img/NK_Wings_Art.jpg'
+image_secondary: 'img/NK_Wings_Interior.jpg'
+subtitle: 'NK-4 Wings'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Wings"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Wings'
+href: 'https://www.areaenvironments.com/order/nk-4-wings'
+designer: 'Nissa Kauppila'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/nissa-kauppila-wings'
+date: '2021-02-17'
 ---

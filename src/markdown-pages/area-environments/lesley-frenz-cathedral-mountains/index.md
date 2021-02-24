@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:52:26 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Lesley Frenz"
-href: "https://www.areaenvironments.com/lesle-frenz"
-image_primary: "./img/LF+Catherdral+Mountains+Art+WEB.jpg"
-image_secondary: "./img/LF+Catherdral+Mountains+Interior+WEB.jpg"
-image_thumb: "./img/Lesley+Frenz.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/cathedral-mountains"
-slug_destination: area-environments,
-subtitle: "LF-5 Cathedral Mountains"
+image_primary: 'img/LF+Catherdral+Mountains+Art+WEB.jpg'
+image_secondary: 'img/LF+Catherdral+Mountains+Interior+WEB.jpg'
+subtitle: 'LF-5 Cathedral Mountains'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Cathedral Mountains"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Cathedral Mountains'
+href: 'https://www.areaenvironments.com/order/lf-5cathedralmountains'
+designer: 'Lesley Frenz'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/lesley-frenz-cathedral-mountains'
+date: '2021-02-17'
 ---

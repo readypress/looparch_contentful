@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:49:57 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Stephanie Tuckwell"
-href: "https://www.areaenvironments.com/stephanie-tuckwell"
-image_primary: "./img/ST_Hover_Art.jpg"
-image_secondary: "./img/ST_Hover_Installation.jpg"
-image_thumb: "./img/Stephanie+Tuckwell.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/hover"
-slug_destination: area-environments,
-subtitle: "ST-2 Hover"
+image_primary: 'img/ST_Hover_Art.jpg'
+image_secondary: 'img/ST_Hover_Installation.jpg'
+subtitle: 'ST-2 Hover'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Hover"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Hover'
+href: 'https://www.areaenvironments.com/order/st2'
+designer: 'Stephanie Tuckwell'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/stephanie-tuckwell-hover'
+date: '2021-02-17'
 ---

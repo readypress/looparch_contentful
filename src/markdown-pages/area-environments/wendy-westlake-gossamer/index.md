@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:50:20 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Wendy Westlake"
-href: "https://www.areaenvironments.com/wendy-westlake"
-image_primary: "./img/WW+Gossamer+Art.jpg"
-image_secondary: "./img/WW+Gossamer+Interior+FOR+PRINT.jpg"
-image_thumb: "./img/Wendy+Westlake.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/gossamer"
-slug_destination: area-environments,
-subtitle: "WW-3 Gossamer"
+image_primary: 'img/WW+Gossamer+Art.jpg'
+image_secondary: 'img/WW+Gossamer+Interior+FOR+PRINT.jpg'
+subtitle: 'WW-3 Gossamer'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Gossamer"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Gossamer'
+href: 'https://www.areaenvironments.com/order/ed-6-east-hennepin-axafw-w3l9w-ewf9t-ya7as-j54nx'
+designer: 'Wendy Westlake'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/wendy-westlake-gossamer'
+date: '2021-02-17'
 ---

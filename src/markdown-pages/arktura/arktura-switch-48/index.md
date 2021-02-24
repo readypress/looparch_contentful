@@ -7,10 +7,10 @@ designer: 'Arktura'
 subtitle: 'Switch 48®'
 href: 'https://arktura.com/product/switch-48/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Ceiling Clouds'
-  - 'ceiling-clouds'
 category: 'ceiling-clouds'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/ceiling-clouds/arktura-switch-48'
+date: '2021-02-17'
 ---

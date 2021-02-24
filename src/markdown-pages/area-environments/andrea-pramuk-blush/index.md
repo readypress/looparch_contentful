@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:47:06 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Andrea Pramuk"
-href: "https://www.areaenvironments.com/andrea-pramuk"
-image_primary: "./img/AP_Blush.jpg"
-image_secondary: "./img/AP_Blush+Interior.jpg"
-image_thumb: "./img/Andrea+Pramuk.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/blush"
-slug_destination: area-environments,
-subtitle: "AP-7  Blush"
+image_primary: 'img/AP_Blush.jpg'
+image_secondary: 'img/AP_Blush+Interior.jpg'
+subtitle: 'AP-7  Blush'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Blush"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Blush'
+href: 'http://www.areaenvironments.com/order/ap-7-blush'
+designer: 'Andrea Pramuk'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/andrea-pramuk-blush'
+date: '2021-02-17'
 ---

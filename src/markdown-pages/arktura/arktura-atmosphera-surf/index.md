@@ -7,11 +7,11 @@ designer: 'Arktura'
 subtitle: 'Surf'
 href: 'https://arktura.com/product/atmosphera-standard-surf/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Acoustic'
   - 'Ceiling Baffles'
-  - 'ceiling-baffles'
 category: 'ceiling-baffles'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/ceiling-baffles/arktura-atmosphera-surf'
+date: '2021-02-17'
 ---

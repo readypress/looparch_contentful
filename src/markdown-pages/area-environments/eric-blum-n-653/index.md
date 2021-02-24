@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:48:18 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Eric Blum"
-href: "https://www.areaenvironments.com/eric-blum"
-image_primary: "./img/eb+653+art.jpg"
-image_secondary: "./img/eb+653+interior.jpg"
-image_thumb: "./img/Eric+Blum.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/n-653"
-slug_destination: area-environments,
-subtitle: "EB-1  N° 653"
+image_primary: 'img/eb+653+art.jpg'
+image_secondary: 'img/eb+653+interior.jpg'
+subtitle: 'EB-1  N° 653'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "N° 653"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'N° 653'
+href: 'https://www.areaenvironments.com/order/eb-653'
+designer: 'Eric Blum'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/eric-blum-n-653'
+date: '2021-02-17'
 ---

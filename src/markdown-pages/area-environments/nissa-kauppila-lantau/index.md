@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:53:18 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Nissa Kauppila"
-href: "https://www.areaenvironments.com/nissa-kauppila"
-image_primary: "./img/NK_Lantau_Art.jpg"
-image_secondary: "./img/NK_Lantau_Interior.jpg"
-image_thumb: "./img/Nissa+Kauppila.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/lantau"
-slug_destination: area-environments,
-subtitle: "NK-3 Lantau"
+image_primary: 'img/NK_Lantau_Art.jpg'
+image_secondary: 'img/NK_Lantau_Interior.jpg'
+subtitle: 'NK-3 Lantau'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Lantau"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Lantau'
+href: 'https://www.areaenvironments.com/order/nk-3-lantau'
+designer: 'Nissa Kauppila'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/nissa-kauppila-lantau'
+date: '2021-02-17'
 ---

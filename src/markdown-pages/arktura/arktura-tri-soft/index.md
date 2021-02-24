@@ -7,11 +7,11 @@ designer: 'Arktura'
 subtitle: 'TriSoft®'
 href: 'https://arktura.com/product/trisoft/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Acoustic'
   - 'Ceiling Clouds'
-  - 'ceiling-clouds'
 category: 'ceiling-clouds'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/ceiling-clouds/arktura-tri-soft'
+date: '2021-02-17'
 ---

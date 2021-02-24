@@ -7,11 +7,11 @@ designer: 'Arktura'
 subtitle: 'Flow'
 href: 'https://arktura.com/product/atmosphera-standard-flow/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Acoustic'
   - 'Ceiling Baffles'
-  - 'ceiling-baffles'
 category: 'ceiling-baffles'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/ceiling-baffles/arktura-atmosphera-flow'
+date: '2021-02-17'
 ---

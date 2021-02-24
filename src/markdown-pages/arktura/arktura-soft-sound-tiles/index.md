@@ -7,11 +7,11 @@ designer: 'Arktura'
 subtitle: 'Soft Sound Tiles'
 href: 'https://arktura.com/product/soft-sound-tiles/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Acoustic'
   - 'Wall Panels'
-  - 'wall-panels'
 category: 'wall-panels'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/wall-panels/arktura-soft-sound-tiles'
+date: '2021-02-17'
 ---

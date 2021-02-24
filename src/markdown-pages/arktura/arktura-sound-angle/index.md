@@ -7,11 +7,11 @@ designer: 'Arktura'
 subtitle: 'SoundAngle®'
 href: 'https://arktura.com/product/soundangle/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Acoustic'
   - 'Ceiling Baffles'
-  - 'ceiling-baffles'
 category: 'ceiling-baffles'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/ceiling-baffles/arktura-sound-angle'
+date: '2021-02-17'
 ---

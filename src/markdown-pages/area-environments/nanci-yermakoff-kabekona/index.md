@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:46:01 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Nanci Yermakoff"
-href: "https://www.areaenvironments.com/nanci-yermakoff"
-image_primary: "./img/NY_Kabekona+Art.jpg"
-image_secondary: "./img/NY+Kabekona+Interior.jpg"
-image_thumb: "./img/Nanci+Yermakoff.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/kabekona"
-slug_destination: area-environments,
-subtitle: "NY-2 Kabekona"
+image_primary: 'img/NY_Kabekona+Art.jpg'
+image_secondary: 'img/NY+Kabekona+Interior.jpg'
+subtitle: 'NY-2 Kabekona'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Kabekona"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Kabekona'
+href: 'http://www.areaenvironments.com/order/ny-2-kabekona'
+designer: 'Nanci Yermakoff'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/nanci-yermakoff-kabekona'
+date: '2021-02-17'
 ---

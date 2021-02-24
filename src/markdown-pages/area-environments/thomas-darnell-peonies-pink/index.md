@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:53:56 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Thomas Darnell"
-href: "https://www.areaenvironments.com/thomas-darnell"
-image_primary: "./img/Peonies+Pink+art.jpg"
-image_secondary: "./img/Pink+Interior.jpg"
-image_thumb: "./img/Thomas+Darnell.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/peonies-pink"
-slug_destination: area-environments,
-subtitle: "TD-3  Peonies Pink"
+image_primary: 'img/Peonies+Pink+art.jpg'
+image_secondary: 'img/Pink+Interior.jpg'
+subtitle: 'TD-3  Peonies Pink'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Peonies Pink"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Peonies Pink'
+href: 'https://www.areaenvironments.com/order/td-peonies-pink'
+designer: 'Thomas Darnell'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/thomas-darnell-peonies-pink'
+date: '2021-02-17'
 ---

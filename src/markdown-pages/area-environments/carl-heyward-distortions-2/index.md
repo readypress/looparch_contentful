@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:50:57 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Carl Heyward"
-href: "https://www.areaenvironments.com/carl-heyward"
-image_primary: "./img/CH_Distortions2_Art.jpg"
-image_secondary: "./img/CH_Distortions2_Interior.jpg"
-image_thumb: "./img/Carl+Heyward.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/distortions-2"
-slug_destination: area-environments,
-subtitle: "CH-1 Distortions 2"
+image_primary: 'img/CH_Distortions2_Art.jpg'
+image_secondary: 'img/CH_Distortions2_Interior.jpg'
+subtitle: 'CH-1 Distortions 2'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Distortions 2"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Distortions 2'
+href: 'https://www.areaenvironments.com/order/ch-1-distortions-2'
+designer: 'Carl Heyward'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/carl-heyward-distortions-2'
+date: '2021-02-17'
 ---

@@ -13,8 +13,8 @@ tags:
   - 'Exterior Systems'
   - 'Lighting'
   - 'Wall Panels'
-  - 'wall-panels'
 category: 'wall-panels'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/wall-panels/arktura-graphic-perf-custom-photoreal-exterior'
+date: '2021-02-17'
 ---

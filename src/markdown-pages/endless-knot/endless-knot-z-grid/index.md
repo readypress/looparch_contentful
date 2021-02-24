@@ -1,16 +1,19 @@
 ---
-designer: Endless Knot
+designer: "Endless Knot"
 description: "Collection%3A%20Hand-Tufted%20Collection%0AColor%3A%20Greys%0AMaterial%3A%20100%25%20WoolStyle%3A%20Geometric"
-image_primary: img/GRID-Photorealistic-scaled-600x811.jpg
-image_secondary: ../../../images/blank.png
-manufacturer: Endless Knot
-href: https://endlessknotrugs.com/product/grid/
-subtitle: Z -Grid
+image_primary: "img/GRID-Photorealistic-scaled-600x811.jpg"
+manufacturer: "Endless Knot"
+href: "https://endlessknotrugs.com/product/grid/"
+subtitle: "Z -Grid"
 tags: 
-  - endless_knot
-  - hand-tufted-rugs
-title: Z -Grid
-image_thumb: img/GRID-Photorealistic-scaled-300x300.jpg
-category: hand-tufted-rugs
-slug: /manufacturers/endless-knot/hand-tufted-rugs/endless-knot-z-grid
+  - "hand-tufted collection"
+  - "greys"
+  - "100% wool"
+  - "geometric"
+  - "Endless Knot"
+  - "Hand-Tufted Rugs"
+title: "Z -Grid"
+category: "hand-tufted-rugs"
+slug: "/manufacturers/endless-knot/hand-tufted-rugs/endless-knot-z-grid"
+date: "2021-02-17"
 ---

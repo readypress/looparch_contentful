@@ -7,11 +7,11 @@ designer: 'Arktura'
 subtitle: 'Linea'
 href: 'https://arktura.com/product/atmosphera-standard-linea/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Acoustic'
   - 'Ceiling Baffles'
-  - 'ceiling-baffles'
 category: 'ceiling-baffles'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/ceiling-baffles/arktura-atmosphera-linea'
+date: '2021-02-17'
 ---

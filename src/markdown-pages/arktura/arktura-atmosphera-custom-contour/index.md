@@ -7,11 +7,11 @@ designer: 'Arktura'
 subtitle: 'Contour'
 href: 'https://arktura.com/product/atmosphera-contour/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Acoustic'
   - 'Ceiling Baffles'
-  - 'ceiling-baffles'
 category: 'ceiling-baffles'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/ceiling-baffles/arktura-atmosphera-custom-contour'
+date: '2021-02-17'
 ---

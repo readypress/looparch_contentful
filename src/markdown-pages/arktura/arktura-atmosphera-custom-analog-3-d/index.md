@@ -7,11 +7,11 @@ designer: 'Arktura'
 subtitle: 'Analog 3D'
 href: 'https://arktura.com/product/atmosphera-analog-3d/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Acoustic'
   - 'Ceiling Baffles'
-  - 'ceiling-baffles'
 category: 'ceiling-baffles'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/ceiling-baffles/arktura-atmosphera-custom-analog-3-d'
+date: '2021-02-17'
 ---

@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:51:33 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Doug Glovaski"
-href: "https://www.areaenvironments.com/doug-glovaski"
-image_primary: "./img/DG+Invisible+Forces+art.jpg"
-image_secondary: "./img/DG+Invisible+Forces+interior.jpg"
-image_thumb: "./img/Doug+Glovaski.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/invisible-forces"
-slug_destination: area-environments,
-subtitle: "DG-13  Invisible Forces"
+image_primary: 'img/DG+Invisible+Forces+art.jpg'
+image_secondary: 'img/DG+Invisible+Forces+interior.jpg'
+subtitle: 'DG-13  Invisible Forces'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Invisible Forces"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Invisible Forces'
+href: 'http://www.areaenvironments.com/order/dg-13-invisible-forces'
+designer: 'Doug Glovaski'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/doug-glovaski-invisible-forces'
+date: '2021-02-17'
 ---

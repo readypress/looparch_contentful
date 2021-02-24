@@ -7,11 +7,11 @@ designer: 'Arktura'
 subtitle: 'SoundStar®'
 href: 'https://arktura.com/product/soundstar/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Acoustic'
   - 'Ceiling Clouds'
-  - 'ceiling-clouds'
 category: 'ceiling-clouds'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/ceiling-clouds/arktura-sound-star'
+date: '2021-02-17'
 ---

@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:44:18 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Beth Nicholas"
-href: "https://www.areaenvironments.com/beth-nicholas"
-image_primary: "./img/%22+by+Beth+Nicholas.jpg"
-image_secondary: "./img/Seeing+From+a+Distance+Interior.jpg"
-image_thumb: "./img/Beth+Nicholas.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/seeing-from-a-distance"
-slug_destination: area-environments,
-subtitle: "BN-3  Seeing from a Distance"
+image_primary: 'img/%22+by+Beth+Nicholas.jpg'
+image_secondary: 'img/Seeing+From+a+Distance+Interior.jpg'
+subtitle: 'BN-3  Seeing from a Distance'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Seeing From A Distance"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Seeing From A Distance'
+href: 'http://www.areaenvironments.com/order/bn-seeing-from-a-distance'
+designer: 'Beth Nicholas'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/beth-nicholas-seeing-from-a-distance'
+date: '2021-02-17'
 ---

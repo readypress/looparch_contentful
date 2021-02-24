@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:43:59 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Amy Ouradnik"
-href: "https://www.areaenvironments.com/amyouradnik"
-image_primary: "./img/AO+SeededAllium+Art+WEB.jpg"
-image_secondary: "./img/AO+SeededAllium+Interior+WEB.jpg"
-image_thumb: "./img/Amy+Ouradnik.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/seeded-allium"
-slug_destination: area-environments,
-subtitle: "AO-4 Seeded Allium"
+image_primary: 'img/AO+SeededAllium+Art+WEB.jpg'
+image_secondary: 'img/AO+SeededAllium+Interior+WEB.jpg'
+subtitle: 'AO-4 Seeded Allium'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Seeded Allium"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Seeded Allium'
+href: 'https://www.areaenvironments.com/order/ao-4seededallium'
+designer: 'Amy Ouradnik'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/amy-ouradnik-seeded-allium'
+date: '2021-02-17'
 ---

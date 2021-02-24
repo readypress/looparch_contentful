@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:48:11 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Eric Blum"
-href: "https://www.areaenvironments.com/eric-blum"
-image_primary: "./img/EB_713+Art.jpg"
-image_secondary: "./img/713+Interior.jpg"
-image_thumb: "./img/Eric+Blum.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/n-713"
-slug_destination: area-environments,
-subtitle: "EB-9  N° 713"
+image_primary: 'img/EB_713+Art.jpg'
+image_secondary: 'img/713+Interior.jpg'
+subtitle: 'EB-9  N° 713'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "N° 713"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'N° 713'
+href: 'http://www.areaenvironments.com/order/eb-10-713'
+designer: 'Eric Blum'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/eric-blum-n-713'
+date: '2021-02-17'
 ---

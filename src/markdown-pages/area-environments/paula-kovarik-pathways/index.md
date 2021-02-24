@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:46:19 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Paula Kovarik"
-href: "https://www.areaenvironments.com/paula-kovarik"
-image_primary: "./img/PK+Pathways+Art.jpg"
-image_secondary: "./img/PK+Pathways+Interior+WEB.jpg"
-image_thumb: "./img/Paula+Kovarik.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/pathways"
-slug_destination: area-environments,
-subtitle: "PK-4 Pathways"
+image_primary: 'img/PK+Pathways+Art.jpg'
+image_secondary: 'img/PK+Pathways+Interior+WEB.jpg'
+subtitle: 'PK-4 Pathways'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Pathways"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Pathways'
+href: 'https://www.areaenvironments.com/order/dmb1-zm4px-m6fn5-hwzt6-safy2-75r33-baysk-jtgzt-3rpjb-e947a-myft7'
+designer: 'Paula Kovarik'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/paula-kovarik-pathways'
+date: '2021-02-17'
 ---

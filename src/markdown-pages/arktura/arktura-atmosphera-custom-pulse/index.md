@@ -7,11 +7,11 @@ designer: 'Arktura'
 subtitle: 'Pulse'
 href: 'https://arktura.com/product/atmosphera-pulse/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Acoustic'
   - 'Ceiling Baffles'
-  - 'ceiling-baffles'
 category: 'ceiling-baffles'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/ceiling-baffles/arktura-atmosphera-custom-pulse'
+date: '2021-02-17'
 ---

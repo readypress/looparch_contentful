@@ -7,11 +7,11 @@ designer: 'Arktura'
 subtitle: 'Fiora'
 href: 'https://arktura.com/product/atmosphera-fiora/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Acoustic'
   - 'Ceiling Baffles'
-  - 'ceiling-baffles'
 category: 'ceiling-baffles'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/ceiling-baffles/arktura-atmosphera-custom-fiora'
+date: '2021-02-17'
 ---

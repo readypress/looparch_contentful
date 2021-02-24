@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:51:39 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Doug Glovaski"
-href: "https://www.areaenvironments.com/doug-glovaski"
-image_primary: "./img/dg+big+city+art.jpg"
-image_secondary: "./img/Big+City+Interior.jpg"
-image_thumb: "./img/Doug+Glovaski.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/big-city"
-slug_destination: area-environments,
-subtitle: "DG-3  Big City"
+image_primary: 'img/dg+big+city+art.jpg'
+image_secondary: 'img/Big+City+Interior.jpg'
+subtitle: 'DG-3  Big City'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Big City"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Big City'
+href: 'https://www.areaenvironments.com/order/dg-big-city'
+designer: 'Doug Glovaski'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/doug-glovaski-big-city'
+date: '2021-02-17'
 ---

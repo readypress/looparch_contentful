@@ -7,11 +7,11 @@ designer: 'Arktura'
 subtitle: 'Secare®'
 href: 'https://arktura.com/product/secare/'
 tags:
-  - 'arktura'
+  - 'Arktura'
   - 'Exterior Systems'
   - 'Wall Panels'
-  - 'exterior-systems'
 category: 'exterior-systems'
 manufacturer: 'Arktura'
 slug: '/manufacturers/arktura/exterior-systems/arktura-secare'
+date: '2021-02-17'
 ---

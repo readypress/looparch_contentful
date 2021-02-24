@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:53:45 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Thomas Darnell"
-href: "https://www.areaenvironments.com/thomas-darnell"
-image_primary: "./img/TD+Peacock+Art+WEB.jpg"
-image_secondary: "./img/TD+Peacock+Interior+WEB.jpg"
-image_thumb: "./img/Thomas+Darnell.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/peacock"
-slug_destination: area-environments,
-subtitle: "TD-5 Peacock"
+image_primary: 'img/TD+Peacock+Art+WEB.jpg'
+image_secondary: 'img/TD+Peacock+Interior+WEB.jpg'
+subtitle: 'TD-5 Peacock'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Peacock"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Peacock'
+href: 'https://www.areaenvironments.com/order/td-5peacock'
+designer: 'Thomas Darnell'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/thomas-darnell-peacock'
+date: '2021-02-17'
 ---

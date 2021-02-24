@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:46:09 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Paula Kovarik"
-href: "https://www.areaenvironments.com/paula-kovarik"
-image_primary: "./img/PK-1+Kindred+Art.jpg"
-image_secondary: "./img/PK+Kindered+Interior+WEB.jpg"
-image_thumb: "./img/Paula+Kovarik.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/kindred"
-slug_destination: area-environments,
-subtitle: "PK-1 Kindred"
+image_primary: 'img/PK-1+Kindred+Art.jpg'
+image_secondary: 'img/PK+Kindered+Interior+WEB.jpg'
+subtitle: 'PK-1 Kindred'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Kindred"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Kindred'
+href: 'https://www.areaenvironments.com/order/dmb1-zm4px-m6fn5-hwzt6-safy2-75r33-baysk-jtgzt'
+designer: 'Paula Kovarik'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/paula-kovarik-kindred'
+date: '2021-02-17'
 ---

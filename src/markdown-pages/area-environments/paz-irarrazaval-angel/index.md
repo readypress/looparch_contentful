@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:49:38 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Paz Irarrázaval"
-href: "https://www.areaenvironments.com/paz"
-image_primary: "./img/PI+Angel+Art.jpg"
-image_secondary: "./img/PI+Angel+Interior.jpg"
-image_thumb: "./img/Paz+Irarr%C3%A1zaval.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/angel"
-slug_destination: area-environments,
-subtitle: "PI-1 Angel"
+image_primary: 'img/PI+Angel+Art.jpg'
+image_secondary: 'img/PI+Angel+Interior.jpg'
+subtitle: 'PI-1 Angel'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Angel"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Angel'
+href: 'https://www.areaenvironments.com/order/ed-6-east-hennepin-axafw-w3l9w-ewf9t-dtt5r'
+designer: 'Paz Irarrázaval'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/paz-irarrazaval-angel'
+date: '2021-02-17'
 ---

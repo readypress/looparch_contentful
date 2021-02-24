@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:47:56 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Domitilla Biondi"
-href: "https://www.areaenvironments.com/domitilla-biondi"
-image_primary: "./img/DB+Baroque+Beauty+Art.jpg"
-image_secondary: "./img/DB+Baroque+Beauty+Interior.jpg"
-image_thumb: "./img/Domitilla+Biondi.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/baroque-beauty"
-slug_destination: area-environments,
-subtitle: "DB-1  Baroque Beauty"
+image_primary: 'img/DB+Baroque+Beauty+Art.jpg'
+image_secondary: 'img/DB+Baroque+Beauty+Interior.jpg'
+subtitle: 'DB-1  Baroque Beauty'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "Baroque Beauty"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'Baroque Beauty'
+href: 'http://www.areaenvironments.com/order/db-1-baroque-beauty'
+designer: 'Domitilla Biondi'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/domitilla-biondi-baroque-beauty'
+date: '2021-02-17'
 ---

@@ -1,18 +1,16 @@
 ---
-category: "wall-covering"
-date: Wed Jan 27 2021 19:48:15 GMT-0700 (Mountain Standard Time)
-description: "null"
-designer: "Eric Blum"
-href: "https://www.areaenvironments.com/eric-blum"
-image_primary: "./img/EB_744+Art.jpg"
-image_secondary: "./img/EB+744+Interior.jpg"
-image_thumb: "./img/Eric+Blum.png"
-manufacturer: "Area Environments"
-slug: "/manufacturers/area-environments/wall-covering/n-744"
-slug_destination: area-environments,
-subtitle: "EB-10  N° 744"
+image_primary: 'img/EB_744+Art.jpg'
+image_secondary: 'img/EB+744+Interior.jpg'
+subtitle: 'EB-10  N° 744'
 tags:
-  - "area-environments"
-  - "wall-covering"
-title: "N° 744"
+  - 'area-environments'
+  - 'wall-covering'
+title: 'N° 744'
+href: 'http://www.areaenvironments.com/order/eb-9-744'
+designer: 'Eric Blum'
+category: 'wall-covering'
+manufacturer: 'Area Environments'
+description: ''
+slug: '/manufacturers/area-environments/wall-covering/eric-blum-n-744'
+date: '2021-02-17'
 ---
