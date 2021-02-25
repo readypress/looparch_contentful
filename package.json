@@ -39,6 +39,7 @@
     "react-helmet": "^6.0.0",
     "react-infinite-scroll-component": "^6.0.0",
     "react-router-dom": "^5.0.1",
+    "react-sticky": "^6.0.3",
     "system-font-css": "^2.0.2",
     "voca": "^1.4.0",
     "yargs-parser": "^20.2.1"

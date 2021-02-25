@@ -30,7 +30,16 @@ class ManufacturerPostTemplate extends React.Component {
 
     return (
       <Layout>
-        <div className="content-section manufacturer-post">
+        <div
+          className="content-section manufacturer-post"
+          style={{
+            position: 'sticky',
+            top: '0px',
+            height: window.innerHeight,
+            overflow: 'hidden',
+            overflowY: 'scroll',
+          }}
+        >
           <Helmet title={`${post.title} | ${siteTitle}`} />
           {/* <SEO
             pagePath={`manufacturers/${post.slug}`}
@@ -97,7 +106,15 @@ class ManufacturerPostTemplate extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className="column is-marginless">
+                <div
+                  className="column is-marginless"
+                  // style={{
+                  //   height: '1000px',
+                  //   overflow: 'hidden',
+                  //   overflowY: 'scroll',
+                  //   scroll: 'auto',
+                  // }}
+                >
                   {/* {mdProducts.edges.map((product, iterator) => {
                     const fm = product.node.frontmatter
                     return (
@@ -118,8 +135,24 @@ class ManufacturerPostTemplate extends React.Component {
                   {groupedProducts.map((productGroup, iterator) => {
                     return (
                       <div key={iterator}>
-                        <div className="column is-full is-marginless">
-                          <h2 className="title is-size-4">
+                        <div
+                          className="column is-full is-marginless"
+                          style={{
+                            position: 'sticky',
+                            top: '0px',
+                            background: '#FFF',
+                            zIndex: '10000',
+                            display: 'block',
+                          }}
+                        >
+                          <h2
+                            className="title is-size-4"
+                            style={{
+                              background: '#FFF',
+                              zIndex: '10000',
+                              display: 'block',
+                            }}
+                          >
                             {voca.titleCase(
                               productGroup.fieldValue.replace(/\-/g, ' ')
                             )}
@@ -131,6 +164,7 @@ class ManufacturerPostTemplate extends React.Component {
                             <div
                               key={product.id}
                               className="column is-one-third is-inline-block-desktop is-inline-block-tablet is-block-mobile is-marginless is-paddingless-mobile"
+                              style={{ zIndex: '500' }}
                             >
                               <MdProductPreview
                                 product={fm}
