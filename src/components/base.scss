@@ -3,8 +3,6 @@
 // Bulma Overrides
 $family-sans-serif: "Helvetica Neue",
 system-ui,
-"Helvetica",
-"Arial",
 sans-serif;
 $radius-small: 0px;
 $radius: 0px;
@@ -54,7 +52,12 @@ $modal-content-width: 800px;
 // Core Overrides
 html,
 body {
-  background-color: $white-bis
+  background-color: $white-bis;
+  // font-family: Replica Std, Helvetica Neue, sans-serif;
+  // font-weight: 100;
+  // font-size: 1rem;
+  // letter-spacing: -0.01rem;
+  // line-height: 1.67;
 }
 
 .section {

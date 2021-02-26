@@ -16,6 +16,15 @@ import Layout from '../components/layout'
 import styles from './manufacturer-post.sass'
 
 class ManufacturerPostTemplate extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { height: props.height }
+  }
+
+  componentDidMount() {
+    this.setState({ height: window.innerHeight + 'px' })
+  }
+
   render() {
     const siteMetadata = this.props.data.site.siteMetadata
     const siteTitle = siteMetadata.title
@@ -35,7 +44,7 @@ class ManufacturerPostTemplate extends React.Component {
           style={{
             position: 'sticky',
             top: '0px',
-            height: window.innerHeight,
+            height: this.state.height,
             overflow: 'hidden',
             overflowY: 'scroll',
           }}
