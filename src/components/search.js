@@ -45,7 +45,7 @@ export default class Search extends Component {
                 focusable="false"
                 data-prefix="fas"
                 data-icon="search"
-                class="svg-inline--fa fa-search fa-w-16"
+                className="svg-inline--fa fa-search fa-w-16"
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
@@ -63,7 +63,7 @@ export default class Search extends Component {
             </span>
           </div>
         </div>
-        {this.state.results.map(result => {
+        {this.state.results.map((result) => {
           let manufacturer
           let title = result.title
           let baseLink
@@ -72,17 +72,11 @@ export default class Search extends Component {
             case 'ContentfulManufacturer':
               baseLink = `/manufacturers/${result.slug}`
               break
-            case 'ContentfulProduct':
-              manufacturer = this.props.data.allContentfulManufacturer.edges.filter(
-                edge => {
-                  return edge.node.id === result.manufacturer
-                }
-              )[0].node
-              title = `${manufacturer.title} - ${result.title}`
-              baseLink = `/manufacturers/${manufacturer.slug}#${result.title}`
-              break
             case 'ContentfulBlogPost':
               baseLink = `/articles/${result.slug}`
+              break
+            case 'MarkdownRemark':
+              baseLink = `${result.slug}`
               break
             default:
               baseLink = ''
@@ -120,10 +114,10 @@ export default class Search extends Component {
     return results.map(({ ref }) => lunrIndex.store[ref])
   }
 
-  search = event => {
+  search = (event) => {
     const query = event.target.value
     const results = this.getSearchResults(query)
-    this.setState(s => {
+    this.setState((s) => {
       return {
         results,
         query,

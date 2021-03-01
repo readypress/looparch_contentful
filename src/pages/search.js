@@ -1,6 +1,5 @@
 import React from 'react'
 import Layout from '../components/layout'
-import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 
@@ -45,21 +44,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-      }
-    }
-    allContentfulProduct {
-      edges {
-        node {
-          id
-          title
-          tags: tag
-          manufacturer_id: manufacturer {
-            id
-          }
-          internal {
-            type
-          }
-        }
       }
     }
     allContentfulManufacturer {

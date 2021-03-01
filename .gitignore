@@ -67,3 +67,4 @@ public
 .contentful.json
 .contentful_management.json
 .contentful.config.json
+.contentful*

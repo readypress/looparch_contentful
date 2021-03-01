@@ -43,6 +43,7 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-netlify-cache',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -57,6 +58,14 @@ module.exports = {
           },
         ],
       },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'markdown-pages',
+        path: './src/markdown-pages/',
+      },
+      __key: 'markdown-pages',
     },
     {
       resolve: 'gatsby-source-contentful',
@@ -134,7 +143,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allContentfulBlogPost } }) => {
-              return allContentfulBlogPost.edges.map(edge => {
+              return allContentfulBlogPost.edges.map((edge) => {
                 return Object.assign(
                   {},
                   {
@@ -190,7 +199,7 @@ module.exports = {
         languages: [
           {
             name: 'en',
-            filterNodes: node => {
+            filterNodes: (node) => {
               return node
             },
           },
@@ -207,32 +216,25 @@ module.exports = {
         ],
         resolvers: {
           ContentfulManufacturer: {
-            id: node => node.id,
-            title: node => node.title,
-            tags: node => node.tags,
-            type: node => node.internal.type,
-            slug: node => node.slug,
-          },
-          ContentfulProduct: {
-            id: node => node.id,
-            title: node => node.title,
-            tags: node => [node.tag],
-            extra_tags: node => node.tags,
-            type: node => node.internal.type,
-            slug: node => node.title,
-            manufacturer: (node, getNode) => {
-              return node.manufacturer___NODE
-            },
-            manufacturerTitle: (node, getNode) => {
-              return getNode(node.manufacturer___NODE).title
-            },
+            id: (node) => node.id,
+            title: (node) => node.title,
+            tags: (node) => node.tags,
+            type: (node) => node.internal.type,
+            slug: (node) => node.slug,
           },
           ContentfulBlogPost: {
-            id: node => node.id,
-            title: node => node.title,
-            tags: node => node.tags,
-            type: node => node.internal.type,
-            slug: node => node.slug,
+            id: (node) => node.id,
+            title: (node) => node.title,
+            tags: (node) => node.tags,
+            type: (node) => node.internal.type,
+            slug: (node) => node.slug,
+          },
+          MarkdownRemark: {
+            id: (node) => node.id,
+            title: (node) => node.frontmatter.title,
+            tags: (node) => node.frontmatter.tags,
+            type: (node) => node.internal.type,
+            slug: (node) => node.frontmatter.slug,
           },
         },
         filename: 'search_index.json',

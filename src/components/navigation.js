@@ -23,7 +23,11 @@ class Navigation extends React.Component {
         <div className="container">
           <div className="navbar-brand">
             <Link className="navbar-item" to="/" hrefLang="en">
-              <Img fixed={this.props.siteLogo.fixed} />
+              <Img
+                fixed={this.props.siteLogo.fixed}
+                alt="Loop Architectural Materials Logo"
+              />
+              <span className="is-sr-only">Loop Architectural Materials</span>
             </Link>
             <a
               role="button"

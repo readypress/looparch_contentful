@@ -1,78 +1,85 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { Link } from 'gatsby'
+import { useScrollRestoration } from 'gatsby'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
+import voca from 'voca'
 
-import ProductPreview from '../components/product-preview'
+import MdProductPreview from '../components/md-product-preview'
 import FormContact from '../components/form-contact'
-import ManufacturerHero from '../components/manufacturer-hero'
-import SEO from '../components/seo'
 import Layout from '../components/layout'
+
+import generateMarkdownProductJSONLD from '../components/SEOProduct/generateMarkdownProductJSONLD'
 
 import styles from './manufacturer-post.sass'
 
+function ScrollRestorationContainer(params) {
+  const scrollRestoration = useScrollRestoration('scrollContainer')
+  return (
+    <div
+      key="scrollContainer"
+      className="content-section manufacturer-post"
+      id="manufacturer-post"
+      style={{
+        position: 'sticky',
+        top: '0px',
+        height: params.height,
+        overflow: 'hidden',
+        overflowY: 'scroll',
+      }}
+      {...scrollRestoration}
+    >
+      {params.children}
+    </div>
+  )
+}
+
 class ManufacturerPostTemplate extends React.Component {
-  componentDidMount() {
-    const selectedItem = decodeURI(this.props.location.hash.replace('#', ''))
-    if (selectedItem) {
-      console.log('got here', selectedItem)
-      document.getElementById(selectedItem).classList.add('selected')
-      this.highlight = setTimeout(() => {
-        try {
-          document
-            .getElementsByClassName('selected')[0]
-            .classList.remove('selected')
-        } catch (e) {
-          console.log(e)
-        }
-      }, 5000)
-    }
+  constructor(props) {
+    super(props)
+
+    const groupedProducts = this.props.data.allMarkdownRemark.groupedProducts
+    let localProductGroups = []
+    let uniqueProductGroups
+    groupedProducts.map((productGroup) => {
+      const groupName = voca.titleCase(
+        productGroup.fieldValue.replace(/\-/g, ' ')
+      )
+
+      localProductGroups.push({
+        name: groupName,
+        anchor: productGroup.fieldValue,
+      })
+      uniqueProductGroups = [...new Set(localProductGroups)]
+    })
+    this.state = { windowHeight: 1000, productGroups: uniqueProductGroups }
   }
 
-  componentWillUnmount() {
-    if (this.highlight) {
-      clearTimeout(this.highlight)
-    }
+  componentDidMount() {
+    this.setState({ windowHeight: window.innerHeight })
+  }
+
+  scrollToId(id, e) {
+    e.stopPropagation()
+    const container = document.getElementById('manufacturer-post')
+    const el = document.getElementById(id)
+    container.scrollTo(el.offsetLeft, el.offsetTop + 18)
   }
 
   render() {
     const siteMetadata = this.props.data.site.siteMetadata
     const siteTitle = siteMetadata.title
     const post = this.props.data.contentfulManufacturer
-    const products = this.props.data.allContentfulProduct || { edges: [] }
+    const groupedProducts = this.props.data.allMarkdownRemark.groupedProducts
     const manufacturers = this.props.data.allContentfulManufacturer || {
       edges: [],
     }
-    const tags = post.tags || []
-    const product_edges = []
-
-    products.edges.forEach(product => {
-      const node = product.node
-      let edge
-      product_edges.forEach((product_edge, i) => {
-        if (product_edge.title === node.tag) {
-          edge = product_edges[i]
-        }
-      })
-      if (edge) {
-        edge.products.push(node)
-      } else {
-        product_edges.push({ title: node.tag, products: [node] })
-      }
-    })
 
     return (
       <Layout>
-        <div className="content-section manufacturer-post">
+        <ScrollRestorationContainer height={this.state.windowHeight}>
           <Helmet title={`${post.title} | ${siteTitle}`} />
-          <SEO
-            pagePath={`manufacturers/${post.slug}`}
-            postNode={post}
-            postSEO
-            siteMetadata={siteMetadata}
-            products={products.edges}
-          />
+
           <h1 className="is-sr-only">{`${post.title} | ${siteTitle}`}</h1>
           <section className="section">
             <div className="container">
@@ -115,16 +122,15 @@ class ManufacturerPostTemplate extends React.Component {
                         </a>
                       </p>
                     </div>
-                    <div
-                      className="tags"
-                      css={{
-                        marginTop: '1.5rem',
-                      }}
-                    >
-                      {tags.map(node => {
+                    <div className="tags">
+                      {this.state.productGroups.map((node, iterator) => {
                         return (
-                          <span className="tag" key={node}>
-                            {node}
+                          <span
+                            className="tag"
+                            key={iterator}
+                            onClick={(e) => this.scrollToId(node.anchor, e)}
+                          >
+                            <a>{node.name}</a>
                           </span>
                         )
                       })}
@@ -132,21 +138,52 @@ class ManufacturerPostTemplate extends React.Component {
                   </div>
                 </div>
                 <div className="column is-marginless">
-                  {product_edges.map(node => {
+                  {groupedProducts.map((productGroup, iterator) => {
+                    const groupName = voca.titleCase(
+                      productGroup.fieldValue.replace(/\-/g, ' ')
+                    )
                     return (
-                      <div
-                        key={node.title}
-                        className="column is-multiline manufacturer-section is-paddingless is-marginless"
-                      >
-                        <h2 className="title is-size-4">{node.title}</h2>
-                        {node.products.map(product => {
+                      <div key={iterator} id={productGroup.fieldValue}>
+                        <div
+                          className="column is-full is-marginless"
+                          style={{
+                            position: 'sticky',
+                            top: '0px',
+                            background: '#FFF',
+                            zIndex: '10000',
+                            display: 'block',
+                          }}
+                        >
+                          <h2
+                            className="title is-size-4"
+                            style={{
+                              background: '#FFF',
+                              display: 'block',
+                            }}
+                          >
+                            {groupName}
+                          </h2>
+                        </div>
+                        {productGroup.nodes.map((product) => {
+                          const fm = product.frontmatter
+                          const jsonLd = generateMarkdownProductJSONLD(
+                            product,
+                            post,
+                            siteMetadata
+                          )
                           return (
                             <div
-                              key={product.title}
-                              className="column is-half is-inline-block-desktop is-inline-block-tablet is-block-mobile is-marginless is-paddingless-mobile"
+                              key={product.id}
+                              className="column is-inline-block is-one-third-desktop is-half-tablet is-half-mobile"
+                              style={{ zIndex: '500' }}
                             >
-                              <ProductPreview
-                                product={product}
+                              <Helmet>
+                                <script type="application/ld+json">
+                                  {JSON.stringify(jsonLd)}
+                                </script>
+                              </Helmet>
+                              <MdProductPreview
+                                product={fm}
                                 post={post}
                                 siteMetadata={siteMetadata}
                                 path={this.props.location.pathname}
@@ -157,6 +194,7 @@ class ManufacturerPostTemplate extends React.Component {
                       </div>
                     )
                   })}
+
                   <section
                     id="inquiry"
                     className="section inquiry-section no-print"
@@ -172,7 +210,7 @@ class ManufacturerPostTemplate extends React.Component {
               </div>
             </div>
           </section>
-        </div>
+        </ScrollRestorationContainer>
       </Layout>
     )
   }
@@ -181,7 +219,7 @@ class ManufacturerPostTemplate extends React.Component {
 export default ManufacturerPostTemplate
 
 export const pageQuery = graphql`
-  query ManufacturerPostBySlug($slug: String!) {
+  query ManufacturerPostBySlug($slug: String!, $title: String!) {
     contentfulManufacturer(slug: { eq: $slug }) {
       title
       slug
@@ -221,32 +259,49 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulProduct(
-      sort: { fields: [tag, title] }
-      filter: { manufacturer: { slug: { eq: $slug } } }
+    allMarkdownRemark(
+      filter: { frontmatter: { manufacturer: { eq: $title } } }
+      sort: { fields: [frontmatter___title] }
     ) {
-      edges {
-        node {
-          tag
-          title
+      tags: distinct(field: frontmatter___tags)
+      groupedProducts: group(field: frontmatter___category) {
+        fieldValue
+        nodes {
           id
-          contentful_id
-          description {
-            internal {
-              content
-            }
-            childMarkdownRemark {
-              html
-            }
-          }
-          productImage {
+          frontmatter {
             title
+            category
             description
-            file {
-              url
+            designer
+            href
+            manufacturer
+            subtitle
+            tags
+            slug
+            date
+            image_primary {
+              childImageSharp {
+                fluid(
+                  maxWidth: 300
+                  maxHeight: 300
+                  fit: COVER
+                  cropFocus: ATTENTION
+                ) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
             }
-            fluid(maxWidth: 500) {
-              ...GatsbyContentfulFluid_withWebp
+            image_secondary {
+              childImageSharp {
+                fluid(
+                  maxWidth: 300
+                  maxHeight: 300
+                  fit: COVER
+                  cropFocus: ATTENTION
+                ) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
             }
           }
         }
