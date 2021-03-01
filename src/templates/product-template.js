@@ -17,13 +17,12 @@ export default function Template({
       {tag}
     </li>
   ))
+
   const jsonLd = generateMarkdownProductJSONLD(
     markdownRemark,
     manufacturer,
     site.siteMetadata
   )
-
-  console.log(jsonLd)
 
   return (
     <Layout>
