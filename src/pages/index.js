@@ -6,7 +6,6 @@ import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
 import Hero from '../components/hero'
-import ArticlePreview from '../components/article-preview'
 import SEO from '../components/seo'
 
 class RootIndex extends React.Component {

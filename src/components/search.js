@@ -72,15 +72,6 @@ export default class Search extends Component {
             case 'ContentfulManufacturer':
               baseLink = `/manufacturers/${result.slug}`
               break
-            case 'ContentfulProduct':
-              manufacturer = this.props.data.allContentfulManufacturer.edges.filter(
-                (edge) => {
-                  return edge.node.id === result.manufacturer
-                }
-              )[0].node
-              title = `${manufacturer.title} - ${result.title}`
-              baseLink = `/manufacturers/${manufacturer.slug}#${result.title}`
-              break
             case 'ContentfulBlogPost':
               baseLink = `/articles/${result.slug}`
               break
@@ -125,7 +116,7 @@ export default class Search extends Component {
 
   search = (event) => {
     const query = event.target.value
-    const results = this.getSearchResults(query).slice(0, 20)
+    const results = this.getSearchResults(query)
     this.setState((s) => {
       return {
         results,

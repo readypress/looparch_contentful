@@ -2,8 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Helmet } from 'react-helmet'
-import SEOProductMd from '../components/seo-product-md'
 import Layout from '../components/layout'
+import generateMarkdownProductJSONLD from '../components/SEOProduct/generateMarkdownProductJSONLD'
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -16,18 +16,21 @@ export default function Template({
       {tag}
     </li>
   ))
+
+  const jsonLd = generateMarkdownProductJSONLD(
+    markdownRemark,
+    manufacturer,
+    site.siteMetadata
+  )
+
   return (
     <Layout>
       <Helmet
         title={`${frontmatter.manufacturer} ${frontmatter.title} | ${site.siteMetadata.title}`}
       />
-      {/* <SEOProductMd
-        pagePath={`${frontmatter.slug}`}
-        postNode={manufacturer}
-        product={frontmatter}
-        siteMetadata={site.siteMetadata}
-        productSEO
-      /> */}
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      </Helmet>
       <div className="article content-section">
         <div className="section">
           <div className="container">
@@ -71,7 +74,7 @@ export default function Template({
                 className="button is-primary"
                 rel="noopener"
               >
-                <span>Visit {frontmatter.manufacturer}</span>
+                <span>View on {frontmatter.manufacturer}</span>
               </a>
             </p>
             <ul className="tags">{tagList}</ul>
@@ -130,6 +133,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         siteUrl
+        publisher
       }
     }
   }

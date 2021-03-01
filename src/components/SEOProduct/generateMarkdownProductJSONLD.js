@@ -1,13 +1,25 @@
-function generateMarkdownProductJSONLD(product, manufacturer, siteMetadata) {
-  console.log(product, manufacturer, siteMetadata)
+import React from 'react'
+import Helmet from 'react-helmet'
+
+export default function generateMarkdownProductJSONLD(
+  product,
+  manufacturer,
+  siteMetadata
+) {
   return {
     '@context': 'http://schema.org',
     '@type': 'Product',
-    name: product.title,
-    image: [`https:${product.image_primary.childImageSharp.fluid.src}`],
-    description: `${product.description || ''}`,
-    sku: `${product.contentful_id}`,
-    mpn: `${product.contentful_id}`,
+    name: product.frontmatter.title,
+    image: [
+      `${siteMetadata.siteUrl}${product.frontmatter.image_primary.childImageSharp.fluid.src}`,
+    ],
+    description: `${
+      unescape(product.frontmatter.description) ||
+      product.frontmatter.manufacturer ||
+      ''
+    }`,
+    sku: `${product.id}`,
+    mpn: `${product.id}`,
     review: {
       '@type': 'Review',
       reviewRating: {
@@ -28,8 +40,8 @@ function generateMarkdownProductJSONLD(product, manufacturer, siteMetadata) {
     },
     brand: {
       '@type': 'Brand',
-      name: postNode.title,
-      logo: `https:${postNode.heroImage.fixed.src}`,
+      name: manufacturer.title,
+      logo: `https:${manufacturer.heroImage.fixed.src}`,
     },
     offers: {
       '@type': 'Offer',
@@ -37,9 +49,7 @@ function generateMarkdownProductJSONLD(product, manufacturer, siteMetadata) {
       priceCurrency: 'USD',
       priceValidUntil: '2020-01-01',
       availability: 'InStock',
-      url: `${pageUrl}`,
+      url: `${siteMetadata.siteUrl}${product.frontmatter.slug}`,
     },
   }
 }
-
-export default generateMarkdownProductJSONLD

@@ -35,7 +35,7 @@ export default ({ children }) => (
         }
         siteLogo: file(relativePath: { eq: "loop-signature@4x.png" }) {
           childImageSharp {
-            fixed(width: 270, quality: 100) {
+            fixed(width: 271, quality: 100) {
               ...GatsbyImageSharpFixed_withWebp_noBase64
             }
           }
@@ -49,7 +49,7 @@ export default ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <>
         <Helmet>
           <html className="has-navbar-fixed-top" lang="en" />
