@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { Link } from 'gatsby'
+import { Link, useScrollRestoration } from 'gatsby'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import voca from 'voca'
@@ -13,16 +13,61 @@ import FormContact from '../components/form-contact'
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 
+import generateMarkdownProductJSONLD from '../components/SEOProduct/generateMarkdownProductJSONLD'
+
 import styles from './manufacturer-post.sass'
+
+function ScrollRestorationContainer(params) {
+  const scrollRestoration = useScrollRestoration('scrollContainer')
+  return (
+    <div
+      key="scrollContainer"
+      className="content-section manufacturer-post"
+      id="manufacturer-post"
+      style={{
+        position: 'sticky',
+        top: '0px',
+        height: params.height,
+        overflow: 'hidden',
+        overflowY: 'scroll',
+      }}
+      {...scrollRestoration}
+    >
+      {params.children}
+    </div>
+  )
+}
 
 class ManufacturerPostTemplate extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { height: props.height }
+
+    const groupedProducts = this.props.data.allMarkdownRemark.groupedProducts
+    let localProductGroups = []
+    let uniqueProductGroups
+    groupedProducts.map((productGroup) => {
+      const groupName = voca.titleCase(
+        productGroup.fieldValue.replace(/\-/g, ' ')
+      )
+
+      localProductGroups.push({
+        name: groupName,
+        anchor: productGroup.fieldValue,
+      })
+      uniqueProductGroups = [...new Set(localProductGroups)]
+    })
+    this.state = { windowHeight: 1000, productGroups: uniqueProductGroups }
   }
 
   componentDidMount() {
-    this.setState({ height: window.innerHeight + 'px' })
+    this.setState({ windowHeight: window.innerHeight })
+  }
+
+  scrollToId(id, e) {
+    e.stopPropagation()
+    const container = document.getElementById('manufacturer-post')
+    const el = document.getElementById(id)
+    container.scrollTo(el.offsetLeft, el.offsetTop + 18)
   }
 
   render() {
@@ -39,16 +84,7 @@ class ManufacturerPostTemplate extends React.Component {
 
     return (
       <Layout>
-        <div
-          className="content-section manufacturer-post"
-          style={{
-            position: 'sticky',
-            top: '0px',
-            height: this.state.height,
-            overflow: 'hidden',
-            overflowY: 'scroll',
-          }}
-        >
+        <ScrollRestorationContainer height={this.state.windowHeight}>
           <Helmet title={`${post.title} | ${siteTitle}`} />
           {/* <SEO
             pagePath={`manufacturers/${post.slug}`}
@@ -99,51 +135,28 @@ class ManufacturerPostTemplate extends React.Component {
                         </a>
                       </p>
                     </div>
-                    <div
-                      className="tags"
-                      css={{
-                        marginTop: '1.5rem',
-                      }}
-                    >
-                      {tags.map((node) => {
+                    <div className="tags">
+                      {this.state.productGroups.map((node, iterator) => {
                         return (
-                          <span className="tag" key={node}>
-                            {node}
+                          <span
+                            className="tag"
+                            key={iterator}
+                            onClick={(e) => this.scrollToId(node.anchor, e)}
+                          >
+                            <a>{node.name}</a>
                           </span>
                         )
                       })}
                     </div>
                   </div>
                 </div>
-                <div
-                  className="column is-marginless"
-                  // style={{
-                  //   height: '1000px',
-                  //   overflow: 'hidden',
-                  //   overflowY: 'scroll',
-                  //   scroll: 'auto',
-                  // }}
-                >
-                  {/* {mdProducts.edges.map((product, iterator) => {
-                    const fm = product.node.frontmatter
-                    return (
-                      <div
-                        key={iterator}
-                        className="column is-one-third is-inline-block-desktop is-inline-block-tablet is-block-mobile is-marginless is-paddingless-mobile"
-                      >
-                        <MdProductPreview
-                          product={fm}
-                          post={post}
-                          siteMetadata={siteMetadata}
-                          path={this.props.location.pathname}
-                        />
-                      </div>
-                    )
-                  })} */}
-
+                <div className="column is-marginless">
                   {groupedProducts.map((productGroup, iterator) => {
+                    const groupName = voca.titleCase(
+                      productGroup.fieldValue.replace(/\-/g, ' ')
+                    )
                     return (
-                      <div key={iterator}>
+                      <div key={iterator} id={productGroup.fieldValue}>
                         <div
                           className="column is-full is-marginless"
                           style={{
@@ -158,23 +171,30 @@ class ManufacturerPostTemplate extends React.Component {
                             className="title is-size-4"
                             style={{
                               background: '#FFF',
-                              zIndex: '10000',
                               display: 'block',
                             }}
                           >
-                            {voca.titleCase(
-                              productGroup.fieldValue.replace(/\-/g, ' ')
-                            )}
+                            {groupName}
                           </h2>
                         </div>
                         {productGroup.nodes.map((product) => {
                           const fm = product.frontmatter
+                          const jsonLd = generateMarkdownProductJSONLD(
+                            product,
+                            post,
+                            siteMetadata
+                          )
                           return (
                             <div
                               key={product.id}
-                              className="column is-one-third is-inline-block-desktop is-inline-block-tablet is-block-mobile is-marginless is-paddingless-mobile"
+                              className="column is-inline-block is-one-third-desktop is-half-tablet is-half-mobile"
                               style={{ zIndex: '500' }}
                             >
+                              <Helmet>
+                                <script type="application/ld+json">
+                                  {JSON.stringify(jsonLd)}
+                                </script>
+                              </Helmet>
                               <MdProductPreview
                                 product={fm}
                                 post={post}
@@ -203,7 +223,7 @@ class ManufacturerPostTemplate extends React.Component {
               </div>
             </div>
           </section>
-        </div>
+        </ScrollRestorationContainer>
       </Layout>
     )
   }
