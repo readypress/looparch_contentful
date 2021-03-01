@@ -19,6 +19,7 @@
     "gatsby-plugin-lunr": "^1.5.2",
     "gatsby-plugin-manifest": "^2.2.18",
     "gatsby-plugin-netlify": "^2.1.15",
+    "gatsby-plugin-netlify-cache": "^1.2.0",
     "gatsby-plugin-offline": "^3.0.9",
     "gatsby-plugin-react-helmet": "^3.1.8",
     "gatsby-plugin-sass": "^2.1.15",
@@ -39,7 +40,6 @@
     "react-helmet": "^6.0.0",
     "react-infinite-scroll-component": "^6.0.0",
     "react-router-dom": "^5.0.1",
-    "react-sticky": "^6.0.3",
     "system-font-css": "^2.0.2",
     "voca": "^1.4.0",
     "yargs-parser": "^20.2.1"
@@ -70,7 +70,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md' 'bin/*.js'",
     "build": "gatsby build",
-    "serve": "export NODE_ENV=production && gatsby serve",
+    "serve": "export NODE_ENV=production && gatsby serve -H 0.0.0.0",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix *.js bin/*.js",
     "heroku-postbuild": "gatsby build"

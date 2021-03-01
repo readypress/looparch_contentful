@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Helmet } from 'react-helmet'
-import SEOProductMd from '../components/seo-product-md'
 import Layout from '../components/layout'
 import generateMarkdownProductJSONLD from '../components/SEOProduct/generateMarkdownProductJSONLD'
 
@@ -75,7 +74,7 @@ export default function Template({
                 className="button is-primary"
                 rel="noopener"
               >
-                <span>Visit {frontmatter.manufacturer}</span>
+                <span>View on {frontmatter.manufacturer}</span>
               </a>
             </p>
             <ul className="tags">{tagList}</ul>

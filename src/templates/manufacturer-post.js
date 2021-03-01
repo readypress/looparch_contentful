@@ -1,16 +1,12 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { Link, useScrollRestoration } from 'gatsby'
+import { useScrollRestoration } from 'gatsby'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import voca from 'voca'
-// import InfiniteScroll from 'react-infinite-scroll-component'
 
-// import ProductPreview from '../components/product-preview'
 import MdProductPreview from '../components/md-product-preview'
 import FormContact from '../components/form-contact'
-// import ManufacturerHero from '../components/manufacturer-hero'
-import SEO from '../components/seo'
 import Layout from '../components/layout'
 
 import generateMarkdownProductJSONLD from '../components/SEOProduct/generateMarkdownProductJSONLD'
@@ -74,25 +70,16 @@ class ManufacturerPostTemplate extends React.Component {
     const siteMetadata = this.props.data.site.siteMetadata
     const siteTitle = siteMetadata.title
     const post = this.props.data.contentfulManufacturer
-    // const products = this.props.data.allContentfulProduct || { edges: [] }
-    const mdProducts = this.props.data.allMarkdownRemark || { edges: [] }
     const groupedProducts = this.props.data.allMarkdownRemark.groupedProducts
     const manufacturers = this.props.data.allContentfulManufacturer || {
       edges: [],
     }
-    const tags = post.tags || []
 
     return (
       <Layout>
         <ScrollRestorationContainer height={this.state.windowHeight}>
           <Helmet title={`${post.title} | ${siteTitle}`} />
-          {/* <SEO
-            pagePath={`manufacturers/${post.slug}`}
-            postNode={post}
-            postSEO
-            siteMetadata={siteMetadata}
-            products={mdProducts.edges}
-          /> */}
+
           <h1 className="is-sr-only">{`${post.title} | ${siteTitle}`}</h1>
           <section className="section">
             <div className="container">
@@ -300,7 +287,7 @@ export const pageQuery = graphql`
                   fit: COVER
                   cropFocus: ATTENTION
                 ) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
@@ -312,7 +299,7 @@ export const pageQuery = graphql`
                   fit: COVER
                   cropFocus: ATTENTION
                 ) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }

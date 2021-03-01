@@ -48,21 +48,6 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulProduct {
-      edges {
-        node {
-          id
-          title
-          tags: tag
-          manufacturer_id: manufacturer {
-            id
-          }
-          internal {
-            type
-          }
-        }
-      }
-    }
     allContentfulManufacturer {
       edges {
         node {

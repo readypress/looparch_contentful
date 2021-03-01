@@ -43,6 +43,7 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-netlify-cache',
     {
       resolve: 'gatsby-transformer-remark',
       options: {

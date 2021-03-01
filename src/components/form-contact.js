@@ -4,7 +4,7 @@ import Recaptcha from 'react-google-recaptcha'
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&')
 }
 
@@ -26,16 +26,16 @@ class FormContact extends React.Component {
     })
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  handleRecaptcha = value => {
+  handleRecaptcha = (value) => {
     this.setState({ 'g-recaptcha-response': value })
     document.getElementById('recapchta-message').classList.add('is-hidden')
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     const form = e.target
 
     e.preventDefault()
@@ -57,7 +57,7 @@ class FormContact extends React.Component {
       .then(() => {
         navigate(form.getAttribute('action'))
       })
-      .catch(error => console.log(error))
+      .catch((error) => console.log(error))
   }
 
   render() {
@@ -75,9 +75,12 @@ class FormContact extends React.Component {
         onSubmit={this.handleSubmit}
       >
         <div className="field">
-          <label className="label">Your Name:</label>
+          <label className="label" for="name">
+            Your Name:
+          </label>
           <div className="control">
             <input
+              id="name"
               className="input"
               type="text"
               name="name"
@@ -88,9 +91,12 @@ class FormContact extends React.Component {
           </div>
         </div>
         <div className="field">
-          <label className="label">Your Email:</label>
+          <label className="label" for="email">
+            Your Email:
+          </label>
           <div className="control">
             <input
+              id="email"
               className="input"
               type="email"
               name="email"
@@ -101,10 +107,13 @@ class FormContact extends React.Component {
           </div>
         </div>
         <div className="field">
-          <label className="label">Manufacturer:</label>
+          <label className="label" for="manufacturer">
+            Manufacturer:
+          </label>
           <div className="control">
             <span className="select">
               <select
+                id="manufacturer"
                 name="manufacturer"
                 defaultValue={sectionName}
                 onChange={this.handleChange}
@@ -121,9 +130,12 @@ class FormContact extends React.Component {
           </div>
         </div>
         <div className="field">
-          <label className="label">Message:</label>
+          <label className="label" for="message">
+            Message:
+          </label>
           <div className="control">
             <textarea
+              id="message"
               className="textarea"
               name="message"
               onChange={this.handleChange}
@@ -132,9 +144,12 @@ class FormContact extends React.Component {
           </div>
         </div>
         <div className="field">
-          <label className="label">Project Name (if applicable):</label>
+          <label className="label" for="project_name">
+            Project Name (if applicable):
+          </label>
           <div className="control">
             <input
+              id="project_name"
               className="input"
               type="text"
               name="project_name"
@@ -143,9 +158,12 @@ class FormContact extends React.Component {
           </div>
         </div>
         <div className="field">
-          <label className="label">Project Specifier (if applicable):</label>
+          <label className="label" for="project_specifier">
+            Project Specifier (if applicable):
+          </label>
           <div className="control">
             <input
+              id="project_specifier"
               className="input"
               type="text"
               name="project_specifier"
