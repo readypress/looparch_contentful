@@ -23,6 +23,9 @@ try {
 }
 
 module.exports = {
+  flags: {
+    FAST_DEV: false,
+  },
   siteMetadata: {
     title: 'Loop Architectural Materials',
     siteUrl: process.env.SITE_URL || 'https://looparch.com',
