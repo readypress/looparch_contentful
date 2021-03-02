@@ -40,7 +40,7 @@ class ManufacturerPostTemplate extends React.Component {
 
     const groupedProducts = this.props.data.allMarkdownRemark.groupedProducts
     let localProductGroups = []
-    let uniqueProductGroups
+    let uniqueProductGroups = []
     groupedProducts.map((productGroup) => {
       const groupName = voca.titleCase(
         productGroup.fieldValue.replace(/\-/g, ' ')
@@ -70,7 +70,8 @@ class ManufacturerPostTemplate extends React.Component {
     const siteMetadata = this.props.data.site.siteMetadata
     const siteTitle = siteMetadata.title
     const post = this.props.data.contentfulManufacturer
-    const groupedProducts = this.props.data.allMarkdownRemark.groupedProducts
+    const groupedProducts =
+      this.props.data.allMarkdownRemark.groupedProducts || []
     const manufacturers = this.props.data.allContentfulManufacturer || {
       edges: [],
     }
