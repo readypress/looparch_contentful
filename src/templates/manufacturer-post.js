@@ -287,7 +287,7 @@ export const pageQuery = graphql`
                   fit: COVER
                   cropFocus: ATTENTION
                 ) {
-                  ...GatsbyImageSharpFluid_withWebp
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
@@ -299,7 +299,7 @@ export const pageQuery = graphql`
                   fit: COVER
                   cropFocus: ATTENTION
                 ) {
-                  ...GatsbyImageSharpFluid_withWebp
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

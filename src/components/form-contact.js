@@ -75,7 +75,7 @@ class FormContact extends React.Component {
         onSubmit={this.handleSubmit}
       >
         <div className="field">
-          <label className="label" for="name">
+          <label className="label" htmlFor="name">
             Your Name:
           </label>
           <div className="control">
@@ -91,7 +91,7 @@ class FormContact extends React.Component {
           </div>
         </div>
         <div className="field">
-          <label className="label" for="email">
+          <label className="label" htmlFor="email">
             Your Email:
           </label>
           <div className="control">
@@ -107,7 +107,7 @@ class FormContact extends React.Component {
           </div>
         </div>
         <div className="field">
-          <label className="label" for="manufacturer">
+          <label className="label" htmlFor="manufacturer">
             Manufacturer:
           </label>
           <div className="control">
@@ -130,7 +130,7 @@ class FormContact extends React.Component {
           </div>
         </div>
         <div className="field">
-          <label className="label" for="message">
+          <label className="label" htmlFor="message">
             Message:
           </label>
           <div className="control">
@@ -144,7 +144,7 @@ class FormContact extends React.Component {
           </div>
         </div>
         <div className="field">
-          <label className="label" for="project_name">
+          <label className="label" htmlFor="project_name">
             Project Name (if applicable):
           </label>
           <div className="control">
@@ -158,7 +158,7 @@ class FormContact extends React.Component {
           </div>
         </div>
         <div className="field">
-          <label className="label" for="project_specifier">
+          <label className="label" htmlFor="project_specifier">
             Project Specifier (if applicable):
           </label>
           <div className="control">
