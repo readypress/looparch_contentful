@@ -1,7 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { Helmet } from 'react-helmet'
+
 import Layout from '../components/layout'
 import generateMarkdownProductJSONLD from '../components/SEOProduct/generateMarkdownProductJSONLD'
 
@@ -45,21 +47,21 @@ export default function Template({
                 )}
               </h2>
 
-              <Img
-                style={{
-                  marginBottom: '1rem',
-                  border: '1px solid rgb(233 233 233)',
-                }}
-                fluid={frontmatter.image_primary.childImageSharp.fluid}
+              <GatsbyImage
+                image={
+                  frontmatter.image_primary_proxy.childImageSharp
+                    .gatsbyImageData
+                }
+                alt={`${frontmatter.title} Image 1`}
               />
 
               {frontmatter.image_secondary && (
-                <Img
-                  style={{
-                    marginBottom: `1rem`,
-                    border: '1px solid rgb(233 233 233)',
-                  }}
-                  fluid={frontmatter.image_secondary.childImageSharp.fluid}
+                <GatsbyImage
+                  image={
+                    frontmatter.image_secondary_proxy.childImageSharp
+                      .gatsbyImageData
+                  }
+                  alt={`${frontmatter.title} Image 2`}
                 />
               )}
 
@@ -92,6 +94,11 @@ export const pageQuery = graphql`
       frontmatter {
         slug
         title
+        image_primary_proxy: image_primary {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
         image_primary {
           childImageSharp {
             fluid {
@@ -100,6 +107,11 @@ export const pageQuery = graphql`
               ...GatsbyImageSharpFluid
               ...GatsbyImageSharpFluidLimitPresentationSize
             }
+          }
+        }
+        image_secondary_proxy: image_secondary {
+          childImageSharp {
+            gatsbyImageData
           }
         }
         image_secondary {
@@ -126,6 +138,12 @@ export const pageQuery = graphql`
         fixed {
           src
         }
+      }
+      logoImageDark_proxy: logoImageDark {
+        gatsbyImageData
+      }
+      heroImage_proxy: heroImage {
+        gatsbyImageData
       }
       slug
     }

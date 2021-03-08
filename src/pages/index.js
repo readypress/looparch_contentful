@@ -3,6 +3,7 @@ import Layout from '../components/layout'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { graphql } from 'gatsby'
 
 import Hero from '../components/hero'
@@ -117,6 +118,9 @@ export const pageQuery = graphql`
             ) {
               ...GatsbyContentfulFluid_withWebp_noBase64
             }
+          }
+          heroImage_proxy: heroImage {
+            gatsbyImageData(height: 600, layout: FULL_WIDTH)
           }
           publishDate(formatString: "MMMM Do, YYYY")
           slug

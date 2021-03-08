@@ -24,7 +24,8 @@ try {
 
 module.exports = {
   flags: {
-    FAST_DEV: false,
+    FAST_DEV: true,
+    PARALLEL_SOURCING: true,
   },
   siteMetadata: {
     title: 'Loop Architectural Materials',
@@ -41,6 +42,7 @@ module.exports = {
     author: 'Loop Architectural Materials',
   },
   plugins: [
+    'gatsby-plugin-image',
     'gatsby-plugin-glamor',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',

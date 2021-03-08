@@ -33,13 +33,6 @@ export default ({ children }) => (
             }
           }
         }
-        siteLogo: file(relativePath: { eq: "loop-signature@4x.png" }) {
-          childImageSharp {
-            fixed(width: 271, quality: 100) {
-              ...GatsbyImageSharpFixed_withWebp_noBase64
-            }
-          }
-        }
         site {
           siteMetadata {
             title
@@ -69,10 +62,7 @@ export default ({ children }) => (
             content={data.site.siteMetadata.title}
           />
         </Helmet>
-        <Navigation
-          manufacturers={data.allContentfulManufacturer.edges}
-          siteLogo={data.siteLogo.childImageSharp}
-        />
+        <Navigation manufacturers={data.allContentfulManufacturer.edges} />
         <div>{children}</div>
         <Footer
           manufacturers={data.allContentfulManufacturer.edges}

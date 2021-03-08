@@ -2,6 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useScrollRestoration } from 'gatsby'
 import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { graphql } from 'gatsby'
 import voca from 'voca'
 
@@ -21,9 +22,9 @@ function ScrollRestorationContainer(params) {
       className="content-section manufacturer-post"
       id="manufacturer-post"
       style={{
-        position: 'sticky',
-        top: '0px',
-        height: params.height,
+        // position: 'sticky',
+        // top: '0px',
+        height: 'auto',
         overflow: 'hidden',
         overflowY: 'scroll',
       }}
@@ -56,7 +57,7 @@ class ManufacturerPostTemplate extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ windowHeight: window.innerHeight })
+    this.setState({ windowHeight: window.outerHeight })
   }
 
   scrollToId(id, e) {
@@ -86,16 +87,16 @@ class ManufacturerPostTemplate extends React.Component {
             <div className="container">
               <div className="columns is-multiline is-variable is-6">
                 <div className="column is-one-third">
-                  <Img
-                    fluid={post.logoImageDark.fluid}
+                  <GatsbyImage
+                    image={post.logoImageDark_proxy.gatsbyImageData}
+                    alt={post.logoImageDark.title}
+                    title={post.logoImageDark.title}
                     className="image"
-                    outerWrapperClassName="logo-img"
                   />
-                  <br />
-                  <Img
-                    fluid={post.heroImage.fluid}
-                    alt={post.heroImage.description}
-                    outerWrapperClassName="hero-img"
+                  <GatsbyImage
+                    image={post.heroImage_proxy.gatsbyImageData}
+                    alt={post.heroImage_proxy.title}
+                    title={post.heroImage_proxy.title}
                     className="image"
                   />
                   <br />
@@ -147,13 +148,15 @@ class ManufacturerPostTemplate extends React.Component {
                       <div key={iterator} id={productGroup.fieldValue}>
                         <div
                           className="column is-full is-marginless"
-                          style={{
-                            position: 'sticky',
-                            top: '0px',
-                            background: '#FFF',
-                            zIndex: '10000',
-                            display: 'block',
-                          }}
+                          style={
+                            {
+                              // position: 'sticky',
+                              // top: '0px',
+                              // background: '#FFF',
+                              // zIndex: '1000',
+                              // display: 'block',
+                            }
+                          }
                         >
                           <h2
                             className="title is-size-4"
@@ -236,6 +239,11 @@ export const pageQuery = graphql`
           content
         }
       }
+      heroImage_proxy: heroImage {
+        title
+        description
+        gatsbyImageData
+      }
       heroImage {
         file {
           url
@@ -246,6 +254,11 @@ export const pageQuery = graphql`
         fixed(width: 1200) {
           ...GatsbyContentfulFixed_withWebp
         }
+      }
+      logoImageDark_proxy: logoImageDark {
+        title
+        description
+        gatsbyImageData
       }
       logoImageDark {
         title
@@ -280,6 +293,16 @@ export const pageQuery = graphql`
             tags
             slug
             date
+            image_primary_proxy: image_primary {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 300
+                  height: 300
+                  placeholder: BLURRED
+                  transformOptions: { fit: COVER, cropFocus: ATTENTION }
+                )
+              }
+            }
             image_primary {
               childImageSharp {
                 fluid(
@@ -290,6 +313,15 @@ export const pageQuery = graphql`
                 ) {
                   ...GatsbyImageSharpFluid
                 }
+              }
+            }
+            image_secondary_proxy: image_secondary {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 300
+                  placeholder: BLURRED
+                  transformOptions: { fit: COVER, cropFocus: ATTENTION }
+                )
               }
             }
             image_secondary {
