@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { getSrc } from 'gatsby-plugin-image'
 
 export default function generateMarkdownProductJSONLD(
   product,
@@ -11,7 +12,9 @@ export default function generateMarkdownProductJSONLD(
     '@type': 'Product',
     name: product.frontmatter.title,
     image: [
-      `${siteMetadata.siteUrl}${product.frontmatter.image_primary.childImageSharp.fluid.src}`,
+      `${siteMetadata.siteUrl}${getSrc(
+        product.frontmatter.image_primary.childImageSharp.gatsbyImageData
+      )}`,
     ],
     description: `${
       unescape(product.frontmatter.description) ||
@@ -41,7 +44,7 @@ export default function generateMarkdownProductJSONLD(
     brand: {
       '@type': 'Brand',
       name: manufacturer.title,
-      logo: `https:${manufacturer.heroImage.fixed.src}`,
+      logo: `https:${getSrc(manufacturer.logoImageDark.gatsbyImageData)}`,
     },
     offers: {
       '@type': 'Offer',

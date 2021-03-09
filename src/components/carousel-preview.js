@@ -24,7 +24,7 @@ class CarouselPreview extends React.Component {
     return (
       <div className="carousel-preview">
         <GatsbyImage
-          image={article.heroImage_proxy.gatsbyImageData}
+          image={article.heroImage.gatsbyImageData}
           alt={article.title}
           className="carousel-preview-image"
         />

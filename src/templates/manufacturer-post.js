@@ -1,7 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useScrollRestoration } from 'gatsby'
-import Img from 'gatsby-image'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { graphql } from 'gatsby'
 import voca from 'voca'
@@ -88,15 +87,15 @@ class ManufacturerPostTemplate extends React.Component {
               <div className="columns is-multiline is-variable is-6">
                 <div className="column is-one-third">
                   <GatsbyImage
-                    image={post.logoImageDark_proxy.gatsbyImageData}
+                    image={post.logoImageDark.gatsbyImageData}
                     alt={post.logoImageDark.title}
                     title={post.logoImageDark.title}
                     className="image"
                   />
                   <GatsbyImage
-                    image={post.heroImage_proxy.gatsbyImageData}
-                    alt={post.heroImage_proxy.title}
-                    title={post.heroImage_proxy.title}
+                    image={post.heroImage.gatsbyImageData}
+                    alt={post.heroImage.title}
+                    title={post.heroImage.title}
                     className="image"
                   />
                   <br />
@@ -198,7 +197,6 @@ class ManufacturerPostTemplate extends React.Component {
                       </div>
                     )
                   })}
-
                   <section
                     id="inquiry"
                     className="section inquiry-section no-print"
@@ -239,23 +237,7 @@ export const pageQuery = graphql`
           content
         }
       }
-      heroImage_proxy: heroImage {
-        title
-        description
-        gatsbyImageData
-      }
       heroImage {
-        file {
-          url
-        }
-        fluid(maxWidth: 300) {
-          ...GatsbyContentfulFluid_withWebp
-        }
-        fixed(width: 1200) {
-          ...GatsbyContentfulFixed_withWebp
-        }
-      }
-      logoImageDark_proxy: logoImageDark {
         title
         description
         gatsbyImageData
@@ -263,14 +245,7 @@ export const pageQuery = graphql`
       logoImageDark {
         title
         description
-        fluid(
-          maxHeight: 200
-          maxWidth: 400
-          quality: 100
-          resizingBehavior: PAD
-        ) {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
+        gatsbyImageData
       }
     }
     allMarkdownRemark(
@@ -293,7 +268,7 @@ export const pageQuery = graphql`
             tags
             slug
             date
-            image_primary_proxy: image_primary {
+            image_primary {
               childImageSharp {
                 gatsbyImageData(
                   width: 300
@@ -301,39 +276,6 @@ export const pageQuery = graphql`
                   placeholder: BLURRED
                   transformOptions: { fit: COVER, cropFocus: ATTENTION }
                 )
-              }
-            }
-            image_primary {
-              childImageSharp {
-                fluid(
-                  maxWidth: 300
-                  maxHeight: 300
-                  fit: COVER
-                  cropFocus: ATTENTION
-                ) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            image_secondary_proxy: image_secondary {
-              childImageSharp {
-                gatsbyImageData(
-                  width: 300
-                  placeholder: BLURRED
-                  transformOptions: { fit: COVER, cropFocus: ATTENTION }
-                )
-              }
-            }
-            image_secondary {
-              childImageSharp {
-                fluid(
-                  maxWidth: 300
-                  maxHeight: 300
-                  fit: COVER
-                  cropFocus: ATTENTION
-                ) {
-                  ...GatsbyImageSharpFluid
-                }
               }
             }
           }

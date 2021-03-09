@@ -13,7 +13,7 @@ export default ({ article }) => (
             image={article.logoImageDark.gatsbyImageData}
             alt={article.logoImageDark.description}
           />
-          {/* <div className="tags">
+          <div className="tags">
             {article.tags.map((tag) => {
               return (
                 <div className="tag" key={tag}>
@@ -21,7 +21,7 @@ export default ({ article }) => (
                 </div>
               )
             })}
-          </div> */}
+          </div>
         </div>
       </Link>
     </div>

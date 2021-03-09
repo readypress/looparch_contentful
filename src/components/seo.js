@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { getSrc } from 'gatsby-plugin-image'
 
 class SEO extends React.Component {
   constructor(props) {
@@ -53,9 +54,9 @@ class SEO extends React.Component {
     }
     // Use Hero Image for OpenGraph
     if (postSEO || articleSEO) {
-      image = `https:${postNode.heroImage.fixed.src}`
-      imgWidth = postNode.heroImage.fixed.width
-      imgHeight = postNode.heroImage.fixed.height
+      image = `https:${getSrc(postNode.heroImage.gatsbyImageData)}`
+      imgWidth = postNode.heroImage.gatsbyImageData.width
+      imgHeight = postNode.heroImage.gatsbyImageData.height
       dateModified = postNode.publishDate
       pageUrl = `${siteMetadata.siteUrl}/${pagePath}/`
     }
@@ -126,7 +127,7 @@ class SEO extends React.Component {
         sameAs: [
           'https://www.instagram.com/looparchitecturalmaterials/',
           'https://www.facebook.com/looparch/',
-          'https://www.pinterest.com/looparchitecturalmaterials'
+          'https://www.pinterest.com/looparchitecturalmaterials',
         ],
       },
     ]
@@ -211,7 +212,7 @@ class SEO extends React.Component {
     }
 
     if (products) {
-      products.forEach(edge => {
+      products.forEach((edge) => {
         const product = edge.node
         schemaOrgJSONLD.push({
           '@context': 'http://schema.org',
@@ -273,7 +274,10 @@ class SEO extends React.Component {
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
 
-        <script async src="https://chimpstatic.com/mcjs-connected/js/users/6236ae131b11b8506326eed86/943d564cd0b36996e264a468a.js"></script>
+        <script
+          async
+          src="https://chimpstatic.com/mcjs-connected/js/users/6236ae131b11b8506326eed86/943d564cd0b36996e264a468a.js"
+        ></script>
 
         {/* OpenGraph tags */}
         <meta property="og:title" content={title} />

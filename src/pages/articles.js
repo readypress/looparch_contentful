@@ -68,15 +68,19 @@ export const pageQuery = graphql`
           heroImage {
             title
             description
+            gatsbyImageData(width: 400, height: 300)
             file {
               url
             }
-            fluid(maxWidth: 400, maxHeight: 300) {
-              ...GatsbyContentfulFluid_withWebp
+          }
+          body {
+            childMarkdownRemark {
+              excerpt
             }
           }
           description {
             childMarkdownRemark {
+              excerpt
               html
             }
           }

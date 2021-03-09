@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 class ArticlePreview extends React.Component {
   constructor(props) {
@@ -28,18 +28,21 @@ class ArticlePreview extends React.Component {
           itemProp="description"
           content={article.description.childMarkdownRemark.html}
         />
-        <Link to={`/articles/${article.slug}`} hrefLang="en">
-          <Img
-            fluid={article.heroImage.fluid}
+        <Link
+          to={`/articles/${article.slug}`}
+          hrefLang="en"
+          style={{ color: '#363636' }}
+        >
+          <GatsbyImage
+            image={article.heroImage.gatsbyImageData}
+            alt={article.heroImage.title}
             title={article.heroImage.title}
           />
           <hr />
           <h3 className="title is-size-5">{article.title}</h3>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: article.description.childMarkdownRemark.html,
-            }}
-          />
+          <p className="is-size-7">
+            {article.body.childMarkdownRemark.excerpt}
+          </p>
         </Link>
       </div>
     )

@@ -2,7 +2,6 @@ import React from 'react'
 import Layout from '../components/layout'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import Img from 'gatsby-image'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { graphql } from 'gatsby'
 
@@ -74,13 +73,19 @@ class RootIndex extends React.Component {
           </section>
           <section className="section is-hidden-mobile">
             <div className="container">
-              <h2 className="title is-hidden">Manufacturers</h2>
+              <h2 className="title">Our Manufacturers</h2>
               <div className="columns is-multiline is-variable is-8 is-centered">
                 {manufacturers.map(({ node }) => {
                   return (
-                    <div key={node.slug} className="column is-one-fifth">
+                    <div
+                      key={node.slug}
+                      className="column is-inline-block is-one-fifth is-half-tablet is-half-mobile"
+                    >
                       <Link to={`/manufacturers/${node.slug}`} hrefLang="en">
-                        <Img key={node.slug} fluid={node.logoImageDark.fluid} />
+                        <GatsbyImage
+                          image={node.logoImageDark.gatsbyImageData}
+                          alt={node.logoImageDark.description}
+                        />
                       </Link>
                     </div>
                   )
@@ -110,16 +115,6 @@ export const pageQuery = graphql`
             }
           }
           heroImage {
-            fluid(
-              maxHeight: 1200
-              maxWidth: 2000
-              resizingBehavior: FILL
-              quality: 70
-            ) {
-              ...GatsbyContentfulFluid_withWebp_noBase64
-            }
-          }
-          heroImage_proxy: heroImage {
             gatsbyImageData(height: 600, layout: FULL_WIDTH)
           }
           publishDate(formatString: "MMMM Do, YYYY")
@@ -137,14 +132,7 @@ export const pageQuery = graphql`
           slug
           logoImageDark {
             description
-            fluid(
-              maxWidth: 400
-              maxHeight: 300
-              quality: 100
-              resizingBehavior: PAD
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
+            gatsbyImageData(width: 200, quality: 100)
           }
         }
       }

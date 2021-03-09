@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Helmet } from 'react-helmet'
 
@@ -49,8 +48,7 @@ export default function Template({
 
               <GatsbyImage
                 image={
-                  frontmatter.image_primary_proxy.childImageSharp
-                    .gatsbyImageData
+                  frontmatter.image_primary.childImageSharp.gatsbyImageData
                 }
                 alt={`${frontmatter.title} Image 1`}
               />
@@ -58,8 +56,7 @@ export default function Template({
               {frontmatter.image_secondary && (
                 <GatsbyImage
                   image={
-                    frontmatter.image_secondary_proxy.childImageSharp
-                      .gatsbyImageData
+                    frontmatter.image_secondary.childImageSharp.gatsbyImageData
                   }
                   alt={`${frontmatter.title} Image 2`}
                 />
@@ -94,34 +91,14 @@ export const pageQuery = graphql`
       frontmatter {
         slug
         title
-        image_primary_proxy: image_primary {
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
         image_primary {
-          childImageSharp {
-            fluid {
-              presentationWidth
-              presentationHeight
-              ...GatsbyImageSharpFluid
-              ...GatsbyImageSharpFluidLimitPresentationSize
-            }
-          }
-        }
-        image_secondary_proxy: image_secondary {
           childImageSharp {
             gatsbyImageData
           }
         }
         image_secondary {
           childImageSharp {
-            fluid {
-              presentationWidth
-              presentationHeight
-              ...GatsbyImageSharpFluid
-              ...GatsbyImageSharpFluidLimitPresentationSize
-            }
+            gatsbyImageData
           }
         }
         description
@@ -134,15 +111,10 @@ export const pageQuery = graphql`
     }
     contentfulManufacturer(title: { eq: $manufacturer }) {
       title
-      heroImage {
-        fixed {
-          src
-        }
-      }
-      logoImageDark_proxy: logoImageDark {
+      logoImageDark {
         gatsbyImageData
       }
-      heroImage_proxy: heroImage {
+      heroImage {
         gatsbyImageData
       }
       slug
