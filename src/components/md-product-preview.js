@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import voca from 'voca'
 
 import styles from './product-preview.sass'
@@ -17,9 +17,8 @@ class MdProductPreviewTemplate extends React.Component {
     const description = product.description || product.title
 
     const VariableImage = (
-      <Img
-        fluid={product.image_primary.childImageSharp.fluid}
-        srcSet={product.image_primary.childImageSharp.fluid.srcSet}
+      <GatsbyImage
+        image={product.image_primary.childImageSharp.gatsbyImageData}
         alt={description}
         title={`${post.title} ${product.title}`}
         className={`image product-preview-image fluid`}

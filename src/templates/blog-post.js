@@ -1,8 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { Link } from 'gatsby'
-import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -45,9 +44,12 @@ class BlogPostTemplate extends React.Component {
           <div className="section">
             <div className="container content">
               <h1 className="title is-size-1">{post.title}</h1>
-              <div className="image">
-                <Img fluid={post.heroImage.fluid} alt="" />
-              </div>
+              <GatsbyImage
+                image={post.heroImage.gatsbyImageData}
+                alt={post.heroImage.title}
+                title={post.heroImage.title}
+                className="image"
+              />
               <hr />
               <div
                 id="postBody"
@@ -62,7 +64,7 @@ class BlogPostTemplate extends React.Component {
                 </div>
                 <div className="is-pulled-right is-block">
                   <div className="tags">
-                    {post.tags.map(node => {
+                    {post.tags.map((node) => {
                       return (
                         <span className="tag" key={node}>
                           {node}
@@ -102,17 +104,8 @@ export const pageQuery = graphql`
         }
       }
       heroImage {
-        fluid(
-          maxHeight: 1200
-          maxWidth: 2000
-          resizingBehavior: FILL
-          quality: 100
-        ) {
-          ...GatsbyContentfulFluid_withWebp
-        }
-        fixed(width: 300) {
-          ...GatsbyContentfulFixed_withWebp
-        }
+        title
+        gatsbyImageData(height: 1200, width: 2000, quality: 100)
       }
       body {
         childMarkdownRemark {

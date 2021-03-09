@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { StaticImage } from 'gatsby-plugin-image'
 
 import styles from './navigation.sass'
 
@@ -23,9 +23,12 @@ class Navigation extends React.Component {
         <div className="container">
           <div className="navbar-brand">
             <Link className="navbar-item" to="/" hrefLang="en">
-              <Img
-                fixed={this.props.siteLogo.fixed}
+              <StaticImage
+                src="../images/loop-signature@4x.png"
                 alt="Loop Architectural Materials Logo"
+                width={271}
+                height={28}
+                quality={100}
               />
               <span className="is-sr-only">Loop Architectural Materials</span>
             </Link>

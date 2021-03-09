@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import styles from './carousel-preview.sass'
 
@@ -23,8 +23,9 @@ class CarouselPreview extends React.Component {
 
     return (
       <div className="carousel-preview">
-        <Img
-          fluid={article.heroImage.fluid}
+        <GatsbyImage
+          image={article.heroImage.gatsbyImageData}
+          alt={article.title}
           className="carousel-preview-image"
         />
         <div

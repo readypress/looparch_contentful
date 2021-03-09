@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import styles from './manufacturer-preview.scss'
 
@@ -9,13 +9,12 @@ export default ({ article }) => (
     <div className="box">
       <Link to={`/manufacturers/${article.slug}`} hrefLang="en">
         <div className="image-wrapper">
-          <Img
-            sizes={article.logoImageDark.resize}
+          <GatsbyImage
+            image={article.logoImageDark.gatsbyImageData}
             alt={article.logoImageDark.description}
-            className="image"
           />
           <div className="tags">
-            {article.tags.map(tag => {
+            {article.tags.map((tag) => {
               return (
                 <div className="tag" key={tag}>
                   {tag}

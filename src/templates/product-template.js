@@ -1,7 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { Helmet } from 'react-helmet'
+
 import Layout from '../components/layout'
 import generateMarkdownProductJSONLD from '../components/SEOProduct/generateMarkdownProductJSONLD'
 
@@ -45,21 +46,19 @@ export default function Template({
                 )}
               </h2>
 
-              <Img
-                style={{
-                  marginBottom: '1rem',
-                  border: '1px solid rgb(233 233 233)',
-                }}
-                fluid={frontmatter.image_primary.childImageSharp.fluid}
+              <GatsbyImage
+                image={
+                  frontmatter.image_primary.childImageSharp.gatsbyImageData
+                }
+                alt={`${frontmatter.title} Image 1`}
               />
 
               {frontmatter.image_secondary && (
-                <Img
-                  style={{
-                    marginBottom: `1rem`,
-                    border: '1px solid rgb(233 233 233)',
-                  }}
-                  fluid={frontmatter.image_secondary.childImageSharp.fluid}
+                <GatsbyImage
+                  image={
+                    frontmatter.image_secondary.childImageSharp.gatsbyImageData
+                  }
+                  alt={`${frontmatter.title} Image 2`}
                 />
               )}
 
@@ -94,22 +93,12 @@ export const pageQuery = graphql`
         title
         image_primary {
           childImageSharp {
-            fluid {
-              presentationWidth
-              presentationHeight
-              ...GatsbyImageSharpFluid
-              ...GatsbyImageSharpFluidLimitPresentationSize
-            }
+            gatsbyImageData
           }
         }
         image_secondary {
           childImageSharp {
-            fluid {
-              presentationWidth
-              presentationHeight
-              ...GatsbyImageSharpFluid
-              ...GatsbyImageSharpFluidLimitPresentationSize
-            }
+            gatsbyImageData
           }
         }
         description
@@ -122,10 +111,11 @@ export const pageQuery = graphql`
     }
     contentfulManufacturer(title: { eq: $manufacturer }) {
       title
+      logoImageDark {
+        gatsbyImageData
+      }
       heroImage {
-        fixed {
-          src
-        }
+        gatsbyImageData
       }
       slug
     }
