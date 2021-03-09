@@ -23,6 +23,7 @@ try {
 }
 
 module.exports = {
+  pathPrefix: '/looparch_contentful',
   flags: {
     FAST_DEV: true,
     PARALLEL_SOURCING: true,
