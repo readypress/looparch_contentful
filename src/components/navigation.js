@@ -29,6 +29,7 @@ class Navigation extends React.Component {
                 width={271}
                 height={28}
                 quality={100}
+                backgroundColor="#FFFFFF"
               />
               <span className="is-sr-only">Loop Architectural Materials</span>
             </Link>
